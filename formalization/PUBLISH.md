@@ -1,30 +1,7 @@
-# Publish the artifact
+# Repository and proof version
 
-The suggested repository name is `analog-moment-lean`. This directory is ready
-to upload; it does not contain a configured remote or a claimed repository URL.
+The Lean project is in [`formalization/`](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization) in the paper's GitHub repository. Run `lake exe cache get` and `python3 verify.py` from that directory to reproduce the audit.
 
-1. Sign in to GitHub and create an empty repository with that name under the
-   intended account. Choose **Public** if readers should inspect the proofs.
-2. Upload this directory's contents at the repository root. Include `.github/`
-   and `.gitignore`; exclude any `.lake/` directory or Python cache files.
-3. Open the repository's **Actions** tab and inspect the **Verify Lean proofs**
-   run. The workflow installs the pinned compiler, fetches the pinned mathlib
-   cache, builds the project, and audits all advertised declarations.
-4. After a successful run, copy the permanent link to that commit from GitHub.
-   Use that link in the manuscript so readers can identify the exact proof
-   version, and retain the scope statement in the paper and `COVERAGE.md`.
+The root [GitHub Actions workflow](../.github/workflows/verify-lean.yml) builds and audits this directory on relevant pushes and pull requests. Its [Actions page](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml) provides the remote build status. The files under `verification/` preserve the supplied local build record; they do not by themselves certify a GitHub run.
 
-For a local Git upload, replace `REPOSITORY_URL` with the URL GitHub displays:
-
-```sh
-git init
-git add .
-git commit -m "Add audited Lean formalization"
-git branch -M main
-git remote add origin REPOSITORY_URL
-git push -u origin main
-```
-
-The recorded verification files describe the supplied local build. The first
-GitHub run provides a separate build record; uploading the source alone does
-not establish that this run has succeeded.
+For a paper citation, use a permanent GitHub link containing the commit SHA instead of only the moving `main` branch. `CITATION.cff` records software citation metadata. Keep the scope statement from `COVERAGE.md`: checked specializations and conditional results do not amount to formalization of every manuscript theorem.

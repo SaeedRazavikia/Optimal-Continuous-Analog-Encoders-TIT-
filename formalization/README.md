@@ -79,12 +79,17 @@ shows its logical dependencies. GitHub displays these source files; Lean checks
 them locally or in the included continuous-integration workflow. A theorem name
 by itself is not a remotely hosted proof-checking service.
 
-The workflow in `.github/workflows/verify.yml` uses the project toolchain and
-dependency pins and runs `python3 verify.py`. It is prepared for a new repository;
-no successful GitHub run is claimed by the supplied local audit. The optional
-`runtime/` files document the environment of that recorded audit and are not
-needed for an ordinary Lean installation. Publication steps are in
-[PUBLISH.md](PUBLISH.md).
+The proof sources are available in the [paper repository](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization).
+Run the commands above from its `formalization/` directory. The repository-level
+[verification workflow](../.github/workflows/verify-lean.yml) uses the pinned
+Lean toolchain and mathlib revision and runs `python3 verify.py` on relevant
+pushes and pull requests. The nested `.github/workflows/verify.yml` is the
+standalone-project template supplied with the archive. The recorded local audit
+and a GitHub run are separate verification records; see the repository's
+[Actions page](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml) for remote status.
+The optional `runtime/` files document the environment of the recorded local
+audit and are not needed for an ordinary Lean installation. Citation and
+reproduction guidance is in [PUBLISH.md](PUBLISH.md).
 
 The source-to-manuscript map is as important as successful compilation: Lean
 checks the formal statements actually written. Conditional statements and
