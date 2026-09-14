@@ -1,0 +1,41 @@
+\section{Proof of Theorem~\ref{thm:sdp}}\label{app:design-proof}
+We first compute the exact score under the hypotheses of Section~\ref{sec:synthesis}.
+
+\begin{proposition}
+\label{prop:score}
+For an encoder \eqref{eq:affine} with independent $u,v$, the operational score is given by \eqref{eq:exactscore}.
+The infimum is approached by pairs with received distance tending to zero.
+\end{proposition}
+\begin{proof}
+In the moment coordinates $(S,T)$, the target has gradient $K^{-1}(-\psi'(S/K),1)$. The squared received distance is $\Delta p^\T G\Delta p$, where here $\Delta p=(\Delta S,\Delta T)^\T$. Since $\psi'$ is monotone, it ranges between its endpoint values. The quadratic function $(-q,1)G^{-1}(-q,1)^\T$ is convex in $q$, so its maximum occurs at an endpoint. Integrating the gradient along the straight segment between two moment points proves the lower bound in \eqref{eq:exactscore}. The segment need not be attainable: the formula $T/K-\psi(S/K)$ is defined on the entire strip $|S|\le K$.
+
+For sharpness, fix an interior mean $m$ and choose two distinct nearby inputs $x,y$ with $(x+y)/2=m$; set the remaining inputs to $m$. Strict convexity or concavity of $\phi$ gives $\phi'(x)\ne\phi'(y)$. For any moment direction $d=(d_S,d_T)^\T$, choose $\alpha,\beta$ to solve
+$$
+ \begin{pmatrix}1&1\\\phi'(x)&\phi'(y)\end{pmatrix}
+ \begin{pmatrix}\alpha\\\beta\end{pmatrix}=d.
+$$
+Vary only these two inputs along $x+h\alpha,y+h\beta$. The input vector remains admissible for sufficiently small $h$, and its moment derivative is $d$. With $w(m)=(-\psi'(m),1)^\T$ and $d=G^{-1}w(m)$, the target derivative is $w(m)^\T G^{-1}w(m)/K>0$. The separation quotient along this path therefore tends to $K^2/[w(m)^\T G^{-1}w(m)]$. Let $m$ approach the endpoint with the larger dual norm. At each mean choose a nonzero displacement small enough that the received distance is below $1/n$ and the quotient is within $1/n$ of its local limit. Continuity of the endpoint slopes gives equality and the shrinking-pair statement. This construction uses actual input perturbations and requires no uniform perturbation radius near the endpoint.
+\end{proof}
+\subsection{Optimality and Attainment}
+\begin{proof}[Proof of Theorem~\ref{thm:sdp}]
+Every planar coefficient triple $(c,u,v)$ defines its $3\times3$ Gram matrix $H$. The peak inequalities are exactly the stated quadratic forms. For $G\succ0$, the identity
+$$
+ G-\lambda ww^\T\suc0
+ \quad\Longleftrightarrow\quad
+ \lambda\le\frac1{w^\T G^{-1}w}
+$$
+shows that the last two constraints enforce the score in Proposition~\ref{prop:score}. Thus \eqref{eq:sdp} upper-bounds every positive-score continuous encoder, by Theorem~\ref{thm:rigidity}.
+
+Conversely, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$. At every feasible point with $\lambda>0$, the two distinct endpoint slopes imply $G\succ0$: a null vector of $G$ would have to be orthogonal to both independent vectors $w_-,w_+$. Replace $h$ by $\ell^\T G^{-1}\ell$. The resulting matrix remains positive semidefinite, has rank two, preserves $G$, and decreases every peak quadratic form by the same nonnegative constant. It is therefore the Gram matrix of three vectors in $\R^2$, giving a feasible exact encoder with score at least $K^2\lambda$.
+
+The reconstruction given in Section~\ref{sec:synthesis} realizes this reduced Gram matrix.
+
+Finally, a sufficiently small nondegenerate moment curve is feasible and has positive score. Nonaffineness of $\phi$ supplies three inputs for which the vectors $z(s)$ span $\R^3$. If $Z$ has those three feature vectors as columns, $Z^\T HZ\suc0$ has trace at most $3P$, giving $\|H\|_2\le3P\|Z^{-1}\|_2^2$. The last diagonal score constraint gives $0\le\lambda\le G_{22}$. The constraints are closed, and $\lambda$ is bounded by either final matrix inequality. An optimum therefore exists, is positive, and admits the rank-two reconstruction above.
+\end{proof}
+\subsection{Enclosing Ellipses}
+\begin{corollary}\label{cor:inverse-synthesis}
+Under the hypotheses of Theorem~\ref{thm:sdp}, program~\eqref{eq:inverse-synthesis} attains a positive optimum $t_\star$ and gives $\Lambda_\sq^\star=K^2/t_\star$. An optimal encoder follows from the enclosing-ellipse reconstruction in Section~\ref{sec:inverse-synthesis}.
+\end{corollary}
+\begin{proof}
+The correspondence with encoders and Proposition~\ref{prop:score} prove equivalence. Existence and positivity follow from Theorem~\ref{thm:sdp}. Directly, the independent vectors $w_-,w_+$ bound $X\suc0$ on every finite objective sublevel; a peak block at one fixed input then bounds $a$. Closedness and the preceding nonaffineness argument ensure that every sublevel limit still has $X\succ0$.
+\end{proof}

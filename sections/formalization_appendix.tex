@@ -1,0 +1,23 @@
+\section{Lean Verification}\label{app:lean}
+
+We verify selected results in Lean~4~\cite{lean4}, using mathlib~\cite{mathlib}. The artifact includes the proof sources, a theorem map, a complete manuscript coverage inventory, and reproducible compilation and axiom audits. It distinguishes complete results from specializations and conditional steps.
+
+The general collision lemma is verified for arbitrary features and encoders and every $K\ge4$, without differentiability of $\psi$. The operational score formula \eqref{eq:exactscore} and its shrinking-pair clause are also verified for every nondegenerate two-feature encoder and $K\ge2$, under the stated feature curvature and endpoint regularity assumptions. The formal score is the infimum over actual admissible input pairs. The proof uses explicit two-input perturbations and one-sided endpoint derivatives.
+
+For variance, the score identity additionally covers degenerate quadratic curves. Lean verifies the operational optimum over every quadratic coefficient curve at all positive powers:
+$$
+ \max_{\substack{\enc(s)=c+us+vs^2\\|\enc(s)|^2\le P\;\forall s\in I}}
+ \Lambda_{\sq}(\enc;V)
+ =\frac{4K^2P}{9+6\sqrt3},\qquad K\ge2.
+$$
+The complete quadratic and quartic Gram-objective optimizations, including continuum peak certificates and arbitrary positive slope parameter and power, are also checked. These coefficient-class theorems do not yet extend their competitors to every continuous encoder.
+
+For encoder design, the artifact verifies the Schur-complement reduction, rank-one score constraints, and explicit planar reconstruction. The reconstruction is connected to the general operational score: a positive feasible SDP point yields a continuous, exact encoder satisfying the full peak constraint and the promised separation bound. The proof derives spanning anchors and a positive feasible point from the feature assumptions, establishes compactness, and proves maximum-separation attainment and its operational realization within the affine-feature class.
+
+The rigidity development constructs genuine local moment inverses and neighborhoods, derives the derivative-kernel relations from local fiber constancy, integrates through both source endpoints, and proves coefficient independence from exactness. Its final representation theorem still assumes interior encoder differentiability and local moment-fiber constancy. Deriving these properties from continuity and exactness requires the remaining topological factorization and smoothing arguments; planar invariance of domain is not formalized here.
+
+The decoder development verifies the sharp scalar amplification principle, including the zero-score impossibility result, and the explicit complex-channel variance decoder with corrected strip projection. It also checks coherent implementation-error bounds and peak-safe contraction before quantization. The small-noise development proves the derivative limit, integrable domination, dominated convergence in noise-power coordinates, and independent isotropic second-moment evaluation. It derives local differentiability of the actual variance decoder and its leading-MSE limit. The complete general-decoder gradient-to-trace specialization in Proposition~\ref{prop:general-small-noise} remains unfinished.
+
+For the probabilistic design problem, Lean verifies convexity of the continuum Gram constraints, strict convexity of inverse-Gram risk, and convexity and monotonicity of the actual infimum frontier. The artifact also proves existence of a risk-minimizing Gram design at every floor from zero through the positive maximum, supplying the optimizer witnesses used by its uniqueness, plateau, activity, and strict-increase results. Endpoint continuity, the five-variable inverse-form equivalence, and the complete probabilistic and continuous-encoder links remain unfinished.
+
+The artifact pins Lean~4.24.0 and a matching mathlib revision. Its audited declarations use only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}, with no unfinished proofs or additional axioms. The unrestricted continuous-encoder theorem, complete probabilistic frontier, certified-grid analysis, and remaining appendix results are not fully formalized. The artifact therefore supports a claim about selected verified results, not all proofs in the paper.

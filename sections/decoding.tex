@@ -1,0 +1,86 @@
+\section{Decoding}\label{sec:decoding}
+An optimal curve requires a decoder that controls perturbations outside the noiseless received set. A polynomial inverse may grow faster than linearly there. We first state the classical extension interpretation of squared separation, then give a direct decoder.
+
+% \subsection{Uniform Error Bound}
+To control how severely additive disturbances can corrupt the computed target, we first establish a uniform error guarantee and subsequently design a projection decoder that attains it. Define $\mathcal A(\enc;f)$ as the infimum of constants $L\ge0$ for which one decoder $\widehat f:\R^2\to\R$ satisfies
+\begin{equation}
+ |\widehat f(r_\enc(\mathbf s)+n)-f(\mathbf s)|\le L|n|
+ \quad(\mathbf s\in I^K,\ n\in\R^2).
+ \label{eq:uniform}
+\end{equation}
+Set $\mathcal A=+\infty$ if no finite constant exists. This decoder is fixed for every input and disturbance magnitude.
+
+\begin{proposition}\label{prop:amplification}
+For any continuous encoder and nonconstant continuous scalar target,
+$$\mathcal A(\enc;f)=\Lambda_\sq(\enc;f)^{-1/2},$$
+with $0^{-1/2}=+\infty$. A continuous decoder attains every finite value.
+\end{proposition}
+\begin{proof}
+The choice $n=0$ enforces exactness. Using one noiseless received point as the observation under another input gives $|\Delta f|\le L|\Delta r|$, which proves the lower bound. Conversely, a finite supremum of $|\Delta f|/|\Delta r|$ defines a Lipschitz readout $g$ on the compact received set $\mathcal R_\enc$. McShane's construction~\cite{mcshane1934},
+$$\widehat f(y)=\inf_{z\in\mathcal R_\enc}\{g(z)+L|y-z|\},$$
+extends $g$ with the same constant. The triangle inequality proves global Lipschitz continuity, and exactness gives \eqref{eq:uniform}. Clipping the scalar output to any interval containing the target range preserves the guarantee.
+\end{proof}
+The extension principle is classical. The computation-specific result is the sharp encoder optimum and its implementable realization. To explicitly realize this uniform bound, we construct a projection decoder. Write $\enc(s)=c+us+v\phi(s)$ and let $\mathsf U=[u\ v]\in\R^{2\times2}$ be invertible, with $G=\mathsf U^\T\mathsf U$. Define
+$$
+ (\widetilde m,\widetilde t)^\T=\frac1K \mathsf U^{-1}(y-Kc).
+$$
+We project in metric $G$ onto the strip $\mathcal S=[-1,1]\times\R$. Its closed-form solution gives the decoder
+\begin{equation}\begin{aligned}
+ \widehat m&=\operatorname{clip}_{[-1,1]}(\widetilde m),\\
+ \widehat t&=\widetilde t+\frac{G_{12}}{G_{22}}(\widetilde m-\widehat m),\\
+ \widehat f(y)&=\widehat t-\psi(\widehat m).
+\end{aligned}\label{eq:stripdecoder}\end{equation}
+Thus decoding requires a fixed linear transformation, one scalar clipping operation, and the prescribed readout. Nonorthogonal feature directions require the correction in $\widehat t$.
+
+\begin{theorem}\label{thm:decoder}
+Under the assumptions of Theorem~\ref{thm:sdp}, \eqref{eq:stripdecoder} is exact and attains the smallest possible uniform constant
+\begin{equation}
+ L_\enc=\frac1K\sqrt{\max_{\sigma\in\{-,+\}}w_\sigma^\T G^{-1}w_\sigma}
+ =\Lambda_\sq(\enc;f)^{-1/2}.
+ \label{eq:decoderconstant}
+\end{equation}
+An additional scalar projection onto an interval containing the target range preserves this conclusion.
+\end{theorem}
+\begin{proof}
+For $x=(m,t)^\T$ and $\widetilde x=(\widetilde m,\widetilde t)^\T$, Euclidean projection onto the received strip $Kc+K\mathsf U\mathcal S$ minimizes $K^2(x-\widetilde x)^\T G(x-\widetilde x)$. For fixed $m$, differentiation in $t$ gives
+$$t=\widetilde t-G_{12}(m-\widetilde m)/G_{22}.$$
+Substitution leaves the positive Schur-complement coefficient $G_{11}-G_{12}^2/G_{22}$ multiplying $(m-\widetilde m)^2$, so clipping $m$ proves \eqref{eq:stripdecoder}. Euclidean projection onto this closed convex received set is nonexpansive.
+
+On $\mathcal S$, the readout $F(m,t)=t-\psi(m)$ has gradient $(-\psi'(m),1)^\T$. The endpoint-slope argument for \eqref{eq:exactscore} bounds its squared dual norm in metric $G$ by $K^2L_\enc^2$. Integration along segments proves an $L_\enc$-Lipschitz received-plane readout. Its composition with nonexpansive projection preserves this constant and fixes all noiseless points. The exact score and Proposition~\ref{prop:amplification} prove optimality.
+\end{proof}
+
+\begin{figure}[t]
+ \centering\paperfigure{figures/tikz/decoder_geometry}
+ \caption{Projection decoding for the optimal variance encoder at $K=4$, with $b=2/\sqrt3$ and $a=\sqrt{b(2-b)}$. The attained received region lies inside the strip $\mathcal S_r=\{|x|\le a\}$. We normalize all received coordinates by $K\sqrt P$ and use equal axis scales. The decoder projects $y$ onto the strip and applies the moment readout; the projected point need not be attainable.}
+ \label{fig:decoder-geometry}
+\end{figure}
+Figure~\ref{fig:decoder-geometry} illustrates why the containing strip is sufficient. For variance at $K=4$, the exact moment region has lower boundary $q=m^2$ and upper boundary $q=[3+(4m-j)^2]/4$, where $j\in\{-3,-1,1,3\}$ and $|4m-j|\le1$. The upper boundary follows by maximizing the convex second moment on a fixed-mean cube slice: a vertex has at most one nonendpoint coordinate. The slice is connected, so every intermediate second moment is attained. This region need not be convex, whereas its containing strip admits the explicit nonexpansive projection.
+
+The strip contains every attainable moment point, so the decoder needs no exact finite-$K$ moment-region characterization. For an even feature $s^p$, $p=2$ or $4$, a tighter alternative is
+$$\mathcal C_p=\{(m,t):-1\le m\le1,\ m^p\le t\le1\}.$$
+Jensen's inequality proves containment, and the set is convex. Projection onto its received image has the same guarantee, although its implementation requires convex optimization. It is a containing convex hull, not generally the exact equal-weight finite-$K$ moment set.
+
+For the optimal orthogonal map $\sqrt P[a s+i(bs^p+c_0)]$, compute
+\begin{align*}
+ \widehat m&=\operatorname{clip}_{[-1,1]}\frac{\operatorname{Re}y}{Ka\sqrt P},\\
+ \widehat t&=\frac{\operatorname{Im}y/(K\sqrt P)-c_0}{b}.
+\end{align*}
+The variance and fourth-order Jensen-gap decoders are $\operatorname{clip}_{[0,1]}(\widehat t-\widehat m^p)$, with the appropriate $p$ and coefficients. Their target ranges lie in $[0,1]$.
+
+\subsection{Moment Interactions and Operational Limits}
+For $mq$, the containing rectangle $[-1,1]\times[0,1]$ and the optimal orthogonal curve give
+\begin{equation}\begin{aligned}
+ \widehat m&=\operatorname{clip}_{[-1,1]}\frac{3\operatorname{Re}y}{2\sqrt2K\sqrt P},\\
+ \widehat q&=\operatorname{clip}_{[0,1]}\frac34\left(\frac{\operatorname{Im}y}{K\sqrt P}+1\right),\\
+ \widehat f_{mq}(y)&=\widehat m\widehat q.
+\end{aligned}\label{eq:mqdecoder}\end{equation}
+The rectangle's received projection is coordinatewise clipping because the directions are orthogonal. The dual gradient norm of $mq$ is at most $\sqrt{1/a^2+1/b^2}=3\sqrt3/4$ for $a=2\sqrt2/3$, $b=4/3$. Hence this decoder attains $L_{mq}=3\sqrt3/(4K\sqrt P)$. For the restricted polynomial class, the endpoint partial-derivative bounds hold on the same rectangle; projected polynomial readout likewise attains its sharp constant.
+
+
+The raw variance inverse is quadratic in $\operatorname{Re}y$, and the fourth-order inverse contains its fourth power. Neither is globally Lipschitz on the observation plane. Projection is therefore part of the noise guarantee. For a fixed encoder and known disturbance radius $\tau$, define
+$$\omega_\enc(d)=\max_{|r_\enc(\mathbf s)-r_\enc(\mathbf t)|\le d}|f(\mathbf s)-f(\mathbf t)|.$$
+The minimum worst-case absolute error at radius $\tau$ equals $\omega_\enc(2\tau)/2$. Two configurations separated by at most $2\tau$ can give the same midpoint observation, proving the lower bound. A matching decoder outputs the midpoint of the smallest and largest target values consistent with the observation and radius. Compactness gives these extrema. Their maximum is upper semicontinuous and minimum lower semicontinuous on the compact possible-observation set, so the midpoint rule has a Borel measurable extension. This criterion depends on the full ambiguity profile, rather than one constant for every disturbance size.
+
+For any finite-second-moment noise, \eqref{eq:uniform} implies
+$$\mathbb E|\widehat f(Y)-f(\mathbf s)|^2\le L_\enc^2\mathbb E|N|^2,$$
+also after averaging over an input prior. Under $N\sim\mathcal{CN}(0,N_0)$, the bound is $L_\enc^2N_0$. This is a bound for a specified decoder, not unrestricted Gaussian-MSE optimality.

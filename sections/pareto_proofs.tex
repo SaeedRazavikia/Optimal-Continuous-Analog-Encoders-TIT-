@@ -1,0 +1,29 @@
+\section{Frontier Proofs}\label{app:frontier-proofs}
+
+\subsection{General Frontier}\label{app:general-frontier-proof}
+\begin{proof}
+Corollary~\ref{cor:inverse-synthesis} identifies $\mathcal C_P$ with the continuous exact peak-admissible encoders and ensures $X\succ0$. Proposition~\ref{prop:score} gives the two endpoint budgets, and Proposition~\ref{prop:general-small-noise} gives the linear objective. Thus \eqref{eq:pareto-sdp} optimizes over the full continuous exact class.
+
+A separation-optimal encoder supplies a feasible point for every stated floor. Since $Q_\pi\succ0$, a finite objective sublevel bounds $\operatorname{tr}X$ and hence $X$. The block constraints imply $|g(s)-a|^2\le P\operatorname{tr}X$, so they also bound $a$. The feasible sublevel is closed and bounded; every limit still has positive-definite $X$ by the preceding nonaffineness argument. Hence an optimum exists, including at zero floor.
+
+To prove uniqueness and convexity in the floor, use the equivalent Gram description from Theorem~\ref{thm:sdp}. Feasible pairs $(H,\gamma)$ satisfy affine peak inequalities and $G-\gamma w_\sigma w_\sigma^\T\suc0$. Reducing the translation diagonal of $H$ to its Schur complement preserves $G$ and the floor and gives a planar encoder. The objective in these variables is $\operatorname{tr}(Q_\pi G^{-1})/(2K^2)$. It is strictly convex in $G$: its second directional derivative, before the positive scale factor, along a nonzero symmetric $D$ is
+$$2\operatorname{tr}(A B^2)>0,$$
+where $A=G^{-1/2}Q_\pi G^{-1/2}\succ0$ and $B=G^{-1/2}DG^{-1/2}\ne0$.
+Convex combinations in the Gram formulation therefore prove convexity of $\mathcal V_\pi$ and uniqueness of its optimal $G$, equivalently $X$. Nested feasible sets prove monotonicity. Compact objective sublevels give lower semicontinuity; together with finiteness, convexity, and monotonicity this also gives continuity at both endpoints.
+
+The unconstrained minimizer remains feasible precisely through its actual floor $\gamma_c$, proving the constant portion. Above $\gamma_c$, an optimal Gram matrix cannot have actual floor strictly greater than the required $\gamma$: mixing its feasible $H$ slightly with one realizing $X_0^{-1}$ preserves that floor and strictly lowers the objective. Thus the floor is active. Equal optimal values at two distinct floors above $\gamma_c$ would, by uniqueness at the smaller floor, give the same Gram matrix, contradicting activity. The same argument excludes equality between the value at $\gamma_c$ and any larger floor.
+\end{proof}
+
+\subsection{Quadratic Frontier}\label{app:quadratic-frontier-proof}
+\begin{proof}
+Write $G=\left(\begin{smallmatrix}A&C\\C&B\end{smallmatrix}\right)$. The reflection and translation-projection construction used for Theorem~\ref{thm:quartic}, applied here to $s^2$, preserves feasibility and $A,B$ while setting $C=0$. This decreases
+$$
+ \operatorname{tr}(Q_\pi G^{-1})
+ =\frac{M_{\rm eff}^2B+A}{AB-C^2}
+$$
+and increases the worst-case score, so it preserves every robustness floor. Normalize $P=1$ and write the resulting curve as $\sqrt A\,s+i(bs^2+c)$, with $b=\sqrt B>0$. Its energy $At+(bt+c)^2$ is convex in $t=s^2\in[0,1]$, so the peak constraint is equivalent to
+$$c^2\le1,\qquad A+(b+c)^2\le1.$$
+If $b\le1$, these inequalities give $A\le1$ and $B\le1$; the feasible choice $A=B=1$ cannot worsen either objective. If $b>1$, $|c|\le1$ gives $A\le1-(b-1)^2=b(2-b)$, with equality attained at $c=-1$. Positive $A$ then requires $b<2$. Thus the one-parameter family \eqref{eq:quadratic-pareto-map} contains a global optimizer for the present constrained problem, not merely an optimum within a stipulated family.
+
+The function $x^2/[b(2-b)]+1/b^2$ strictly decreases and then strictly increases, with its unique minimum at $b(x)$. Its stationarity equation is $x^2b(b-1)=(2-b)^2$, which also shows that $b(x)$ decreases with $x$. Hence $b_{\rm eff}>b_M$. The feasible set $R_M(b)\ge\gamma/P$ is an interval containing $b_M$, with right endpoint $b_+(\gamma/P)$. Minimizing the prior objective over that interval gives the stated clipped choice. Scaling restores $P$.
+\end{proof}

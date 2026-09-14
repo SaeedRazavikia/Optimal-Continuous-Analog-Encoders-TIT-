@@ -1,0 +1,880 @@
+{
+  "status": "passed",
+  "review_type": "Independent implementation in the same computational environment; no external human or different-machine review",
+  "python": "3.12.14",
+  "script_sha256": "ba309ae1f6146f7b9bcb6af9e3cb3c376f3b98b934975dd9463cec21eb0de964",
+  "certificate": {
+    "status": "passed",
+    "input_sha256": "6c43b26e454ea809e9455382ddbc860d86bbfd960becdc6eb4ee4522bd0306e6",
+    "method": "Exact Fraction intervals; degree-48 positive Taylor tail and reciprocal bounds; all principal minors",
+    "primal_minors": [
+      {
+        "indices": [
+          0
+        ],
+        "verified_positive": true,
+        "lower_display": 3.981282383095
+      },
+      {
+        "indices": [
+          1
+        ],
+        "verified_positive": true,
+        "lower_display": 4.813905324081
+      },
+      {
+        "indices": [
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 1.698409799103
+      },
+      {
+        "indices": [
+          0,
+          1
+        ],
+        "verified_positive": true,
+        "lower_display": 3.0047546765633526
+      },
+      {
+        "indices": [
+          0,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 0.0001249449307469108
+      },
+      {
+        "indices": [
+          1,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 1.3074791018282246
+      },
+      {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 4.3125057379064356e-08
+      }
+    ],
+    "score_minors": [
+      [
+        {
+          "indices": [
+            0
+          ],
+          "verified_positive": true,
+          "lower_display": 4.757109209266181
+        },
+        {
+          "indices": [
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 1.278740120535
+        },
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 9.151585824630744e-08
+        }
+      ],
+      [
+        {
+          "indices": [
+            0
+          ],
+          "verified_positive": true,
+          "lower_display": 1.712942526121854
+        },
+        {
+          "indices": [
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 1.278740120535
+        },
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 6.107324142965754e-08
+        }
+      ]
+    ],
+    "dual_multiplier_minors": [
+      [
+        {
+          "indices": [
+            0
+          ],
+          "verified_positive": true,
+          "lower_display": 0.0026299749693901816
+        },
+        {
+          "indices": [
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 0.009783909773907161
+        },
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 1.250080662042275e-12
+        }
+      ],
+      [
+        {
+          "indices": [
+            0
+          ],
+          "verified_positive": true,
+          "lower_display": 0.40781519809806066
+        },
+        {
+          "indices": [
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 0.5462908069221929
+        },
+        {
+          "indices": [
+            0,
+            1
+          ],
+          "verified_positive": true,
+          "lower_display": 9.54903939908416e-11
+        }
+      ]
+    ],
+    "dual_residual_minors": [
+      {
+        "indices": [
+          0
+        ],
+        "verified_positive": true,
+        "lower_display": 0.4196702244375766
+      },
+      {
+        "indices": [
+          1
+        ],
+        "verified_positive": true,
+        "lower_display": 4.049073884686384e-05
+      },
+      {
+        "indices": [
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 0.9644563770850105
+      },
+      {
+        "indices": [
+          0,
+          1
+        ],
+        "verified_positive": true,
+        "lower_display": 1.6965044810746548e-07
+      },
+      {
+        "indices": [
+          0,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 2.5909024531175314e-07
+      },
+      {
+        "indices": [
+          1,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 3.959916908738702e-07
+      },
+      {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "verified_positive": true,
+        "lower_display": 4.13728964619325e-15
+      }
+    ],
+    "normalization_lower_display": 1.0000000000011129,
+    "grid_points": 1001,
+    "independent_grid_peak_upper_display": 1.000000093893504,
+    "derived_second_derivative_bound_display": 116.70742467922136,
+    "claimed_derivative_bound_verified": 117,
+    "rank_reduced_determinant_exact": "0",
+    "schur_peak_reduction_display": 3.298336265471728e-08,
+    "lower": "209834839284/500029296947",
+    "upper": "104917556109394155472367/250000000000000000000000",
+    "lower_display": 0.41964508992808314,
+    "upper_display": 0.4196702244375766,
+    "relative_gap_percent": 0.005989109550760389,
+    "scope": "This certifies the recorded mathematical optimization witnesses; it does not certify all manuscript theorems or historical novelty."
+  },
+  "analytic_numerical_claims": {
+    "status": "passed",
+    "coefficient_and_moment_cells": 16,
+    "method": "75-digit Decimal bisection of stationary equations; exact source-MGF polynomial convolution; coefficientwise peak identities",
+    "checks": [
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "1/12",
+        "high_snr_mse_over_N0": 0.034109573467065925,
+        "score": 0.2062673845056687
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 0.0,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "1/12",
+        "high_snr_mse_over_N0": 0.027777777777777776,
+        "score": 0.17307692307692307
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "1/48",
+        "high_snr_mse_over_N0": 0.0016315948979229052,
+        "score": 0.2062673845056687
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "1/48",
+        "high_snr_mse_over_N0": 0.0009945081951455953,
+        "score": 0.12563678929975652
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "5/32",
+        "high_snr_mse_over_N0": 0.04344763775074861,
+        "score": 0.2062673845056687
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 0.0,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "5/32",
+        "high_snr_mse_over_N0": 0.03919400204238072,
+        "score": 0.18908267038694662
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 0.0,
+        "mean_power_exact": "5/128",
+        "high_snr_mse_over_N0": 0.001777502152355447,
+        "score": 0.2062673845056687
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 1e-75,
+        "mean_power_exact": "5/128",
+        "high_snr_mse_over_N0": 0.0012395124766346436,
+        "score": 0.148323853288977
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "coefficient_max_difference": 1.1102230246251565e-16,
+        "peak_polynomial_identity_residual": 1.4e-74,
+        "mean_power_exact": "17/2688",
+        "high_snr_mse_over_N0": 0.03459010895866058,
+        "score": 0.05853350699774718
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 1.1102230246251565e-16,
+        "peak_polynomial_identity_residual": 2.35e-74,
+        "mean_power_exact": "17/2688",
+        "high_snr_mse_over_N0": 0.017100274246811042,
+        "score": 0.03357299634756099
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "coefficient_max_difference": 1.1102230246251565e-16,
+        "peak_polynomial_identity_residual": 1.4e-74,
+        "mean_power_exact": "173/1376256",
+        "high_snr_mse_over_N0": 0.0019672154830351705,
+        "score": 0.05853350699774718
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 1.1921e-74,
+        "mean_power_exact": "173/1376256",
+        "high_snr_mse_over_N0": 0.0005529327075269148,
+        "score": 0.007273305297547548
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "coefficient_max_difference": 1.1102230246251565e-16,
+        "peak_polynomial_identity_residual": 1.4e-74,
+        "mean_power_exact": "199375/5505024",
+        "high_snr_mse_over_N0": 0.04961019855436077,
+        "score": 0.05853350699774718
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 1.7763568394002505e-15,
+        "peak_polynomial_identity_residual": 4.6e-75,
+        "mean_power_exact": "199375/5505024",
+        "high_snr_mse_over_N0": 0.038190743624970165,
+        "score": 0.04915265950015129
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "coefficient_max_difference": 1.1102230246251565e-16,
+        "peak_polynomial_identity_residual": 1.4e-74,
+        "mean_power_exact": "4530625/5637144576",
+        "high_snr_mse_over_N0": 0.0019885078311931287,
+        "score": 0.05853350699774718
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "coefficient_max_difference": 2.220446049250313e-16,
+        "peak_polynomial_identity_residual": 1.073e-74,
+        "mean_power_exact": "4530625/5637144576",
+        "high_snr_mse_over_N0": 0.000662393854625869,
+        "score": 0.01628655547148524
+      }
+    ],
+    "finite_snr_comparisons": [
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.034109573467065925,
+        "observed_mse_over_N0": 0.033181924598377606,
+        "standard_error_of_observed_ratio": 0.00011384033591578359,
+        "unclipped_polynomial_exact_mse_over_N0": 0.03414032461812927,
+        "relative_difference_percent": -2.71961439090993,
+        "difference_in_reported_mc_standard_errors": -8.148683515608841
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.034109573467065925,
+        "observed_mse_over_N0": 0.03386064582156246,
+        "standard_error_of_observed_ratio": 0.00011822398764067092,
+        "unclipped_polynomial_exact_mse_over_N0": 0.034112648582172264,
+        "relative_difference_percent": -0.729788209588178,
+        "difference_in_reported_mc_standard_errors": -2.105559543973892
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.027777777777777776,
+        "observed_mse_over_N0": 0.026839635059748224,
+        "standard_error_of_observed_ratio": 0.00010395423061743487,
+        "unclipped_polynomial_exact_mse_over_N0": 0.02782986111111111,
+        "relative_difference_percent": -3.3773137849063883,
+        "difference_in_reported_mc_standard_errors": -9.02457468500767
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.027777777777777776,
+        "observed_mse_over_N0": 0.027537044905530814,
+        "standard_error_of_observed_ratio": 0.00010986772964323508,
+        "unclipped_polynomial_exact_mse_over_N0": 0.027782986111111112,
+        "relative_difference_percent": -0.8666383400890654,
+        "difference_in_reported_mc_standard_errors": -2.191115380546005
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.0016315948979229052,
+        "observed_mse_over_N0": 0.0016303260723824582,
+        "standard_error_of_observed_ratio": 5.248781882767714e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0016317150196067463,
+        "relative_difference_percent": -0.07776596642109501,
+        "difference_in_reported_mc_standard_errors": -0.24173714373856584
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.0016315948979229052,
+        "observed_mse_over_N0": 0.0016301913103569504,
+        "standard_error_of_observed_ratio": 5.248264765436968e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0016316069100912893,
+        "relative_difference_percent": -0.08602549368973422,
+        "difference_in_reported_mc_standard_errors": -0.26743840653738
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.0009945081951455953,
+        "observed_mse_over_N0": 0.0009921793110200733,
+        "standard_error_of_observed_ratio": 3.5342083265737046e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.000994922281973978,
+        "relative_difference_percent": -0.23417445294967587,
+        "difference_in_reported_mc_standard_errors": -0.658954965390993
+      },
+      {
+        "p": 2,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.0009945081951455953,
+        "observed_mse_over_N0": 0.0009916502850409225,
+        "standard_error_of_observed_ratio": 3.5309403417837546e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0009945496038284334,
+        "relative_difference_percent": -0.287369185957731,
+        "difference_in_reported_mc_standard_errors": -0.809390651791377
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.04344763775074861,
+        "observed_mse_over_N0": 0.040748043304582676,
+        "standard_error_of_observed_ratio": 0.0001512818198021941,
+        "unclipped_polynomial_exact_mse_over_N0": 0.04347838890181196,
+        "relative_difference_percent": -6.213443551644926,
+        "difference_in_reported_mc_standard_errors": -17.844804152248727
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.04344763775074861,
+        "observed_mse_over_N0": 0.04193088458166949,
+        "standard_error_of_observed_ratio": 0.0001579788035698559,
+        "unclipped_polynomial_exact_mse_over_N0": 0.043450712865854946,
+        "relative_difference_percent": -3.490991104695873,
+        "difference_in_reported_mc_standard_errors": -9.60099161916007
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.03919400204238072,
+        "observed_mse_over_N0": 0.03633851198328372,
+        "standard_error_of_observed_ratio": 0.00014779792314458613,
+        "unclipped_polynomial_exact_mse_over_N0": 0.039235866909545634,
+        "relative_difference_percent": -7.285528168338972,
+        "difference_in_reported_mc_standard_errors": -19.32023128838937
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.03919400204238072,
+        "observed_mse_over_N0": 0.03759596393141582,
+        "standard_error_of_observed_ratio": 0.00015591236844506324,
+        "unclipped_polynomial_exact_mse_over_N0": 0.03919818852909721,
+        "relative_difference_percent": -4.077251690799355,
+        "difference_in_reported_mc_standard_errors": -10.249591657816291
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.001777502152355447,
+        "observed_mse_over_N0": 0.0017715615557152757,
+        "standard_error_of_observed_ratio": 5.779724885053722e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0017776222740392882,
+        "relative_difference_percent": -0.3342103767525195,
+        "difference_in_reported_mc_standard_errors": -1.027833808410787
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.001777502152355447,
+        "observed_mse_over_N0": 0.001771450889264642,
+        "standard_error_of_observed_ratio": 5.778916281948134e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0017775141645238312,
+        "relative_difference_percent": -0.3404363298680879,
+        "difference_in_reported_mc_standard_errors": -1.0471276612377651
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.0012395124766346436,
+        "observed_mse_over_N0": 0.0012317467610918605,
+        "standard_error_of_observed_ratio": 4.587011286034584e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0012398013982480953,
+        "relative_difference_percent": -0.626513705119569,
+        "difference_in_reported_mc_standard_errors": -1.692979384294572
+      },
+      {
+        "p": 2,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.0012395124766346436,
+        "observed_mse_over_N0": 0.001231493383586844,
+        "standard_error_of_observed_ratio": 4.585175156374783e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0012395413687959888,
+        "relative_difference_percent": -0.6469554118222143,
+        "difference_in_reported_mc_standard_errors": -1.7489174948203412
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.03459010895866058,
+        "observed_mse_over_N0": 0.03341013954251049,
+        "standard_error_of_observed_ratio": 0.00011501825808001546,
+        "unclipped_polynomial_exact_mse_over_N0": 0.03462794093657597,
+        "relative_difference_percent": -3.411291411542816,
+        "difference_in_reported_mc_standard_errors": -10.258974843187183
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.03459010895866058,
+        "observed_mse_over_N0": 0.03423963145039784,
+        "standard_error_of_observed_ratio": 0.0001198537217290047,
+        "unclipped_polynomial_exact_mse_over_N0": 0.03459388239013657,
+        "relative_difference_percent": -1.0132304257312708,
+        "difference_in_reported_mc_standard_errors": -2.9242104726225646
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.017100274246811042,
+        "observed_mse_over_N0": 0.01652030880199912,
+        "standard_error_of_observed_ratio": 9.526085026465451e-05,
+        "unclipped_polynomial_exact_mse_over_N0": 0.017227272631578285,
+        "relative_difference_percent": -3.391556395185169,
+        "difference_in_reported_mc_standard_errors": -6.088182534594817
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.017100274246811042,
+        "observed_mse_over_N0": 0.017009226178336077,
+        "standard_error_of_observed_ratio": 0.0001081344567335632,
+        "unclipped_polynomial_exact_mse_over_N0": 0.017112914180585314,
+        "relative_difference_percent": -0.5324363057624293,
+        "difference_in_reported_mc_standard_errors": -0.8419894197027509
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.0019672154830351705,
+        "observed_mse_over_N0": 0.001970184323291808,
+        "standard_error_of_observed_ratio": 6.263464606869816e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.001967225466971512,
+        "relative_difference_percent": 0.15091586469506701,
+        "difference_in_reported_mc_standard_errors": 0.47399329971168885
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.0019672154830351705,
+        "observed_mse_over_N0": 0.001970188304340756,
+        "standard_error_of_observed_ratio": 6.2634944538741595e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0019672164808331788,
+        "relative_difference_percent": 0.1511182344396289,
+        "difference_in_reported_mc_standard_errors": 0.4746266365330275
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.0005529327075269148,
+        "observed_mse_over_N0": 0.0005521131313270917,
+        "standard_error_of_observed_ratio": 1.8874940919768255e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0005536635179465803,
+        "relative_difference_percent": -0.14822349784456845,
+        "difference_in_reported_mc_standard_errors": -0.4342139153213062
+      },
+      {
+        "p": 4,
+        "prior": "uniform",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.0005529327075269148,
+        "observed_mse_over_N0": 0.0005515017532464004,
+        "standard_error_of_observed_ratio": 1.8820289753800602e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0005530054176125656,
+        "relative_difference_percent": -0.25879356765031725,
+        "difference_in_reported_mc_standard_errors": -0.7603253187031369
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.04961019855436077,
+        "observed_mse_over_N0": 0.04548373892594043,
+        "standard_error_of_observed_ratio": 0.00022074466476577285,
+        "unclipped_polynomial_exact_mse_over_N0": 0.04973729293493579,
+        "relative_difference_percent": -8.317764791646088,
+        "difference_in_reported_mc_standard_errors": -18.6933606427083
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.04961019855436077,
+        "observed_mse_over_N0": 0.047243954668252916,
+        "standard_error_of_observed_ratio": 0.00024398923022932406,
+        "unclipped_polynomial_exact_mse_over_N0": 0.04962288968942354,
+        "relative_difference_percent": -4.769672275177495,
+        "difference_in_reported_mc_standard_errors": -9.698148905522723
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.038190743624970165,
+        "observed_mse_over_N0": 0.033375863319199936,
+        "standard_error_of_observed_ratio": 0.0002311557589285369,
+        "unclipped_polynomial_exact_mse_over_N0": 0.038384344608302395,
+        "relative_difference_percent": -12.60745366220658,
+        "difference_in_reported_mc_standard_errors": -20.829592687149
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 4,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.038190743624970165,
+        "observed_mse_over_N0": 0.03544352436224903,
+        "standard_error_of_observed_ratio": 0.0002624159503069817,
+        "unclipped_polynomial_exact_mse_over_N0": 0.038210069327448616,
+        "relative_difference_percent": -7.193416524429552,
+        "difference_in_reported_mc_standard_errors": -10.468949236917023
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 20,
+        "analytic_limit": 0.0019885078311931287,
+        "observed_mse_over_N0": 0.001986978653474731,
+        "standard_error_of_observed_ratio": 6.293814646744375e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0019885425703446906,
+        "relative_difference_percent": -0.07690076420168168,
+        "difference_in_reported_mc_standard_errors": -0.24296516567878923
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "optimal",
+        "snr_db": 30,
+        "analytic_limit": 0.0019885078311931287,
+        "observed_mse_over_N0": 0.001986976206426181,
+        "standard_error_of_observed_ratio": 6.2938513193608175e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0019885113039916215,
+        "relative_difference_percent": -0.07702382373967476,
+        "difference_in_reported_mc_standard_errors": -0.24335254985071475
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 20,
+        "analytic_limit": 0.000662393854625869,
+        "observed_mse_over_N0": 0.0006589785945038275,
+        "standard_error_of_observed_ratio": 2.892420190431326e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0006628961536899793,
+        "relative_difference_percent": -0.5155935699268421,
+        "difference_in_reported_mc_standard_errors": -1.1807620944356043
+      },
+      {
+        "p": 4,
+        "prior": "endpoint_beta",
+        "K": 16,
+        "design": "prior_tuned",
+        "snr_db": 30,
+        "analytic_limit": 0.000662393854625869,
+        "observed_mse_over_N0": 0.0006587929549262581,
+        "standard_error_of_observed_ratio": 2.903313200656594e-06,
+        "unclipped_polynomial_exact_mse_over_N0": 0.0006624440232050416,
+        "relative_difference_percent": -0.5436191284782899,
+        "difference_in_reported_mc_standard_errors": -1.2402725612918895
+      }
+    ],
+    "comparison_scope": "Finite-SNR outputs need not equal the small-noise limit. Differences include clipping and nonlinear terms plus Monte Carlo error. No universal agreement-within-confidence-interval assertion is made."
+  },
+  "decoder": {
+    "status": "passed",
+    "observations": 128,
+    "comparisons": 256,
+    "max_absolute_difference": 5.329070518200751e-15,
+    "method": "Independent Euclidean halfspace projection in received coordinates compared with reusable strip decoder",
+    "numpy": "2.3.5"
+  },
+  "pareto_spot_checks": {
+    "status": "passed",
+    "cells": [
+      {
+        "prior": "uniform",
+        "K": 4,
+        "required_retention": 0.9,
+        "b": 1.4278414198686626,
+        "a": 0.9038538153068596,
+        "c": -1,
+        "loss_J": 0.8985220180770999,
+        "normalized_separation": 0.18564064605510183,
+        "active_score_constraint_residual": 3e-75,
+        "asymptotic_gain_percent_vs_robust": 17.68055061720277,
+        "peak_identity": "|E(s)|^2 = 1-b^2 s^2(1-s^2) <= 1",
+        "status": "passed"
+      },
+      {
+        "prior": "uniform",
+        "K": 16,
+        "required_retention": 0.9,
+        "b": 1.4278414198686626,
+        "a": 0.9038538153068596,
+        "c": -1,
+        "loss_J": 0.5925063820858933,
+        "normalized_separation": 0.18564064605510183,
+        "active_score_constraint_residual": 3e-75,
+        "asymptotic_gain_percent_vs_robust": 29.07314009226625,
+        "peak_identity": "|E(s)|^2 = 1-b^2 s^2(1-s^2) <= 1",
+        "status": "passed"
+      }
+    ],
+    "scope": "Independent 75-digit reproduction of two analytic frontier points; no new finite-noise simulation or independent theorem proof."
+  }
+}

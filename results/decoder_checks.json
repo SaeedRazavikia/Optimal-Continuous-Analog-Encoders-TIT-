@@ -1,0 +1,604 @@
+{
+  "status": "passed",
+  "checks": 98,
+  "passing": 98,
+  "observations": 1728,
+  "max_projection_error": 1.9831768422590504e-11,
+  "seed": 20260913,
+  "executed_utc": "2026-09-13T12:22:46.043117+00:00",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "script_sha256": "b6398a53c91c18a8c83dcd37758db4465f745f21d4f90c0967c071bdddb935c2",
+  "results": [
+    {
+      "name": "variance exact K4 P0.04",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K4 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K4 P0.04",
+      "residual": 4.440892098500626e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K4 P1",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K4 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K4 P1",
+      "residual": 1.1102230246251565e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K4 P9",
+      "residual": 1.1102230246251565e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K4 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K4 P9",
+      "residual": 5.551115123125783e-17,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K7 P0.04",
+      "residual": 2.7755575615628914e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K7 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K7 P0.04",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K7 P1",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K7 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K7 P1",
+      "residual": 5.551115123125783e-17,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K7 P9",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K7 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K7 P9",
+      "residual": 2.7755575615628914e-17,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K19 P0.04",
+      "residual": 6.661338147750939e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K19 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K19 P0.04",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K19 P1",
+      "residual": 1.3322676295501878e-15,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K19 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K19 P1",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "variance exact K19 P9",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "variance uniform bound K19 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "variance constant K19 P9",
+      "residual": 1.3877787807814457e-17,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K4 P0.04",
+      "residual": 1.6653345369377348e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K4 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K4 P0.04",
+      "residual": 8.881784197001252e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K4 P1",
+      "residual": 1.6653345369377348e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K4 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K4 P1",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K4 P9",
+      "residual": 4.440892098500626e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K4 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K4 P9",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K7 P0.04",
+      "residual": 2.636779683484747e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K7 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K7 P0.04",
+      "residual": 4.440892098500626e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K7 P1",
+      "residual": 1.3877787807814457e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K7 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K7 P1",
+      "residual": 1.1102230246251565e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K7 P9",
+      "residual": 1.1102230246251565e-15,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K7 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K7 P9",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K19 P0.04",
+      "residual": 3.515059144545455e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K19 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K19 P0.04",
+      "residual": 2.220446049250313e-16,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K19 P1",
+      "residual": 1.942890293094024e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K19 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K19 P1",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen exact K19 P9",
+      "residual": 2.498001805406602e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen uniform bound K19 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic_jensen constant K19 P9",
+      "residual": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    {
+      "name": "mq exact K4 P0.04",
+      "residual": 5.551115123125783e-17,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K4 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K4 P1",
+      "residual": 5.551115123125783e-17,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K4 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K4 P9",
+      "residual": 1.1102230246251565e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K4 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K7 P0.04",
+      "residual": 1.6653345369377348e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K7 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K7 P1",
+      "residual": 1.1102230246251565e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K7 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K7 P9",
+      "residual": 1.6653345369377348e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K7 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K19 P0.04",
+      "residual": 8.326672684688674e-17,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K19 P0.04",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K19 P1",
+      "residual": 5.551115123125783e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K19 P1",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "mq exact K19 P9",
+      "residual": 4.163336342344337e-17,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "mq uniform bound K19 P9",
+      "residual": 0.0,
+      "tolerance": 5e-12,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 0",
+      "residual": 6.320636091034569e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 1",
+      "residual": 2.2312632930090602e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 2",
+      "residual": 4.286844553302793e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 3",
+      "residual": 5.197930934883577e-14,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 4",
+      "residual": 7.110421606038186e-14,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 5",
+      "residual": 1.7763568394002505e-15,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 6",
+      "residual": 2.3797116074739576e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 7",
+      "residual": 1.7763568394002505e-15,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 8",
+      "residual": 1.6771900720399695e-11,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 9",
+      "residual": 7.713398768408962e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 10",
+      "residual": 2.1249528578861693e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 11",
+      "residual": 7.143715709362713e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 12",
+      "residual": 1.5104434383454155e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 13",
+      "residual": 9.71445146547012e-17,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 14",
+      "residual": 2.7963518596563056e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 15",
+      "residual": 2.1767961165575862e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 16",
+      "residual": 6.232747273689884e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 17",
+      "residual": 1.9831768422590504e-11,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 18",
+      "residual": 1.177014447270949e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 19",
+      "residual": 1.6949669871944827e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 20",
+      "residual": 4.8816561285274356e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 21",
+      "residual": 2.9086225495071006e-12,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 22",
+      "residual": 0.0,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "correlated projection 23",
+      "residual": 8.318496244530452e-13,
+      "tolerance": 1e-07,
+      "passed": true
+    },
+    {
+      "name": "shifted correlated uniform bound",
+      "residual": 0.0,
+      "tolerance": 1e-11,
+      "passed": true
+    },
+    {
+      "name": "exponential correlated uniform bound",
+      "residual": 0.0,
+      "tolerance": 1e-11,
+      "passed": true
+    }
+  ],
+  "scope": "Numerical implementation checks, not a universal proof or MSE study."
+}

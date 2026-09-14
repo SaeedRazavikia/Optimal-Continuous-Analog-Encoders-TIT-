@@ -1,0 +1,10 @@
+{
+  "note": "Official Lean binaries with an executable-path runtime compatibility shim. The shim only resolves this process executable via AT_EXECFN when /proc is unavailable. Lean proof checking and imported mathematics are unmodified.",
+  "files": {
+    "tooling/lean-4.24.0-linux/bin/lean": "8fadc3ed92cc9decb94c96ee9c0876e91e03a3a5e69138f32114f02789e2766c",
+    "tooling/lean-4.24.0-linux/lib/lean/libleanshared.so": "8cc9858cc57c52015ba6dd948bdbf7f05926b9b5fcead69a964f0ad61ddd79dd",
+    "tooling/exepath_compat.c": "c2564d1e99ab0a4c514ac385aed621053cc183048f8325cc0beb886666abb5cf",
+    "tooling/exepath_compat.so": "ecf31594b1f5d55b08d5e33e5b857d1323577b52736472b3df113c81aec7654d",
+    "run_tool.py": "49301a07217edc6a91fa9275f6bd646cb7c9caad74325b6c15b7dcada67b7697"
+  }
+}

@@ -1,0 +1,16 @@
+% Suggested additions only. The root editor decides placement and bibliography style.
+
+% Related-work paragraph for the constrained small-noise extension.
+The small-noise objective has the weighted inverse-trace form familiar from A-optimal experimental design. Conic formulations for such estimation criteria and additional resource constraints are classical~\cite[Sec. 4.1 and Theorem 4.1]{sagnol2010}; semidefinite methods also cover continuous polynomial and rational design spaces~\cite[Example 6 and Theorem 9]{papp2011}. We use these convex tools after proving that scalar exactness forces the encoder's feature family. Our result identifies the global computation-specific tradeoff within the stated decoder and small-noise model; it does not introduce a new generic matrix optimization principle.
+
+% Optional final sentence following a shape-matrix formulation.
+The shape formulation connects the problem to classical enclosing-ellipsoid optimization~\cite[Chap. 8]{boyd2004}. Here we optimize target-sensitive widths and a prior-weighted trace, rather than ellipsoid volume.
+
+% Suggested bibliography entries; preprints are intentionally identified by the
+% inspected versions. Replace with publisher-verified final records if available.
+\bibitem{sagnol2010} G. Sagnol, ``Computing optimal designs of multiresponse experiments reduces to second-order cone programming,'' arXiv:0912.5467v3, 2010.
+\bibitem{papp2011} D. Papp, ``Optimal designs for rational function regression,'' arXiv:1009.1444v2, 2011.
+\bibitem{boyd2004} S. Boyd and L. Vandenberghe, \emph{Convex Optimization}. Cambridge University Press, 2004.
+
+% Alternative, restrained contribution sentence.
+We derive local additive factorization from scalar exactness, use restricted additive rigidity to identify every admissible feature curve, and optimize its conditioning and small-noise risk under a pointwise peak constraint.

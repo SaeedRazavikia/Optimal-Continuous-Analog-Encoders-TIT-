@@ -1,0 +1,68 @@
+\section{Polynomial Readouts}\label{app:polynomial}
+
+We can also enlarge the class with explicit optima for $D(d)=d^2$. Let
+\begin{equation}
+ f(\mathbf s)=F(m,q),\qquad
+ F(m,q)=\sum_{(i,j)\in\mathcal I}a_{ij}m^i q^j,
+ \label{eq:polyclass}
+\end{equation}
+where $\mathcal I$ is finite, $i,j$ are nonnegative integers, $a_{ij}\ge0$, and all present powers $i$ have the same parity $\epsilon\in\{0,1\}$. Assume the target depends on both arguments, equivalently
+\begin{align*}
+ \alpha&=F_m(1,1)=\sum i a_{ij}>0,\\
+ \beta&=F_q(1,1)=\sum j a_{ij}>0.
+\end{align*}
+The polynomial degree is unrestricted. This class includes products of moments and sums of interactions, extending the preceding moment-minus-mean class.
+
+\begin{theorem}
+\label{thm:polynomial}
+Let $K\ge4$ and let \eqref{eq:polyclass} satisfy the stated conditions. Define
+$$
+ t=\frac{\alpha}{2\beta},\qquad
+ b=\frac{2}{1-t^2+t\sqrt{t^2+2}},\qquad a_0=\sqrt{b(2-b)}.
+$$
+An optimal encoder over every continuous shared peak-admissible map is
+\begin{equation}
+\begin{aligned}
+ \enc^\star(s)&=\sqrt P\,[a_0s+i(bs^2-1)],\\
+ \Lambda_{\sq}^\star(f)&=\frac{K^2P}{\beta^2}b^2(b-1).
+\end{aligned}
+ \label{eq:polyopt}
+\end{equation}
+\end{theorem}
+\begin{proof}
+\emph{Step 1: Exactness forces both moments.}
+Suppose two interior triples with statistics $(S,Q)$ and $(\widetilde S,\widetilde Q)$ have equal received sums. Complete both triples with one common input $x$ and $K-4$ zeros. Exactness implies the polynomial identity
+$$
+ F((S+x)/K,(Q+x^2)/K)
+ =F((\widetilde S+x)/K,(\widetilde Q+x^2)/K)
+$$
+for all real $x$, since it holds on $(-1,1)$.
+
+Put $c_{ij}=a_{ij}/K^{i+j}$ and $d=\max(i+2j)$ over nonzero terms. Every weighted degree $i+2j$ has parity $\epsilon$, so no term has degree $d-1$. If a highest-degree term has $i>0$, the coefficient of $x^{d-1}$ is
+$$
+ S\sum_{i+2j=d}i c_{ij},
+$$
+with a strictly positive multiplier. Thus $S=\widetilde S$. For a completion with $S+x\ne0$ and positive second moments, $F((S+x)/K,q)$ is strictly monotone in $q$: all nonzero derivative terms have the same sign. Hence $Q=\widetilde Q$.
+
+Otherwise the highest-degree term is a pure second-moment power, so $d=2J$ and that term is $c_{0J}(Q+x^2)^J$. The coefficient of $x^{d-2}$ is $Jc_{0J}Q$ plus constants from terms of weighted degree $d-2$. It follows that $Q=\widetilde Q$. In this case all mean powers are even, and for each positive second moment $F$ is strictly increasing in $|m|$. Equality for all completions gives $(S+x)^2=(\widetilde S+x)^2$ on an interval and hence $S=\widetilde S$.
+
+Lemma~\ref{lem:affine}, with $\phi(s)=s^2$, now forces every continuous exact encoder to be $c+us+vs^2$ with independent real vectors $u,v$. No additional encoder smoothness is assumed.
+
+\emph{Step 2: Exact score of a quadratic curve.}
+Let $G=\left(\begin{smallmatrix}A&C\\C&B\end{smallmatrix}\right)$ be the Gram matrix of $u,v$. On $|m|\le1$, $0\le q\le1$, the coefficient assumptions give $|F_m|\le\alpha$ and $|F_q|\le\beta$. At $(1,1)$ the gradient is $(\alpha,\beta)$, and at $(-1,1)$ it is $((-1)^{\epsilon+1}\alpha,(-1)^\epsilon\beta)$. Thus an all-pair line-integral bound gives
+$$
+ \Lambda_{\sq}(\enc;f)
+ \ge\frac{K^2(AB-C^2)}{\alpha^2B+\beta^2A+2\alpha\beta|C|}.
+$$
+This bound is sharp. Choose distinct interior inputs approaching whichever consensus endpoint maximizes the gradient's dual norm. The two-moment map has rank two there. Arbitrarily small attainable moment displacements in the dual-gradient direction approach the displayed quotient. This proves equality.
+
+\emph{Step 3: Peak-constrained optimization.}
+Reflection of the source flips the sign of $\Delta S$ and preserves $\Delta Q$ and the absolute target gap. Averaging peak constraints at $s,-s$, projecting the translation onto the quadratic coefficient, and choosing the linear coefficient orthogonal to it preserves $A,B$ and removes $C$ without worsening the score. The three peak constraints at $0,\pm1$ then reduce the optimum to $A=P b(2-b)$ and $B=P b^2$, $1\le b<2$. The peak identity $|\enc_b(s)|^2/P=1-b^2s^2(1-s^2)\le1$ verifies the whole interval. Minimization of
+$$
+ \frac{\alpha^2}{b(2-b)}+\frac{\beta^2}{b^2}
+$$
+gives $\alpha^2b(b-1)=\beta^2(2-b)^2$, which yields \eqref{eq:polyopt}. Any nonexact competitor has zero squared score.
+\end{proof}
+
+More examples are $m^2q+\eta q^2+\zeta m^4$ for $\eta,\zeta\ge0$, with $\alpha=2+4\zeta$ and $\beta=1+2\eta$, and $m^3q^2+m q^4$, with $\alpha=4$, $\beta=6$. Affine output changes scale the score but preserve the map. A fixed interval homeomorphism may also calibrate all inputs before computing the moments.
+

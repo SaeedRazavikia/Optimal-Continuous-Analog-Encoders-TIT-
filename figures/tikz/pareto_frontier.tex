@@ -1,0 +1,73 @@
+% Native PGFPlots; analytic curves and archived values are exported without MC.
+\begin{tikzpicture}
+\begin{groupplot}[
+ group style={group name=paretoplots,group size=2 by 1,horizontal sep=0.58in},
+ width=2.98in,height=1.99in,scale only axis,
+ /tikz/font=\fontsize{8}{9.5}\selectfont,
+ tick label style={font=\fontsize{8}{9.5}\selectfont},
+ label style={font=\fontsize{8}{9.5}\selectfont},
+ title style={font=\fontsize{8}{9.5}\selectfont,yshift=2pt},
+ axis line style={draw=figGray!65,line width=0.4pt},
+ tick style={draw=figGray!70,line width=0.4pt},tick align=outside,
+ grid=major,grid style={draw=figGray!18,line width=0.3pt},
+ axis background/.style={fill=white},
+ legend cell align=left,
+ legend style={draw=none,fill=none,font=\fontsize{8}{9.5}\selectfont,
+               /tikz/every even column/.append style={column sep=7pt}},
+ every axis plot/.append style={line width=1pt,no marks},
+]
+\nextgroupplot[
+ title={(a) Optimal robustness--MSE tradeoff},
+ xmin=0.49,xmax=1.01,ymin=0,ymax=42,xtick={0.5,0.6,0.7,0.8,0.9,1},
+ ytick={0,10,20,30,40},
+ xlabel={Required separation retention $\eta$},
+ ylabel={Small-noise MSE reduction (\%)},
+ legend to name=paretoCurveLegend,legend columns=2]
+\addplot[figBlue] table[x=eta,y=gain]{figures/data/pareto_uniform_K4.dat};
+\addlegendentry{Uniform, $K=4$}
+\addplot[figBlue,dashed] table[x=eta,y=gain]{figures/data/pareto_endpoint_beta_K4.dat};
+\addlegendentry{Beta, $K=4$}
+\addplot[figOrange] table[x=eta,y=gain]{figures/data/pareto_uniform_K16.dat};
+\addlegendentry{Uniform, $K=16$}
+\addplot[figOrange,dashed] table[x=eta,y=gain]{figures/data/pareto_endpoint_beta_K16.dat};
+\addlegendentry{Beta, $K=16$}
+\addplot[figBlue,only marks,mark=*,mark size=2pt,forget plot]
+ table[x=eta,y=gain]{figures/data/pareto_transition_uniform_K4.dat};
+\addplot[figBlue,only marks,mark=*,mark size=2pt,
+ mark options={fill=white},forget plot]
+ table[x=eta,y=gain]{figures/data/pareto_transition_endpoint_beta_K4.dat};
+\addplot[figOrange,only marks,mark=square*,mark size=2pt,forget plot]
+ table[x=eta,y=gain]{figures/data/pareto_transition_uniform_K16.dat};
+\addplot[figOrange,only marks,mark=square*,mark size=2pt,
+ mark options={fill=white},forget plot]
+ table[x=eta,y=gain]{figures/data/pareto_transition_endpoint_beta_K16.dat};
+
+\nextgroupplot[
+ title={(b) The peak constraint in feature space},
+ axis equal image,
+ xmin=-1.5,xmax=1.5,ymin=-0.075,ymax=1.9283557047,
+ xtick={-1,0,1},ytick={0,0.5,1,1.5},
+ xlabel={First feature coordinate},ylabel={Second feature coordinate},
+ legend to name=paretoEllipseLegend,legend columns=2]
+\addplot[figGray,densely dotted,line width=1.1pt]
+ table[x=x,y=y]{figures/data/pareto_ellipse_robust.dat};
+\addlegendentry{Separation optimum}
+\addplot[figBlue]
+ table[x=x,y=y]{figures/data/pareto_ellipse_retention90.dat};
+\addlegendentry{$90\%$ retention}
+\addplot[figOrange,dashed]
+ table[x=x,y=y]{figures/data/pareto_ellipse_prior.dat};
+\addlegendentry{Prior optimum}
+\addplot[black,line width=1.3pt]
+ table[x=x,y=y]{figures/data/pareto_feature_curve.dat};
+\addlegendentry{Feature curve}
+\addplot[black,only marks,mark=*,mark size=1.7pt,forget plot]
+ table[x=x,y=y]{figures/data/pareto_contact_points.dat};
+\end{groupplot}
+\node[anchor=north,inner sep=0pt] at
+ ([yshift=-37pt]paretoplots c1r1.south)
+ {\pgfplotslegendfromname{paretoCurveLegend}};
+\node[anchor=north,inner sep=0pt] at
+ ([yshift=-37pt]paretoplots c2r1.south)
+ {\pgfplotslegendfromname{paretoEllipseLegend}};
+\end{tikzpicture}

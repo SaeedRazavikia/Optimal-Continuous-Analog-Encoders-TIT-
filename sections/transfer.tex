@@ -1,0 +1,17 @@
+\subsection{Other Dissimilarities}
+The shrinking-pair statement gives a criterion-transfer corollary over the full continuous competitor class.
+
+\begin{corollary}
+Suppose $D:[0,\infty)\to[0,\infty)$ is continuous, $D(0)=0$, positive away from zero, and
+$$
+ D(d)\ge c_Dd^2\quad(0\le d\le2K\sqrt P),\qquad
+ \lim_{d\downarrow0}\frac{D(d)}{d^2}=c_D>0.
+$$
+For the targets of Proposition~\ref{prop:score}, every exact continuous encoder satisfies $\Lambda_D=c_D\Lambda_{\sq}$. Therefore every optimal encoder for the targets of Proposition~\ref{prop:score} remains optimal, and its optimum is multiplied by $c_D$.
+\end{corollary}
+\begin{proof}
+The lower envelope gives $\Lambda_D\ge c_D\Lambda_{\sq}$. Proposition~\ref{prop:score} supplies pairs attaining the opposite inequality in the limit. Nonexact encoders have zero score because $D(0)=0$.
+\end{proof}
+
+Examples are $D(d)=d^2+ad^4$ with $a\ge0$ and $D(d)=e^{ad^2}-1$ with $a>0$. The original uncentered $e^{ad^2}$ criterion has $D(0)=1$ and is not covered. No closed-form optimizer for that criterion is claimed here. Gaussian MSE and optimality at a fixed disturbance radius also remain separate problems.
+

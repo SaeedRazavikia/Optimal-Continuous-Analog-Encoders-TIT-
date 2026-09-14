@@ -1,0 +1,46 @@
+\section{System Model}\label{sec:model}
+\subsection{Multiple-Access Channel}
+We consider the sensing architecture in Fig.~\ref{fig:system}. Each of $K\ge4$ transmitters holds a calibrated scalar observation $s_k\in I=[-1,1]$. All transmitters apply one shared continuous map $\enc:I\to\C$ and transmit simultaneously over one complex channel use. We identify $\C$ with $\R^2$; the real and imaginary components occupy the in-phase and quadrature coordinates of the same symbol. For $P>0$, we impose the per-transmitter pointwise constraint
+\begin{equation}
+ x_k=\enc(s_k),\qquad \sup_{s\in I}|\enc(s)|^2\le P.
+ \label{eq:peak-model}
+\end{equation}
+Thus every possible input obeys the transmit-power limit.
+
+We assume synchronized transmissions and unit effective channel gains after compensation. The receiver observes
+\begin{equation}
+ Y=\sum_{k=1}^{K}x_k+N
+   =r_\enc(\mathbf s)+N,\qquad
+ \widehat f(Y)=D(Y),
+ \label{eq:mac-model}
+\end{equation}
+where $r_\enc(\mathbf s)=\sum_k\enc(s_k)$ is the noiseless aggregate and $N\in\C$ is an additive disturbance. Our uniform analysis allows arbitrary $N$; the small-noise analysis specifies $N\sim\mathcal{CN}(0,N_0)$, independent of the sources, with $\mathbb E|N|^2=N_0$. The receiver computes the target directly from the aggregate. Calibration and synchronization are assumed resources, and their overhead is excluded from the one-use payload count. Section~\ref{sec:implementation} quantifies bounded residual implementation and channel errors.
+
+\subsection{Target Function}
+We fix the input calibration and target before selecting the encoder. For example, a fusion center may require the variance of bounded sensor readings during each synchronized epoch. We fix two real functions $\phi,\psi$ and consider
+
+\begin{equation}
+ f_{\phi,\psi}(\mathbf s)
+ =\frac1K\sum_{k=1}^K\phi(s_k)
+   -\psi\!\left(\frac1K\sum_{k=1}^Ks_k\right).
+ \label{eq:target}
+\end{equation}
+Write $S=\sum_k s_k$, $T=\sum_k\phi(s_k)$, $m=S/K$, and $t=T/K$. For power features, we write $t_p=K^{-1}\sum_k s_k^p$; in particular, $Q=\sum_k s_k^2$, $q=Q/K=t_2$, and $t_4$ is the fourth raw moment. When $\psi=\phi$ is convex, \eqref{eq:target} is its Jensen gap. In particular, $\phi(s)=s^2$ gives variance, while $\phi(s)=s^4$ gives $K^{-1}\sum_k s_k^4-m^4$. The latter is not the fourth central moment.
+
+We call $\enc$ exact when equal noiseless aggregates imply equal target values:
+$$r_\enc(\mathbf s)=r_\enc(\mathbf t)\ \Longrightarrow\ f(\mathbf s)=f(\mathbf t).$$
+For continuous encoders and targets, this condition gives a continuous receiver function on the noiseless received set. Indeed, the map from the compact input cube onto that set is a quotient map. Exactness determines which target values the transmitted symbols must distinguish; noise sensitivity determines how reliably the receiver can distinguish them.
+
+\subsection{Separation Score}
+We measure noise sensitivity through the squared-separation score
+\begin{equation}
+ \Lambda_{\sq}(\enc;f)
+ =\inf_{f(\mathbf s)\ne f(\mathbf t)}
+ \frac{|r_\enc(\mathbf s)-r_\enc(\mathbf t)|^2}
+ {|f(\mathbf s)-f(\mathbf t)|^2}.
+ \label{eq:score}
+\end{equation}
+A larger score means that distinct target values produce better-separated received sums. In particular, a score $\Lambda>0$ guarantees $|\Delta f|\le |\Delta r|/\sqrt\Lambda$ for every pair of inputs and implies exactness. Proposition~\ref{prop:amplification} shows that $1/\sqrt\Lambda$ is also the smallest uniform noise-amplification constant achievable by one decoder. The score therefore connects the transmit-curve geometry to a receiver error guarantee. Throughout, $C^1(I)$ means a continuously differentiable function with finite continuous one-sided derivatives at the endpoints. We state separately when only interior differentiability is needed.
+
+\subsection{Design Overview}
+Under the assumptions below, Section~\ref{sec:design} reduces exact encoders to $\enc(s)=c+us+v\phi(s)$, giving the channel sum $Kc+uS+vT$. The offset $c$ places the curve inside the peak-power disk; the lengths and relative angle of $u,v$ control noise sensitivity. The receiver recovers the two aggregate features and evaluates the target.

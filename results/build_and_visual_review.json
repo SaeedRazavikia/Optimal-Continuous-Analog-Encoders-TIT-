@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "pages": 18,
+  "pdf_sha256": "9c71f10578c2629d53e02f135fcd829adc302fdd7a5e9283089a517651b6336b",
+  "pdf_bytes": 576826,
+  "native_tikz_figures": 6,
+  "embedded_raster_image_objects": 0,
+  "build": "Three successful pdfLaTeX passes; no overfull boxes or unresolved references/citations. Nonfatal underfull spacing warnings reviewed visually.",
+  "visual_review": {
+    "pages_1_to_6": "Actual rendered pages reviewed; system model and assumptions table readable",
+    "pages_7_to_12": "Actual rendered pages reviewed by root editor; final changed pages 8\u201310 re-inspected after separating analytic figures",
+    "pages_13_to_18": "Actual rendered pages reviewed; Pareto and finite-noise figures, tables, appendices and references readable"
+  },
+  "source_data": "Archived numerical values preserved by checked native plotting exports; no new Monte Carlo samples",
+  "submission_scope": "Prepared for author review; author-specific declarations and current live journal instructions remain to be finalized."
+}

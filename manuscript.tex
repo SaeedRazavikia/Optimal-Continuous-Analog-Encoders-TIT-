@@ -1,0 +1,107 @@
+% Compile this file for the two-column paper, or manuscript_submission.tex
+% for the single-column, double-spaced manuscript. Both share all content.
+% \ifdefined\SubmissionFormat
+%   % IEEEtran's 12pt unity baseline is 13.92pt; this factor gives 24pt.
+%   \def\CLASSINPUTbaselinestretch{1.724137931}
+%   \def\CLASSINPUTinnersidemargin{1in}
+%   \def\CLASSINPUToutersidemargin{1in}
+%   \def\CLASSINPUTtoptextmargin{1in}
+%   \def\CLASSINPUTbottomtextmargin{1in}
+\documentclass[journal,12pt,onecolumn,draftclsnofoot,letterpaper]{IEEEtran}
+% \else
+  % \documentclass[journal]{IEEEtran}
+% \fi
+
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools,booktabs,array,microtype,graphicx}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,patterns}
+\usepgfplotslibrary{groupplots,fillbetween}
+\input{figures/tikz/styles}
+\usepackage{placeins,balance}
+\usepackage[hidelinks]{hyperref}
+\ifdefined\SubmissionFormat
+  \usepackage{etoolbox,adjustbox}
+  \renewcommand{\IEEEPARstart}[2]{#1#2}
+  \setlength{\tabcolsep}{5pt}
+  \makeatletter
+  % Avoid the large publication-title gap and use a compact title block.
+  \def\@IEEEstatictitlevskip{\vskip 0pt}
+  \patchcmd{\@maketitle}{\Huge}{\def\baselinestretch{1}\Huge}{}%
+    {\PackageError{manuscript}{Could not set title spacing}{}}
+  % Keep abstract, keywords, references, and captions at the text size.
+  \def\@IEEEabskeysecsize{\normalsize}
+  \patchcmd{\thebibliography}{\footnotesize}{\normalsize}{}%
+    {\PackageError{manuscript}{Could not set reference font size}{}}
+  \let\SubmissionMakeCaption\@makecaption
+  \long\def\@makecaption#1#2{\begingroup
+    \let\footnotesize\normalsize
+    \SubmissionMakeCaption{#1}{#2}\endgroup}
+  \makeatother
+  \renewenvironment{abstract}{\par%
+    \noindent\textbf{Abstract}\par\noindent\ignorespaces}%
+    {\par\addvspace{0.5\baselineskip}}
+  \renewenvironment{IEEEkeywords}{\begin{samepage}\par\noindent
+    \textbf{Index Terms---}\ignorespaces}%
+    {\par\end{samepage}\addvspace{0.5\baselineskip}}
+  % Preserve the original vector-figure typography and shrink only if needed.
+  \newcommand{\paperfigure}[1]{\begingroup
+    \def\baselinestretch{1}%
+    \renewcommand{\footnotesize}{\fontsize{8}{9.5}\selectfont}%
+    \renewcommand{\scriptsize}{\fontsize{7}{8}\selectfont}%
+    \begin{adjustbox}{max width=\linewidth}\input{#1}\end{adjustbox}%
+    \endgroup}
+\else
+  \newcommand{\paperfigure}[1]{\input{#1}}
+\fi
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\enc}{\mathscr E}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\sq}{\mathrm{sq}}\newcommand{\T}{\mathsf T}\newcommand{\suc}{\succeq}
+\hypersetup{pdftitle={Optimal Continuous Analog Encoders for Moment-Based Computation},pdfauthor={Saeed Razavikia}}
+\title{Optimal Continuous Analog Encoders for\\Moment-Based Computation}
+\author{Saeed Razavikia,~\IEEEmembership{Member,~IEEE} \thanks{Saeed Razavikia is with the Department of Network and Systems Engineering, KTH Royal Institute of Technology, Stockholm, Sweden (e-mail: \href{mailto:sraz@kth.se}{sraz@kth.se}).}}
+\begin{document}\maketitle
+\begin{abstract}
+We study the computation of moment-based functions, including variance, from simultaneous analog transmissions over one complex multiple-access channel use. Each transmitter applies the same continuous encoder to a bounded scalar input and obeys a pointwise peak-power constraint. For at least four transmitters and targets satisfying the stated regularity and strict convexity or concavity assumptions, we prove that exact computation forces the encoder to preserve two specific features: the input and its prescribed nonlinear transformation. This reduces the design of an arbitrary continuous encoder to the geometry of a planar curve. We derive the exact worst-case separation score, formulate globally optimal encoder design as a convex program, and obtain explicit quadratic and quartic curves. A certified numerical procedure handles other smooth features, with an exponential example achieving a global gap below $0.006\%$. A simple projection decoder attains the smallest possible uniform noise-amplification constant. For this decoder and a specified input distribution, we characterize the best small-noise mean-squared error subject to a required separation score. The resulting tradeoff is continuous and convex and admits an explicit scalar characterization for quadratic features. For independent uniform inputs, retaining $90\%$ of optimal separation reduces the small-noise error coefficient by $17.68\%$ and $29.07\%$ with four and sixteen transmitters, respectively. Numerical experiments and deterministic mismatch bounds assess the designs beyond the ideal noiseless model.
+\end{abstract}
+\begin{IEEEkeywords}Over-the-air computation, analog encoding, multiple-access channels, moment representations, convex optimization, Lipschitz decoding.\end{IEEEkeywords}
+\begin{figure*}[t]
+ \centering\paperfigure{figures/tikz/system_model}
+ \caption{One-use analog computation over a complex multiple-access channel. Every transmitter applies the same continuous encoder to its calibrated input and satisfies the pointwise peak constraint. The channel superposes the symbols; the receiver estimates the prescribed moment-and-mean target from one noisy aggregate. Effective channel gains are unity after compensation, and the payload count excludes calibration and synchronization overhead.}
+ \label{fig:system}
+\end{figure*}
+\input{sections/introduction}
+\input{sections/model}
+\input{sections/assumptions}
+\input{sections/rigidity}
+\input{sections/synthesis}
+\input{sections/inverse_synthesis}
+\input{sections/examples}
+\input{sections/decoding}
+\input{sections/implementation}
+\input{sections/pareto}
+\input{sections/certified_synthesis}
+\input{sections/evidence}
+\FloatBarrier
+\input{sections/boundaries}
+\appendices
+\numberwithin{theorem}{section}
+\input{sections/rigidity_proof}
+\input{sections/design_proof}
+\input{sections/quartic_proof}
+\input{sections/pareto_proofs}
+\input{sections/certification_proof}
+\input{sections/polynomial_appendix}
+\input{sections/criterion_appendix}
+\input{sections/approximate_rigidity}
+\input{sections/formalization_appendix}
+\input{sections/acknowledgment}
+% \ifdefined\SubmissionFormat\else\balance\fi
+% \input{bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+
+\end{document}

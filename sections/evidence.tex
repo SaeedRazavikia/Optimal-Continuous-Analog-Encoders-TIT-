@@ -1,0 +1,29 @@
+\section{Numerical Results}\label{sec:evidence}
+\subsection{Analytic Checks}
+
+We compare the scores and statistical performance of the curves in Fig.~\ref{fig:curves}. The analytic proofs establish global optimality; the numerical checks validate coefficients and implementations.
+
+\begin{table}[t]\caption{Normalized squared scores and sharp amplification. Here $\bar\lambda=\Lambda_\sq/(K^2P)$ and $\ell=K\sqrt P L_\enc=1/\sqrt{\bar\lambda}$. Baselines are defined in Fig.~\ref{fig:curves}.}\label{tab:values}
+\centering\small\begin{tabular}{@{}lrrr@{}}\toprule
+Target & Baseline $\bar\lambda$ & Optimal $\bar\lambda$ & Optimal $\ell$\\\midrule
+$q-m^2$ & $0.200000$ & $0.206267$ & $2.201835$\\
+$t_4-m^4$ & $0.047059$ & $0.058534$ & $4.133308$\\
+$mq$ & $0.500000$ & $0.592593$ & $1.299038$\\\bottomrule
+\end{tabular}\end{table}
+
+
+The quadratic baseline is feasible by the peak identity with $b=1$. For the quartic baseline, $x=s^2\in[0,1]$ gives
+$$|\enc_{\rm base}(s)|^2/P=\tfrac45[x+(x^2-1/2)^2]\le1,$$
+since $x\le1$ and $(x^2-1/2)^2\le1/4$. Its exact score is $(4/85)K^2P$. Table~\ref{tab:values} compares these specified reference designs with the certified optima, without implying MSE gains.
+
+The supplied structural checker verifies the implemented coefficients, quadratic stationarity, quartic peak and multiplier identities, asymmetric mean penalties, shrinking source perturbations, and Gram rank reduction. A separate decoder checker compares the strip formula for nonorthogonal directions with received-plane quadratic programming and verifies exactness and disturbance bounds across several values of $K$ and $P$. These checks pass, but their purpose is implementation verification. The full-interval analytic identities and the rational certificate in Section~\ref{sec:certified} establish feasibility and global bounds independently of sampling.
+
+% Queue the wide performance figure early enough to remain with its results.
+\begin{figure*}[!t]
+ \centering\paperfigure{figures/tikz/finite_noise}
+ \caption{Empirical MSE reduction relative to the specified baseline, $100(1-\mathrm{MSE}_{\rm design}/\mathrm{MSE}_{\rm base})$. Solid curves maximize worst-case squared separation; dashed curves use the prior-aware small-noise coefficients. All designs satisfy the same pointwise peak constraint and use the same projection decoder and output-clipping architecture. Error bars show pointwise paired 95\% confidence intervals and are often smaller than the markers. Endpoint Beta denotes $2X-1$ with $X\sim\operatorname{Beta}(0.3,0.3)$.}
+ \label{fig:finite-noise}
+\end{figure*}
+
+\input{sections/pareto_evidence}
+\input{sections/finite_noise}

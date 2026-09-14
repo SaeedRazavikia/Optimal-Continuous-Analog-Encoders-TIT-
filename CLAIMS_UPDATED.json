@@ -1,0 +1,585 @@
+{
+  "paper": "TIT",
+  "prepared_on": "2026-09-13",
+  "status_note": "Developed after targeted primary-source review, independent internal mathematical assessment, exact-rational synthesis certification, paired finite-noise experiments, a global robustness-constrained small-noise frontier, and a second implementation in the same environment. No historical priority, external peer review, or different-machine reproduction is certified.",
+  "claims": [
+    {
+      "id": "TIT-01",
+      "title": "Continuous moment-encoder rigidity",
+      "claimed_result_or_task": "Every continuous exact planar encoder has form c+u*s+v*phi(s), with real-independent u,v; converse exactness also holds.",
+      "scope": "K>=4; phi continuous on [-1,1], C1 in its interior and nonaffine; psi continuous, interior C1, strictly convex or strictly concave; f=mean(phi)-psi(mean).",
+      "criterion": "Exact computation; positive squared score implies this prerequisite.",
+      "paper_role": "central",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "lem:collision"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "lem:topology"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "lem:affine"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "thm:rigidity"
+        }
+      ],
+      "dependencies": [],
+      "priority_audit": "Charalambides (2013), Theorem 1.6 and Section 5, is a close affine-uniqueness and regularization precedent. Distinction retained: scalar exactness and one-way collision implication yield local factorization; C1 nonaffine features may have affine subintervals. Historical priority not established.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:rigidity",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-02",
+      "title": "Exact score of the forced feature curve",
+      "claimed_result_or_task": "Lambda_sq=K^2/max(w_minus^T G^-1 w_minus,w_plus^T G^-1 w_plus).",
+      "scope": "Nondegenerate feature curve; phi continuous on the closed interval and C1 in its interior, strictly convex or concave; psi C1 on the closed interval, strictly convex or concave. Feature endpoint derivatives may diverge; readout endpoint slopes are finite. Global continuous application uses TIT-01.",
+      "criterion": "Squared separation.",
+      "paper_role": "central",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "prop:score"
+        }
+      ],
+      "dependencies": [
+        "TIT-01"
+      ],
+      "priority_audit": "Check all-pair bound and realizable shrinking configurations approaching endpoint dual-gradient maxima.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "prop:score",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md",
+      "revised_generator_assumptions": "phi continuous on closed I and C1 in interior, strictly convex or concave; psi C1 on closed I, strictly convex or concave. Feature endpoint derivatives may diverge; mean-readout endpoint slopes must be finite."
+    },
+    {
+      "id": "TIT-03",
+      "title": "Exact convex synthesis and planar reconstruction",
+      "claimed_result_or_task": "Seven real decision variables, PSD conditions and continuous peak inequalities; optimum positive and attained; rank-two reconstruction has no relaxation gap.",
+      "scope": "Assumptions of TIT-01 and TIT-02; shared planar encoder, pointwise peak P.",
+      "criterion": "Squared separation.",
+      "paper_role": "central",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "thm:sdp"
+        }
+      ],
+      "dependencies": [
+        "TIT-01",
+        "TIT-02"
+      ],
+      "priority_audit": "Check PSD reduction, distinct endpoint slopes, compactness and every peak constraint. This is not a generic closed-form optimizer.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:sdp",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md",
+      "revised_generator_assumptions": "phi continuous on closed I and C1 in interior, strictly convex or concave; psi C1 on closed I, strictly convex or concave. Feature endpoint derivatives may diverge; mean-readout endpoint slopes must be finite."
+    },
+    {
+      "id": "TIT-04",
+      "title": "Explicit quadratic-feature optimum",
+      "claimed_result_or_task": "Optimal parabola with b determined by M=abs(psi_prime(1)); variance score 4*K^2*P/(9+6*sqrt(3)).",
+      "scope": "K>=4; phi(s)=s^2; psi even, C1, strictly convex or concave; nontrivial target.",
+      "criterion": "Squared separation.",
+      "paper_role": "main_example",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "thm:parabola"
+        },
+        {
+          "path": "sources/planar_note/research_note.tex",
+          "tex_label": "thm:optimal"
+        },
+        {
+          "path": "sources/planar_note/research_note.tex",
+          "tex_label": "cor:variance"
+        }
+      ],
+      "dependencies": [
+        "TIT-01",
+        "TIT-02"
+      ],
+      "priority_audit": "Verify normalization, peak boundary reduction, parameter ranges and global versus family-only K=2,3 scope.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:parabola",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-05",
+      "title": "Explicit quartic-feature optimum",
+      "claimed_result_or_task": "An algebraically specified quartic curve has an analytic peak factorization and a global optimality certificate; fourth-order Jensen gap score approximately 0.058533506998*K^2*P.",
+      "scope": "K>=4; phi(s)=s^4; psi even, C1, strictly convex or concave.",
+      "criterion": "Squared separation.",
+      "paper_role": "main_example",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "thm:quartic"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "eq:quarticpeak"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "eq:kkt"
+        }
+      ],
+      "dependencies": [
+        "TIT-01",
+        "TIT-02",
+        "TIT-03"
+      ],
+      "priority_audit": "Check root range/uniqueness, signs, feasible contacts, KKT certificate and target naming.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:quartic",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-06",
+      "title": "Admissible moment-polynomial targets",
+      "claimed_result_or_task": "Arbitrary-degree polynomials F(m,q) under coefficient/parity restrictions admit an explicit optimal parabola determined by endpoint partial derivatives.",
+      "scope": "K>=4; nonnegative coefficients; common parity of mean exponents; positive endpoint partial derivatives in both variables.",
+      "criterion": "Squared separation.",
+      "paper_role": "Appendix A; mq example remains in main text",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/channelcomp_extension/channelcomp_scope_and_larger_classes.tex",
+          "tex_label": "thm:polynomial"
+        }
+      ],
+      "dependencies": [
+        "TIT-01"
+      ],
+      "priority_audit": "The application uses the continuous two-moment lemma; audit polynomial completion, pure-q highest term, monotonicity, exact score and parameter optimum.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:polynomial",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-07",
+      "title": "Local-quadratic metric transfer",
+      "claimed_result_or_task": "For the stated target class, D(d)>=c_D*d^2 and D(d)/d^2 -> c_D>0 imply the same optimizer and Lambda_D=c_D*Lambda_sq.",
+      "scope": "Requires the exact local score and realizable shrinking active pairs; use the original target assumptions.",
+      "criterion": "Specified local-quadratic radial criteria, including centered exponential under its hypotheses.",
+      "paper_role": "Appendix B",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex"
+        },
+        {
+          "path": "sources/planar_note/research_note.tex",
+          "tex_label": "thm:localtransfer"
+        }
+      ],
+      "dependencies": [
+        "TIT-02"
+      ],
+      "priority_audit": "Do not apply to uncentered exp(a*d^2); check equality rather than only one inequality.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "sections/boundaries.tex",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-08",
+      "title": "General-radial quadratic family reduction",
+      "claimed_result_or_task": "Optimization over exact encoders reduces to a one-parameter parabolic family; extending the smooth competitor class uses continuous rigidity.",
+      "scope": "K>=4; nontrivial symmetric quadratic; finite continuous nondecreasing radial D positive away from zero, with inherited exactness and transform conditions.",
+      "criterion": "Specified general radial criteria; equality of suprema need not imply attainment.",
+      "paper_role": "optional_extension",
+      "status": "deferred_not_fully_audited",
+      "source_refs": [
+        {
+          "path": "sources/planar_note/research_note.tex",
+          "tex_label": "thm:reduction"
+        },
+        {
+          "path": "sources/continuous_extension/optimal_encoder_extension.tex",
+          "tex_label": "thm:rigidity"
+        }
+      ],
+      "dependencies": [
+        "TIT-01"
+      ],
+      "priority_audit": "Check the b->2 boundary, exactness requirement when D(0)>0, and what remains unsolved about the best parameter.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": false,
+      "manuscript_label": null,
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-09",
+      "title": "Uniform disturbance-amplification interpretation",
+      "claimed_result_or_task": "Best uniform amplification for one scalar decoder equals Lambda_sq^(-1/2); fixed-radius recovery is a separate objective.",
+      "scope": "Continuous scalar target, exact encoder with finite inverse Lipschitz constant; all inputs and additive disturbances.",
+      "criterion": "Uniform absolute-error amplification, not unrestricted Gaussian MSE.",
+      "paper_role": "operational_support",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/legacy_tit/operational.tex",
+          "tex_label": "thm:amplification"
+        },
+        {
+          "path": "sources/legacy_tit/operational.tex",
+          "tex_label": "thm:bounded"
+        },
+        {
+          "path": "sources/legacy_tit/operational.tex",
+          "tex_label": "thm:longarc"
+        }
+      ],
+      "dependencies": [],
+      "priority_audit": "Credit classical extension/recovery arguments; check off-image decoder and avoid transferring fixed-radius optimality.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "prop:amplification",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-10",
+      "title": "Coherence geometry and stability reference",
+      "claimed_result_or_task": "Legacy source claims all-K/all-J coherence optimum and equality classification with sharp dimension-dependent stability exponents.",
+      "scope": "K>=2, C^J output with total peak block energy; fixed common pi-length source phase window and calibration.",
+      "criterion": "Squared separation for the specific coherence target.",
+      "paper_role": "optional_short_example_or_deferred",
+      "status": "deferred_not_fully_audited",
+      "source_refs": [
+        {
+          "path": "sources/legacy_tit/coherence.tex"
+        },
+        {
+          "path": "sources/legacy_tit/stability_details.tex"
+        }
+      ],
+      "dependencies": [],
+      "priority_audit": "Do not treat this source as the new paper outline or the intended broad function class.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": false,
+      "manuscript_label": null,
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-11",
+      "title": "Practical decoder with a certified bound",
+      "claimed_result_or_task": "Closed-form metric strip projection followed by readout attains the sharp uniform disturbance constant for every nondegenerate moment curve under exact-score hypotheses.",
+      "scope": "Nondegenerate feature encoder under the exact-score hypotheses: phi continuous on the closed interval and interior C1, strictly convex or concave; psi closed-interval C1 and strictly convex or concave. Closed-form received-strip metric projection; polynomial rectangle extension under stated restrictions.",
+      "criterion": "Uniform amplification; separate empirical Gaussian MSE where measured.",
+      "paper_role": "development_priority",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "ROADMAP.md"
+        },
+        {
+          "path": "sources/legacy_tit/operational.tex",
+          "tex_label": "thm:amplification"
+        }
+      ],
+      "dependencies": [
+        "TIT-02",
+        "TIT-09"
+      ],
+      "priority_audit": "Completed in the manuscript. Verify metric-consistent received-strip projection and global endpoint-gradient control. The second implementation uses direct received-plane halfspace projection; correctness does not establish historical originality.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "thm:decoder",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-12",
+      "title": "Finite-alphabet distinction",
+      "claimed_result_or_task": "For K=4 binary variance, antipodal peak signaling gives 64*P/9, above the restriction of the continuum variance-optimal parabola.",
+      "scope": "Inputs {-1,1}; K=4; same pointwise peak constraint; empirical variance normalization.",
+      "criterion": "Squared separation.",
+      "paper_role": "Appendix B",
+      "status": "included; internally reviewed under stated hypotheses",
+      "source_refs": [
+        {
+          "path": "sources/channelcomp_extension/channelcomp_scope_and_larger_classes.tex"
+        }
+      ],
+      "dependencies": [],
+      "priority_audit": "Recompute finite pairs and keep the result distinct from Gaussian finite-witness inheritance.",
+      "independent_external_review_established": false,
+      "historical_novelty_established": false,
+      "included_in_manuscript": true,
+      "manuscript_label": "sections/boundaries.tex",
+      "audit": "PROOF_AUDIT.md; notes/proof_review.md",
+      "revision_record": "REVISION_RESPONSE.md"
+    },
+    {
+      "id": "TIT-13",
+      "title": "Certified finite-grid synthesis",
+      "claimed_result_or_task": "C2 features admit exact finite-grid upper and scaled-primal lower bounds with O(h^2) gap; verified finite dual witnesses give practical global stopping certificates.",
+      "scope": "Exact-score/synthesis hypotheses plus C2 feature and access to verified evaluations and derivative bounds; grids include endpoints and three fixed spanning feature vectors.",
+      "criterion": "squared separation",
+      "dependencies": [
+        "TIT-02",
+        "TIT-03"
+      ],
+      "manuscript_label": "thm:certifiedgrid",
+      "proof_status": "independently internally reviewed; no invalidating defect found",
+      "certificate": "results/certified_synthesis.json",
+      "priority_audit": "Standard interpolation and weak-duality tools applied to the exact encoder formulation; no novelty claimed for these tools.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false
+    },
+    {
+      "id": "TIT-14",
+      "title": "Certified nonpolynomial example",
+      "claimed_result_or_task": "For phi=psi=exp(s), L<=Lambda*/(K^2P)<=U with exact rational witnesses and gap below 0.006%.",
+      "scope": "s in [-1,1], K>=4, pointwise P>0, shared continuous planar encoder",
+      "criterion": "squared separation",
+      "dependencies": [
+        "TIT-01",
+        "TIT-02",
+        "TIT-03",
+        "TIT-13"
+      ],
+      "manuscript_label": "eq:expcertificate",
+      "proof_status": "Two separately implemented exact-rational interval verifiers pass in the same environment; no external human or different-machine reproduction.",
+      "certificate": "results/certified_synthesis.json",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "independent_implementation_evidence": "results/independent_reproduction.json; notes/independent_reproduction.md; code/independent_reproduce.py"
+    },
+    {
+      "id": "TIT-15",
+      "title": "General fixed-encoder small-noise MSE and paired comparisons",
+      "claimed_result_or_task": "For the specified strip/readout decoder, MSE/N0 tends to tr(Q_pi G^-1)/(2 K^2). For orthogonal polynomial features p=2 or4 this specializes to [1/b^2+p^2 E(m^(2p-2))/a^2]/(2 K^2 P), retaining eq:small-noise-mse. The existing study evaluates 72 paired finite-noise conditions.",
+      "scope": "Exact-score and synthesis hypotheses; fixed joint source law independent of proper complex Gaussian noise, |m|<1 almost surely, Q_pi=E[w(m)w(m)^T] positive definite. Source coordinates need not be independent. Optional scalar output clipping requires the true target strictly inside its interval almost surely. The empirical study retains its stated independent-source priors.",
+      "criterion": "Specified-decoder small-noise coefficient and separate finite-noise empirical comparisons; no unrestricted estimator or finite-noise optimality claim.",
+      "dependencies": [
+        "TIT-01",
+        "TIT-02",
+        "TIT-11"
+      ],
+      "manuscript_label": "prop:general-small-noise",
+      "proof_status": "General dominated-convergence argument internally reviewed; source moments and selected coefficients reproduced by a second implementation in the same environment.",
+      "evidence": "results/finite_noise.json; results/finite_noise.csv",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "specialization_label": "eq:small-noise-mse",
+      "superseded_label": "prop:small-noise",
+      "priority_audit": "Do not interchange the fixed-encoder small-noise limit with optimization over noise-dependent encoders. Finite-SNR results need not agree with the limit within Monte Carlo uncertainty.",
+      "finite_snr_qualification": "At K=4 with endpoint-Beta sources, the recorded 30-dB MSE/N0 values remain 3.49%-7.19% below the asymptotic coefficient, approximately 9.6-10.5 reported Monte Carlo standard errors away. The implemented clipping remains relevant at finite noise."
+    },
+    {
+      "id": "TIT-16",
+      "title": "Equivalent six-variable inverse-metric synthesis",
+      "claimed_result_or_task": "Minimize t over symmetric 2x2 X, center a in R2, and t, subject to peak-block LMIs and w_sigma^T X w_sigma<=t. The optimum is positive and attained; Lambda_sq_star=K^2/t_star. Reconstruct U^T U=X^-1 and E(s)=U(g(s)-a).",
+      "scope": "Exact-score and global-synthesis hypotheses; nonaffine feature graph and pointwise P>0. Six real variables and a continuum of peak-block inequalities.",
+      "criterion": "Squared separation, equivalently maximum inverse-metric endpoint sensitivity.",
+      "dependencies": [
+        "TIT-01",
+        "TIT-02",
+        "TIT-03"
+      ],
+      "manuscript_label": "cor:inverse-synthesis",
+      "priority_audit": "Equivalent enclosing-ellipse formulation using classical Schur-complement modeling. Nonaffineness excludes singular X; endpoint budgets and a fixed peak block control sublevels. Do not claim novelty of SDP/ellipsoid tools or elimination of continuum constraints.",
+      "source_refs": [
+        {
+          "path": "sections/inverse_synthesis.tex",
+          "tex_label": "eq:inverse-synthesis"
+        }
+      ],
+      "paper_role": "supporting_development",
+      "status": "included; internally reviewed under stated hypotheses",
+      "proof_status": "Internal mathematical review within the writing workflow; no invalidating defect found.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "audit": "PROOF_AUDIT.md; notes/structural_review.md"
+    },
+    {
+      "id": "TIT-17",
+      "title": "Global robustness-constrained small-noise frontier",
+      "claimed_result_or_task": "The minimum specified-decoder small-noise coefficient over all continuous exact peak-admissible encoders under Lambda_sq>=K^2 gamma equals a five-variable convex inverse-metric program. It attains its optimum, has a unique optimal feature metric, and has a finite continuous convex nondecreasing value. A plateau ends at the unconstrained optimum actual floor; beyond it the floor is active and the value strictly increases.",
+      "scope": "TIT-15 hypotheses with positive-definite Q_pi and fixed source law; gamma in [0,lambda_star]. At gamma=0 omit endpoint budgets. Five real variables and continuous peak-block inequalities. Translation need not be unique.",
+      "criterion": "Specified-decoder leading Gaussian-MSE coefficient subject to a worst-case squared-separation floor.",
+      "dependencies": [
+        "TIT-01",
+        "TIT-02",
+        "TIT-03",
+        "TIT-15",
+        "TIT-16"
+      ],
+      "manuscript_label": "thm:pareto",
+      "priority_audit": "Strict convexity and convexity in the floor use the equivalent Gram formulation, not linearity of the inverse objective alone. Q_pi positive definite gives compact objective sublevels. The theorem does not optimize finite-noise risk over all estimators or interchange a limit with noise-dependent optimization.",
+      "source_refs": [
+        {
+          "path": "sections/pareto.tex",
+          "tex_label": "eq:pareto-sdp"
+        }
+      ],
+      "paper_role": "central_development",
+      "status": "included; internally reviewed under stated hypotheses",
+      "proof_status": "Internal mathematical review within the writing workflow; no invalidating defect found.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "audit": "PROOF_AUDIT.md; notes/structural_review.md"
+    },
+    {
+      "id": "TIT-18",
+      "title": "Explicit quadratic robustness-small-noise tradeoff",
+      "claimed_result_or_task": "For quadratic features, choose b_gamma=min(b_eff,b_plus(gamma/P)), where b_eff minimizes the prior-averaged sensitivity and b_plus is the upper robustness-boundary root. The curve sqrt(P)[sqrt(b_gamma(2-b_gamma))*s+i(b_gamma*s^2-1)] achieves the global continuous-encoder frontier.",
+      "scope": "TIT-17 hypotheses; phi(s)=s^2, even strictly convex/concave C1 readout, symmetric mean distribution; 0<M_eff<M. Explicitly classified full continuous exact encoder class for K>=4.",
+      "criterion": "Specified-decoder leading Gaussian-MSE coefficient under prescribed squared separation.",
+      "dependencies": [
+        "TIT-04",
+        "TIT-15",
+        "TIT-17"
+      ],
+      "manuscript_label": "cor:quadratic-pareto",
+      "priority_audit": "Reflection and peak-boundary domination justify reduction to the one-parameter family before scalar minimization. Numerical optimization comparisons are not exact certificates. Selected independent checks validate values, not the universal theorem or its originality.",
+      "evidence": "results/pareto_frontier.json; results/pareto_frontier.csv; results/independent_reproduction.json",
+      "source_refs": [
+        {
+          "path": "sections/pareto.tex",
+          "tex_label": "eq:quadratic-pareto-value"
+        }
+      ],
+      "paper_role": "central_development",
+      "status": "included; internally reviewed under stated hypotheses",
+      "proof_status": "Internal mathematical review within the writing workflow; no invalidating defect found.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "audit": "PROOF_AUDIT.md; notes/structural_review.md"
+    },
+    {
+      "id": "TIT-19",
+      "title": "Deterministic implementation and residual-channel error bounds",
+      "claimed_result_or_task": "The ideal decoder obeys |error|<=L_E (|N|+K epsilon sqrt(P)+sqrt(P) sum_k |d_k|) for a peak-feasible implemented encoder uniformly within epsilon sqrt(P) of E and residual gains 1+d_k. Contracting before quantization ensures peak feasibility with epsilon<=2r. Retaining eta of optimal squared separation increases the uniform amplification budget by at most eta^(-1/2).",
+      "scope": "Fixed ideal encoder and its global Lipschitz decoder; implemented map remains pointwise peak-admissible. Residual errors may add coherently. The stated scalar-quantizer example requires r=sqrt(2)/(2^B-1)<1, hence integer B>=2.",
+      "criterion": "Uniform deterministic error bound, separate from exact representation and finite-noise optimum.",
+      "dependencies": [
+        "TIT-09",
+        "TIT-11"
+      ],
+      "manuscript_label": "eq:implementation",
+      "priority_audit": "Direct triangle-inequality application of the existing sharp decoder bound. K does not suppress the normalized worst-case coherent encoder/gain errors. Does not extend exact rigidity to mismatched, asynchronous, or user-specific channels.",
+      "source_refs": [
+        {
+          "path": "sections/implementation.tex",
+          "tex_label": "eq:implementation"
+        }
+      ],
+      "paper_role": "supporting_development",
+      "status": "included; internally reviewed under stated hypotheses",
+      "proof_status": "Internal mathematical review within the writing workflow; no invalidating defect found.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "audit": "PROOF_AUDIT.md; notes/structural_review.md"
+    },
+    {
+      "id": "TIT-20",
+      "title": "Qualitative approximate rigidity under compactness",
+      "claimed_result_or_task": "For a fixed target, peak bound, common encoder continuity modulus, and decoder Lipschitz budget L, vanishing uniform computation error forces uniform distance to the nondegenerate affine-feature family to vanish. A nondecreasing error-to-distance modulus exists, without an explicit rate.",
+      "scope": "Exact rigidity hypotheses and K>=4; peak-admissible continuous encoders in a class with one fixed continuity modulus; a globally L-Lipschitz decoder for each encoder; uniform target error.",
+      "criterion": "Qualitative convergence of encoder-family distance under approximate computation.",
+      "dependencies": [
+        "TIT-01"
+      ],
+      "manuscript_label": "prop:approx-rigidity",
+      "priority_audit": "Arzela-Ascoli compactness plus the limiting pairwise collision inequality and exact rigidity. The feature family is nonclosed, but its distance function is continuous and the limiting encoder is nondegenerate. No quantitative rate, average-MSE implication, unrestricted conditioning bound, or necessity of added hypotheses is claimed.",
+      "source_refs": [
+        {
+          "path": "sections/approximate_rigidity.tex",
+          "tex_label": "eq:approx-collision"
+        }
+      ],
+      "paper_role": "supporting_development",
+      "status": "included; internally reviewed under stated hypotheses",
+      "proof_status": "Internal mathematical review within the writing workflow; no invalidating defect found.",
+      "included_in_manuscript": true,
+      "historical_novelty_established": false,
+      "independent_external_review_established": false,
+      "audit": "PROOF_AUDIT.md; notes/structural_review.md"
+    }
+  ],
+  "independent_implementation_record": {
+    "review_type": "Second implementation in the same environment; not external human or different-machine reproduction.",
+    "script": "code/independent_reproduce.py",
+    "result": "results/independent_reproduction.json",
+    "notes": "notes/independent_reproduction.md",
+    "status": "passed",
+    "exponential_certificate_gap_percent": 0.005989109550760389,
+    "coefficient_and_moment_cells": 16,
+    "decoder_comparisons": 256,
+    "pareto_spot_check_points": 2,
+    "certificate_method": "Exact Fraction intervals, degree-48 positive Taylor tails, reciprocal negative-input bounds, all principal minors, and exact Schur reduction.",
+    "remaining_external_steps": [
+      "External specialist reconstruction of the main proof",
+      "Historical-originality assessment by a relevant specialist",
+      "Reproduction in a separately prepared environment"
+    ]
+  },
+  "presentation_revision": {
+    "scope": "Native TikZ presentation, contribution positioning and supplied-companion overlap; no new core optimality theorem or Monte Carlo run",
+    "figure_count": 6,
+    "figure_sources": "figures/tikz/",
+    "export_scripts": [
+      "code/export_tikz_analytic.py",
+      "code/export_tikz_empirical.py"
+    ],
+    "system_equations": [
+      "eq:peak-model",
+      "eq:mac-model"
+    ],
+    "new_illustration": "Exact K=4 variance moment region with fixed-mean vertex argument, used only to explain strip projection",
+    "companion_comparison": "CONTRIBUTION_OVERLAP.md compares the actual supplied source snapshot; its present publication/submission status remains an author fact",
+    "submission_materials": [
+      "SUBMISSION_PREPARATION.md",
+      "COVER_LETTER_DRAFT.md",
+      "submission/related_manuscript_supplied.pdf"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+\subsection{Assumptions}
+Table~\ref{tab:assumptions} separates the classification assumptions from those needed for sharp optimization. In particular, differentiability in the interval interior does not provide a finite disturbance guarantee at the endpoints. Strict convexity or concavity of the feature is a sufficient condition for the endpoint rank argument; we do not claim that it is necessary.
+
+\begin{table*}[t]
+\centering
+\caption{Assumptions for the main results. All rows use continuous encoders, $K\ge4$, $I=[-1,1]$, and $P>0$.}
+\label{tab:assumptions}
+\footnotesize
+\begin{minipage}{0.98\textwidth}
+\textbf{R: Rigidity regime.} $\phi,\psi\in C(I)\cap C^1((-1,1))$; $\phi$ nonaffine; $\psi$ strictly convex or strictly concave.\\[2pt]
+\textbf{S: Score regime.} R, with $\phi$ strictly convex or strictly concave and $\psi\in C^1(I)$.
+\end{minipage}
+\vspace{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}cp{0.60\textwidth}@{}}
+\toprule
+Result & Regime & Additional requirements\\
+\midrule
+ Theorem~\ref{thm:rigidity} & R & Exact computation\\
+ Theorem~\ref{thm:sdp} & S & Pointwise peak constraint\\
+% Theorem~\ref{thm:certifiedgrid} & S & $\phi\in C^2(I)$; fixed spanning anchors; verified function and derivative bounds\\
+ Theorem~\ref{thm:decoder} & S & Nondegenerate moment curve; specified projection decoder\\
+ Theorem~\ref{thm:pareto} & S & Fixed prior; specified strip decoder; $|m|<1$ a.s.; $Q_\pi\succ0$; independent circular Gaussian noise; locally inactive output clipping a.s.\\
+ %Proposition~\ref{prop:approx-rigidity} & R & Common encoder modulus; fixed peak and decoder Lipschitz bounds; uniform computation error\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Endpoint slopes}
+Consider $\phi(s)=s^2$ and $\psi(s)=-\sqrt{1-s}$. Both satisfy the rigidity hypotheses, but $\psi'$ diverges at $1$. Theorem~\ref{thm:rigidity} makes every exact continuous encoder an affine quadratic curve. Compare the two equal-input configurations $s_k=1$ and $s_k=1-h$, where $h\downarrow0$. Their received difference is
+$$
+\Delta r=K[-hu+(-2h+h^2)v]=O(h),
+$$
+whereas their target difference is $\sqrt h-2h+h^2$. Their squared-separation quotient therefore tends to zero. Every exact encoder has zero score, and nonexact encoders have zero score by definition. Thus the rigidity assumptions alone permit a zero global optimum and no decoder with finite uniform disturbance amplification.

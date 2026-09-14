@@ -1,0 +1,96 @@
+% Native PGFPlots; regenerate tables with code/export_tikz_empirical.py.
+\begin{tikzpicture}
+\begin{groupplot}[
+ group style={group name=noiseplots,group size=2 by 2,
+              horizontal sep=0.57in,vertical sep=0.47in},
+ width=2.98in,height=1.77in,
+ scale only axis,
+ /tikz/font=\fontsize{8}{9.5}\selectfont,
+ tick label style={font=\fontsize{8}{9.5}\selectfont},
+ label style={font=\fontsize{8}{9.5}\selectfont},
+ title style={font=\fontsize{8}{9.5}\selectfont,yshift=1pt},
+ xmin=-11,xmax=31,xtick={-10,0,10,20,30},
+ ymin=0,axis line style={draw=figGray!65,line width=0.4pt},
+ tick style={draw=figGray!70,line width=0.4pt},
+ tick align=outside,
+ ymajorgrids=true,grid style={draw=figGray!18,line width=0.3pt},
+ axis background/.style={fill=white},
+ legend cell align=left,
+ legend style={draw=none,fill=none,font=\fontsize{8}{9.5}\selectfont,
+               /tikz/every even column/.append style={column sep=9pt}},
+ every axis plot/.append style={line width=0.95pt,mark size=1.65pt},
+ error bars/y dir=both,error bars/y explicit,
+ error bars/error bar style={line width=0.55pt},
+ error bars/error mark options={rotate=90,mark size=1.5pt,line width=0.55pt},
+]
+\nextgroupplot[
+ title={(a) Variance; uniform sources},
+ ylabel={MSE reduction (\%)},ymax=60,ytick={0,20,40,60},
+ legend to name=finiteNoiseLegend,legend columns=4]
+\addplot+[figBlue,mark=*,mark options={solid,fill=figBlue}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_variance_uniform_K4.dat};
+\addlegendentry{Separation, $K=4$}
+\addplot+[figBlue,dashed,mark=*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_variance_uniform_K4.dat};
+\addlegendentry{Prior-aware, $K=4$}
+\addplot+[figOrange,mark=square*,mark options={solid,fill=figOrange}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_variance_uniform_K16.dat};
+\addlegendentry{Separation, $K=16$}
+\addplot+[figOrange,dashed,mark=square*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_variance_uniform_K16.dat};
+\addlegendentry{Prior-aware, $K=16$}
+
+\nextgroupplot[title={(b) Variance; endpoint-Beta sources},
+ ymax=60,ytick={0,20,40,60}]
+\addplot+[figBlue,mark=*,mark options={solid,fill=figBlue}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_variance_endpoint_beta_K4.dat};
+\addplot+[figBlue,dashed,mark=*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_variance_endpoint_beta_K4.dat};
+\addplot+[figOrange,mark=square*,mark options={solid,fill=figOrange}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_variance_endpoint_beta_K16.dat};
+\addplot+[figOrange,dashed,mark=square*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_variance_endpoint_beta_K16.dat};
+
+\nextgroupplot[title={(c) Quartic Jensen gap; uniform sources},
+ ylabel={MSE reduction (\%)},ymax=85,ytick={0,20,40,60,80},
+ xlabel={Per-transmitter peak SNR $P/N_0$ (dB)}]
+\addplot+[figBlue,mark=*,mark options={solid,fill=figBlue}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_quartic_gap_uniform_K4.dat};
+\addplot+[figBlue,dashed,mark=*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_quartic_gap_uniform_K4.dat};
+\addplot+[figOrange,mark=square*,mark options={solid,fill=figOrange}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_quartic_gap_uniform_K16.dat};
+\addplot+[figOrange,dashed,mark=square*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_quartic_gap_uniform_K16.dat};
+
+\nextgroupplot[title={(d) Quartic Jensen gap; endpoint-Beta sources},
+ ymax=85,ytick={0,20,40,60,80},
+ xlabel={Per-transmitter peak SNR $P/N_0$ (dB)}]
+\addplot+[figBlue,mark=*,mark options={solid,fill=figBlue}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_quartic_gap_endpoint_beta_K4.dat};
+\addplot+[figBlue,dashed,mark=*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_quartic_gap_endpoint_beta_K4.dat};
+\addplot+[figOrange,mark=square*,mark options={solid,fill=figOrange}]
+ table[x=snr,y=robust,y error=robusterr]
+ {figures/data/finite_noise_quartic_gap_endpoint_beta_K16.dat};
+\addplot+[figOrange,dashed,mark=square*,mark options={solid,fill=white}]
+ table[x=snr,y=prior,y error=priorerr]
+ {figures/data/finite_noise_quartic_gap_endpoint_beta_K16.dat};
+\end{groupplot}
+\path (noiseplots c1r1.north west) -- (noiseplots c2r1.north east)
+ node[midway,above=29pt,inner sep=0pt]{\pgfplotslegendfromname{finiteNoiseLegend}};
+\end{tikzpicture}

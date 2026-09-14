@@ -1,0 +1,125 @@
+\section{Optimal Curves}\label{sec:examples}
+
+We now turn the convex characterization into explicit encoder curves. Figure~\ref{fig:curves} shows how the prescribed local feature and target function determine the optimal scale, translation, and peak-contact pattern.
+
+\subsection{Quadratic Features}
+Set $\phi(s)=s^2$ and let $\psi\in C^1(I)$ be even and strictly convex or strictly concave.
+We set $M=|\psi'(1)|>0$ and $t=M/2$, and define
+\begin{align*}
+ b&=\frac{2}{1-t^2+t\sqrt{t^2+2}},\\
+ a&=\sqrt{b(2-b)}.
+\end{align*}
+For numerical evaluation, the equivalent denominator $1+2t/(\sqrt{t^2+2}+t)$ avoids cancellation at large $t$.
+
+\begin{theorem}
+\label{thm:parabola}
+For every $K\ge4$, an optimal encoder for $f=Q/K-\psi(S/K)$ over all continuous peak-admissible maps is
+\begin{equation}
+\begin{aligned}
+ \enc^\star(s)&=\sqrt P\,[a s+i(bs^2-1)],\\
+ \Lambda_{\sq}^\star(f)&=K^2P\,b^2(b-1).
+\end{aligned}
+ \label{eq:parabola}
+\end{equation}
+Thus an infinite-dimensional class of nonlinear mean-dependent terms has an explicit optimal encoder determined by $M$ alone.
+\end{theorem}
+\begin{proof}
+Nonexact encoders have zero score. For every exact encoder, rigidity gives a nondegenerate quadratic curve. Since $\psi$ is even, Theorem~\ref{thm:sdp} gives
+$$
+ \frac{\Lambda_{\sq}}{K^2}
+ =\frac{AB-C^2}{A+M^2B+2M|C|}.
+$$
+Normalize $P=1$. The stated parameter satisfies $1<b<2$ and
+$$M^2b(b-1)=(2-b)^2.$$
+We prove the converse directly from the peak constraints. Averaging those at $\pm1$ gives $A+|c+v|^2\le1$, while the constraint at zero gives $|c|^2\le1$. Set $L=bA+(b-1)B$ and $D=A+M^2B$. The identity
+\begin{align*}
+ L+|bc+v|^2
+ =b\bigl(A+|c+v|^2\bigr)+b(b-1)|c|^2\le b^2
+\end{align*}
+implies $L\le b^2$. The parameter equation then yields the certificate
+\begin{align*}
+ b(b-1)DL-bAB
+ &=(b-1)\bigl[bA-(2-b)B\bigr]^2\ge0.
+\end{align*}
+Hence $AB\le b^2(b-1)D$. Subtracting $C^2$ from the numerator and adding $2M|C|$ to the denominator preserves the bound, proving $\Lambda_{\sq}/K^2\le b^2(b-1)$.
+
+The proposed curve has $A=b(2-b)$, $B=b^2$, and $C=0$. It attains equality and satisfies the full peak identity
+$$
+ |\enc_b(s)|^2=1-b^2s^2(1-s^2)\le1\qquad(s\in[-1,1]).
+$$
+Scaling by $\sqrt P$ restores the stated power and score. The parameter formula follows by solving its quadratic equation; its unique solution in $(1,2)$ also has the stable form
+$$b=\frac{2\bigl(\sqrt{M^2+8}+M\bigr)}{\sqrt{M^2+8}+3M}.$$
+\end{proof}
+
+Examples include $\psi(m)=m^{2r}$ for every integer $r\ge1$, $\psi(m)=-\eta m^{2r}$ for $\eta>0$, and $\psi(m)=m^2+\eta m^4$ for $\eta\ge0$. In the last case $M=2+4\eta$. Strict convexity permits a vanishing second derivative at isolated points, so $m^4$ satisfies the theorem. More generally, different even strictly convex mean functions with the same endpoint slope share the same optimal geometry.
+
+For variance, $M=2$ and $b=2/\sqrt3$, so
+$$
+ \Lambda_{\sq}^\star(V)=\frac{4K^2P}{9+6\sqrt3}.
+$$
+The baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$, so the improvement is $3.1337\%$ in squared separation. This is not an MSE improvement. We formalize its operational score and optimum over all quadratic coefficient curves for every $P>0$ and $K\ge2$ in Lean~4; Appendix~\ref{app:lean} states the scope and the remaining continuous-encoder reduction.
+
+\begin{figure*}[t]
+\centering\paperfigure{figures/tikz/optimal_curves}
+\caption{Optimal encoders and analytic peak contacts for $K\ge4$, with $\bar\lambda^\star=\Lambda_\sq^\star/(K^2P)$. The baselines are $\sqrt P[s+i(s^2-1)]$ for variance and $mq$, and $(2\sqrt P/\sqrt5)[s+i(s^4-1/2)]$ for the quartic Jensen gap. All curves satisfy the same pointwise peak constraint.}
+\label{fig:curves}\end{figure*}
+
+\subsection{Quartic Features}
+We next set $\phi(s)=s^4$ and again assume $\psi$ is even and strictly convex or strictly concave. Put $M=|\psi'(1)|$. Let $\rho$ be the unique solution in $(0,1/3)$ of
+\begin{equation}
+ 8\rho^2(1+\rho)(1+3\rho)=M^2(1-3\rho).
+ \label{eq:quarticroot}
+\end{equation}
+The left side increases strictly from zero, and the right side decreases strictly to zero on this interval. Define
+\begin{equation}
+\begin{aligned}
+ d_\rho&=1+2\rho+9\rho^2,\qquad
+ a_\rho=\sqrt{\frac{8\rho}{d_\rho}},\\
+ b_\rho&=\frac{2}{(1+\rho)\sqrt{d_\rho}},\qquad
+ c_\rho=-\frac{1+2\rho+3\rho^2}{(1+\rho)\sqrt{d_\rho}}.
+\end{aligned}
+\label{eq:quarticcoefficients}
+\end{equation}
+
+\begin{theorem}
+\label{thm:quartic}
+For every $K\ge4$, an optimal continuous encoder for $K^{-1}\sum_k s_k^4-\psi(S/K)$ is
+\begin{equation}
+ \boxed{\enc^\star(s)=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)]}.
+ \label{eq:quarticmap}
+\end{equation}
+Its optimal squared separation is
+\begin{equation}
+ \boxed{\Lambda_{\sq}^\star
+ =\frac{K^2P}{M^2/a_\rho^2+1/b_\rho^2}
+ =\frac{8K^2P\rho}
+ {d_\rho\,[M^2+2\rho(1+\rho)^2]}}.
+ \label{eq:quarticscore}
+\end{equation}
+\end{theorem}
+Reflection reduces the design to orthogonal coefficients, and two active peak constraints certify global optimality. Appendix~\ref{app:quartic-proof} gives the proof.
+
+For the fourth-order Jensen gap, $\psi(m)=m^4$ and $M=4$. Equation~\eqref{eq:quarticroot} becomes
+$$
+ 3\rho^4+4\rho^3+\rho^2+6\rho-2=0,
+ \qquad\rho\simeq0.297207855283.
+$$
+Hence an optimal map and value are
+\begin{align*}
+ \operatorname{Re}\enc^\star(s)/\sqrt P&\simeq0.997539156206\,s,\\
+ \operatorname{Im}\enc^\star(s)/\sqrt P&\simeq0.997413500602\,s^4-0.927301933535,
+\end{align*}
+$$
+ \Lambda_{\sq}^\star\simeq0.058533506998\,K^2P.
+$$
+The formulas defining the root and coefficients are exact; these decimals are for interpretation. Four source values use full peak energy: $s=\pm1$ and $s=\pm\sqrt\rho$. The center has strictly smaller energy. This differs from the optimal quadratic map, whose contacts occur at $-1,0,1$.
+
+
+\subsection{Moment Interaction}
+The interaction $f=mq$ illustrates a change of readout within the same quadratic feature family. Under the same continuous shared-encoder model and $K\ge4$, we obtain
+$$
+ \enc^\star(s)=\sqrt P\left[\frac{2\sqrt2}{3}s
+ +i\left(\frac43s^2-1\right)\right],\qquad
+ \Lambda_{\sq}^\star=\frac{16}{27}K^2P.
+$$
+Theorem~\ref{thm:polynomial} in Appendix~\ref{app:polynomial} proves this result for a larger, explicitly restricted polynomial readout class. The extension changes the optimal scales through the endpoint derivatives of the readout; it introduces no additional additive statistic. We use the quartic and nonpolynomial examples to demonstrate changes in the feature curve itself.

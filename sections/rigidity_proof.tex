@@ -1,0 +1,84 @@
+\section{Proof of Theorem~\ref{thm:rigidity}}\label{app:rigidity-proof}
+We use three lemmas. A fourth transmitter first turns equality of encoded triple sums into equality of both moments; topology and regularization then determine the encoder.
+
+\begin{lemma}
+\label{lem:collision}
+Suppose $K\ge4$, $\psi$ is $C^1$ in the interval interior and strictly convex or strictly concave, and $\enc$ exactly computes \eqref{eq:target}. If two interior triples have the same encoded sum, then they have the same $S$ and $T$.
+\end{lemma}
+\begin{proof}
+Let the triple statistics be $(S,T)$ and $(\widetilde S,\widetilde T)$. Complete both triples with the same fourth input $w$ and $K-4$ zeros. Exactness gives
+$$
+ T-\widetilde T
+ =K\left[\psi\!\left(\frac{S+w}{K}\right)
+ -\psi\!\left(\frac{\widetilde S+w}{K}\right)\right].
+$$
+Use $w=0$ and $w=1/2$. With $a=S/K$, $\widetilde a=\widetilde S/K$, and $\delta=1/(2K)>0$, subtraction yields
+$$
+ \psi(a+\delta)-\psi(a)
+ =\psi(\widetilde a+\delta)-\psi(\widetilde a).
+$$
+All four arguments lie in $(-1,1)$. If $a<\widetilde a$, the points $a+\delta$ and $\widetilde a$ lie strictly between $a$ and $\widetilde a+\delta$ with complementary convex weights. Strict convexity therefore gives
+$$
+ \psi(a+\delta)+\psi(\widetilde a)
+ <\psi(a)+\psi(\widetilde a+\delta),
+$$
+contradicting the equal increments. Strict concavity reverses this inequality, and exchanging the triples excludes $a>\widetilde a$. Thus $S=\widetilde S$, and exactness at $w=0$ gives $T=\widetilde T$. This proof also permits endpoint inputs and does not require differentiability of $\psi$.
+\end{proof}
+
+The next lemma uses invariance of domain: a continuous injection from an open subset of $\R^2$ into $\R^2$ has open image~\cite[Theorem 2B.3]{hatcher}.
+
+\begin{lemma}
+\label{lem:topology}
+Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q$ on its image such that $q(R(p,t))=p$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
+\end{lemma}
+\begin{proof}
+For fixed $t_0$, the map $p\mapsto R(p,t_0)$ is a continuous injection, so $R(B,t_0)$ is open. Fix $p$. For $t$ sufficiently close to $t_0$, continuity gives $R(p,t)\in R(B,t_0)$. Thus $R(p,t)=R(p',t_0)$ for some $p'\in B$. Applying $q$ yields $p'=p$, so $R(p,t)=R(p,t_0)$. The function $t\mapsto R(p,t)$ is locally constant, and connectedness of $J$ makes it constant. This argument does not require differentiability or continuity of $q$.
+\end{proof}
+
+The final lemma adapts restricted Cauchy--Pexider rigidity~\cite[Theorem 1.6 and Sec. 5]{charalambides2013} to a one-way collision implication and a $C^1$ nonaffine feature that may contain affine subintervals.
+
+\begin{lemma}
+\label{lem:affine}
+Let $\phi\in C(I)\cap C^1((-1,1))$ be nonaffine, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then $\enc$ has form \eqref{eq:affine} with linearly independent $u,v$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: Local factorization through the moments.}
+Choose interior $y_0,z_0$ with $\phi'(y_0)\ne\phi'(z_0)$; such a pair exists because $\phi$ is nonaffine. At any $(x_0,y_0,z_0)$, the map
+$$
+ (x,y,z)\longmapsto
+ \bigl(x,\;x+y+z,\;\phi(x)+\phi(y)+\phi(z)\bigr)
+$$
+has Jacobian determinant $\phi'(z_0)-\phi'(y_0)\ne0$ and is a local $C^1$ diffeomorphism. Restrict its image to a product $J\times B$, where $x_0\in J$ and $B\subset\R^2$ is open. In these coordinates, the triple received sum is a continuous $R(p,x)$. The collision hypothesis makes the assignment $q(R(p,x))=p$ well defined even when distinct points of the chart have the same received sum. Lemma~\ref{lem:topology} shows that $R$ is independent of $x$. In particular, $H(p)=R(p,x_0)$ is continuous. On a sufficiently small source box whose image lies in $J\times B$, we have
+\begin{equation}
+ \enc(x)+\enc(y)+\enc(z)
+ =H\bigl(x+y+z,\phi(x)+\phi(y)+\phi(z)\bigr)
+ \label{eq:localfactor}
+\end{equation}
+for a continuous $H$ defined on $B$.
+
+\emph{Step 2: Automatic interior differentiability.}
+The pair map $(y,z)\mapsto w=(y+z,\phi(y)+\phi(z))$ is a local $C^1$ diffeomorphism near $(y_0,z_0)$. Restrict this map to the pair-coordinate part of the source box from Step~1. Choose a smooth compactly supported density $\rho(w)$ of integral one inside its open image, and denote its inverse by $(y(w),z(w))$. Integrating \eqref{eq:localfactor} with respect to $\rho(w)\,dw$ gives, for $x$ in the common source interval,
+$$
+ \enc(x)=\int H\bigl((x,\phi(x))+w\bigr)\rho(w)\,dw-C_0,
+$$
+where $C_0=\int[\enc(y(w))+\enc(z(w))]\rho(w)\,dw$ is independent of $x$. Choose the source interval $X$ and support of $\rho$ small enough that $\{(x,\phi(x))+w:x\in\overline X,\ w\in\operatorname{supp}\rho\}$ is compactly contained in $B$. Choose a smooth compactly supported cutoff in $B$ equal to one near this set, multiply $H$ by it, and extend the product by zero. The integral is then a smooth convolution as a function of the two-dimensional argument. Its composition with the $C^1$ curve $x\mapsto(x,\phi(x))$ is $C^1$. Since $x_0$ was arbitrary, $\enc$ is $C^1$ throughout the interval interior. No regularity of the original decoder was assumed.
+
+\emph{Step 3: Affine dependence on the features.}
+Consider a real component $e$ of the now differentiable encoder. Equation~\eqref{eq:localfactor} makes $e(x)+e(y)+e(z)$ constant on each local moment fiber. The two-moment map has rank two whenever $\phi'(y)\ne\phi'(z)$, so the implicit-function theorem identifies its differential kernel with the tangent space of that fiber. The differential of the encoded sum annihilates this kernel. Hence
+$$
+ (e'(x),e'(y),e'(z))
+ \in\operatorname{span}\{(1,1,1),(\phi'(x),\phi'(y),\phi'(z))\}.
+$$
+Fix $y=y_0,z=z_0$. Their entries give
+$$
+\beta=\frac{e'(y_0)-e'(z_0)}{\phi'(y_0)-\phi'(z_0)},
+\qquad \alpha=e'(y_0)-\beta\phi'(y_0).
+$$
+These constants do not depend on $x$. Since Step~1 applies at every $(x,y_0,z_0)$, we obtain $e'(x)=\alpha+\beta\phi'(x)$ throughout the connected interval $(-1,1)$. Integration, followed by endpoint continuity, proves \eqref{eq:affine} componentwise.
+
+Finally, the triple moment map has an open image locally near $(x_0,y_0,z_0)$. If $u,v$ were dependent, the linear map $(S,T)\mapsto uS+vT$ could not be injective on that open set. This would contradict the collision hypothesis. Thus $u,v$ are independent.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:rigidity}]
+Necessity follows from Lemmas~\ref{lem:collision} and~\ref{lem:affine}. For sufficiency, the receiver solves the invertible real system $r_\enc-Kc=uS+vT$ and evaluates $T/K-\psi(S/K)$.
+\end{proof}

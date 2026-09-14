@@ -1,0 +1,73 @@
+\section{Certified Design}\label{sec:certified}
+The continuum of peak constraints in \eqref{eq:sdp} requires a certificate between sampled inputs. We supply one for twice continuously differentiable features. This additional smoothness serves numerical certification; it does not enter the classification theorem. The procedure combines finite semidefinite optimization, an interpolation remainder, and primal--dual verification. Its implementation requires verified enclosures of the feature and endpoint-slope values and a verified derivative bound; smoothness alone does not supply a computational oracle.
+
+\begin{theorem}\label{thm:certifiedgrid}
+Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I)$. Let $\mathcal T_h$ contain both endpoints, have maximum adjacent spacing $h$, and include three fixed points whose feature vectors span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)$ be an optimizer. Set
+$$
+ Z_j=\max_{s\in I}\|z^{(j)}(s)\|_2,\qquad j=0,1,2,
+$$
+where $z^{(0)}=z$, and define
+$$
+ M_h=2\|H_h\|_2(Z_1^2+Z_0Z_2),\qquad
+ \rho_h=\frac{P}{P+M_hh^2/8}.
+$$
+Then $(\rho_h H_h,\rho_h U_h)$ satisfies every constraint of \eqref{eq:sdp}, and
+\begin{equation}
+ \rho_h U_h\le\lambda_\star\le U_h,
+ \qquad U_h-\rho_h U_h=O(h^2).
+ \label{eq:certifiedgrid}
+\end{equation}
+\end{theorem}
+The interpolation remainder bounds the peak between adjacent grid points; scaling then restores the continuous peak constraint. Appendix~\ref{app:grid-proof} gives the proof.
+
+Define $q_H(s)=z(s)^\T Hz(s)$. Suppose a candidate $(H,\lambda)$ with $\lambda>0$ satisfies the semidefinite constraints, a verified number $b_h$ bounds $q_H$ at all grid points, and $M$ bounds $|q_H''|$. Then
+$$
+ L=\frac{P\lambda}{b_h+Mh^2/8}
+$$
+is an achieved lower bound, provided the denominator is positive: scale $H$ by the same factor and apply the planar reconstruction in Theorem~\ref{thm:sdp}. A tighter derivative bound than the norm bound above is equally valid.
+
+For a verified upper bound, let $\alpha_i\ge0$ be weights at any finitely many inputs $t_i\in I$. Define $\overline D=\operatorname{diag}(0,D_-+D_+)$ for $D_-,D_+\suc0$ and require
+\begin{align}
+ Q&=\sum_i\alpha_i z(t_i)z(t_i)^\T-\overline D\suc0,\label{eq:dualwitness}\\
+ w_-^\T D_-w_-+w_+^\T D_+w_+&\ge1.\nonumber
+\end{align}
+Here $\overline D$ has a scalar top-left block. Every feasible pair in \eqref{eq:sdp} obeys
+$$
+ P\sum_i\alpha_i\ge\sum_i\alpha_i z(t_i)^\T Hz(t_i)
+ \ge\sum_{\sigma\in\{-,+\}}\operatorname{tr}(D_\sigma G)
+ \ge\lambda.
+$$
+Thus $U=P\sum_i\alpha_i$ is a global upper bound. The first omitted term is $\operatorname{tr}(QH)\ge0$, and the last inequality uses both score constraints and the normalization in \eqref{eq:dualwitness}. These witnesses yield the stopping rule $(U-L)/U\le\varepsilon$ for $U>0$. Exact grid solutions converge by Theorem~\ref{thm:certifiedgrid}; in computation, primal and dual verification errors must also decrease to obtain arbitrarily small certified gaps.
+
+\subsection{Exponential Feature}
+We apply the procedure to the nonpolynomial target
+$$
+ f(\mathbf s)=\frac1K\sum_k e^{s_k}-e^{K^{-1}\sum_k s_k}.
+$$
+We normalize $P=1$; multiplication of the encoder by $\sqrt P$ restores arbitrary peak power. SciPy's sequential quadratic programming routine supplies a candidate for the finite convex problem on 401 grid points. We then round and repair its primal and dual matrices and verify the resulting witnesses independently of solver tolerances.
+
+All certificate arithmetic uses rational intervals. At each rational input $|s|\le1$, we enclose $e^s$ by its degree-40 Taylor polynomial with remainder bounded by $3/41!$. We certify positive definiteness through strictly positive lower bounds on the leading principal minors. For the primal witness, a 1001-point grid gives $b_h\le1.000000093894$, and direct differentiation gives $|q_H''|\le117$. Hence $h=1/500$ and the verified continuous peak bound before scaling is $1.000058593894$. The dual witness uses the three candidate contact inputs $-1,159/200,1$, together with positive repair weights at $-1,0,1$.
+
+The exact rational witnesses establish
+\begin{equation}
+ 0.419645089928\le
+ \frac{\Lambda_{\sq}^\star}{K^2P}
+ \le0.419670224438.
+ \label{eq:expcertificate}
+\end{equation}
+The certified relative gap is less than $0.006\%$. In particular, the reconstructed feasible encoder attains at least $99.994\%$ of the globally optimal score. This claim concerns the prescribed separation objective, not Gaussian mean-square error.
+
+For orientation, the reconstructed curve has approximate coordinates
+\begin{align*}
+ \frac{\operatorname{Re}\enc(s)}{\sqrt P}
+ &\approx1.8321854+2.1939971s-1.1944545e^s,\\
+ \frac{\operatorname{Im}\enc(s)}{\sqrt P}
+ &\approx-0.7900289+0.5211418e^s.
+\end{align*}
+The certificate uses the stored rational Gram matrix and exact reconstruction, not these rounded display coefficients. Figure~\ref{fig:certified} shows the resulting curve and the certified gap as we refine only the verification grid while holding the candidate and dual witness fixed. The limiting gap of that fixed-candidate experiment also includes the candidate and witness repair errors.
+
+\begin{figure*}[t]
+ \centering\paperfigure{figures/tikz/certified_synthesis}
+ \caption{Certified design for the exponential feature. Left: the reconstructed feasible encoder and the unit peak boundary; markers identify the candidate contact inputs used in the certificate. Right: the global relative-gap bound as the verification grid increases from 51 to 1001 points, with a fixed candidate and dual upper bound. The repaired encoder need not meet the peak boundary exactly.}
+ \label{fig:certified}
+\end{figure*}

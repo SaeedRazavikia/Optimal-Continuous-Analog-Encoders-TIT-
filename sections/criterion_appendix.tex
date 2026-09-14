@@ -1,0 +1,18 @@
+\section{Scope of the Criterion}\label{app:boundaries}
+\input{sections/transfer}
+\subsection{Exactness and Conditioning}
+The family
+$$\enc_\beta(s)=\sqrt P[s+i\beta(1-s^2)],\qquad0<\beta\le1,$$
+computes $mq$ exactly, but its squared score is
+$$\Lambda_\sq(\enc_\beta;mq)=K^2P\frac{\beta^2}{1+\beta^2}.$$
+Its inverse conditioning therefore diverges as $\beta\downarrow0$. At zero and $K=4$, inputs $(1,1,0,0)$ and $(1/2,1/2,1/2,1/2)$ give the same received sum while their targets are $1/4$ and $1/8$.
+
+For a nonconstant bounded target, the uncentered exponential criterion assigns every encoder a positive score of at least $1/(\max f-\min f)^2$, even if exactness fails. Its nonzero value at zero distance therefore makes exactness a separate condition. Noise-dependent exponential optimization requires a separate analysis.
+
+\subsection{Finite Alphabets}
+For $K=4$ and $s_k\in\{-1,1\}$, the possible means are $m\in\{-1,-1/2,0,1/2,1\}$ and variance is $1-m^2$. Antipodal signaling gives received sum $4\sqrt P m$, hence
+$$\frac{|\Delta r|^2}{|\Delta V|^2}=\frac{16P}{(m+\widetilde m)^2}$$
+whenever the target gap is nonzero. The largest admissible $|m+\widetilde m|$ is $3/2$, giving score $64P/9$. Every binary map has symbol separation at most $2\sqrt P$, so antipodal signaling maximizes every received gap and is globally optimal. Restricting the continuous variance-optimal parabola instead gives
+$$\left(\frac4{\sqrt3}-\frac43\right)\frac{64P}{9}<\frac{64P}{9}.$$
+There is no contradiction: removing source values removes the continuum's sharp shrinking pairs.
+

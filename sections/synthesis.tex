@@ -1,0 +1,37 @@
+\subsection{Optimal Design}\label{sec:synthesis}
+We now assume $\phi\in C(I)\cap C^1((-1,1))$ and $\psi\in C^1(I)$, each strictly convex or strictly concave. Finite endpoint slopes of the mean-dependent term provide a uniform disturbance guarantee; $\phi$ needs differentiability only in the interval interior. For the encoder coefficients in \eqref{eq:affine}, define
+\begin{align*}
+ G&=\begin{pmatrix}A&C\\ C&B\end{pmatrix},\quad
+ w_\pm=\begin{pmatrix}-\psi'(\pm1)\\1\end{pmatrix},\\
+ A&=|u|^2,\quad B=|v|^2,\quad C=\operatorname{Re}(u\overline v).
+\end{align*}
+Here $A,B$ are the squared lengths of the two feature directions and $C$ is their real inner product. The Gram matrix $G$ therefore records the part of the transmit geometry that affects received distances; $C=0$ means orthogonal directions. The vectors $w_\pm$ describe the target sensitivity at the extreme input means.
+
+\begin{theorem}
+\label{thm:sdp}
+Let $K\ge4$ and $P>0$, and impose the assumptions of this subsection. For every encoder \eqref{eq:affine} with independent $u,v$,
+\begin{equation}
+ \Lambda_{\sq}(\enc;f_{\phi,\psi})
+ =\frac{K^2}{\max\{w_-^\T G^{-1}w_-,\;w_+^\T G^{-1}w_+\}}.
+ \label{eq:exactscore}
+\end{equation}
+The infimum is approached at arbitrarily small received distance. The global optimum over all continuous peak-admissible encoders is $K^2\lambda_\star$, where $\lambda_\star$ is the optimum of
+\begin{equation}
+\begin{aligned}
+ \text{maximize}\quad &\lambda\\
+ \text{over}\quad &H\in\mathbb S^3,\quad\lambda\ge0,\\
+ \text{subject to}\quad
+ &H\suc0,\\
+ &z(s)^\T H z(s)\le P\quad\text{for every }s\in[-1,1],\\
+ &G-\lambda w_-w_-^\T\suc0,\\
+ &G-\lambda w_+w_+^\T\suc0.
+\end{aligned}
+\label{eq:sdp}
+\end{equation}
+where $z(s)=(1,s,\phi(s))^\T$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
+\end{theorem}
+See Appendix~\ref{app:design-proof} for the score calculation and the proof of optimality and attainment. Equation~\eqref{eq:exactscore} separates two design roles: $\phi$ determines the feasible peak geometry, while $\psi$ enters through its two extreme slopes.
+
+To implement a solution, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$, choose $L^{\T}L=G$, and set $c=(L^\T)^{-1}\ell$. The columns of $L$ give $u,v$. Reducing $h$ to $\ell^{\T}G^{-1}\ell$ preserves the score and can only lower the peak energy, so a planar encoder always suffices.
+
+The peak constraint must hold between samples. Section~\ref{sec:examples} gives explicit curves with analytic certificates, and Section~\ref{sec:certified} provides certified numerical design for other smooth features.

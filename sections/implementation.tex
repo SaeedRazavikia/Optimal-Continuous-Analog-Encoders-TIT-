@@ -1,0 +1,34 @@
+\subsection{Implementation Errors}
+\label{sec:implementation}
+We can quantify departures from the ideal encoder without extending the exact classification to a different channel model. Let $\widetilde\enc$ be an implemented map satisfying
+$$
+ \sup_{s\in I}|\widetilde\enc(s)|\le\sqrt P,
+ \qquad
+ \sup_{s\in I}|\widetilde\enc(s)-\enc(s)|\le\epsilon\sqrt P,
+$$
+and let the residual channel coefficient of transmitter $k$ be $1+d_k$. The observation is
+$$
+ Y=\sum_k(1+d_k)\widetilde\enc(s_k)+N.
+$$
+Applying the ideal decoder and using \eqref{eq:uniform} gives
+\begin{equation}
+ |\widehat f(Y)-f(\mathbf s)|
+ \le L_\enc\left(|N|+K\epsilon\sqrt P
+       +\sqrt P\sum_k|d_k|\right).
+ \label{eq:implementation}
+\end{equation}
+Indeed, the difference between the actual observation and the ideal noiseless sum is $N+\sum_k(\widetilde\enc-\enc)(s_k)+\sum_k d_k\widetilde\enc(s_k)$; the triangle inequality proves the bound. If $|d_k|\le\delta$ and $\bar\lambda_\enc=\Lambda_\sq(\enc)/(K^2P)$, then
+$$
+ |\widehat f(Y)-f(\mathbf s)|
+ \le\frac{|N|/(K\sqrt P)+\epsilon+\delta}
+ {\sqrt{\bar\lambda_\enc}}.
+$$
+This worst-case bound allows the perturbations to add coherently. Increasing $K$ suppresses the normalized additive-noise term, but it does not suppress the stated bounds on coherent implementation or gain errors.
+
+Peak-feasible quantization provides one concrete implementation. Suppose a complex quantizer has error at most $r\sqrt P$, where $0<r<1$, and transmit
+$$
+ \widetilde\enc(s)=Q\bigl((1-r)\enc(s)\bigr).
+$$
+Then $|\widetilde\enc(s)|\le\sqrt P$ and $\epsilon\le2r$. For $B$-bit uniform scalar quantization of each component on $[-\sqrt P,\sqrt P]$, with $B\ge2$, nearest-level rounding gives $r=\sqrt2/(2^B-1)<1$. This approximation need not compute the target exactly; \eqref{eq:implementation} bounds its deterministic error. Residual amplitude and phase errors $|\alpha_k|\le\alpha_0$ and $|\theta_k|\le\theta_0\le\pi$, with $1+d_k=(1+\alpha_k)e^{i\theta_k}$, give $\delta\le\alpha_0+2\sin(\theta_0/2)$.
+
+A design retaining at least a fraction $\eta$ of the optimal squared separation increases the disturbance factor in \eqref{eq:implementation} by at most $\eta^{-1/2}$. Thus a $90\%$ retention constraint limits this factor's increase to $5.41\%$, providing an operational interpretation of the tradeoff developed next.

@@ -1,0 +1,270 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools,booktabs,array,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={ChannelComp Optimality and Larger Function Classes},pdfauthor={Research note prepared for Saeed Razavikia}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\enc}{\mathscr E}
+\newcommand{\sq}{\mathrm{sq}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\title{ChannelComp Optimality and Larger Function Classes}
+\author{Research note prepared for Saeed Razavikia}
+\date{13 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We distinguish optimality for the squared-distance ChannelComp criterion from optimality for its Gaussian exponential counterpart. The previously derived quadratic and quartic formulas solve the former under a continuous-input, shared-encoder, pointwise peak constraint. We now give an explicit globally optimal encoder for the Gaussian exponential criterion on a broader infinite-dimensional target class, for every $K\ge2$ in a specified low-SNR regime. The class includes the mean multiplied by the second moment and the mean attenuated by variance. A separate theorem gives explicit squared-distance optima for polynomials of arbitrary degree in the mean and second moment, under nonnegative-coefficient and common-parity conditions. Complete certificates and a finite-alphabet counterexample clarify the scope of these claims. These are research derivations; historical novelty and independent proof review remain outstanding.
+\end{abstract}
+
+\section{Precisely which ChannelComp problem is solved?}
+ChannelComp uses all-pair inequalities of the form
+$$
+ D\!\left(|r_\enc(\mathbf s)-r_\enc(\mathbf t)|\right)
+ \ge\lambda|f(\mathbf s)-f(\mathbf t)|^2,
+ \qquad r_\enc(\mathbf s)=\sum_{k=1}^K\enc(s_k).
+$$
+Noise-aware ChannelComp changes $D$ with the noise model \cite{noiseaware}. The supplied TCOM draft specifically uses $D(d)=e^{ad^2}$ with $a=1/(4N_0)$ for $N\sim\mathcal{CN}(0,N_0)$. Define
+\begin{equation}
+ \Lambda_D(\enc;f)=\inf_{\Delta f\ne0}\frac{D(|\Delta r_\enc|)}{|\Delta f|^2},
+ \qquad \sup_{s\in[-1,1]}|\enc(s)|^2\le P.
+ \label{eq:score}
+\end{equation}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{.28\textwidth}p{.62\textwidth}@{}}
+\toprule
+Criterion or model & Status of the preceding encoder addendum\\
+\midrule
+$D(d)=d^2$ & Explicit quadratic and quartic optima over continuous shared peak-admissible encoders, under the stated target assumptions.\\[1mm]
+$D(d)=e^{ad^2}-1$ & Same maps and a scaled score by the local-quadratic transfer theorem.\\[1mm]
+$D(d)=e^{ad^2}$ & Those formulas alone do not establish optimality. The Gaussian theorem below supplies a new explicit class and regime.\\[1mm]
+Finite alphabet or a different power constraint & Optimality does not automatically transfer from the continuous peak-constrained problem.\\[1mm]
+Gaussian MSE & Not solved by any of these separation claims.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The finite-alphabet formulation in \cite[Eq.~(10)]{noiseaware} uses a norm constraint on the constellation vector. This differs from a pointwise peak constraint. Even with the same peak constraint, removing input values can remove the pairs that certify a continuum optimum.
+
+For example, let $K=4$, $s_k\in\{-1,1\}$, and $V=1-(\sum_k s_k/4)^2$. The antipodal map $\enc(\pm1)=\pm\sqrt P$ has optimal binary squared score $64P/9$. Restricting the continuous variance-optimal parabola to this alphabet instead gives
+$$
+ \left(\frac4{\sqrt3}-\frac43\right)\frac{64P}{9}
+ \simeq6.9409261755P<\frac{64P}{9}.
+$$
+Indeed, for any two-symbol map, received distances are proportional to $|\enc(1)-\enc(-1)|\le2\sqrt P$; the antipodal choice maximizes every such distance. This is a concrete reason to qualify ``optimal in the ChannelComp sense'' by the distance, domain, and power constraint.
+
+\section{A larger class with an explicit Gaussian ChannelComp optimum}
+Write
+$$
+ m(\mathbf s)=\frac1K\sum_k s_k,\qquad
+ q(\mathbf s)=\frac1K\sum_k s_k^2,\qquad V=q-m^2,
+$$
+and let $\Omega_K$ be their attainable $(m,q)$ set. It satisfies $|m|\le1$ and $m^2\le q\le1$.
+
+Fix any continuous $w:\Omega_K\to[0,1]$ with
+$$
+ w(1,1)=w(-1,1)=1.
+$$
+No convexity, monotonicity, or differentiability of $w$ is required. For fixed $A\in\R$ and $B\ne0$, consider
+\begin{equation}
+ f(\mathbf s)=A+B\,m(\mathbf s)w\bigl(m(\mathbf s),q(\mathbf s)\bigr).
+ \label{eq:gaussclass}
+\end{equation}
+The target is fixed before encoder optimization.
+
+\begin{theorem}[An all-$K$ Gaussian exponential certificate]
+\label{thm:gaussian}
+Let $K\ge2$, $P>0$, and $a>0$. For every target \eqref{eq:gaussclass}, if
+\begin{equation}
+ aK^2P\le\frac14,
+ \label{eq:regime}
+\end{equation}
+then every encoder in the family
+\begin{equation}
+ \boxed{\enc_\beta(s)=\sqrt P\,[s+i\beta(1-s^2)]},
+ \qquad0<\beta\le1,
+ \label{eq:gaussianmap}
+\end{equation}
+is globally optimal for $D(d)=e^{ad^2}$, with
+\begin{equation}
+ \boxed{\Lambda_a^\star(f;P)=\frac{e^{4aK^2P}}{4B^2}}.
+ \label{eq:gaussianvalue}
+\end{equation}
+The converse covers every peak-admissible encoder, even if it is discontinuous or fails exact computation. The proposed encoders are continuous and compute the target exactly.
+\end{theorem}
+\begin{proof}
+\emph{Peak feasibility and exactness.}
+The full peak constraint follows from
+$$
+ 1-|\enc_\beta(s)|^2/P
+ =(1-s^2)\,[1-\beta^2(1-s^2)]\ge0.
+$$
+The receiver recovers
+$$
+ m=\frac{\operatorname{Re}r}{K\sqrt P},\qquad
+ q=1-\frac{\operatorname{Im}r}{K\beta\sqrt P},
+$$
+and evaluates \eqref{eq:gaussclass}.
+
+\emph{Matching converse.}
+The all-$1$ and all-$-1$ inputs have target gap $2|B|$. Their received distance for any peak-admissible map is at most $2K\sqrt P$. This pair upper-bounds the score by \eqref{eq:gaussianvalue}. The proposed map attains this distance.
+
+\emph{Every other input pair satisfies the same bound.}
+Normalize the output gap by $\delta=|\Delta f|/|B|$ and put $c=aK^2P\le1/4$. Let the means of the two configurations be $m,n$. Their normalized outputs $g=mw(m,q)$ and $\widetilde g=nw(n,\widetilde q)$ have the same signs as their respective means, or are zero, and $|g|\le|m|$, $|\widetilde g|\le|n|$.
+
+If $mn\le0$, then $\delta\le|m-n|\le2$ and the real part of the received difference gives $d\ge K\sqrt P\,|m-n|\ge K\sqrt P\,\delta$. The function $e^{cx^2}/x^2$ is nonincreasing on $0<x\le2$, because $cx^2\le1$. Hence
+$$
+ \frac{e^{ad^2}}{|\Delta f|^2}
+ \ge\frac{e^{c\delta^2}}{B^2\delta^2}
+ \ge\frac{e^{4c}}{4B^2}.
+$$
+If $mn>0$, both normalized outputs belong either to $[0,1]$ or to $[-1,0]$. Thus $\delta\le1$, and
+$$
+ \frac{e^{ad^2}}{|\Delta f|^2}
+ \ge\frac1{B^2}
+ \ge\frac{e^{4c}}{4B^2},
+$$
+where the last inequality follows from $e^{4c}\le e<4$. These cases cover all pairs with nonzero target gap and prove global optimality.
+\end{proof}
+
+This class has infinitely many functional degrees of freedom. Examples, with $A=0,B=1$, include
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Target & Permitted parameters\\
+\midrule
+$m q^r$ & $r>0$\\
+$m\exp[-\eta(q-m^2)]$ & $\eta\ge0$\\
+$m/[1+\eta(q-m^2)]$ & $\eta\ge0$\\
+$\tfrac12m[1+\cos(\omega(q-m^2))]$ & $\omega\in\R$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The second and third examples attenuate the mean according to the variance. The oscillatory example illustrates that the certificate does not require a monotone readout.
+
+Under the TCOM convention $a=1/(4N_0)$, condition \eqref{eq:regime} is $K^2P/N_0\le1$. It is a sufficient low-SNR regime and becomes more restrictive as $K$ increases at fixed $P,N_0$. We do not claim all-SNR optimality or that this regime is sharp for each individual target. Identical exponential scores across $\beta$ also do not imply identical MSE or conditioning as $\beta$ tends to zero.
+
+\begin{corollary}[An arbitrary differentiable local feature]
+\label{cor:generalfeature}
+The same Gaussian optimum holds with the second moment replaced by $t=K^{-1}\sum_k\phi(s_k)$, where $\phi\in C^1([-1,1])$. Suppose $0\le w(m,t)\le1$ is continuous on the attainable moment set and $w(\pm1,\phi(\pm1))=1$. Choose any $L>0$ with $|\phi'(s)|\le L$, and let
+$$
+ \ell_\phi(s)=\frac{1-s}{2}\phi(-1)+\frac{1+s}{2}\phi(1).
+$$
+For $f=A+Bmw(m,t)$, $K\ge2$, and $aK^2P\le1/4$, a globally optimal exact encoder is
+\begin{equation}
+ \boxed{\enc_{\phi,\beta}(s)=\sqrt P\left[
+ s+i\frac{\beta}{2L}\bigl(\phi(s)-\ell_\phi(s)\bigr)\right]},
+ \quad0<\beta\le1.
+ \label{eq:generalfeature}
+\end{equation}
+Its score is $e^{4aK^2P}/(4B^2)$.
+\end{corollary}
+\begin{proof}
+The residual $h=\phi-\ell_\phi$ vanishes at both endpoints and has derivative bounded by $2L$. Consequently
+$$
+ |h(s)|\le2L\min\{1-s,1+s\}\le2L\sqrt{1-s^2},
+$$
+so \eqref{eq:generalfeature} satisfies the peak constraint. Its real part reveals $m$, and its imaginary part reveals
+$$
+ t=\ell_\phi(m)+\frac{2L}{K\beta\sqrt P}\operatorname{Im}r.
+$$
+The encoder uses antipodal endpoint symbols and has real received difference $K\sqrt P(m-n)$. Every step of Theorem~\ref{thm:gaussian} therefore applies unchanged.
+\end{proof}
+
+For any convex $C^1$ generator $\phi$ and $\eta\ge0$, this includes
+$$
+ f(\mathbf s)=m\exp\!\left[-\eta\left(\frac1K\sum_k\phi(s_k)-\phi(m)\right)\right].
+$$
+The Jensen gap is nonnegative, so the exponential weight lies in $[0,1]$ and equals one at consensus. Thus the Gaussian-optimal class includes arbitrary differentiable convex local generators, rather than only quadratic moments. The target and generator are fixed first; the encoder is then constructed from them.
+
+\section{Arbitrary-degree polynomial targets under squared separation}
+We can also enlarge the class with explicit optima for $D(d)=d^2$. Let
+\begin{equation}
+ f(\mathbf s)=F(m,q),\qquad
+ F(m,q)=\sum_{(i,j)\in\mathcal I}a_{ij}m^i q^j,
+ \label{eq:polyclass}
+\end{equation}
+where $\mathcal I$ is finite, $i,j$ are nonnegative integers, $a_{ij}\ge0$, and all present powers $i$ have the same parity $\epsilon\in\{0,1\}$. Assume the target depends on both arguments, equivalently
+$$
+ \alpha=F_m(1,1)=\sum i a_{ij}>0,\qquad
+ \beta=F_q(1,1)=\sum j a_{ij}>0.
+$$
+The polynomial degree is unrestricted. This class includes products of moments and sums of interactions, extending the preceding moment-minus-mean class.
+
+\begin{theorem}[Explicit optimum for moment polynomials]
+\label{thm:polynomial}
+Let $K\ge4$ and let \eqref{eq:polyclass} satisfy the stated conditions. Define
+$$
+ t=\frac{\alpha}{2\beta},\qquad
+ b=\frac{2}{1-t^2+t\sqrt{t^2+2}},\qquad a_0=\sqrt{b(2-b)}.
+$$
+An optimal encoder over every continuous shared peak-admissible map is
+\begin{equation}
+ \boxed{\enc^\star(s)=\sqrt P\,[a_0s+i(bs^2-1)]},\qquad
+ \boxed{\Lambda_{\sq}^\star(f)=\frac{K^2P}{\beta^2}b^2(b-1)}.
+ \label{eq:polyopt}
+\end{equation}
+\end{theorem}
+\begin{proof}
+\emph{Step 1: Exactness forces both moments.}
+Suppose two interior triples with statistics $(S,Q)$ and $(\widetilde S,\widetilde Q)$ have equal received sums. Complete both triples with one common input $x$ and $K-4$ zeros. Exactness implies the polynomial identity
+$$
+ F((S+x)/K,(Q+x^2)/K)
+ =F((\widetilde S+x)/K,(\widetilde Q+x^2)/K)
+$$
+for all real $x$, since it holds on $(-1,1)$.
+
+Put $c_{ij}=a_{ij}/K^{i+j}$ and $d=\max(i+2j)$ over nonzero terms. Every weighted degree $i+2j$ has parity $\epsilon$, so no term has degree $d-1$. If a highest-degree term has $i>0$, the coefficient of $x^{d-1}$ is
+$$
+ S\sum_{i+2j=d}i c_{ij},
+$$
+with a strictly positive multiplier. Thus $S=\widetilde S$. For a completion with $S+x\ne0$ and positive second moments, $F((S+x)/K,q)$ is strictly monotone in $q$: all nonzero derivative terms have the same sign. Hence $Q=\widetilde Q$.
+
+Otherwise the highest-degree term is a pure second-moment power, so $d=2J$ and that term is $c_{0J}(Q+x^2)^J$. The coefficient of $x^{d-2}$ is $Jc_{0J}Q$ plus constants from terms of weighted degree $d-2$. It follows that $Q=\widetilde Q$. In this case all mean powers are even, and for each positive second moment $F$ is strictly increasing in $|m|$. Equality for all completions gives $(S+x)^2=(\widetilde S+x)^2$ on an interval and hence $S=\widetilde S$.
+
+The continuous two-moment representation lemma in the preceding addendum now applies: if the sum of a continuous planar encoder for three inputs determines both their first and second moments, the encoder must be $c+us+vs^2$ with independent real vectors $u,v$. That lemma uses invariance of domain, local convolution, and differentiation along moment fibers; its full proof is retained in the accompanying prior addendum. The present application imposes no additional encoder smoothness assumption.
+
+\emph{Step 2: Exact score of a quadratic curve.}
+Let $G=\left(\begin{smallmatrix}A&C\\C&B\end{smallmatrix}\right)$ be the Gram matrix of $u,v$. On $|m|\le1$, $0\le q\le1$, the coefficient assumptions give $|F_m|\le\alpha$ and $|F_q|\le\beta$. At $(1,1)$ the gradient is $(\alpha,\beta)$, and at $(-1,1)$ it is $((-1)^{\epsilon+1}\alpha,(-1)^\epsilon\beta)$. Thus an all-pair line-integral bound gives
+$$
+ \Lambda_{\sq}(\enc;f)
+ \ge\frac{K^2(AB-C^2)}{\alpha^2B+\beta^2A+2\alpha\beta|C|}.
+$$
+This bound is sharp. Choose distinct interior inputs approaching whichever consensus endpoint maximizes the gradient's dual norm. The two-moment map has rank two there. Arbitrarily small attainable moment displacements in the dual-gradient direction approach the displayed quotient. This proves equality.
+
+\emph{Step 3: Peak-constrained optimization.}
+Reflection of the source flips the sign of $\Delta S$ and preserves $\Delta Q$ and the absolute target gap. Averaging peak constraints at $s,-s$, projecting the translation onto the quadratic coefficient, and choosing the linear coefficient orthogonal to it preserves $A,B$ and removes $C$ without worsening the score. The three peak constraints at $0,\pm1$ then reduce the optimum to $A=P b(2-b)$ and $B=P b^2$, $1\le b<2$. The peak identity $|\enc_b(s)|^2/P=1-b^2s^2(1-s^2)\le1$ verifies the whole interval. Minimization of
+$$
+ \frac{\alpha^2}{b(2-b)}+\frac{\beta^2}{b^2}
+$$
+gives $\alpha^2b(b-1)=\beta^2(2-b)^2$, which yields \eqref{eq:polyopt}. Any nonexact competitor has zero squared score.
+\end{proof}
+
+For example, $F(m,q)=m q$ has $\alpha=\beta=1$ and therefore
+$$
+ \enc^\star(s)=\sqrt P\left[\frac{2\sqrt2}{3}s
+ +i\left(\frac43s^2-1\right)\right],\qquad
+ \Lambda_{\sq}^\star=\frac{16}{27}K^2P.
+$$
+This same target belongs to Theorem~\ref{thm:gaussian} with $w=q$. Its Gaussian-optimal map in \eqref{eq:regime} can instead be $\sqrt P[s+i(1-s^2)]$. The squared-optimal map has endpoint squared distance $(32/9)K^2P$, strictly below $4K^2P$. Consequently its Gaussian score is strictly below the Gaussian optimum for every $a>0$ in that regime. This explicitly shows why a squared-distance optimizer cannot be silently transferred to the exponential criterion.
+
+More examples are $m^2q+\eta q^2+\zeta m^4$ for $\eta,\zeta\ge0$, with $\alpha=2+4\zeta$ and $\beta=1+2\eta$, and $m^3q^2+m q^4$, with $\alpha=4$, $\beta=6$. Affine output changes scale the score but preserve the map. A fixed interval homeomorphism may also calibrate all inputs before computing the moments.
+
+\section{What is established and what remains}
+The Gaussian theorem is a full global encoder optimum for the stated class, peak constraint, and regime; its proof does not depend on the preceding topological lemma. The polynomial theorem supplies an unrestricted-degree class with explicit squared-distance optima for $K\ge4$, conditional only on its listed mathematical hypotheses and the continuous representation lemma proved in the prior addendum. A seven-variable characterization for other targets remains a characterization until its optimum is actually determined.
+
+The accompanying script executed 409 checks, all passing. It checks Gaussian all-pair inequalities and endpoint equality for several weights, peak identities and readouts for general local features, polynomial completion coefficients, squared-distance inequalities, and the finite-alphabet counterexample. The analytic all-pair proofs and converses establish the theorems; sampled checks do not replace them. No independent proof review or exhaustive novelty assessment was performed.
+
+The next substantive gap for the Gaussian criterion is optimality outside \eqref{eq:regime} for fixed meaningful targets such as $m q$ or $m e^{-\eta V}$. Increasing the target class while retaining a small certified regime is useful, but it does not resolve that regime question. The continuous, finite-alphabet, peak-power, and constellation-energy models must also remain distinct.
+
+\begin{thebibliography}{9}
+\bibitem{noiseaware} S. Razavikia and C. Fischione, ``On Designing Modulation for Over-the-Air Computation---Part I: Noise-Aware Design,'' arXiv:2506.15950v2, 2025. The formulation comparison uses Eq.~(10) and the Gaussian development leading to Eq.~(18). \url{https://arxiv.org/html/2506.15950v2}.
+\bibitem{prior} \emph{Optimal Continuous Encoders Beyond Quadratic Targets}, research addendum prepared for Saeed Razavikia, Sept.~13, 2026. Lemma~3 gives the continuous two-moment representation result; Theorem~7 gives the convex synthesis characterization. Included in the preceding delivered source package.
+\end{thebibliography}
+\end{document}

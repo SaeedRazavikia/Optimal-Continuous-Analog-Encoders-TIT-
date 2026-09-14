@@ -1,0 +1,1075 @@
+{
+  "seed": 20260913,
+  "checks": 135,
+  "passing": 135,
+  "status": "passed",
+  "notes": [
+    "Numerical checks are not a proof of the topological rigidity theorem.",
+    "The finite solver is a sanity check; the analytic KKT and peak factor give the continuum certificate.",
+    "No Gaussian-MSE experiment or exhaustive novelty review was performed."
+  ],
+  "quartic_examples": [
+    {
+      "M": 0.2,
+      "rho": 0.057720599311133984,
+      "a": 0.6349314678218584,
+      "b": 1.7667515279246602,
+      "c": -0.9941830641820735,
+      "lambda_over_K2P": 2.3832814467457215,
+      "eta": 0.18409225142018326,
+      "zeta": 0.23549730287499288
+    },
+    {
+      "M": 0.5,
+      "rho": 0.11626098222644672,
+      "a": 0.8287530722052003,
+      "b": 1.5396691746788032,
+      "c": -0.9800547133659796,
+      "lambda_over_K2P": 1.2725435891639125,
+      "eta": 0.2895336677384686,
+      "zeta": 0.4962940308294216
+    },
+    {
+      "M": 1.0,
+      "rho": 0.1788420944493016,
+      "a": 0.9324488825317903,
+      "b": 1.3225726147992638,
+      "c": -0.9612706891675069,
+      "lambda_over_K2P": 0.580777963026117,
+      "eta": 0.4859127641021747,
+      "zeta": 1.2359156516826564
+    },
+    {
+      "M": 2.0,
+      "rho": 0.24598263474303989,
+      "a": 0.9829955647598948,
+      "b": 1.1247923304660994,
+      "c": -0.9411630308911799,
+      "lambda_over_K2P": 0.2028397190798921,
+      "eta": 0.8566892027959572,
+      "zeta": 4.073311708939344
+    },
+    {
+      "M": 4.0,
+      "rho": 0.29720785528286564,
+      "a": 0.9975391562056061,
+      "b": 0.9974135006021567,
+      "c": -0.9273019335350358,
+      "lambda_over_K2P": 0.058533506997747176,
+      "eta": 1.317265804423832,
+      "zeta": 15.766965967960623
+    },
+    {
+      "M": 8.0,
+      "rho": 0.32209585171140065,
+      "a": 0.9997795390125785,
+      "b": 0.9421796902234731,
+      "c": -0.9211827053971703,
+      "lambda_over_K2P": 0.015348079450558527,
+      "eta": 1.6200854564452323,
+      "zeta": 63.53464632751157
+    },
+    {
+      "M": 20.0,
+      "rho": 0.3313895256243532,
+      "a": 0.9999935866318332,
+      "b": 0.9225877679662147,
+      "c": -0.9190063303774415,
+      "lambda_over_K2P": 0.002492646775020142,
+      "eta": 1.7494866907183735,
+      "zeta": 399.4304999890739
+    }
+  ],
+  "sharp_pairs": [
+    {
+      "K": 4,
+      "p": 2,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.23704489234550272,
+      "local_limit_over_K2": 0.23704480759539073,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 4,
+      "p": 2,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.2209075146664478,
+      "local_limit_over_K2": 0.2209072333119903,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 4,
+      "p": 2,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.21341218905915382,
+      "local_limit_over_K2": 0.21341107672887655,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 4,
+      "p": 4,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.09298187708496262,
+      "local_limit_over_K2": 0.09298175022388226,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 4,
+      "p": 4,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.07357734411030872,
+      "local_limit_over_K2": 0.07357709686518814,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 4,
+      "p": 4,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.06558033144256799,
+      "local_limit_over_K2": 0.06557941675527743,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 7,
+      "p": 2,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.23704488524881737,
+      "local_limit_over_K2": 0.23704480759539073,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 7,
+      "p": 2,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.2209075114519961,
+      "local_limit_over_K2": 0.2209072333119903,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 7,
+      "p": 2,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.2134121871175457,
+      "local_limit_over_K2": 0.21341107672887646,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 7,
+      "p": 4,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.09298184422036843,
+      "local_limit_over_K2": 0.09298175022388228,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 7,
+      "p": 4,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.07357733133001422,
+      "local_limit_over_K2": 0.07357709686518814,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 7,
+      "p": 4,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.0655803256557299,
+      "local_limit_over_K2": 0.06557941675527734,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 12,
+      "p": 2,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.23704488109713992,
+      "local_limit_over_K2": 0.23704480759539073,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 12,
+      "p": 2,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.22090750914900484,
+      "local_limit_over_K2": 0.22090723331199016,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 12,
+      "p": 2,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.21341218806840084,
+      "local_limit_over_K2": 0.2134110767288765,
+      "global_limit_over_K2": 0.2062673845056687
+    },
+    {
+      "K": 12,
+      "p": 4,
+      "epsilon": 0.08,
+      "quotient_over_K2": 0.09298182599698268,
+      "local_limit_over_K2": 0.09298175022388228,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 12,
+      "p": 4,
+      "epsilon": 0.04,
+      "quotient_over_K2": 0.07357732387445169,
+      "local_limit_over_K2": 0.07357709686518799,
+      "global_limit_over_K2": 0.058533506997747176
+    },
+    {
+      "K": 12,
+      "p": 4,
+      "epsilon": 0.02,
+      "quotient_over_K2": 0.06558032297969699,
+      "local_limit_over_K2": 0.06557941675527738,
+      "global_limit_over_K2": 0.058533506997747176
+    }
+  ],
+  "finite_solver": {
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "x": [
+      0.9950836181425995,
+      0.9974195272499555,
+      -0.927302611620301
+    ],
+    "objective": 17.084231744381416
+  },
+  "results": [
+    {
+      "name": "parabola stationary M=0.2",
+      "error": 1.5959455978986625e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=0.2",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=0.2",
+      "error": 1.7763568394002505e-15,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=0.5",
+      "error": 0.0,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=0.5",
+      "error": 3.3306690738754696e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=0.5",
+      "error": 0.0,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=1.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=1.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=1.0",
+      "error": 1.1102230246251565e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=2.0",
+      "error": 1.1102230246251565e-15,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=2.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=2.0",
+      "error": 2.7755575615628914e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=4.0",
+      "error": 8.881784197001252e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=4.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=4.0",
+      "error": 4.85722573273506e-17,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=8.0",
+      "error": 1.1879386363489175e-14,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=8.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=8.0",
+      "error": 1.8735013540549517e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola stationary M=20.0",
+      "error": 1.4432899320127035e-14,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "parabola peak identity M=20.0",
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "parabola optimum identity M=20.0",
+      "error": 3.599551212651875e-17,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=0.2",
+      "error": 3.910366278992453e-17,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=0.2",
+      "error": 4.163336342344337e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=0.2",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=0.5",
+      "error": 1.2433708196098409e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=0.5",
+      "error": 6.106226635438361e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=0.5",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=1.0",
+      "error": 8.157920743178274e-17,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=1.0",
+      "error": 2.7755575615628914e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=1.0",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=2.0",
+      "error": 2.995542270296943e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=2.0",
+      "error": 3.0531133177191805e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=2.0",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=4.0",
+      "error": 2.4556708597829933e-17,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=4.0",
+      "error": 4.163336342344337e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=4.0",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=8.0",
+      "error": 2.1481236990893947e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=8.0",
+      "error": 6.106226635438361e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=8.0",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "quartic KKT M=20.0",
+      "error": 7.632265950934906e-15,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    {
+      "name": "quartic continuum factor M=20.0",
+      "error": 3.7470027081099033e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "quartic multipliers M=20.0",
+      "error": 0.0,
+      "tolerance": 0.0,
+      "passed": true
+    },
+    {
+      "name": "all pairs K=4, p=2, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=4, p=2, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=4, p=2, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=4, p=4, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=4, p=4, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=4, p=4, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=2, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=2, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=2, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=4, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=4, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=5, p=4, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=2, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=2, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=2, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=4, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=4, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=8, p=4, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=2, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=2, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=2, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=4, jensen",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=4, shifted_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "all pairs K=17, p=4, exponential_mean",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true,
+      "pair_count": 12000
+    },
+    {
+      "name": "realized local sharp pair K=4, p=2, eps=0.08",
+      "error": 3.575278144651861e-07,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=4, p=2, eps=0.04",
+      "error": 1.273631710985157e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=4, p=2, eps=0.02",
+      "error": 5.212148752153922e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=4, p=4, eps=0.08",
+      "error": 1.3643653733463879e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=4, p=4, eps=0.04",
+      "error": 3.360354391857001e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=4, p=4, eps=0.02",
+      "error": 1.3947780200140869e-05,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=2, eps=0.08",
+      "error": 3.2758965451407107e-07,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=2, eps=0.04",
+      "error": 1.2590805726908627e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=2, eps=0.02",
+      "error": 5.2030507800004955e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=4, eps=0.08",
+      "error": 1.0109132806412902e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=4, eps=0.04",
+      "error": 3.1866550336268062e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=7, p=4, eps=0.02",
+      "error": 1.3859538518845582e-05,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=2, eps=0.08",
+      "error": 3.100753394047473e-07,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=2, eps=0.04",
+      "error": 1.2486554221702306e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=2, eps=0.02",
+      "error": 5.207506289517383e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=4, eps=0.08",
+      "error": 8.149244365984742e-07,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=4, eps=0.04",
+      "error": 3.085325099627667e-06,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "realized local sharp pair K=12, p=4, eps=0.02",
+      "error": 1.381873252981336e-05,
+      "tolerance": 0.004,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 0",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 0",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 1",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 1",
+      "error": 1.564715616445476e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 2",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 2",
+      "error": 3.76184498518572e-15,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 3",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 3",
+      "error": 3.0867250315095178e-18,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 4",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 4",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 5",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 5",
+      "error": 1.356740322330886e-15,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 6",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 6",
+      "error": 9.36441356039474e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 7",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 7",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 8",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 8",
+      "error": 4.76913961349641e-17,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 9",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 9",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 10",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 10",
+      "error": 4.528585855446513e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 11",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 11",
+      "error": 2.016432103087844e-15,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 12",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 12",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 13",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 13",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 14",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 14",
+      "error": 6.668714872832812e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 15",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 15",
+      "error": 1.3817017089482665e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 16",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 16",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 17",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 17",
+      "error": 2.59297931452501e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 18",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 18",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 19",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 19",
+      "error": 8.426981948224208e-17,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 20",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 20",
+      "error": 6.37532475590117e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 21",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 21",
+      "error": 2.9713169469717997e-15,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 22",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 22",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 23",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 23",
+      "error": 5.049507941889482e-16,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "Gram projection dominance 24",
+      "error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "name": "Gram reduced determinant 24",
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "passed": true
+    },
+    {
+      "name": "finite solver matches quartic analytic objective",
+      "error": 1.639115954077397e-09,
+      "tolerance": 3e-07,
+      "passed": true
+    }
+  ]
+}

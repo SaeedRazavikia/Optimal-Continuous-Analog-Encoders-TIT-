@@ -1,0 +1,395 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools,booktabs,array,microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Optimal Continuous Encoders Beyond Quadratic Targets},pdfauthor={Research addendum prepared for Saeed Razavikia}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\enc}{\mathscr E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\sq}{\mathrm{sq}}
+\newcommand{\T}{\mathsf T}
+\newcommand{\suc}{\succeq}
+\title{Optimal Continuous Encoders Beyond Quadratic Targets}
+\author{Research addendum prepared for Saeed Razavikia}
+\date{13 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We extend the supplied planar-encoder results in two directions. First, we prove that exact computation of a broad moment-and-mean target forces every continuous shared planar encoder to be an affine image of its two-feature moment curve. The proof uses one additional terminal, invariance of domain, and a local convolution argument; it assumes neither a differentiable encoder nor a differentiable decoder. This removes the smoothness restriction from the archived quadratic theorem for $K\ge4$. Second, we derive an exact convex design problem with seven real variables for strictly convex or concave feature and mean functions. We solve two subclasses explicitly: quadratic local features with nonlinear mean penalties, and quartic local features. The latter gives a nonparabolic optimal map for a fourth-order Jensen gap. All optimality statements concern peak-constrained squared separation, with a stated extension to other dissimilarities. These are new derivations relative to the supplied archive; the proofs have not received independent review, and historical novelty has not been established.
+\end{abstract}
+
+\section{What this adds to the supplied findings}
+The most recent branch of the supplied archive already goes beyond coherence. Its quadratic theorem gives a globally optimal $C^1$ encoder for $Q-\tau S^2/K$ when $K\ge4$. Thus the current question is broader than finding another all-$K$ example: we want a useful target class, a converse over continuous maps, and a way to determine the optimal geometry.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{.24\textwidth}p{.32\textwidth}p{.35\textwidth}@{}}
+\toprule
+Question & Supplied archive & Addition in this note\\
+\midrule
+Regularity of quadratic encoders & Classification assumes $C^1$ in the interval interior & Classification over all continuous encoders, for $K\ge4$\\[1mm]
+Broad target class & Explicit squared optimum for $Q-\tau S^2/K$ & Moment-and-mean targets, including general smooth Jensen gaps\\[1mm]
+Encoder synthesis & One parameter for the quadratic class & Exact convex program with seven real variables for the broader class\\[1mm]
+Explicit geometry & Quadratic curves & Closed-form quadratic subclass and algebraically specified quartic subclass\\[1mm]
+Meaning of optimality & Separation; not unrestricted Gaussian MSE & Same criterion and limitation\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The constructive representation of a Jensen gap using two additive features already appears in the archive. We do not count that construction alone as new. The additions are the converse, the exact design reduction, and the certified optimal quartic shape.
+
+\section{Model and target class}
+Each of $K\ge4$ terminals holds $s_k\in I=[-1,1]$ and uses the same continuous encoder $\enc:I\to\C$. We identify $\C$ with $\R^2$ and impose the pointwise constraint $\sup_{s\in I}|\enc(s)|^2\le P$, where $P>0$. The noiseless received sum is $r_\enc(\mathbf s)=\sum_k\enc(s_k)$. Exactness means that equal received sums imply equal target values. On the compact received set, the resulting readout is continuous.
+
+We fix two real functions $\phi,\psi$ and consider
+\begin{equation}
+ f_{\phi,\psi}(\mathbf s)
+ =\frac1K\sum_{k=1}^K\phi(s_k)
+   -\psi\!\left(\frac1K\sum_{k=1}^Ks_k\right).
+ \label{eq:target}
+\end{equation}
+Write $S=\sum_k s_k$, $T=\sum_k\phi(s_k)$, and $m=S/K$. When $\psi=\phi$ is convex, \eqref{eq:target} is its Jensen gap. In particular, $\phi(s)=s^2$ gives variance, while $\phi(s)=s^4$ gives $K^{-1}\sum_k s_k^4-m^4$. The latter is not the fourth central moment.
+
+Our principal score is
+\begin{equation}
+ \Lambda_{\sq}(\enc;f)
+ =\inf_{f(\mathbf s)\ne f(\mathbf t)}
+ \frac{|r_\enc(\mathbf s)-r_\enc(\mathbf t)|^2}
+ {|f(\mathbf s)-f(\mathbf t)|^2}.
+ \label{eq:score}
+\end{equation}
+A positive score implies exactness. A zero-score encoder therefore cannot improve any of the positive optima below. Throughout, $C^1(I)$ means a continuously differentiable function with finite continuous one-sided derivatives at the endpoints. We state separately when only interior differentiability is needed.
+
+\section{A converse for every continuous planar encoder}
+The key step is to recover two statistics from a collision involving three terminals. A fourth terminal lets us vary the common mean without changing that collision.
+
+\begin{lemma}[A triple collision preserves both moments]
+\label{lem:collision}
+Suppose $K\ge4$, $\psi$ is $C^1$ in the interval interior and strictly convex or strictly concave, and $\enc$ exactly computes \eqref{eq:target}. If two interior triples have the same encoded sum, then they have the same $S$ and $T$.
+\end{lemma}
+\begin{proof}
+Let the triple statistics be $(S,T)$ and $(\widetilde S,\widetilde T)$. Add the same $K-3$ inputs to both triples. Fix all but one of these extra inputs and vary the remaining one, so their common sum $w$ varies over an open interval. Exactness gives
+$$
+ T-\widetilde T
+ =K\left[\psi\!\left(\frac{S+w}{K}\right)
+ -\psi\!\left(\frac{\widetilde S+w}{K}\right)\right].
+$$
+Differentiation with respect to $w$ gives equality of the two values of $\psi'$. The derivative of a differentiable strictly convex function is strictly increasing; for a strictly concave function it is strictly decreasing. Hence $S=\widetilde S$, and the displayed identity then gives $T=\widetilde T$.
+\end{proof}
+
+The next lemma prevents a planar received sum from retaining an additional continuous degree of freedom once it already determines two independent statistics. We use the classical invariance-of-domain theorem: a continuous injection from an open subset of $\R^2$ into $\R^2$ has open image \cite[Theorem 2B.3]{hatcher}.
+
+\begin{lemma}[No additional local fiber variation]
+\label{lem:topology}
+Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q$ on its image such that $q(R(p,t))=p$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
+\end{lemma}
+\begin{proof}
+For fixed $t_0$, the map $p\mapsto R(p,t_0)$ is a continuous injection, so $R(B,t_0)$ is open. Fix $p$. For $t$ sufficiently close to $t_0$, continuity gives $R(p,t)\in R(B,t_0)$. Thus $R(p,t)=R(p',t_0)$ for some $p'\in B$. Applying $q$ yields $p'=p$, so $R(p,t)=R(p,t_0)$. The function $t\mapsto R(p,t)$ is locally constant, and connectedness of $J$ makes it constant. This argument does not require differentiability or continuity of $q$.
+\end{proof}
+
+\begin{lemma}[Continuous two-moment representations are affine]
+\label{lem:affine}
+Let $\phi\in C(I)\cap C^1((-1,1))$ be nonaffine, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then
+\begin{equation}
+ \enc(s)=c+u s+v\phi(s),
+ \qquad c,u,v\in\R^2,
+ \label{eq:affine}
+\end{equation}
+where $u,v$ are linearly independent.
+\end{lemma}
+\begin{proof}
+\emph{Step 1: Local factorization through the moments.}
+Choose interior $y_0,z_0$ with $\phi'(y_0)\ne\phi'(z_0)$; such a pair exists because $\phi$ is nonaffine. At any $(x_0,y_0,z_0)$, the map
+$$
+ (x,y,z)\longmapsto
+ \bigl(x,\;x+y+z,\;\phi(x)+\phi(y)+\phi(z)\bigr)
+$$
+has a nonsingular Jacobian and is a local $C^1$ diffeomorphism. Shrink its image to a product $J\times B$, with $B\subset\R^2$ open. In these coordinates, the triple received sum is a continuous $R(p,x)$, and the collision hypothesis gives a well-defined map $q$ with $q(R(p,x))=p$. Lemma~\ref{lem:topology} shows that $R$ is independent of $x$. Consequently, on a smaller source box,
+\begin{equation}
+ \enc(x)+\enc(y)+\enc(z)
+ =H\bigl(x+y+z,\phi(x)+\phi(y)+\phi(z)\bigr)
+ \label{eq:localfactor}
+\end{equation}
+for a continuous $H$ defined on $B$.
+
+\emph{Step 2: Automatic interior differentiability.}
+The pair map $(y,z)\mapsto w=(y+z,\phi(y)+\phi(z))$ is a local $C^1$ diffeomorphism near $(y_0,z_0)$. Choose a smooth compactly supported density $\rho(w)$ of integral one inside its image, and denote its inverse by $(y(w),z(w))$. Integrating \eqref{eq:localfactor} with respect to $\rho(w)\,dw$ gives, for $x$ near $x_0$,
+$$
+ \enc(x)=\int H\bigl((x,\phi(x))+w\bigr)\rho(w)\,dw-C_0,
+$$
+where $C_0=\int[\enc(y(w))+\enc(z(w))]\rho(w)\,dw$ is independent of $x$. After a cutoff supported inside $B$, the integral is a smooth convolution as a function of the two-dimensional argument. Its composition with the $C^1$ curve $x\mapsto(x,\phi(x))$ is $C^1$. Since $x_0$ was arbitrary, $\enc$ is $C^1$ throughout the interval interior. No regularity of the original decoder was assumed.
+
+\emph{Step 3: Affine dependence on the features.}
+Consider a real component $e$ of the now differentiable encoder. Equation~\eqref{eq:localfactor} implies that the differential of $e(x)+e(y)+e(z)$ vanishes on the local fibers of the two-moment map. The latter has rank two whenever $\phi'(y)\ne\phi'(z)$. Hence
+$$
+ (e'(x),e'(y),e'(z))
+ \in\operatorname{span}\{(1,1,1),(\phi'(x),\phi'(y),\phi'(z))\}.
+$$
+Fix $y=y_0,z=z_0$. Their two entries uniquely determine constants $\alpha,\beta$, independently of $x$, so $e'(x)=\alpha+\beta\phi'(x)$ on the whole interior. Integration, followed by endpoint continuity, proves \eqref{eq:affine} componentwise.
+
+Finally, the triple moment map has an open image locally near $(x_0,y_0,z_0)$. If $u,v$ were dependent, the linear map $(S,T)\mapsto uS+vT$ could not be injective on that open set. This would contradict the collision hypothesis. Thus $u,v$ are independent.
+\end{proof}
+
+\begin{theorem}[Continuous rigidity for moment-and-mean targets]
+\label{thm:rigidity}
+Let $K\ge4$. Assume $\phi\in C(I)\cap C^1((-1,1))$ is nonaffine and $\psi\in C(I)\cap C^1((-1,1))$ is strictly convex or strictly concave. A continuous planar encoder exactly computes \eqref{eq:target} if and only if it has form \eqref{eq:affine} with independent $u,v$.
+\end{theorem}
+\begin{proof}
+Necessity follows from Lemmas~\ref{lem:collision} and~\ref{lem:affine}. For sufficiency, the receiver solves the invertible real system $r_\enc-Kc=uS+vT$ and evaluates $T/K-\psi(S/K)$.
+\end{proof}
+
+\begin{corollary}[The quadratic smoothness gap closes for $K\ge4$]
+For every $\tau\ne0$, every continuous exact encoder of $Q-\tau S^2/K$ is a nondegenerate quadratic curve. Consequently, the archived quadratic optimum, its exact general-dissimilarity reduction, and its variance-power results extend from the specified smooth class to all continuous planar encoders, under their other original hypotheses.
+\end{corollary}
+\begin{proof}
+Use $\phi(s)=s^2$ and $\psi(m)=\tau m^2$ in Theorem~\ref{thm:rigidity}, noting that output multiplication by $K$ preserves exactness. Every exact continuous encoder is then one of the smooth curves already covered by the archived optimization proofs. The same reasoning applies to strictly monotone transformations of the target.
+\end{proof}
+
+The proof still uses a fourth terminal. It does not settle the unrestricted $K=3$ classification. It also uses the equality of the real channel dimension and the number of recovered moments; it is not an automatic extension to multiple complex channel uses.
+
+\section{Exact score and a convex synthesis theorem}
+We now assume $\phi,\psi\in C^1(I)$, each strictly convex or strictly concave. This slightly stronger feature assumption ensures full-rank moment configurations arbitrarily close to each consensus endpoint. Define
+$$
+ G=\begin{pmatrix}A&C\\ C&B\end{pmatrix},\qquad
+ A=|u|^2,\quad B=|v|^2,\quad C=\operatorname{Re}(u\overline v),
+ \qquad w_\pm=\begin{pmatrix}-\psi'(\pm1)\\1\end{pmatrix}.
+$$
+
+\begin{proposition}[Exact score of every admissible moment curve]
+\label{prop:score}
+For an encoder \eqref{eq:affine} with independent $u,v$,
+\begin{equation}
+ \Lambda_{\sq}(\enc;f_{\phi,\psi})
+ =\frac{K^2}{\max\{w_-^\T G^{-1}w_-,\;w_+^\T G^{-1}w_+\}}.
+ \label{eq:exactscore}
+\end{equation}
+The infimum is approached by pairs with received distance tending to zero.
+\end{proposition}
+\begin{proof}
+In the moment coordinates $(S,T)$, the target has gradient $K^{-1}(-\psi'(S/K),1)$. The squared received distance is $\Delta m^\T G\Delta m$, where here $\Delta m=(\Delta S,\Delta T)^\T$. Since $\psi'$ is monotone, it ranges between its endpoint values. The quadratic function $(-q,1)G^{-1}(-q,1)^\T$ is convex in $q$, so its maximum occurs at an endpoint. Integrating the gradient along the straight segment between two moment points proves the lower bound in \eqref{eq:exactscore}. The segment need not be attainable: the formula $T/K-\psi(S/K)$ is defined on the entire strip $|S|\le K$.
+
+For sharpness, take interior configurations tending to the endpoint attaining the maximum, with at least two distinct input values. Strict convexity or concavity of $\phi$ makes their $\phi'$ values distinct, so the moment Jacobian has rank two. Each resulting moment point has an attainable open neighborhood. Choose an arbitrarily small moment displacement in direction $G^{-1}(-\psi'(S/K),1)^\T$ within that neighborhood. Its quotient approaches the reciprocal local squared dual norm. Then let the base configuration approach the selected endpoint. This proves equality and the shrinking-pair statement.
+\end{proof}
+
+Equation~\eqref{eq:exactscore} is useful because the nonlinear local feature affects the feasible peak geometry, while the mean readout enters through only its two extreme slopes.
+
+\begin{theorem}[Exact convex encoder synthesis]
+\label{thm:sdp}
+Under the assumptions of Proposition~\ref{prop:score}, the global optimum over all continuous peak-admissible encoders is $K^2\lambda_\star$, where $\lambda_\star$ is the optimum of
+\begin{equation}
+\begin{aligned}
+ \text{maximize}\quad &\lambda\\
+ \text{over}\quad &H\in\mathbb S^3,\quad\lambda\ge0,\\
+ \text{subject to}\quad
+ &H\suc0,\\
+ &z(s)^\T H z(s)\le P\quad\text{for every }s\in[-1,1],\\
+ &G-\lambda w_-w_-^\T\suc0,\qquad
+ G-\lambda w_+w_+^\T\suc0,
+ \qquad z(s)=\begin{pmatrix}1\\s\\\phi(s)\end{pmatrix},
+\end{aligned}
+\label{eq:sdp}
+\end{equation}
+where $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
+\end{theorem}
+\begin{proof}
+Every planar coefficient triple $(c,u,v)$ defines its $3\times3$ Gram matrix $H$. The peak inequalities are exactly the stated quadratic forms. For $G\succ0$, the identity
+$$
+ G-\lambda ww^\T\suc0
+ \quad\Longleftrightarrow\quad
+ \lambda\le\frac1{w^\T G^{-1}w}
+$$
+shows that the last two constraints enforce the score in Proposition~\ref{prop:score}. Thus \eqref{eq:sdp} upper-bounds every positive-score continuous encoder, by Theorem~\ref{thm:rigidity}.
+
+Conversely, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$. At every feasible point with $\lambda>0$, the two distinct endpoint slopes imply $G\succ0$: a null vector of $G$ would have to be orthogonal to both independent vectors $w_-,w_+$. Replace $h$ by $\ell^\T G^{-1}\ell$. The resulting matrix remains positive semidefinite, has rank two, preserves $G$, and decreases every peak quadratic form by the same nonnegative constant. It is therefore the Gram matrix of three vectors in $\R^2$, giving a feasible exact encoder with score at least $K^2\lambda$.
+
+For explicit reconstruction choose a real $2\times2$ matrix $L$ with $L^{\T}L=G$. Its columns are $u,v$, and set $c=(L^\T)^{-1}\ell$. The reduced Gram matrix is then realized by $(c,u,v)$.
+
+Finally, a sufficiently small nondegenerate moment curve is feasible and has positive score. Nonaffineness of $\phi$ supplies three inputs for which the vectors $z(s)$ span $\R^3$. Their peak constraints and $H\suc0$ bound $H$, so the feasible matrices lie in a compact set. The constraints are closed, and $\lambda$ is bounded by either final matrix inequality. An optimum therefore exists, is positive, and admits the rank-two reconstruction above.
+\end{proof}
+
+This is an exact characterization, not a claim that sampling the peak interval produces a certificate. For polynomial $\phi$, the remaining scalar inequality can be handled by polynomial nonnegativity on an interval. For a general smooth feature, any numerical implementation must control the peak constraint between samples. The explicit maps below have analytic continuum certificates.
+
+\section{A closed-form optimum for nonlinear mean penalties}
+Set $\phi(s)=s^2$ and let $\psi\in C^1(I)$ be even and strictly convex or strictly concave. Define
+$$
+ M=|\psi'(1)|>0,\qquad t=M/2,\qquad
+ b=\frac{2}{1-t^2+t\sqrt{t^2+2}},\qquad a=\sqrt{b(2-b)}.
+$$
+For numerical evaluation, the equivalent denominator $1+2t/(\sqrt{t^2+2}+t)$ avoids cancellation at large $t$.
+
+\begin{theorem}[Optimal quadratic feature with a nonlinear mean readout]
+\label{thm:parabola}
+For every $K\ge4$, an optimal encoder for $f=Q/K-\psi(S/K)$ over all continuous peak-admissible maps is
+\begin{equation}
+ \boxed{\enc^\star(s)=\sqrt P\,[a s+i(bs^2-1)]},
+ \qquad
+ \boxed{\Lambda_{\sq}^\star(f)=K^2P\,b^2(b-1)}.
+ \label{eq:parabola}
+\end{equation}
+Thus an infinite-dimensional class of nonlinear mean readouts has an explicit optimal encoder determined by $M$ alone.
+\end{theorem}
+\begin{proof}
+Rigidity reduces the continuous class to quadratic curves. Since $\psi$ is even, the endpoint slope vectors are $(\pm M,1)^\T$. Proposition~\ref{prop:score} gives
+$$
+ \frac{\Lambda_{\sq}}{K^2}
+ =\frac{AB-C^2}{M^2B+A+2M|C|}.
+$$
+An orthogonal curve with the same $A,B$ is feasible whenever the original curve is feasible. Indeed, averaging its peak constraints at $s$ and $-s$ gives $A s^2+|c+v s^2|^2\le P$. Project $c$ onto the line of $v$, discard the perpendicular component, and place the $u$ coefficient perpendicular to $v$. This preserves $A,B$, reduces these averaged norms, and removes $C$, thereby improving the displayed score.
+
+Normalize $P=1$ and write $b=\sqrt B$. The peak constraints at $0,\pm1$ imply $A+\max\{b-1,0\}^2\le1$. For $b\le1$, $A\le1$ and the choice $A=B=1$ dominates. For $b>1$, the boundary $A=b(2-b)$ dominates at fixed $b$ and is attained by the stated curve. Its full peak identity is
+$$
+ |\enc_b(s)|^2/P=1-b^2s^2(1-s^2)\le1.
+$$
+It remains to minimize $M^2/[b(2-b)]+1/b^2$ for $1\le b<2$. Its unique minimizer satisfies $M^2b(b-1)=(2-b)^2$, giving \eqref{eq:parabola}.
+\end{proof}
+
+Examples include $\psi(m)=m^{2r}$ for every integer $r\ge1$, $\psi(m)=-\eta m^{2r}$ for $\eta>0$, and $\psi(m)=m^2+\eta m^4$ for $\eta\ge0$. In the last case $M=2+4\eta$. Strict convexity permits a vanishing second derivative at isolated points, so $m^4$ satisfies the theorem. More generally, different even strictly convex mean functions with the same endpoint slope share the same optimal geometry.
+
+For variance, $M=2$ and $b=2/\sqrt3$, so
+$$
+ \Lambda_{\sq}^\star(V)=\frac{4K^2P}{9+6\sqrt3}.
+$$
+The value is already in the archive; the extension here is its converse over every continuous planar encoder.
+
+\section{An explicit optimal quartic encoder}
+We next set $\phi(s)=s^4$ and again assume $\psi$ is even and strictly convex or strictly concave. Put $M=|\psi'(1)|$. Let $\rho$ be the unique solution in $(0,1/3)$ of
+\begin{equation}
+ 8\rho^2(1+\rho)(1+3\rho)=M^2(1-3\rho).
+ \label{eq:quarticroot}
+\end{equation}
+The left side increases strictly from zero, and the right side decreases strictly to zero on this interval. Define
+\begin{equation}
+\begin{aligned}
+ d_\rho&=1+2\rho+9\rho^2,\qquad
+ a_\rho=\sqrt{\frac{8\rho}{d_\rho}},\\
+ b_\rho&=\frac{2}{(1+\rho)\sqrt{d_\rho}},\qquad
+ c_\rho=-\frac{1+2\rho+3\rho^2}{(1+\rho)\sqrt{d_\rho}}.
+\end{aligned}
+\label{eq:quarticcoefficients}
+\end{equation}
+
+\begin{theorem}[Optimal quartic moment curve]
+\label{thm:quartic}
+For every $K\ge4$, an optimal continuous encoder for $K^{-1}\sum_k s_k^4-\psi(S/K)$ is
+\begin{equation}
+ \boxed{\enc^\star(s)=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)]}.
+ \label{eq:quarticmap}
+\end{equation}
+Its optimal squared separation is
+\begin{equation}
+ \boxed{\Lambda_{\sq}^\star
+ =\frac{K^2P}{M^2/a_\rho^2+1/b_\rho^2}
+ =\frac{8K^2P\rho}
+ {d_\rho\,[M^2+2\rho(1+\rho)^2]}}.
+ \label{eq:quarticscore}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:rigidity} forces the quartic form. The reflection and projection argument in Theorem~\ref{thm:parabola} applies with $s^4$ replacing $s^2$; Proposition~\ref{prop:score} shows that it suffices to optimize an orthogonal curve. Normalize $P=1$, write it as $\sqrt A\,s+i(bs^4+c)$ with $A,b>0$, and minimize the convex function
+$$
+ J(A,b,c)=M^2/A+1/b^2
+$$
+under the convex constraints
+$$
+ A t+(bt^2+c)^2\le1\qquad(0\le t\le1),
+ \quad t=s^2.
+$$
+The proposed coefficients, with $A=a_\rho^2$ and $B=b_\rho^2$, obey the exact identity
+\begin{equation}
+ 1-\left[A t+(b_\rho t^2+c_\rho)^2\right]
+ =B(1-t)(t-\rho)^2(t+1+2\rho).
+ \label{eq:quarticpeak}
+\end{equation}
+This proves every peak inequality. Equality holds at $t=\rho$ and $t=1$.
+
+For global optimality, retain just these two active convex constraints and set
+$$
+ \eta=\frac{2}{B^2(1+\rho)^3(1-\rho)},\qquad
+ \zeta=\eta\frac{1+\rho}{1-3\rho}.
+$$
+Both multipliers are positive. Let $y_\rho=b_\rho\rho^2+c_\rho=-b_\rho(1+\rho)^2/2$ and $y_1=b_\rho+c_\rho=b_\rho(1+\rho)(1-3\rho)/2$. The three stationarity identities are
+\begin{equation}
+\begin{aligned}
+ -M^2/A^2+\eta\rho+\zeta&=0,\\
+ -2/b_\rho^3+2\eta y_\rho\rho^2+2\zeta y_1&=0,\\
+ 2\eta y_\rho+2\zeta y_1&=0.
+\end{aligned}
+\label{eq:kkt}
+\end{equation}
+The last two follow by substitution. The first reduces exactly to \eqref{eq:quarticroot}, using $A=2B\rho(1+\rho)^2$. The Lagrangian is convex and has zero gradient at the proposed point, which therefore minimizes it globally. Any point satisfying all peak constraints satisfies these two constraints and has objective at least this minimum. Since the proposed curve also satisfies the full continuum by \eqref{eq:quarticpeak}, it is globally optimal. Scaling restores $P$ and gives \eqref{eq:quarticscore}.
+\end{proof}
+
+For the fourth-order Jensen gap, $\psi(m)=m^4$ and $M=4$. Equation~\eqref{eq:quarticroot} becomes
+$$
+ 3\rho^4+4\rho^3+\rho^2+6\rho-2=0,
+ \qquad\rho\simeq0.297207855283.
+$$
+Hence an optimal map and value are
+$$
+ \enc^\star(s)\simeq\sqrt P\,[0.997539156206\,s
+ +i(0.997413500602\,s^4-0.927301933535)],
+$$
+$$
+ \Lambda_{\sq}^\star\simeq0.058533506998\,K^2P.
+$$
+The formulas defining the root and coefficients are exact; these decimals are for interpretation. Four source values use full peak energy: $s=\pm1$ and $s=\pm\sqrt\rho$. The center has strictly smaller energy. This differs from the optimal quadratic map, whose contacts occur at $-1,0,1$.
+
+\section{Further scope and limits}
+\subsection{Other dissimilarities}
+The shrinking-pair statement yields the same transfer principle as in the archive, now over the full continuous competitor class.
+
+\begin{corollary}[Transfer from the local quadratic behavior]
+Suppose $D:[0,\infty)\to[0,\infty)$ is continuous, $D(0)=0$, positive away from zero, and
+$$
+ D(d)\ge c_Dd^2\quad(0\le d\le2K\sqrt P),\qquad
+ \lim_{d\downarrow0}\frac{D(d)}{d^2}=c_D>0.
+$$
+For the targets of Proposition~\ref{prop:score}, every exact continuous encoder satisfies $\Lambda_D=c_D\Lambda_{\sq}$. Therefore every optimal encoder in this note remains optimal, and its optimum is multiplied by $c_D$.
+\end{corollary}
+\begin{proof}
+The lower envelope gives $\Lambda_D\ge c_D\Lambda_{\sq}$. Proposition~\ref{prop:score} supplies pairs attaining the opposite inequality in the limit. Nonexact encoders have zero score because $D(0)=0$.
+\end{proof}
+
+Examples are $D(d)=d^2+ad^4$ with $a\ge0$ and $D(d)=e^{ad^2}-1$ with $a>0$. The original uncentered $e^{ad^2}$ criterion has $D(0)=1$ and is not covered. No closed-form optimizer for that criterion is claimed here. Gaussian MSE and optimality at a fixed disturbance radius also remain separate problems.
+
+\subsection{Fixed input calibration and output transformations}
+Let $h$ be any fixed homeomorphism from a compact real interval onto $[-1,1]$. Replacing $s$ by $h(s)$ in the targets and encoders preserves peak power, exactness, and every pairwise quotient. Because the converse now covers continuous encoders, no $C^1$ inverse of $h$ is needed. This enlarges the solved class to calibrated moment-and-mean statistics.
+
+If $F=H_0(f_{\phi,\psi})$ for a continuous strictly monotone $H_0$, the same rigidity theorem still applies. For squared separation, an exact convex characterization remains available using the same Gram variables, with the score constraints replaced by
+$$
+ (\Delta S,\Delta T)G(\Delta S,\Delta T)^\T
+ \ge\Lambda\,|\Delta F|^2
+ \quad\text{for all input pairs}.
+$$
+These constraints are linear in $G,\Lambda$. The two endpoint-slope matrices generally no longer suffice. A nonlinear output transformation need not preserve the explicit optimal coefficients or a positive optimum. We therefore distinguish a characterization from a solved closed-form design.
+
+\subsection{How broad is the result?}
+The convex synthesis theorem includes smooth power, exponential, and clipped entropy generators after interval normalization. For fixed $\phi$, admissible mean functions with the same endpoint derivatives give the same squared-score design problem.
+
+The score theorem requires finite endpoint derivatives. The weaker regularity of the classification theorem does not itself imply positive separation.
+
+There is no claim to cover every symmetric target. Universal continuous sum representations face established latent-dimension limitations \cite{wagstaff19,wagstaff22}. Those results motivate seeking broad function-specific classes; they do not preclude the targets solved here. The $K=3$ case, further explicit feature geometries, the original exponential objective, and unrestricted Gaussian-MSE design remain unresolved by this addendum.
+
+\section{Verification, provenance, and manuscript use}
+The script \texttt{verify\_extension.py} executed 135 numerical checks with seed 20260913; all passed. These cover stationary formulas, quartic peak and KKT identities, sampled all-pair inequalities, realized shrinking source pairs, and Gram rank reduction. A finite-constraint solver also reproduces the quartic objective. Its continuum certificate is the analytic peak factorization and convex Lagrangian argument.
+
+The topological proof is a written mathematical argument. Numerical checks do not verify invariance of domain, the local convolution step, or the universal quantifiers in the classification. Before manuscript integration, an independent reviewer should examine Lemma~\ref{lem:affine} in particular: it is the new bridge from continuity to rigidity and carries the largest change in claim scope.
+
+The source comparison used the latest planar branch's \texttt{research\_note.tex}, especially its smooth quadratic classification and exact-score lemmas. The earlier handoff already records exact Jensen-gap representations. This note adds necessity and optimization arguments; it leaves the archived files unchanged.
+
+A primary-source check confirmed Hatcher's invariance-of-domain statement and the Wagstaff dimension results. It did not establish priority. No independent proof review, formal verification, or Gaussian-MSE campaign was performed.
+
+For the paper, a natural progression is continuous rigidity, convex peak-constrained synthesis, explicit quadratic and quartic optima, and dissimilarity transfer. Coherence remains a separate solved family. The central addition is the classification and optimization of the broader target class.
+
+\begin{thebibliography}{9}
+\bibitem{hatcher} A. Hatcher, \emph{Algebraic Topology}. Cambridge University Press, 2002, Theorem 2B.3, p.~172. Author-hosted text: \url{https://pi.math.cornell.edu/~hatcher/AT/AT.pdf}.
+\bibitem{wagstaff19} E. Wagstaff, F. Fuchs, M. Engelcke, I. Posner, and M. A. Osborne, ``On the limitations of representing functions on sets,'' in \emph{Proc. ICML}, PMLR 97, pp. 6487--6494, 2019. \url{https://proceedings.mlr.press/v97/wagstaff19a.html}.
+\bibitem{wagstaff22} E. Wagstaff, F. B. Fuchs, M. Engelcke, M. A. Osborne, and I. Posner, ``Universal approximation of functions on sets,'' \emph{Journal of Machine Learning Research}, vol.~23, no.~151, pp.~1--56, 2022. \url{https://www.jmlr.org/papers/v23/21-0730.html}.
+\end{thebibliography}
+\end{document}
