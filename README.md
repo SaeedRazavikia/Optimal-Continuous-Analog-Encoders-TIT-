@@ -4,11 +4,19 @@ Saeed Razavikia. Revised September 15, 2026.
 
 The manuscript studies exact computation of real-valued moment-based functions over a multiple-access channel using one shared continuous encoder and one complex channel use. It characterizes the required encoder structure under stated assumptions, optimizes peak-constrained separation, and develops sharp decoding and a robustness–small-noise tradeoff. The extension treats two prescribed additive statistics under a common-completion identification condition.
 
-Build the current IEEE single-column manuscript with:
+Build the 50-page submission version (including references) with:
 
 ~~~sh
 latexmk -pdf manuscript.tex
 ~~~
+
+Build the 56-page extended arXiv version with:
+
+~~~sh
+latexmk -pdf manuscript_arxiv.tex
+~~~
+
+Both builds use the same font, margins, spacing, main results and proofs. The arXiv wrapper enables the ancillary criterion, approximate-rigidity and Lean-verification appendices. The submission excludes those appendices; their sources remain in this package. The former assumptions table is replaced by the concise assumptions in Section II-D.
 
 Edit the LaTeX files in the root and sections directory, and use bibliography.bib for references. The figure sources and plotting data are included. The source package also contains the numerical code, archived experiments, and exact rational certificates. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for commands and [NUMERICAL_SOURCE.json](NUMERICAL_SOURCE.json) for their original source identities.
 

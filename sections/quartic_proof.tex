@@ -31,7 +31,7 @@ Scaling by $\sqrt P$ restores the stated power and score. The parameter formula 
 $$b=\frac{2\bigl(\sqrt{M^2+8}+M\bigr)}{\sqrt{M^2+8}+3M}.$$
 \end{proof}
 
-For variance, the baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$. Equation~\eqref{eq:parabola} therefore improves squared separation by $3.1337\%$; this percentage does not describe an MSE reduction. We also formalize the operational score and its optimum over all quadratic coefficient curves for every $P>0$ and integer $K\ge2$ in Lean~4. Appendix~\ref{app:lean} specifies the scope of that formal verification and the separate reduction from arbitrary continuous encoders.
+For variance, the baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$. Equation~\eqref{eq:parabola} therefore improves squared separation by $3.1337\%$; this percentage does not describe an MSE reduction. \ifArxivVersion We also formalize the operational score and its optimum over all quadratic coefficient curves for every $P>0$ and integer $K\ge2$ in Lean~4. Appendix~\ref{app:lean} specifies the scope of that formal verification and the separate reduction from arbitrary continuous encoders.\fi
 
 \subsection{Quartic Preprocessing}
 

@@ -1,37 +1,29 @@
-# Review corrections and formal verification — September 15, 2026
+# Submission-length revision — September 15, 2026
 
-## Manuscript corrections
+The submission version is **50 pages including references**, reduced from 59 pages. The extended arXiv version is 56 pages. Font size, margins, line spacing, and figure scale are unchanged.
 
-The revision preserves the title, section structure, main mathematical claims, and numerical values. It makes these targeted corrections:
+## Content changes
 
-- Uses “infimum” for the all-pair separation criterion in the introduction.
-- Defines the dissimilarity-based criterion explicitly and distinguishes its symbol from the decoder.
-- Describes paired-delta-method intervals as nominal pointwise 95% confidence intervals.
-- Makes continuity explicit for the prescribed bounded preprocessing curve in the extension example and proof.
-- Clarifies the fixed-encoder optimization over exact decoders and the scope of the strip decoder's small-noise statement.
-- Removes unnecessary differentiability from the collision lemma.
-- Protects capitalization of scheme names, mathematical terms and Lean in the bibliography.
-- Adds an immutable numerical-source citation and restores scripts, archived results and reproduction instructions to the source package.
-- Updates Appendix I and proof-coverage documents to describe the enlarged checked development and remaining gaps.
+- Removed the former assumptions table (Table I) and stated the R/S assumptions concisely in Section II-D. Each theorem retains its own hypotheses.
+- Excluded the Lean-verification appendix from the submission build, retaining its complete source for arXiv.
+- Retained the ancillary “Scope of the Criterion” and “Approximate Rigidity” appendices in the arXiv build. The submission keeps all main results and their proofs in Appendices A–F.
+- Condensed repeated explanations in the introduction, model, decoding, implementation, enclosing-ellipse discussion, certification, numerical results, and conclusions.
+- Preserved the digital-modulation motivation, moment examples and interactions, every formal statement, all main proofs, numerical values, table entries and figure data. Statements excluded from submission remain unchanged in the extended source.
+- Updated references to the removed table and made mentions of the arXiv-only appendices conditional.
 
-Table values, figure data and certificate bounds agree with the archived numerical records. The exact rational certificate was independently rerun. Simulation intervals remain empirical evidence, separate from Lean verification.
+## Build either version
 
-## Formalization changes
+```sh
+latexmk -pdf manuscript.tex
+latexmk -pdf manuscript_arxiv.tex
+```
 
-Fourteen additional proof modules extend the preceding 33-module artifact. The new development proves general two-statistic compactness and positive attainment, positive definiteness from common-completion identification, general sharp decoding and the circular-Gaussian trace limit with output clipping, continuity of the attained Gram frontier, enclosing-ellipse equivalence, the explicit quadratic frontier, C² grid certification and its O(h²) scaling loss, dissimilarity transfer, and approximate-computation stability for the actual compact encoder class.
+The first command builds the submission version by default. The second enables the arXiv appendices through the shared source switch. No manual commenting or uncommenting is required.
 
-The rigidity components now include genuine local inverse charts, local continuous extension and convolution smoothing, propagation from the dense identifying set, and integration through endpoints. Local factorization must still be derived from exact computation using planar invariance of domain. Full unrestricted classification and its assembly, the analytic identification criterion, general endpoint-gradient specializations, and further coverage-inventory items remain incomplete. Approximate stability's affine-family conclusion retains exact-classification as a dependency. Missing results are not inserted as axioms or claimed as proved.
+## Verification
 
-The exact declaration inventory and proof-source hashes are in formalization/verification/report.json. COVERAGE.md records all 17 numbered statements and additional unnumbered claims, distinguishing complete coefficient-class results from unrestricted statements.
+Both PDFs compile without unresolved references or layout warnings; revised pages were rendered and inspected. All 17 theorem/lemma/proposition/corollary environments in the complete source are unchanged. The submission includes 15 of these statements; the ancillary criterion-transfer corollary and approximate-rigidity proposition are arXiv-only.
 
-## Validation and version identity
+The Lean proof sources and all 55 audited source/configuration hashes are unchanged from audited proof commit 6783e9c68823213e2f4bc31259ab6a1ad6072d89. Its audit covers 673 declarations in 47 modules, with the remaining formalization gaps documented in the artifact. This editorial revision does not claim new formalization progress.
 
-The full build passed (2,781 jobs), and the `lean --trust=0` audit passed for 673 declarations in 47 modules, with all 55 source/configuration hashes matching. The pinned Lean 4.24.0/mathlib project rejects warnings; only propext, Classical.choice and Quot.sound are accepted. Compiler binaries and dependency caches are excluded.
-
-The final manuscript compiles to 59 pages without warnings, unresolved references, or overfull/underfull boxes. Changed pages were rendered and visually inspected. SHA256SUMS.txt records the packaged files. Numerical scripts and archived results retain their exact source identities at commit 7a513ed38147a73f109f9b184dafba59c17ee89b.
-
-The manuscript's proof-artifact citation identifies audited proof commit 6783e9c68823213e2f4bc31259ab6a1ad6072d89. Updates are published on the existing codex/lean-two-statistic-extension branch and draft pull request, without merging main. A local audit and a GitHub Actions run are separate records.
-
-## Reproduction
-
-Build the paper with `latexmk -pdf manuscript.tex`. Run `lake exe cache get` and `python3 verify.py` from formalization for the proof audit. See REPRODUCIBILITY.md for numerical commands and formalization/README.md for precise verification scope.
+The source archive includes both build files, all omitted appendices, the numerical reproduction package, the Lean project and a SHA256SUMS.txt manifest. Updates are published on the existing draft PR without merging main.

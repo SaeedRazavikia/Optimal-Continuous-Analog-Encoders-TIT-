@@ -1,5 +1,5 @@
 \section{Decoding}\label{sec:decoding}
-The preceding designs separate noiseless received points as effectively as the peak constraint permits. To turn this geometric property into a receiver guarantee, we must also define the decoder outside the noiseless received set, where additive noise can move the observation. A polynomial inverse may grow faster than linearly there. We first relate squared separation to uniform noise amplification, then construct a direct decoder that attains the resulting bound.
+To convert squared separation into a receiver guarantee, we must define the decoder outside the noiseless received set, where noise can move the observation and a polynomial inverse may grow superlinearly. We establish the optimal uniform noise bound and construct a decoder attaining it.
 
 % \subsection{Uniform Error Bound}
 For a fixed encoder, define $\mathcal A(\enc;f)$ as the infimum of constants $L\ge0$ for which one decoder $\widehat f:\R^2\to\R$ satisfies
@@ -8,7 +8,7 @@ For a fixed encoder, define $\mathcal A(\enc;f)$ as the infimum of constants $L\
  \quad\forall\mathbf s\in I^K,\ \forall n\in\R^2.
  \label{eq:uniform}
 \end{equation}
-Set $\mathcal A=+\infty$ if no finite constant exists. This decoder is fixed for every input and disturbance magnitude.
+Set $\mathcal A=+\infty$ if no finite constant exists; one fixed decoder must handle every input and disturbance.
 
 \begin{proposition}\label{prop:amplification}
 Let $I=[-1,1]$, $K\in\mathbb N$ with $K\ge1$, $\enc:I\to\R^2$ be continuous, and $f:I^K\to\R$ be continuous and nonconstant. Then
@@ -20,7 +20,7 @@ The choice $n=0$ enforces exactness. Using one noiseless received point as the o
 $$\widehat f(y)=\inf_{z\in\mathcal R_\enc}\{d_0(z)+L|y-z|\},$$
 extends $d_0$ with the same constant. The triangle inequality proves global Lipschitz continuity, and exactness gives \eqref{eq:uniform}. Clipping the scalar output to any interval containing $f(I^K)$ preserves the guarantee.
 \end{proof}
-The extension principle is classical; our encoder optimum identifies the smallest achievable extension constant. Evaluating the infimum over the full received set is unnecessary for implementation. We instead use the recovered statistics $(m,t)$: the sample mean $m$ must lie in $[-1,1]$, and enforcing this constraint gives an explicit projection decoder. Write $\enc(s)=c+us+v\phi(s)$ and let $\mathsf U=[u\ v]\in\R^{2\times2}$ be invertible, with $G=\mathsf U^\T\mathsf U$. Define
+Our encoder optimum determines the smallest extension constant. For an explicit decoder, we enforce $m\in[-1,1]$ on the recovered statistics. Write $\enc(s)=c+us+v\phi(s)$, let $\mathsf U=[u\ v]\in\R^{2\times2}$ be invertible with $G=\mathsf U^\T\mathsf U$, and define
 $$
  (\widetilde m,\widetilde t)^\T=\frac1K \mathsf U^{-1}(y-Kc).
 $$
@@ -30,7 +30,7 @@ We project in metric $G$ onto the strip $\mathcal S=[-1,1]\times\R$. Its closed-
  \widehat t&=\widetilde t+\frac{G_{12}}{G_{22}}(\widetilde m-\widehat m),\\
  \widehat f(y)&=\widehat t-\psi(\widehat m).
 \end{aligned}\label{eq:stripdecoder}\end{equation}
-Thus decoding requires a fixed linear transformation, one scalar clipping operation, and evaluation of $\widehat t-\psi(\widehat m)$. Nonorthogonal coefficient vectors $u,v\in\R^2$ require the correction in $\widehat t$.
+Decoding uses a fixed linear transformation, scalar clipping, and function evaluation; nonorthogonal $u,v$ require the correction in $\widehat t$.
 
 \begin{theorem}\label{thm:decoder}
 Under the assumptions of Theorem~\ref{thm:sdp}, let $\enc(s)=c+us+v\phi(s)$ with $c,u,v\in\R^2$ and linearly independent $u,v$. The receiver function $\widehat f:\R^2\to\R$ in \eqref{eq:stripdecoder} exactly computes $f_{\phi,\psi}:I^K\to\R$ and attains the smallest possible uniform constant for this encoder
@@ -51,14 +51,14 @@ The receiver postprocessing function $F:\mathcal S\to\R$, $F(m,t)=t-\psi(m)$, ha
 
 \begin{figure}[t]
  \centering\paperfigure{figures/tikz/decoder_geometry}
- \caption{Projection decoding for the optimal variance encoder at $K=4$, with $b=2/\sqrt3$ and $a=\sqrt{b(2-b)}$. The attained received region lies inside the strip $\mathcal S_r=\{(x,z)\in\R^2:|x|\le a\}$. We normalize all received coordinates by $K\sqrt P$ and use equal axis scales. The decoder projects $y$ onto the strip and evaluates $\widehat q-\widehat m^2$; the projected point need not be attainable.}
+ \caption{Projection decoding for the optimal variance encoder at $K=4$, $b=2/\sqrt3$, and $a=\sqrt{b(2-b)}$. Coordinates are normalized by $K\sqrt P$ with equal axis scales. The decoder projects onto the containing strip $\mathcal S_r=\{(x,z)\in\R^2:|x|\le a\}$ and evaluates $\widehat q-\widehat m^2$; the projection need not be attainable.}
  \label{fig:decoder-geometry}
 \end{figure}
-Figure~\ref{fig:decoder-geometry} illustrates why the containing strip is sufficient. For variance at $K=4$, the exact moment region has lower boundary $q=m^2$ and upper boundary $q=[3+(4m-j)^2]/4$, where $j\in\{-3,-1,1,3\}$ and $|4m-j|\le1$. The upper boundary follows by maximizing the convex second moment on a fixed-mean cube slice: a vertex has at most one nonendpoint coordinate. The slice is connected, so every intermediate second moment is attained. This region need not be convex, whereas its containing strip admits the explicit nonexpansive projection.
+For variance at $K=4$ (Fig.~\ref{fig:decoder-geometry}), the exact moment region lies between $q=m^2$ and $q=[3+(4m-j)^2]/4$, where $j\in\{-3,-1,1,3\}$ and $|4m-j|\le1$. Maximizing the convex second moment on a fixed-mean cube slice gives the upper boundary: vertices have at most one nonendpoint coordinate. Connectedness gives every intermediate moment. This generally nonconvex region lies inside the strip, which admits explicit nonexpansive projection.
 
-The strip contains every attainable moment point, so the decoder needs no exact finite-$K$ moment-region characterization. For the local preprocessing function $\phi(s)=s^p$, $p\in\{2,4\}$, a tighter alternative is
+For $\phi(s)=s^p$, $p\in\{2,4\}$, a tighter containing set is
 $$\mathcal C_p=\{(m,t):-1\le m\le1,\ m^p\le t\le1\}.$$
-Jensen's inequality proves containment, and the set is convex. Projection onto its received image has the same guarantee, although its implementation requires convex optimization. It is a containing convex hull, not generally the exact equal-weight finite-$K$ moment set.
+Jensen's inequality gives containment. Projection onto its convex received image preserves the guarantee but requires convex optimization. This convex hull need not equal the finite-$K$ moment set.
 
 For the optimal orthogonal map $\sqrt P[a s+i(bs^p+c_0)]$, compute
 \begin{align*}
@@ -68,16 +68,16 @@ For the optimal orthogonal map $\sqrt P[a s+i(bs^p+c_0)]$, compute
 The variance and fourth-order Jensen-gap decoders are $\operatorname{clip}_{[0,1]}(\widehat t-\widehat m^p)$, with the appropriate $p$ and coefficients. Both desired functions take values in $[0,1]$.
 
 \subsection{Moment Interactions and Operational Limits}
-The same construction also applies when the receiver combines the recovered moments through a different postprocessing function. For the desired function $f(\mathbf s)=m q$, the containing rectangle $[-1,1]\times[0,1]$ and the optimal orthogonal curve give
+For the moment interaction $f(\mathbf s)=m q$, projection onto the containing rectangle $[-1,1]\times[0,1]$ under the optimal orthogonal curve gives
 \begin{equation}\begin{aligned}
  \widehat m&=\operatorname{clip}_{[-1,1]}\frac{3\operatorname{Re}y}{2\sqrt2K\sqrt P},\\
  \widehat q&=\operatorname{clip}_{[0,1]}\frac34\left(\frac{\operatorname{Im}y}{K\sqrt P}+1\right),\\
  \widehat f_{mq}(y)&=\widehat m\widehat q.
 \end{aligned}\label{eq:mqdecoder}\end{equation}
-The rectangle's received projection is coordinatewise clipping because the directions are orthogonal. The dual gradient norm of $mq$ is at most $\sqrt{1/a^2+1/b^2}=3\sqrt3/4$ for $a=2\sqrt2/3$, $b=4/3$. Hence this decoder attains $L_{mq}=3\sqrt3/(4K\sqrt P)$. For the restricted polynomial class, the endpoint partial-derivative bounds hold on the same rectangle; projection followed by polynomial postprocessing likewise attains its sharp constant.
+Orthogonality makes the received projection coordinatewise clipping. For $a=2\sqrt2/3$, $b=4/3$, the dual gradient norm of $mq$ is at most $\sqrt{1/a^2+1/b^2}=3\sqrt3/4$, yielding the sharp constant $L_{mq}=3\sqrt3/(4K\sqrt P)$. The restricted polynomial class satisfies its endpoint partial-derivative bounds on the same rectangle, so projection followed by polynomial postprocessing also attains its sharp constant.
 
 
-These decoders control disturbances of every magnitude with one fixed rule. The raw variance inverse is quadratic in $\operatorname{Re}y$, and the fourth-order inverse contains its fourth power. Neither is globally Lipschitz on the observation plane. Projection is therefore part of the noise guarantee. For a fixed encoder and known disturbance radius $\tau\ge0$, define
+Projection is essential to the all-noise guarantee: the raw variance and fourth-order inverses contain $(\operatorname{Re}y)^2$ and $(\operatorname{Re}y)^4$, respectively, and are not globally Lipschitz. For a fixed encoder and known disturbance radius $\tau\ge0$, define
 $$\omega_\enc(d)=\max_{\substack{\mathbf s,\mathbf t\in I^K\\|r_\enc(\mathbf s)-r_\enc(\mathbf t)|\le d}}|f(\mathbf s)-f(\mathbf t)|,\qquad d\ge0.$$
 The minimum worst-case absolute error at radius $\tau$ equals $\omega_\enc(2\tau)/2$. Two configurations separated by at most $2\tau$ can give the same midpoint observation, proving the lower bound. A matching decoder outputs the midpoint of the smallest and largest values of $f(\mathbf s)$ consistent with the observation and radius. Compactness gives these extrema. Their maximum is upper semicontinuous and minimum lower semicontinuous on the compact possible-observation set, so the midpoint rule has a Borel measurable extension. This criterion depends on the full ambiguity profile, rather than one constant for every disturbance size.
 

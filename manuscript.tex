@@ -1,3 +1,6 @@
+% Default: submission version. Compile manuscript_arxiv.tex for the extended version.
+\newif\ifArxivVersion
+\ifdefined\ArxivVersion\ArxivVersiontrue\else\ArxivVersionfalse\fi
 % Single-column manuscript. Compile with latexmk -pdf manuscript.tex,
 % or run pdflatex, bibtex, and pdflatex twice.
 % \ifdefined\SubmissionFormat
@@ -99,9 +102,12 @@ Function computation over multiple-access channels uses simultaneous transmissio
 \input{sections/pareto_proofs}
 \input{sections/certification_proof}
 \input{sections/polynomial_appendix}
+% Ancillary results and formal verification are retained for arXiv.
+\ifArxivVersion
 \input{sections/criterion_appendix}
 \input{sections/approximate_rigidity}
 \input{sections/formalization_appendix}
+\fi
 \input{sections/acknowledgment}
 % \ifdefined\SubmissionFormat\else\balance\fi
 % \input{bibliography}

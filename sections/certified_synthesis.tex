@@ -1,5 +1,5 @@
 \section{Certified Design}\label{sec:certified}
-The explicit curves and quadratic frontier require only scalar calculations. For a general local preprocessing function $\phi:I\to\R$, numerical optimization must also control the encoder between sampled inputs. We return here to the separation-design program \eqref{eq:sdp} and supply a certificate for its continuum of peak constraints when $\phi$ is twice continuously differentiable. This additional smoothness serves numerical certification; it does not enter the classification theorem. The procedure combines finite semidefinite optimization, an interpolation remainder, and primal--dual verification. Its implementation requires verified enclosures of $\phi(s)$ and the endpoint derivatives $\psi'(\pm1)$ and a verified derivative bound; smoothness alone does not supply a computational oracle.
+For general $\phi\in C^2(I)$, we certify the continuum peak constraints in \eqref{eq:sdp} using finite semidefinite optimization, an interpolation bound, and verified primal--dual witnesses. This additional smoothness serves certification, not encoder classification. Numerical implementation requires verified enclosures of $\phi$, $\psi'(\pm1)$, and the derivative bounds below.
 
 \begin{theorem}\label{thm:certifiedgrid}
 Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I;\R)$. Let $\mathcal T_h\subset I$ be a finite grid containing both endpoints, with maximum adjacent spacing $h>0$, and containing three fixed inputs whose vectors $z(s)=(1,s,\phi(s))^\T$ span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)\in\mathbb S_+^3\times[0,\infty)$ be an optimizer. Set
@@ -26,7 +26,7 @@ $$
 $$
 is an achieved lower bound, provided the denominator is positive: scale $H$ by the same factor and apply the planar reconstruction in Theorem~\ref{thm:sdp}. A tighter derivative bound than the norm bound above is equally valid.
 
-The feasible reconstruction supplies an achieved score; an upper bound is also needed to measure how much improvement remains possible. For such a bound, let $\alpha_i\ge0$ be weights at any finitely many inputs $t_i\in I$. Define $\overline D=\operatorname{diag}(0,D_-+D_+)$ for $D_-,D_+\in\mathbb S_+^2$ and require
+For a global upper bound, let $\alpha_i\ge0$ be weights at any finitely many inputs $t_i\in I$. Define $\overline D=\operatorname{diag}(0,D_-+D_+)$ for $D_-,D_+\in\mathbb S_+^2$ and require
 \begin{align}
  Q&=\sum_i\alpha_i z(t_i)z(t_i)^\T-\overline D\suc0,\label{eq:dualwitness}\\
  w_-^\T D_-w_-+w_+^\T D_+w_+&\ge1.\nonumber
@@ -40,7 +40,7 @@ $$
 Thus $U=P\sum_i\alpha_i$ is a global upper bound. The first omitted term is $\operatorname{tr}(QH)\ge0$, and the last inequality uses both score constraints and the normalization in \eqref{eq:dualwitness}. These witnesses yield the stopping rule $(U-L)/U\le\varepsilon$ for $U>0$. Exact grid solutions converge by Theorem~\ref{thm:certifiedgrid}; in computation, primal and dual verification errors must also decrease to obtain arbitrarily small certified gaps.
 
 \subsection{Exponential Preprocessing}
-The local preprocessing function $\phi(s)=e^s$ illustrates how the procedure extends beyond polynomial curves without requiring a closed-form optimum. With $\psi(m)=e^m$, we consider the desired function
+For $\phi(s)=e^s$ and $\psi(m)=e^m$, we certify a design for
 $$
  f:I^K\to\R,\qquad f(\mathbf s)=\frac1K\sum_{k=1}^K e^{s_k}-e^{K^{-1}\sum_{k=1}^K s_k}.
 $$
@@ -55,7 +55,7 @@ The exact rational witnesses establish
  \le0.419670224438.
  \label{eq:expcertificate}
 \end{equation}
-The certified relative gap is less than $0.006\%$. In particular, the reconstructed feasible encoder attains at least $99.994\%$ of the globally optimal score. This claim concerns the prescribed separation objective, not Gaussian mean-square error.
+Thus the feasible encoder attains at least $99.994\%$ of the optimal squared-separation score, with a certified relative gap below $0.006\%$.
 
 For orientation, the reconstructed curve has approximate coordinates
 \begin{align*}
@@ -64,7 +64,7 @@ For orientation, the reconstructed curve has approximate coordinates
  \frac{\operatorname{Im}\enc(s)}{\sqrt P}
  &\approx-0.7900289+0.5211418e^s.
 \end{align*}
-The certificate uses the stored rational Gram matrix and exact reconstruction, not these rounded display coefficients. Figure~\ref{fig:certified} shows the resulting curve and the certified gap as we refine only the verification grid while holding the candidate and dual witness fixed. The limiting gap of that fixed-candidate experiment also includes the candidate and witness repair errors. This certificate quantifies the separation accuracy of the numerical design. We next assess the analytical curves and their receiver performance under the distinct statistical criteria developed above.
+The certificate uses the stored rational Gram matrix and exact reconstruction, not these rounded display coefficients. Figure~\ref{fig:certified} shows the resulting curve and the certified gap as we refine only the verification grid while holding the candidate and dual witness fixed. The limiting gap of that fixed-candidate experiment also includes the candidate and witness repair errors. 
 
 \begin{figure*}[t]
  \centering\paperfigure{figures/tikz/certified_synthesis}

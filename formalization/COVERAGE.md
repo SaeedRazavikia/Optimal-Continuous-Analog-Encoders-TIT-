@@ -1,5 +1,7 @@
 # Manuscript proof coverage inventory
 
+This inventory covers the complete arXiv source (17 numbered statement environments). The 50-page submission omits the ancillary criterion-transfer corollary and approximate-rigidity proposition, together with the Lean-verification appendix; its 15 retained statements are unchanged.
+
 Status: **the manuscript is not fully formalized**. This inventory covers the 17 theorem, lemma, proposition, and corollary statements reachable from the revised `manuscript.tex`, including the unlabeled criterion-transfer corollary. The quadratic and quartic cases are now one theorem; the general extension is in the main text as Theorem 4. Source-order numbers below are inventory positions, not printed theorem numbers. Statements are exact extracts from the accompanying revision titled *Geometric Optimization of Continuous Encoders for Moment-Based Computation*.
 
 This inventory records scope; `Audit.lean`, `verify.py`, and the saved verification report determine the declarations actually checked. Checked specializations or conditional lemmas do not certify a broader manuscript theorem. `EXTENSION_SCOPE.md` gives the additional obligations for the new proof.
