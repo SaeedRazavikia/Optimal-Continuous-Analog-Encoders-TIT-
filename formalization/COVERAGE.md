@@ -1,17 +1,17 @@
-# Complete manuscript proof coverage inventory
+# Manuscript proof coverage inventory
 
-Status: **the manuscript is not fully formalized**. This inventory covers the 18 numbered mathematical results reachable from `paper/manuscript.tex`, including the unlabeled criterion-transfer corollary. The theorem statements below are exact extracts from the reorganized paper; the context column records assumptions and definitions stated outside their theorem environments. Numbering follows source order and is not a promise that numerical theorem numbers will remain unchanged after editing.
+Status: **the manuscript is not fully formalized**. This inventory covers the 17 theorem, lemma, proposition, and corollary statements reachable from the revised `manuscript.tex`, including the unlabeled criterion-transfer corollary. The quadratic and quartic cases are now one theorem; the general extension is in the main text as Theorem 4. Source-order numbers below are inventory positions, not printed theorem numbers. Statements are exact extracts from the accompanying revision titled *Geometric Optimization of Continuous Encoders for Moment-Based Computation*.
 
-This is a coverage inventory, not a proof certificate. For newly integrated files, the final `Audit.lean`, `verify.py`, and saved verification report determine which declarations were actually checked. A checked specialization, algebraic certificate, or conditional lemma does not mark its broader manuscript theorem complete.
+This inventory records scope; `Audit.lean`, `verify.py`, and the saved verification report determine the declarations actually checked. Checked specializations or conditional lemmas do not certify a broader manuscript theorem. `EXTENSION_SCOPE.md` gives the additional obligations for the new proof.
 
-## Coverage at the level of complete manuscript statements
+## Coverage of complete manuscript statements
 
 | Source order | Result | Current coverage |
 |---|---|---|
 | 1 | `thm:rigidity` | Full affine-family exactness equivalence and conditional necessity checked; unrestricted continuous theorem incomplete. |
 | 2 | `thm:sdp` | General operational reconstruction and positive maximum attainment checked; full continuous-class equivalence incomplete. |
-| 3 | `thm:parabola` | Full quadratic operational variance optimum checked for all P>0,K≥2; general-M Gram optimum checked; continuous-class theorem remains incomplete. |
-| 4 | `thm:quartic` | Complete finite-dimensional quartic Gram optimum checked for every M>0,P>0; operational and continuous-class parts unverified. |
+| 3 | `thm:parabola` | Combined quadratic/quartic theorem: operational all-quadratic variance optimum and general-slope quadratic/quartic Gram optima checked; complete continuous-class statement remains unverified. |
+| 4 | `thm:extension` | Partially checked: common-completion collision, affine exactness, actual attained-pair score, and operational reconstruction with explicit positive-definite Gram block. Full converse, general attainment, analytic and endpoint-gradient specializations remain unverified. |
 | 5 | `prop:amplification` | Full operational content checked via attained-minimum and zero-score statements. |
 | 6 | `thm:decoder` | Complete explicit quadratic-variance decoder checked; full general-target decoder theorem remains unverified. |
 | 7 | `prop:general-small-noise` | Actual dominated-convergence limit and variance-decoder specialization checked; complete general trace formula incomplete. |
@@ -23,9 +23,8 @@ This is a coverage inventory, not a proof certificate. For newly integrated file
 | 13 | `lem:affine` | Local-fiber-to-affine representation and coefficient independence checked; unrestricted continuity-to-rigidity reduction incomplete. |
 | 14 | `prop:score` | Complete general operational formula and shrinking-pair statement checked. |
 | 15 | `cor:inverse-synthesis` | Unverified in full. |
-| 16 | `thm:polynomial` | Unverified in full. |
-| 17 | `cor:transfer-unlabeled` | Unverified in full. |
-| 18 | `prop:approx-rigidity` | Unverified in full. |
+| 16 | `cor:transfer-unlabeled` | Unverified in full. |
+| 17 | `prop:approx-rigidity` | Unverified in full. |
 
 ## Exact statements, hypotheses, and dependencies
 
@@ -38,13 +37,13 @@ Source: `sections/rigidity.tex`. **Full affine-family exactness equivalence and 
 ```latex
 \begin{theorem}
 \label{thm:rigidity}
-Let $K\ge4$. Assume $\phi\in C(I)\cap C^1((-1,1))$ is nonaffine and $\psi\in C(I)\cap C^1((-1,1))$ is strictly convex or strictly concave. A continuous planar encoder exactly computes \eqref{eq:target} if and only if
+Let $K\ge4$. Assume $\phi\in C(I)\cap C^1((-1,1))$ is nonaffine and $\psi\in C(I)\cap C^1((-1,1))$ is strictly convex or strictly concave. A continuous encoder $\enc:I\to\R^2\cong\C$ exactly computes $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}, in the sense of \eqref{eq:exactness}, if and only if
 \begin{equation}
  \enc(s)=c+u s+v\phi(s),
- \qquad c,u,v\in\R^2,
+ \qquad s\in I,\quad c,u,v\in\R^2,
  \label{eq:affine}
 \end{equation}
-with $u,v$ linearly independent in the real plane.
+with $u,v$ linearly independent, equivalently $\det[\,u\ v\,]\ne0$.
 \end{theorem}
 ```
 
@@ -80,7 +79,7 @@ The infimum is approached at arbitrarily small received distance. The global opt
 \end{aligned}
 \label{eq:sdp}
 \end{equation}
-where $z(s)=(1,s,\phi(s))^\T$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
+where $z(s)=(1,s,\phi(s))^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
 \end{theorem}
 ```
 
@@ -90,22 +89,30 @@ where $z(s)=(1,s,\phi(s))^\T$ and $G$ is the lower-right $2\times2$ block of $H$
 
 ### 3. `thm:parabola` — theorem
 
-Source: `sections/examples.tex`. **Full quadratic operational variance optimum checked for all P>0,K≥2; general-M Gram optimum checked; continuous-class theorem remains incomplete.**
+Source: `sections/examples.tex`. **Combined quadratic/quartic theorem: operational all-quadratic variance optimum and general-slope quadratic/quartic Gram optima checked; complete continuous-class statement remains unverified.**
 
 **Context and hypotheses.** K≥4, P>0; φ(s)=s²; ψ∈C¹(I) is even and strictly convex or strictly concave; M=|ψ′(1)|>0, t=M/2, b=2/(1−t²+t√(t²+2)), a=√(b(2−b)). Competitors are all continuous shared peak-admissible encoders.
 
 ```latex
-\begin{theorem}
-\label{thm:parabola}
-For every $K\ge4$, an optimal encoder for $f=Q/K-\psi(S/K)$ over all continuous peak-admissible maps is
+\begin{theorem}[Quadratic and quartic encoders]
+\label{thm:parabola}\label{thm:quartic}
+Let $K\ge4$ be an integer and let $P>0$. Under the preceding assumptions on $\psi$, the desired functions $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target} admit the following globally optimal encoders among all continuous maps $\enc:I\to\C$ satisfying $|\enc(s)|^2\le P$ for every $s\in I$:
+for $\phi(s)=s^2$,
 \begin{equation}
 \begin{aligned}
- \enc^\star(s)&=\sqrt P\,[a s+i(bs^2-1)],\\
- \Lambda_{\sq}^\star(f)&=K^2P\,b^2(b-1).
+ \enc_2^\star(s)&=\sqrt P\,[a s+i(bs^2-1)],\qquad s\in I,\\
+ \Lambda_{\sq}^\star(f_{\phi_2,\psi})&=K^2P\lambda_2;
 \end{aligned}
  \label{eq:parabola}
 \end{equation}
-Thus an infinite-dimensional class of nonlinear mean-dependent terms has an explicit optimal encoder determined by $M$ alone.
+for $\phi(s)=s^4$,
+\begin{equation}
+\begin{aligned}
+ \enc_4^\star(s)&=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)],\qquad s\in I,\\
+ \Lambda_{\sq}^\star(f_{\phi_4,\psi})&=K^2P\lambda_4.
+\end{aligned}
+ \label{eq:quarticscore}
+\end{equation}
 \end{theorem}
 ```
 
@@ -113,34 +120,42 @@ Thus an infinite-dimensional class of nonlinear mean-dependent terms has an expl
 
 **Verified scope and remaining gap.** `Analog.GeneralQuadratic` proves the complete finite-dimensional quadratic Gram optimum for every M>0, including root existence, uniqueness, the closed formula, and its identity with the manuscript parameter. `Analog.quadratic_optimal_all_power` extends that optimization to every P>0. For variance M=2, `Analog.quadratic_variance_operational_optimal` connects the actual all-pair score and proves continuum peak feasibility, the attained value 4K²P/(9+6√3), and the converse over every planar quadratic encoder, for all K≥2 and P>0. The remaining gaps are the reduction of every continuous encoder to that coefficient class and the operational score theorem for general ψ; neither follows merely from the full coefficient optimization.
 
-### 4. `thm:quartic` — theorem
+**Quartic part of the combined theorem.** `Analog.Quartic.quartic_optimal_all_power` verifies the full quartic coefficient-Gram optimum for every positive slope parameter and power. Its complete operational and unrestricted continuous-encoder interpretation remains unverified. The label `thm:quartic` aliases this combined theorem.
 
-Source: `sections/examples.tex`. **Complete finite-dimensional quartic Gram optimum checked for every M>0,P>0; operational and continuous-class parts unverified.**
+### 4. `thm:extension` — theorem
 
-**Context and hypotheses.** K≥4, P>0; φ(s)=s⁴; ψ even and strictly convex/concave with finite continuous derivative, M=|ψ′(1)|>0. ρ is the unique root in (0,1/3) of 8ρ²(1+ρ)(1+3ρ)=M²(1−3ρ). dρ=1+2ρ+9ρ²; aρ²=8ρ/dρ; bρ=2/[(1+ρ)√dρ]; cρ=−(1+2ρ+3ρ²)/[(1+ρ)√dρ].
+Source: `sections/examples.tex`; proof in `sections/polynomial_appendix.tex`. **Partially checked: common-completion collision, affine exactness, actual attained-pair score, and operational reconstruction with explicit positive-definite Gram block. Full converse, general attainment, analytic and endpoint-gradient specializations remain unverified.**
+
+**Context and hypotheses.** K≥4; I=[−1,1]; γ=(φ₁,φ₂) continuous on I and C¹ in its interior; 1,φ₁,φ₂ functionally independent. M is the actual image of valid K-input configurations under μγ. F is continuous on M. The common-completion identification hypothesis holds locally on a dense open subset of the regular triple-statistic image. The design conclusion additionally assumes P>0 and F nonconstant and Lipschitz on M.
 
 ```latex
-\begin{theorem}
-\label{thm:quartic}
-For every $K\ge4$, an optimal continuous encoder for $K^{-1}\sum_k s_k^4-\psi(S/K)$ is
+\begin{theorem}[Extension to two additive statistics]
+\label{thm:extension}\label{thm:polynomial}
+Let $K\ge4$, $P>0$, and let \eqref{eq:general-function} satisfy the regularity, independence, and common-completion condition stated above.
+\begin{enumerate}
+\item A continuous encoder $\enc:I\to\R^2\cong\C$ exactly computes $f$ if and only if
+$$
+ \enc(s)=c+\mathsf U\gamma(s),\qquad s\in I,\quad
+ c\in\R^2,\quad\mathsf U\in\R^{2\times2},\quad\det\mathsf U\ne0.
+$$
+\item If $F$ is additionally nonconstant and Lipschitz on $\mathcal M$ in the Euclidean norm, then $\Lambda_\sq^\star(f)=K^2\lambda_\gamma^\star$, where $\lambda_\gamma^\star>0$ is the attained optimum of
 \begin{equation}
- \boxed{\enc^\star(s)=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)]}.
- \label{eq:quarticmap}
+\begin{aligned}
+ \text{maximize}\quad &\lambda\\
+ \text{over}\quad &H\in\mathbb S^3,\quad\lambda\ge0,\\
+ \text{subject to}\quad &H\succeq0,\\
+ &z_\gamma(s)^\T H z_\gamma(s)\le P\qquad(s\in I),\\
+ &(\mu-\nu)^\T G(\mu-\nu)\ge\lambda|F(\mu)-F(\nu)|^2
+       \qquad(\mu,\nu\in\mathcal M).
+\end{aligned}
+ \label{eq:general-sdp}
 \end{equation}
-Its optimal squared separation is
-\begin{equation}
- \boxed{\Lambda_{\sq}^\star
- =\frac{K^2P}{M^2/a_\rho^2+1/b_\rho^2}
- =\frac{8K^2P\rho}
- {d_\rho\,[M^2+2\rho(1+\rho)^2]}}.
- \label{eq:quarticscore}
-\end{equation}
+Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields an exact planar encoder satisfying the peak constraint.
+\end{enumerate}
 \end{theorem}
 ```
 
-**Dependencies.** Theorem thm:rigidity; Proposition prop:score; reflection/projection reduction; root existence and uniqueness; coefficient identities; factorized continuum peak gap; positive KKT multipliers; convex global supporting certificate; arbitrary-power and transmitter scaling.
-
-**Verified scope and remaining gap.** `Analog.Quartic` in `Quartic.lean` and `QuarticPower.lean` proves root existence/uniqueness in (0,1/3), the coefficient relations, continuum peak feasibility, the KKT/supporting certificate, and the converse over every planar quartic coefficient curve, including arbitrary correlation. `quartic_optimal_all_power` covers every M>0,P>0 and the exact displayed normalized Gram value. Multiplying the Gram inequality by K² is checked separately and is explicitly not an identification with an operational score. The full theorem still requires unrestricted rigidity and the quartic/general-readout operational-score correspondence.
+**Dependencies and remaining scope.** See `EXTENSION_SCOPE.md` for the exact new declaration map. The formal F is a total function on the real plane, evaluated only on M; no regularity outside M is assumed. The complete local-topology/smoothing/dense-derivative argument, positive definiteness from identification, general compactness/attainment proof, analytic criterion, and endpoint-gradient specialization are outstanding. The label `thm:polynomial` is retained only as an alias; polynomial functions are now examples, not the scope of this theorem.
 
 ### 5. `prop:amplification` — proposition
 
@@ -150,7 +165,7 @@ Source: `sections/decoding.tex`. **Full operational content checked via attained
 
 ```latex
 \begin{proposition}\label{prop:amplification}
-For any continuous encoder and nonconstant continuous scalar target,
+Let $I=[-1,1]$, $K\in\mathbb N$ with $K\ge1$, $\enc:I\to\R^2$ be continuous, and $f:I^K\to\R$ be continuous and nonconstant. Then
 $$\mathcal A(\enc;f)=\Lambda_\sq(\enc;f)^{-1/2},$$
 with $0^{-1/2}=+\infty$. A continuous decoder attains every finite value.
 \end{proposition}
@@ -168,13 +183,13 @@ Source: `sections/decoding.tex`. **Complete explicit quadratic-variance decoder 
 
 ```latex
 \begin{theorem}\label{thm:decoder}
-Under the assumptions of Theorem~\ref{thm:sdp}, \eqref{eq:stripdecoder} is exact and attains the smallest possible uniform constant
+Under the assumptions of Theorem~\ref{thm:sdp}, let $\enc(s)=c+us+v\phi(s)$ with $c,u,v\in\R^2$ and linearly independent $u,v$. The receiver function $\widehat f:\R^2\to\R$ in \eqref{eq:stripdecoder} exactly computes $f_{\phi,\psi}:I^K\to\R$ and attains the smallest possible uniform constant for this encoder
 \begin{equation}
  L_\enc=\frac1K\sqrt{\max_{\sigma\in\{-,+\}}w_\sigma^\T G^{-1}w_\sigma}
  =\Lambda_\sq(\enc;f)^{-1/2}.
  \label{eq:decoderconstant}
 \end{equation}
-An additional scalar projection onto an interval containing the target range preserves this conclusion.
+An additional scalar projection onto an interval containing $f(I^K)$ preserves this conclusion.
 \end{theorem}
 ```
 
@@ -190,7 +205,7 @@ Source: `sections/pareto.tex`. **Actual dominated-convergence limit and variance
 
 ```latex
 \begin{proposition}\label{prop:general-small-noise}
-For every continuous exact peak-admissible encoder, let $G$ be its feature Gram matrix. If $N\sim\mathcal{CN}(0,N_0)$, then the specified decoder satisfies
+For every continuous encoder $\enc:I\to\R^2$ that exactly computes $f_{\phi,\psi}:I^K\to\R$ and satisfies \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
 \begin{equation}
  \mathcal J_\pi(G):=\lim_{N_0\downarrow0}
  \frac{\mathbb E_{\pi,N}|\widehat f(Y)-f(\mathbf s)|^2}{N_0}
@@ -224,7 +239,7 @@ Using the enclosing-ellipse class $\mathcal C_P$ in \eqref{eq:ellipse-class}, fo
 \end{aligned}
  \label{eq:pareto-sdp}
 \end{equation}
-At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse feature Gram matrix $X$, and yields an exact planar encoder through
+At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields an exact planar encoder through
 $$
  \mathsf U^\T\mathsf U=X^{-1},\qquad
  \enc(s)=\mathsf U(g(s)-a).
@@ -253,7 +268,7 @@ Source: `sections/pareto.tex`. **Quadratic optimizer and parameter facts checked
 ```latex
 \begin{corollary}\label{cor:quadratic-pareto}
 For every $0\le\gamma\le\lambda_\star$, define
-$$b_\gamma=\min\{b_{\rm eff},b_+(\gamma/P)\}.$$
+$b_\gamma=\min\{b_{\rm eff},b_+(\gamma/P)\}.$
 An encoder attaining the global frontier over the continuous exact class is
 \begin{equation}
  \enc_\gamma(s)=\sqrt P\left[\sqrt{b_\gamma(2-b_\gamma)}\,s
@@ -283,7 +298,7 @@ Source: `sections/certified_synthesis.tex`. **Unverified in full.**
 
 ```latex
 \begin{theorem}\label{thm:certifiedgrid}
-Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I)$. Let $\mathcal T_h$ contain both endpoints, have maximum adjacent spacing $h$, and include three fixed points whose feature vectors span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)$ be an optimizer. Set
+Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I;\R)$. Let $\mathcal T_h\subset I$ be a finite grid containing both endpoints, with maximum adjacent spacing $h>0$, and containing three fixed inputs whose vectors $z(s)=(1,s,\phi(s))^\T$ span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)\in\mathbb S_+^3\times[0,\infty)$ be an optimizer. Set
 $$
  Z_j=\max_{s\in I}\|z^{(j)}(s)\|_2,\qquad j=0,1,2,
 $$
@@ -295,7 +310,7 @@ $$
 Then $(\rho_h H_h,\rho_h U_h)$ satisfies every constraint of \eqref{eq:sdp}, and
 \begin{equation}
  \rho_h U_h\le\lambda_\star\le U_h,
- \qquad U_h-\rho_h U_h=O(h^2).
+ \qquad U_h-\rho_h U_h=O(h^2)\quad(h\downarrow0).
  \label{eq:certifiedgrid}
 \end{equation}
 \end{theorem}
@@ -314,7 +329,13 @@ Source: `sections/rigidity_proof.tex`. **Complete general statement checked, und
 ```latex
 \begin{lemma}
 \label{lem:collision}
-Suppose $K\ge4$, $\psi$ is $C^1$ in the interval interior and strictly convex or strictly concave, and $\enc$ exactly computes \eqref{eq:target}. If two interior triples have the same encoded sum, then they have the same $S$ and $T$.
+Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave and belongs to $C^1((-1,1))$. Suppose $\enc:I\to\R^2$ exactly computes $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
+\begin{align*}
+ &\sum_{j=1}^3\enc(a_j)=\sum_{j=1}^3\enc(b_j)\\
+ &\quad\Longrightarrow\quad
+ \begin{pmatrix}\sum_{j=1}^3 a_j\\\sum_{j=1}^3\phi(a_j)\end{pmatrix}
+ =\begin{pmatrix}\sum_{j=1}^3 b_j\\\sum_{j=1}^3\phi(b_j)\end{pmatrix}.
+\end{align*}
 \end{lemma}
 ```
 
@@ -331,7 +352,7 @@ Source: `sections/rigidity_proof.tex`. **Conditional open-slice argument checked
 ```latex
 \begin{lemma}
 \label{lem:topology}
-Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q$ on its image such that $q(R(p,t))=p$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
+Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q:R(B\times J)\to B$ such that $q(R(p,t))=p$ for every $(p,t)\in B\times J$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
 \end{lemma}
 ```
 
@@ -348,7 +369,7 @@ Source: `sections/rigidity_proof.tex`. **Local-fiber-to-affine representation an
 ```latex
 \begin{lemma}
 \label{lem:affine}
-Let $\phi\in C(I)\cap C^1((-1,1))$ be nonaffine, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then $\enc$ has form \eqref{eq:affine} with linearly independent $u,v$.
+Let $\phi:I\to\R$ be nonaffine and belong to $C(I)\cap C^1((-1,1))$, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then $\enc$ has form \eqref{eq:affine} with $c,u,v\in\R^2$ and linearly independent $u,v$.
 \end{lemma}
 ```
 
@@ -365,7 +386,7 @@ Source: `sections/design_proof.tex`. **Complete general operational formula and 
 ```latex
 \begin{proposition}
 \label{prop:score}
-For an encoder \eqref{eq:affine} with independent $u,v$, the operational score is given by \eqref{eq:exactscore}.
+Under the hypotheses of Section~\ref{sec:synthesis}, let $\enc:I\to\R^2$ have the form \eqref{eq:affine} with $c,u,v\in\R^2$ and linearly independent $u,v$. Its operational score for $f_{\phi,\psi}:I^K\to\R$ is given by \eqref{eq:exactscore}.
 The infimum is approached by pairs with received distance tending to zero.
 \end{proposition}
 ```
@@ -390,36 +411,7 @@ Under the hypotheses of Theorem~\ref{thm:sdp}, program~\eqref{eq:inverse-synthes
 
 **Verified scope and remaining gap.** The complete convex formulation, positive attained optimum, and reconstruction have no final Lean counterpart.
 
-### 16. `thm:polynomial` — theorem
-
-Source: `sections/polynomial_appendix.tex`. **Unverified in full.**
-
-**Context and hypotheses.** K≥4; P>0. F(m,q)=Σ a_ij m^i q^j has finitely many nonnegative coefficients, nonnegative integer exponents, one common parity for all present mean exponents i, and strictly positive endpoint partials α=Σi a_ij, β=Σj a_ij. t=α/(2β), b=2/(1−t²+t√(t²+2)), a0=√(b(2−b)).
-
-```latex
-\begin{theorem}
-\label{thm:polynomial}
-Let $K\ge4$ and let \eqref{eq:polyclass} satisfy the stated conditions. Define
-$$
- t=\frac{\alpha}{2\beta},\qquad
- b=\frac{2}{1-t^2+t\sqrt{t^2+2}},\qquad a_0=\sqrt{b(2-b)}.
-$$
-An optimal encoder over every continuous shared peak-admissible map is
-\begin{equation}
-\begin{aligned}
- \enc^\star(s)&=\sqrt P\,[a_0s+i(bs^2-1)],\\
- \Lambda_{\sq}^\star(f)&=\frac{K^2P}{\beta^2}b^2(b-1).
-\end{aligned}
- \label{eq:polyopt}
-\end{equation}
-\end{theorem}
-```
-
-**Dependencies.** Polynomial completion identity and coefficient comparison, split by the top weighted-degree term; strict monotonicity from coefficient/parity assumptions; Lemma lem:affine for quadratic rigidity; rectangle gradient bounds; local attainable sharpness at consensus endpoints; reflection and continuum peak reduction; weighted scalar optimum; nonexact competitors have zero score.
-
-**Verified scope and remaining gap.** Neither the general moment-minus-mean collision lemma nor a quadratic algebraic optimizer proves this polynomial-class collision and operational-gradient theorem. The same all-continuous rigidity dependency remains.
-
-### 17. `cor:transfer-unlabeled` — corollary
+### 16. `cor:transfer-unlabeled` — corollary
 
 Source: `sections/transfer.tex`. **Unverified in full.**
 
@@ -432,7 +424,7 @@ $$
  D(d)\ge c_Dd^2\quad(0\le d\le2K\sqrt P),\qquad
  \lim_{d\downarrow0}\frac{D(d)}{d^2}=c_D>0.
 $$
-For the targets of Proposition~\ref{prop:score}, every exact continuous encoder satisfies $\Lambda_D=c_D\Lambda_{\sq}$. Therefore every optimal encoder for the targets of Proposition~\ref{prop:score} remains optimal, and its optimum is multiplied by $c_D$.
+Under the hypotheses of Proposition~\ref{prop:score}, every continuous encoder $\enc:I\to\R^2$ that satisfies the peak constraint and exactly computes $f_{\phi,\psi}:I^K\to\R$ satisfies $\Lambda_D(\enc;f_{\phi,\psi})=c_D\Lambda_{\sq}(\enc;f_{\phi,\psi})$. Consequently, every optimal encoder for this desired function remains optimal, and the optimal score is multiplied by $c_D$.
 \end{corollary}
 ```
 
@@ -440,7 +432,7 @@ For the targets of Proposition~\ref{prop:score}, every exact continuous encoder 
 
 **Verified scope and remaining gap.** The original manuscript gives this numbered corollary no LaTeX label. It must still count toward any “all proofs” claim. A squared-score theorem without the shrinking-pair clause is insufficient.
 
-### 18. `prop:approx-rigidity` — proposition
+### 17. `prop:approx-rigidity` — proposition
 
 Source: `sections/approximate_rigidity.tex`. **Unverified in full.**
 
@@ -449,7 +441,7 @@ Source: `sections/approximate_rigidity.tex`. **Unverified in full.**
 ```latex
 \begin{proposition}
 \label{prop:approx-rigidity}
-For fixed $P$, $\omega$, and $L>0$, there is a nondecreasing function $\eta(\epsilon)$ tending to zero as $\epsilon\downarrow0$ with the following property. If $E\in\mathcal E_{P,\omega}$ and an $L$-Lipschitz decoder $D:\R^2\to\R$ satisfy
+For fixed $P$, $\omega$, and $L>0$, there is a nondecreasing function $\eta:[0,\infty)\to[0,\infty)$ with $\lim_{\epsilon\downarrow0}\eta(\epsilon)=0$ and the following property. For every $\epsilon\ge0$, if $E\in\mathcal E_{P,\omega}$ and an $L$-Lipschitz decoder $D:\R^2\to\R$ satisfy
 $$
  \sup_{\mathbf s\in I^K}
  |D(r_E(\mathbf s))-f_{\phi,\psi}(\mathbf s)|\le\epsilon,
@@ -494,3 +486,4 @@ Completing this chain would justify a claim about the unrestricted variance opti
 - Every declaration advertised as verified must compile under the pinned Lean/mathlib versions, with no `sorry`, `admit`, `sorryAx`, invented axioms, or unproved manuscript theorem imported as a premise.
 - The axiom audit and kernel recheck must cover the final dependency graph. The source hash report must match the packaged files.
 - The manuscript acknowledgment and formalization appendix must list the achieved scope. Until every result above is covered, use “selected results have Lean-checked proofs,” not “all proofs are formalized.”
+

@@ -1,5 +1,15 @@
 import Analog
 
+#print axioms Analog.AdditiveStatistics.coefficient_gram_det
+#print axioms Analog.AdditiveStatistics.collision_preserves_mean
+#print axioms Analog.AdditiveStatistics.encoder_continuousOn
+#print axioms Analog.AdditiveStatistics.encoder_energy
+#print axioms Analog.AdditiveStatistics.exact_computation_of_det
+#print axioms Analog.AdditiveStatistics.exact_computation_of_gram
+#print axioms Analog.AdditiveStatistics.meanStatistic_mem_attainable
+#print axioms Analog.AdditiveStatistics.received_encoder
+#print axioms Analog.AdditiveStatistics.received_encoder_mean
+#print axioms Analog.AdditiveStatistics.received_squaredDistance
 #print axioms Analog.ArbitraryEncoder.asComplex_received
 #print axioms Analog.ArbitraryEncoder.asComplex_squared_distance
 #print axioms Analog.ArbitraryEncoder.completeTriple_valid
@@ -23,6 +33,13 @@ import Analog
 #print axioms Analog.ArbitraryEncoder.varianceTarget_nonconstant
 #print axioms Analog.ArbitraryEncoder.variance_nonconstant
 #print axioms Analog.ArbitraryEncoder.zero_varianceScore_no_finite_decoder
+#print axioms Analog.CompletionIdentification.completeTripleAt_valid
+#print axioms Analog.CompletionIdentification.desiredFunction_completeTripleAt
+#print axioms Analog.CompletionIdentification.exact_completion_values
+#print axioms Analog.CompletionIdentification.identifiesOn_postcomp_iff
+#print axioms Analog.CompletionIdentification.received_completeTripleAt_collision
+#print axioms Analog.CompletionIdentification.statisticSum_completeTripleAt
+#print axioms Analog.CompletionIdentification.triple_collision_preserves_statistics
 #print axioms Analog.Curve.B_positive
 #print axioms Analog.Curve.actual_varianceScore_positive
 #print axioms Analog.Curve.basisDet_ne_zero
@@ -250,11 +267,24 @@ import Analog
 #print axioms Analog.MomentPaths.sourcePath_eventually_valid
 #print axioms Analog.MomentPaths.sourcePath_valid
 #print axioms Analog.Operational.le_score_iff
+#print axioms Analog.Operational.le_score_stat_image_iff
+#print axioms Analog.Operational.lowerBound_stat_image_iff
+#print axioms Analog.Operational.lowerBound_stat_image_sq_iff
+#print axioms Analog.Operational.nonconstantOn_stat_image_iff
 #print axioms Analog.Operational.quotients_bddBelow
+#print axioms Analog.Operational.quotients_cost_congr_on
 #print axioms Analog.Operational.quotients_nonempty
+#print axioms Analog.Operational.quotients_stat_image
+#print axioms Analog.Operational.score_cost_congr_on
 #print axioms Analog.Operational.score_cost_scale
 #print axioms Analog.Operational.score_is_lowerBound
 #print axioms Analog.Operational.score_nonnegative
+#print axioms Analog.Operational.score_stat_image
+#print axioms Analog.Operational.score_stat_image_scale
+#print axioms Analog.Operational.score_stat_image_sq_formula
+#print axioms Analog.Operational.score_stat_image_sq_scale
+#print axioms Analog.Operational.score_stat_image_user_count
+#print axioms Analog.Operational.sq_mul_le_score_stat_image_iff
 #print axioms Analog.Quartic.averaged_peak
 #print axioms Analog.Quartic.coefficient_pos
 #print axioms Analog.Quartic.coefficient_relations
@@ -378,6 +408,13 @@ import Analog
 #print axioms Analog.SynthesisAttainment.quad_sum_three_le
 #print axioms Analog.SynthesisAttainment.rank_one_isotropic
 #print axioms Analog.SynthesisAttainment.zero_feasible
+#print axioms Analog.TwoStatisticDesign.affine_operational_score
+#print axioms Analog.TwoStatisticDesign.affine_score_bound_iff
+#print axioms Analog.TwoStatisticDesign.gramCost_nonnegative
+#print axioms Analog.TwoStatisticDesign.planar_synthesis
+#print axioms Analog.TwoStatisticDesign.positive_definite_operational_synthesis
+#print axioms Analog.TwoStatisticDesign.positive_score_implies_exact
+#print axioms Analog.TwoStatisticDesign.reconstruction_preserves_pairs
 #print axioms Analog.complexCoordinates_distance
 #print axioms Analog.empiricalMoments_in_strip
 #print axioms Analog.firstMoment_bounds
@@ -406,6 +443,10 @@ import Analog
 #print axioms Analog.variance_score_bound_all
 #print axioms Analog.variance_sos_identity
 
+#check Analog.AdditiveStatistics.exact_computation_of_gram
+#check Analog.CompletionIdentification.triple_collision_preserves_statistics
+#check Analog.TwoStatisticDesign.affine_operational_score
+#check Analog.TwoStatisticDesign.positive_definite_operational_synthesis
 #check Analog.quadratic_variance_operational_optimal
 #check Analog.GeneralCollision.triple_collision_preserves_moments
 #check Analog.Quartic.quartic_optimal_all_power

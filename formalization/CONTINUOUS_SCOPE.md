@@ -6,6 +6,16 @@ The theorem map and verification reports identify the declarations actually
 checked in this release. The material below documents the outstanding
 dependency chain; it is not an additional formal proof.
 
+## Unified extension
+
+The new Theorem 4 permits arbitrary prescribed `γ = (φ₁, φ₂)` and `F`.
+`EXTENSION_SCOPE.md` records the additional formalization and remaining steps.
+In particular, the common-completion collision lemma is separate from the
+local topological factorization, automatic differentiability, and extension
+of derivative relations from the dense identifying set. The fixed-coefficient
+score/reconstruction results do not prove the new unrestricted converse or
+attainment theorem.
+
 ## The topological dependency
 
 The manuscript's continuous rigidity argument uses planar invariance of
@@ -93,3 +103,4 @@ Verifying that chain would still not justify saying that *all proofs in the pape
 
 The links to current documentation can change after the inspection date;
 the reproducible artifact uses the pinned revision above.
+

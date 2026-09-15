@@ -1,7 +1,7 @@
 # Principal manuscript-to-Lean correspondence
 
 The table identifies exact checked statements. `COVERAGE.md` separately lists
-all manuscript results, their current source locations, hypotheses, and remaining gaps. The main text now combines exact structure and optimal design in one section; supporting lemmas and the score proposition appear in the proof appendices. Result labels provide stable identifiers across renumbering.
+all manuscript results, their current source locations, hypotheses, and remaining gaps. The unified extension is mapped separately in `EXTENSION_SCOPE.md`; its complete continuous-encoder theorem remains unverified. The main text now combines exact structure and optimal design in one section; supporting lemmas and the score proposition appear in the proof appendices. Result labels provide stable identifiers across renumbering.
 
 | Manuscript component | Lean declaration | Scope |
 |---|---|---|
@@ -88,3 +88,4 @@ handled explicitly. Scaling then restores arbitrary positive power.
 requests the axiom dependencies of those declarations, and `verify.py`
 checks that the audit contains exactly that manifest and no unexpected
 axioms. The packaged source hashes must match `verification/report.json`.
+

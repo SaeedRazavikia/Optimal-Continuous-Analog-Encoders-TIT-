@@ -1,5 +1,8 @@
+import Analog.AdditiveStatistics
 import Analog.Amplification
+import Analog.AttainableScore
 import Analog.Certificate
+import Analog.CompletionIdentification
 import Analog.Decoder
 import Analog.DifferentialRigidity
 import Analog.EuclideanBridge
@@ -24,6 +27,7 @@ import Analog.RigidityCompletion
 import Analog.SmallNoise
 import Analog.StripProjection
 import Analog.SynthesisAttainment
+import Analog.TwoStatisticDesign
 import Analog.VarianceCollision
 import Analog.VarianceOptimal
 import Analog.VarianceScore

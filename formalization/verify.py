@@ -39,7 +39,7 @@ commit = run(['git', '-C', '.lake/packages/mathlib', 'rev-parse', 'HEAD'],
              'mathlib-commit.txt').strip()
 if commit != 'f897ebcf72cd16f89ab4577d0c826cd14afaafc7':
     raise SystemExit('Unexpected mathlib revision.')
-run(['lake', '--wfail', 'build'], 'build.log')
+run(['lake', '--wfail', '--no-cache', 'build'], 'build.log')
 audit = run(['lake', 'env', 'lean', '--trust=0', 'Audit.lean'], 'axioms.log')
 (OUT/'kernel-recheck.log').write_text(audit)
 rows = re.findall(r"'([^']+)' depends on axioms:\s*\[([^]]*)\]", audit)
@@ -63,7 +63,12 @@ report = {
     'mathlib_commit': 'f897ebcf72cd16f89ab4577d0c826cd14afaafc7',
     'theorem_axioms': axioms, 'source_sha256': hashes,
     'kernel_recheck': 'lake env lean --trust=0 Audit.lean',
-    'scope': 'General collision; full operational score and shrinking pairs for nondegenerate '
+    'scope': 'Unified extension: common-completion collision under identification, arbitrary '
+             'two-statistic affine exactness, actual attainable-pair score and pair constraints, '
+             'and operational planar synthesis under explicit Gram positive definiteness. '
+             'The extended continuous converse, positive definiteness from identification, '
+             'new attainment argument, analytic criterion and endpoint-gradient specialization '
+             'remain incomplete. Original family: general collision; full operational score and shrinking pairs for nondegenerate '
              'two-feature curves; general operational SDP reconstruction and positive maximum '
              'attainment; attained convex Gram-risk frontier including zero floor; actual '
              'small-noise dominated-convergence limit and variance-decoder specialization; '
@@ -75,3 +80,4 @@ report = {
 }
 (OUT/'report.json').write_text(json.dumps(report, indent=2)+'\n')
 print('PASS: compilation and theorem dependency audit completed.')
+

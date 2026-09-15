@@ -38,6 +38,10 @@ names.sort()
 (ROOT / 'audit_targets.json').write_text(json.dumps(names, indent=2) + '\n')
 (ROOT / 'Analog.lean').write_text(''.join(f'import Analog.{p.stem}\n' for p in modules))
 checks = [
+    'Analog.AdditiveStatistics.exact_computation_of_gram',
+    'Analog.CompletionIdentification.triple_collision_preserves_statistics',
+    'Analog.TwoStatisticDesign.affine_operational_score',
+    'Analog.TwoStatisticDesign.positive_definite_operational_synthesis',
     'Analog.quadratic_variance_operational_optimal',
     'Analog.GeneralCollision.triple_collision_preserves_moments',
     'Analog.Quartic.quartic_optimal_all_power',
@@ -62,3 +66,4 @@ text += '#print Analog.Operational.Quotients\n'
 text += '#print Analog.Curve.PeakFeasibleAt\n'
 (ROOT / 'Audit.lean').write_text(text)
 print(f'Generated audit of {len(names)} public declarations in {len(modules)} proof modules.')
+

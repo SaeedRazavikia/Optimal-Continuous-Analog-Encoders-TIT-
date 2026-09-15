@@ -3,6 +3,56 @@
   "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "theorem_axioms": {
+    "Analog.AdditiveStatistics.coefficient_gram_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.collision_preserves_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.encoder_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.encoder_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.exact_computation_of_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.exact_computation_of_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.meanStatistic_mem_attainable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_encoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_encoder_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_squaredDistance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.ArbitraryEncoder.asComplex_received": [
       "propext",
       "Classical.choice",
@@ -114,6 +164,41 @@
       "Quot.sound"
     ],
     "Analog.ArbitraryEncoder.zero_varianceScore_no_finite_decoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.completeTripleAt_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.desiredFunction_completeTripleAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.exact_completion_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.identifiesOn_postcomp_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.received_completeTripleAt_collision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.statisticSum_completeTripleAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.triple_collision_preserves_statistics": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1253,12 +1338,47 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.Operational.le_score_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.lowerBound_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.lowerBound_stat_image_sq_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.nonconstantOn_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.Operational.quotients_bddBelow": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.Operational.quotients_cost_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.Operational.quotients_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.quotients_stat_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_cost_congr_on": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1274,6 +1394,36 @@
       "Quot.sound"
     ],
     "Analog.Operational.score_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_sq_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_sq_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_user_count": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.sq_mul_le_score_stat_image_iff": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1893,6 +2043,41 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.TwoStatisticDesign.affine_operational_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.affine_score_bound_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.gramCost_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.planar_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.positive_definite_operational_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.positive_score_implies_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.reconstruction_preserves_pairs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.complexCoordinates_distance": [
       "propext",
       "Classical.choice",
@@ -2030,16 +2215,19 @@
     ]
   },
   "source_sha256": {
-    "Analog.lean": "566550813e0ec7d82f34d8ecf708c29bf600b89dfb97250d6dd0b7e75de912fa",
-    "Audit.lean": "3bdcb2eb23dfc8145bc5ce2e95011ae62e0f779a2189f705436e8111a45fd660",
-    "lakefile.toml": "5e4edd56201ce35d62bbeedc2b48811820e44255aac96326b3ce3d1225360253",
-    "lake-manifest.json": "e9eed8008f80334a519bfb8e22b5c58a487fa44ba4e88699885b847c2bf8f37c",
-    "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
-    "verify.py": "23e114227053b16e60ffde8b329d9910f36ed8b15893211efd4411d81cb22d98",
-    "audit_targets.json": "b6683a6b8402ad7048dc84c8fc0b89cbd351021ce7a4dfb6e049788efa911080",
-    "update_audit.py": "71bfab5295fa604dbdfe7876c89f6490836fa91b5fc7731d93d112fa834484d9",
+    "Analog.lean": "38699784641860898830248359319e2c39292d1d0d850948660885c442a25b04",
+    "Audit.lean": "dd18cc0adcd62a2a4553c25e88433a1e530ab4417bda61ddfc5e49aea913b365",
+    "lakefile.toml": "3cf20cd3908dbe007b0fe908015d83c0854e4b06b42c794d722948ed489b76a6",
+    "lake-manifest.json": "ea1f7e24c5497dedfc847b6a560e6a7aece9068669fece91f5af04d623dab305",
+    "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
+    "verify.py": "a864bebcadc3b9561b9c95b8f1a86c3e2086fd7bcdd50a97877efae51c56bc98",
+    "audit_targets.json": "1df34a939a4a655b2e89c8acf1cb14d0da7192a87095047e894ee5763d08dfa3",
+    "update_audit.py": "bcf9043d0af44fc4c8ce182f994a5490439b44aa07cd7b0d998210a81ac745cd",
+    "Analog/AdditiveStatistics.lean": "94f577b1bfec0373d22df2eeb2463229aacd25734c3e273d520cbb0d3e652f96",
     "Analog/Amplification.lean": "ddd9d95eed86d7e5297c93d547b14c704e19a7234deccf55fc8d354820c567a0",
+    "Analog/AttainableScore.lean": "8f093de584a043f4a3f65f73a51826f4918645950999ae00c01cc23a0b0b0efc",
     "Analog/Certificate.lean": "1a1ac67f47e3fb3c7a7f8954658235debedb124c66043cfe7e041bed7ac5dc72",
+    "Analog/CompletionIdentification.lean": "22e50a5483dba2bade4536b8c6d50ddd822c209682951b0340efc2ea2b931eac",
     "Analog/Decoder.lean": "1d9ab2afb70356ab0766c35fa38d79da07eff4c9f6dd1a25d08a6100eb1cb02b",
     "Analog/DifferentialRigidity.lean": "fea95c83dd387a315927920a0aab174aed3bda731d949e87ce7b1c387708e4e6",
     "Analog/EuclideanBridge.lean": "ca18d31d7e61df5ad611de6fc8db56d4cbeaebfe3fa180d5dada162ee636cb5c",
@@ -2064,10 +2252,11 @@
     "Analog/SmallNoise.lean": "e05c177eeb29ca3d95af2f35d6bd08eb3833f81a42c3e368057be86f2029bb05",
     "Analog/StripProjection.lean": "f5e528964647ac3e217d8daa02317014a96217211b83675b53f5ab479d5344ef",
     "Analog/SynthesisAttainment.lean": "d9589a0852d349a01b5bc94af4a8932ab4caf46ecdcccdb2fe359591595781ee",
+    "Analog/TwoStatisticDesign.lean": "ad5a8b7cff6bc324e063b2757978ed8bb82b408a84641f82f60887e8a75e9de1",
     "Analog/VarianceCollision.lean": "72beb446368a64855ae38f6534a1fc1c876d04672c44d0477784884942231968",
     "Analog/VarianceOptimal.lean": "39e92603211a1a9f8072e2120bba0bf528c7233da8a807084cf9c32a8652f8fb",
     "Analog/VarianceScore.lean": "8902eb7f7d1ae949bf0962144cf5f135ec265f019af860ac0c9b49cb2def4bc5"
   },
   "kernel_recheck": "lake env lean --trust=0 Audit.lean",
-  "scope": "General collision; full operational score and shrinking pairs for nondegenerate two-feature curves; general operational SDP reconstruction and positive maximum attainment; attained convex Gram-risk frontier including zero floor; actual small-noise dominated-convergence limit and variance-decoder specialization; native moment geometry and conditional independent affine representation; all-quadratic operational variance optimum, general-M quadratic/quartic certificates, sharp decoding and implementation bounds. Unrestricted continuous rigidity, complete general probabilistic trace/frontier equivalence, frontier endpoint continuity, certified-grid and remaining appendix results are not complete."
+  "scope": "Unified extension: common-completion collision under identification, arbitrary two-statistic affine exactness, actual attainable-pair score and pair constraints, and operational planar synthesis under explicit Gram positive definiteness. The extended continuous converse, positive definiteness from identification, new attainment argument, analytic criterion and endpoint-gradient specialization remain incomplete. Original family: general collision; full operational score and shrinking pairs for nondegenerate two-feature curves; general operational SDP reconstruction and positive maximum attainment; attained convex Gram-risk frontier including zero floor; actual small-noise dominated-convergence limit and variance-decoder specialization; native moment geometry and conditional independent affine representation; all-quadratic operational variance optimum, general-M quadratic/quartic certificates, sharp decoding and implementation bounds. Unrestricted continuous rigidity, complete general probabilistic trace/frontier equivalence, frontier endpoint continuity, certified-grid and remaining appendix results are not complete."
 }

@@ -1,13 +1,32 @@
 # Lean proofs for analog moment computation
 
-This artifact accompanies *Optimal Continuous Analog Encoders for Moment-Based Computation*. It contains checked complete results and intermediate results. **The entire manuscript is not yet formalized.** The remaining unrestricted rigidity argument prevents a claim of optimality over every continuous encoder.
+This artifact accompanies *Geometric Optimization of Continuous Encoders for Moment-Based Computation*. It contains checked complete results and intermediate results. **The entire manuscript is not yet formalized.** The remaining unrestricted rigidity argument prevents a claim of optimality over every continuous encoder.
 
-The supplied audit records **405 declarations across 29 modules**. All 37
-recorded source and configuration hashes match that audit. This count measures
-the checked development; it does not mean that all manuscript claims are
+The supplied audit verifies **442 declarations across 33 modules**, including
+37 declarations in the four new extension modules. All 41 recorded
+source/configuration hashes match the audited files in `verification/report.json`.
+These counts measure the checked development; they do not mean that all manuscript claims are
 covered. See [the theorem map](THEOREM_MAP.md) for the main results,
 [the statement inventory](COVERAGE.md) for the manuscript correspondence, and
 [the continuous-encoder scope](CONTINUOUS_SCOPE.md) for the open obligations.
+
+## Scope of the unified extension
+
+The manuscript now states Theorem 4 for arbitrary prescribed additive statistics
+`γ = (φ₁, φ₂)` and a real-valued postprocessing function `F`. The new modules are
+`AdditiveStatistics`, `AttainableScore`, `CompletionIdentification`, and
+`TwoStatisticDesign`. They cover affine-channel identities and exactness,
+reindexing the operational score over the actual finite-`K` attainable set,
+the common-completion collision implication under its stated identification
+hypothesis, and constructive peak-constrained design with an explicitly
+positive-definite lower Gram block. `EXTENSION_SCOPE.md` maps each step to its
+formal declaration and lists the remaining obligations.
+
+These results do not complete the generalized continuous-encoder converse,
+derive positive definiteness from local identification, establish the new
+compactness/attainment argument, or verify the real-analytic and endpoint-gradient
+specializations. The original two-moment score and design theorems below retain
+their original hypotheses.
 
 ## Completed scope
 
@@ -32,6 +51,11 @@ The general score is `Analog.GeneralScore.score`, defined using the paper's actu
 The probabilistic development proves the real integrated small-noise limit. It does not identify simulation outcomes with kernel-checked theorems, assume a desired limit, or silently replace a general decoder with the variance specialization. See the complete statement inventory in `COVERAGE.md` and the main declarations in `THEOREM_MAP.md`.
 
 No unproved manuscript theorem is introduced as an axiom. The unrestricted continuous reduction still needs topological local factorization and automatic differentiability; `CONTINUOUS_SCOPE.md` describes these obligations. The general decoder-to-trace formula, complete inverse-form frontier, certified-grid theorem, and remaining appendices also need further work.
+
+This revision extends repository commit
+`7a513ed38147a73f109f9b184dafba59c17ee89b`. Use the proof sources and recorded
+hashes from the same revision to reproduce the audit. `PUBLISH.md` describes
+version identity and the distinction between the local audit and GitHub CI.
 
 ## Reproduce
 
@@ -79,7 +103,7 @@ shows its logical dependencies. GitHub displays these source files; Lean checks
 them locally or in the included continuous-integration workflow. A theorem name
 by itself is not a remotely hosted proof-checking service.
 
-The proof sources are available in the [paper repository](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization).
+The proof sources for this revision are in [Analog/](Analog/) and [Analog.lean](Analog.lean).
 Run the commands above from its `formalization/` directory. The repository-level
 [verification workflow](../.github/workflows/verify-lean.yml) uses the pinned
 Lean toolchain and mathlib revision and runs `python3 verify.py` on relevant
@@ -98,3 +122,4 @@ reciprocal expressions in real-valued definitions use Lean's total division;
 the zero-score impossibility theorem supplies the intended infinite-
 amplification interpretation, rather than treating that raw value as an
 attainable constant.
+
