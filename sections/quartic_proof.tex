@@ -4,7 +4,7 @@ We prove the quadratic and quartic cases separately. Both proofs establish optim
 
 \subsection{Quadratic Preprocessing}\label{app:quadratic-proof}
 \begin{proof}[Proof of the quadratic case]
-Nonexact encoders have zero score. For every exact encoder, Theorem~\ref{thm:rigidity} gives $\enc(s)=c+us+vs^2$ with $u,v$ linearly independent over $\R$. Since $\psi$ is even, Theorem~\ref{thm:sdp} gives
+Encoders that fail the identifiability condition have zero score. For every encoder satisfying it, Theorem~\ref{thm:rigidity} gives $\enc(s)=c+us+vs^2$ with $u,v$ linearly independent over $\R$. Since $\psi$ is even, Theorem~\ref{thm:sdp} gives
 $$
  \frac{\Lambda_{\sq}}{K^2}
  =\frac{AB-C^2}{A+M^2B+2M|C|}.
@@ -38,7 +38,7 @@ For variance, the baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$. Equation~\e
 The quartic peak energy can attain its maximum at interior inputs. We therefore verify the full interval through a factorization and use its contact points to construct a global optimality certificate.
 
 \begin{proof}[Proof of the quartic case]
-Theorem~\ref{thm:rigidity} forces the quartic form for every exact encoder. Averaging the peak constraints at $s$ and $-s$ gives $A s^2+|c+v s^4|^2\le P$. Project $c$ onto the line of $v$ and choose the linear coefficient perpendicular to $v$. This preserves $A,B$, reduces the averaged norms, and removes $C$; Proposition~\ref{prop:score} shows that the score cannot decrease. Normalize $P=1$, write the resulting orthogonal curve as $\sqrt A\,s+i(bs^4+c)$ with $A,b>0$, and minimize the convex function
+Theorem~\ref{thm:rigidity} forces the quartic form for every encoder satisfying the identifiability condition. Averaging the peak constraints at $s$ and $-s$ gives $A s^2+|c+v s^4|^2\le P$. Project $c$ onto the line of $v$ and choose the linear coefficient perpendicular to $v$. This preserves $A,B$, reduces the averaged norms, and removes $C$; Proposition~\ref{prop:score} shows that the score cannot decrease. Normalize $P=1$, write the resulting orthogonal curve as $\sqrt A\,s+i(bs^4+c)$ with $A,b>0$, and minimize the convex function
 $$
  J(A,b,c)=M^2/A+1/b^2
 $$

@@ -1,5 +1,7 @@
 \subsection{Optimal Design}\label{sec:synthesis}
-Having identified the necessary local preprocessing functions $s$ and $\phi(s)$, we now optimize their coefficient vectors $u,v\in\R^2$. We assume $\phi\in C(I)\cap C^1((-1,1))$ and $\psi\in C^1(I)$, each strictly convex or strictly concave. Finite endpoint slopes of the mean-dependent term provide a uniform disturbance guarantee; $\phi$ needs differentiability only in the interval interior. Let $\mathbb S^n$ denote the real symmetric $n\times n$ matrices, and let $\mathbb S^n_+$ and $\mathbb S^n_{++}$ denote its positive semidefinite and positive definite subsets; $H\succeq0$ and $H\succ0$ mean positive semidefinite and positive definite, respectively. For the encoder coefficients in \eqref{eq:affine}, we define
+The characterization leaves finitely many coefficients to choose. We now optimize $u,v\in\R^2$ together with the offset $c$, using regime S: $\phi\in C(I)\cap C^1((-1,1))$ and $\psi\in C^1(I)$, each strictly convex or strictly concave. Finite endpoint slopes of the mean-dependent term provide a uniform disturbance guarantee; $\phi$ needs differentiability only in the interval interior.
+
+Let $\mathbb S^n$ denote the real symmetric $n\times n$ matrices, and let $\mathbb S^n_+$ and $\mathbb S^n_{++}$ denote its positive semidefinite and positive definite subsets; $H\succeq0$ and $H\succ0$ mean positive semidefinite and positive definite, respectively. For the encoder coefficients in \eqref{eq:affine}, we define
 \begin{align*}
  G&=\begin{pmatrix}A&C\\ C&B\end{pmatrix}\in\mathbb S^2_{++},\quad
  w_\pm=\begin{pmatrix}-\psi'(\pm1)\\1\end{pmatrix}\in\R^2,\\
@@ -28,7 +30,7 @@ The infimum is approached at arbitrarily small received distance. The global opt
 \end{aligned}
 \label{eq:sdp}
 \end{equation}
-where $z(s)=(1,s,\phi(s))^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
+where $z(s)=(1,s,\phi(s))^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields a planar encoder satisfying the identifiability condition.
 \end{theorem}
 See Appendix~\ref{app:design-proof} for the score calculation and the proof of optimality and attainment. Equation~\eqref{eq:exactscore} separates two design roles: $\phi$ determines the feasible peak geometry, while $\psi$ enters through its two extreme slopes.
 

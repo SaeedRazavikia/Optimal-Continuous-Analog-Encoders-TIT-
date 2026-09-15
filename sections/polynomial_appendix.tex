@@ -2,9 +2,9 @@
 
 We prove Theorem~\ref{thm:extension}, verify the stated sufficient conditions, and derive its quadratic specialization. Throughout, the two preprocessing functions and $F$ are prescribed before encoder design.
 
-The representation $f=F\circ\boldsymbol\mu_\gamma$ also describes the full continuous function class computable by a shared continuous planar encoder when the preprocessing functions may be chosen freely with only continuity imposed on $\gamma$. Indeed, any exact encoder supplies $\gamma=\enc$; exactness makes $F(\boldsymbol\mu_\gamma(\mathbf s))=f(\mathbf s)$ well defined, and the compact-quotient argument following \eqref{eq:exactness} makes $F$ continuous. Conversely, continuity and boundedness of $\gamma$ permit a continuous encoder $\enc=\rho\gamma$ with $\rho>0$ satisfying any prescribed $P>0$, after which the receiver recovers $\boldsymbol\mu_\gamma$ by division by $K\rho$.
+The representation $f=F\circ\boldsymbol\mu_\gamma$ also describes the full continuous function class identifiable through a shared continuous planar encoder when the preprocessing functions may be chosen freely with only continuity imposed on $\gamma$. Indeed, any encoder satisfying the identifiability condition supplies $\gamma=\enc$; this condition makes $F(\boldsymbol\mu_\gamma(\mathbf s))=f(\mathbf s)$ well defined, and the compact-quotient argument following \eqref{eq:exactness} makes $F$ continuous. Conversely, continuity and boundedness of $\gamma$ permit a continuous encoder $\enc=\rho\gamma$ with $\rho>0$ satisfying any prescribed $P>0$, after which the receiver recovers $\boldsymbol\mu_\gamma$ by division by $K\rho$.
 
-\subsection{Classification of Continuous Exact Encoders}
+\subsection{Classification Under the Identifiability Condition}
 
 \begin{proof}[Proof of the classification in Theorem~\ref{thm:extension}]
 Functional independence of $1,\varphi_1,\varphi_2$ implies that two interior tangents of $\gamma$ are independent. Otherwise all tangent vectors span at most a line, so some nonzero $a\in\R^2$ satisfies $a^\T\gamma'=0$ on $J$. Integration and endpoint continuity would make $a^\T\gamma$ constant on $I$, contradicting independence. Fix an independent tangent pair $\gamma'(y_*),\gamma'(z_*)$.
@@ -48,14 +48,14 @@ $$
 $$
 Every triple $(x,y_*,z_*)$ is regular, so the same constants give $e'(x)=a_e\varphi_1'(x)+b_e\varphi_2'(x)$ for all $x\in J$. Integration and endpoint continuity yield $\enc=c+\mathsf U\gamma$ with constant $c\in\R^2$ and $\mathsf U\in\R^{2\times2}$.
 
-If $\mathsf U$ were singular, an identifying open neighborhood $B$ would contain distinct $p,\widetilde p$ with $\mathsf Up=\mathsf U\widetilde p$. These statistics are attained by interior triples, whose encoded sums $3c+\mathsf Up$ agree. Exactness under every common completion and \eqref{eq:completion-id} force $p=\widetilde p$, a contradiction. Thus $\det\mathsf U\ne0$. Conversely,
+If $\mathsf U$ were singular, an identifying open neighborhood $B$ would contain distinct $p,\widetilde p$ with $\mathsf Up=\mathsf U\widetilde p$. These statistics are attained by interior triples, whose encoded sums $3c+\mathsf Up$ agree. Identifiability of $f$ under every common completion and \eqref{eq:completion-id} force $p=\widetilde p$, a contradiction. Thus $\det\mathsf U\ne0$. Conversely,
 $$
  r_\enc(\mathbf s)=Kc+K\mathsf U\boldsymbol\mu_\gamma(\mathbf s)
 $$
 allows recovery of $\boldsymbol\mu_\gamma$ and evaluation of $F$, proving sufficiency.
 \end{proof}
 
-\subsection{Exact Convex Design}
+\subsection{Convex Design and Attainment}
 
 \begin{proof}[Proof of the design claim in Theorem~\ref{thm:extension}]
 For $\enc=c+\mathsf U\gamma$ and $G=\mathsf U^\T\mathsf U\succ0$, cancellation of $c$ gives
@@ -67,7 +67,7 @@ For $\enc=c+\mathsf U\gamma$ and $G=\mathsf U^\T\mathsf U\succ0$, cancellation o
 \end{equation}
 Every pair in $\mathcal M$ is attained by input configurations, so this is an equality of the original pairwise infima.
 
-Let $F$ have a Lipschitz constant $L>0$ on $\mathcal M$. A sufficiently small $\rho>0$ makes $\enc=\rho\gamma$ peak admissible. Its coefficient Gram matrix is feasible in \eqref{eq:general-sdp} with $\lambda=\rho^2/L^2>0$. Every continuous encoder with positive score is exact and hence has the classified form. Its Gram matrix is feasible with $\lambda=\Lambda_{\sq}/K^2$ by \eqref{eq:general-score-appendix}. Thus the program bounds all positive-score competitors; zero-score encoders cannot improve the positive feasible value.
+Let $F$ have a Lipschitz constant $L>0$ on $\mathcal M$. A sufficiently small $\rho>0$ makes $\enc=\rho\gamma$ peak admissible. Its coefficient Gram matrix is feasible in \eqref{eq:general-sdp} with $\lambda=\rho^2/L^2>0$. Every continuous encoder with positive score satisfies the identifiability condition and hence has the classified form. Its Gram matrix is feasible with $\lambda=\Lambda_{\sq}/K^2$ by \eqref{eq:general-score-appendix}. Thus the program bounds all positive-score competitors; zero-score encoders cannot improve the positive feasible value.
 
 We next show why no rank constraint on the $3\times3$ matrix $H$ is needed. Let $(H,\lambda)$ be feasible with $\lambda>0$, and let $G$ be its lower-right block. If $G$ were singular, choose $0\ne v\in\ker G$ and distinct $p,\widetilde p=p+\varepsilon v$ inside an identifying neighborhood. For every common completion, their attained averages differ by $\varepsilon v/K$. The pair constraint gives $R_x(p)=R_x(\widetilde p)$ for every $x\in J$, contradicting \eqref{eq:completion-id}. Consequently $G\succ0$.
 
@@ -124,7 +124,7 @@ For polynomial $F$, failure of \eqref{eq:analytic-nondegenerate} is equivalent t
 
 \subsection{Quadratic Specialization and Examples}
 
-Assume $\gamma(s)=(s,s^2)^\T$, completion identifiability, and the stated $C^1$ regularity and bounds \eqref{eq:general-endpoints} on $\mathcal C_2=\{(m,q):m^2\le q\le1\}$. For an exact encoder $\enc=c+us+vs^2$, write
+Assume $\gamma(s)=(s,s^2)^\T$, completion identifiability, and the stated $C^1$ regularity and bounds \eqref{eq:general-endpoints} on $\mathcal C_2=\{(m,q):m^2\le q\le1\}$. For an encoder $\enc=c+us+vs^2$ satisfying the identifiability condition, write
 $$
  G=\begin{pmatrix}A&C\\C&B\end{pmatrix}
  =\begin{pmatrix}\|u\|^2&u^\T v\\u^\T v&\|v\|^2\end{pmatrix}\succ0.
@@ -165,7 +165,7 @@ $$
  |\enc^\star(s)|^2/P=1-b^2s^2(1-s^2)\le1
  \qquad(s\in I).
 $$
-Nonexact encoders have zero score, so the positive optimum is global over all continuous peak-admissible encoders.
+Encoders that fail the identifiability condition have zero score, so the positive optimum is global over all continuous peak-admissible encoders.
 
 For the polynomial example \eqref{eq:polyclass}, nonnegative coefficients yield $|F_m|\le\alpha$ and $|F_q|\le\beta$ on $[-1,1]\times[0,1]$. Common parity $\epsilon$ of the powers of $m$ gives
 $$

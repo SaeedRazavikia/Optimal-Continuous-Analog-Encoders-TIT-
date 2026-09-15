@@ -3,7 +3,7 @@
 \subsection{General Frontier}\label{app:general-frontier-proof}
 We use inverse-Gram coordinates to establish attainment and Gram coordinates to compare designs at different separation floors. This change of variables keeps the peak constraint fixed while exposing the strict convexity needed for uniqueness and the frontier's shape.
 \begin{proof}
-Corollary~\ref{cor:inverse-synthesis} identifies $\mathcal C_P$ with the continuous exact peak-admissible encoders and ensures $X\succ0$. Proposition~\ref{prop:score} gives the two endpoint budgets, and Proposition~\ref{prop:general-small-noise} gives the linear objective. Thus \eqref{eq:pareto-sdp} optimizes over the full continuous exact class.
+Corollary~\ref{cor:inverse-synthesis} identifies $\mathcal C_P$ with the continuous peak-admissible encoders satisfying the identifiability condition and ensures $X\succ0$. Proposition~\ref{prop:score} gives the two endpoint budgets, and Proposition~\ref{prop:general-small-noise} gives the linear objective. Thus \eqref{eq:pareto-sdp} optimizes over this full continuous encoder class.
 
 A separation-optimal encoder supplies a feasible point for every stated floor. Since $Q_\pi\succ0$, a finite objective sublevel bounds $\operatorname{tr}X$ and hence $X$. The block constraints imply $|g(s)-a|^2\le P\operatorname{tr}X$, so they also bound $a$. The feasible sublevel is closed and bounded; every limit still has positive-definite $X$ by the preceding nonaffineness argument. Hence an optimum exists, including at zero floor.
 

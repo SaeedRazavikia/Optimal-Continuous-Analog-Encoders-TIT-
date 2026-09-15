@@ -1,6 +1,6 @@
 \subsection{Enclosing Ellipses}
 \label{sec:inverse-synthesis}
-We use $X=G^{-1}$ because both the endpoint sensitivities $w_\pm^\T Xw_\pm$ and the small-noise MSE coefficient in Section~\ref{sec:pareto} are linear in $X$. Rewriting the peak constraint in these coordinates gives a common convex feasible set for both design problems.
+The Gram formulation is convenient for maximizing separation. To compare this objective with average estimation error later, we also express the same design through $X=G^{-1}$. Both the endpoint sensitivities $w_\pm^\T Xw_\pm$ and the small-noise MSE coefficient in Section~\ref{sec:pareto} are linear in $X$. Rewriting the peak constraint in these coordinates gives a common convex feasible set for both design problems and a geometric interpretation as an enclosing ellipse.
 
 Define the local preprocessing vector $g:I\to\R^2$ by $g(s)=(s,\phi(s))^\T$. Let $\mathcal C_P\subset\mathbb S^2\times\R^2$ be the set of pairs $(X,a)$ satisfying
 \begin{equation}
@@ -13,7 +13,7 @@ The matrix in \eqref{eq:ellipse-class} is a real symmetric $3\times3$ matrix, af
 $$
  \forall s\in I,\qquad (g(s)-a)^\T X^{-1}(g(s)-a)\le P.
 $$
-Thus $\mathcal C_P$ describes ellipses containing the preprocessing curve $g(I)$. We reconstruct an encoder by choosing an invertible $\mathsf U\in\R^{2\times2}$ with $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$ for every $s\in I$. Conversely, an exact peak-admissible encoder $\enc(s)=c+\mathsf U g(s)$ defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
+Thus $\mathcal C_P$ describes ellipses containing the preprocessing curve $g(I)$. We reconstruct an encoder by choosing an invertible $\mathsf U\in\R^{2\times2}$ with $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$ for every $s\in I$. Conversely, every peak-admissible encoder $\enc(s)=c+\mathsf U g(s)$ satisfying the identifiability condition defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
 
 The encoder translates the enclosing ellipse to the origin and maps it to the peak-power disk, thereby selecting the scaling and orientation of the transmitted statistics.
 

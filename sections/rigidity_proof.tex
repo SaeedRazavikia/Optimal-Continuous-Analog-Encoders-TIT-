@@ -3,7 +3,7 @@ We separate the proof into three steps because continuity alone does not permit 
 
 \begin{lemma}
 \label{lem:collision}
-Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave. Suppose $\enc:I\to\R^2$ exactly computes $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
+Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave. Suppose $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target} is identifiable through $\enc:I\to\R^2$. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
 \begin{align*}
  &\sum_{j=1}^3\enc(a_j)=\sum_{j=1}^3\enc(b_j)\\
  &\quad\Longrightarrow\quad
@@ -12,7 +12,7 @@ Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is stric
 \end{align*}
 \end{lemma}
 \begin{proof}
-Let the triple statistics be $(S,T)$ and $(\widetilde S,\widetilde T)$. Complete both triples with the same fourth input $w$ and $K-4$ zeros. Exactness gives
+Let the triple statistics be $(S,T)$ and $(\widetilde S,\widetilde T)$. Complete both triples with the same fourth input $w$ and $K-4$ zeros. The identifiability condition gives
 $$
  T-\widetilde T
  =K\left[\psi\!\left(\frac{S+w}{K}\right)
@@ -28,7 +28,7 @@ $$
  \psi(a+\delta)+\psi(\widetilde a)
  <\psi(a)+\psi(\widetilde a+\delta),
 $$
-contradicting the equal increments. Strict concavity reverses this inequality, and exchanging the triples excludes $a>\widetilde a$. Thus $S=\widetilde S$, and exactness at $w=0$ gives $T=\widetilde T$. This proof also permits endpoint inputs and does not require differentiability of $\psi$.
+contradicting the equal increments. Strict concavity reverses this inequality, and exchanging the triples excludes $a>\widetilde a$. Thus $S=\widetilde S$, and the same identifiability condition at $w=0$ gives $T=\widetilde T$. This proof also permits endpoint inputs and does not require differentiability of $\psi$.
 \end{proof}
 
 The collision lemma ensures that the received sum determines the moments. We must also show that it cannot vary locally while those moments remain fixed. The next lemma supplies this converse dependence using invariance of domain: a continuous injection from an open subset of $\R^2$ into $\R^2$ has open image~\cite[Theorem 2B.3]{hatcher}.

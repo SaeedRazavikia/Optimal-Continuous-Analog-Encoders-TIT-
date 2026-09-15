@@ -1,6 +1,37 @@
-# Final content review — September 15, 2026
+# Presentation and terminology revision — September 15, 2026
 
-The corrected submission is **49 pages including references**; the extended arXiv version is **55 pages**. Both retain the existing font, margins, spacing and figure scale.
+The submission is **51 pages including references**; the extended arXiv version is **57 pages**. This uses the author's approved two-page allowance for a clearer presentation. Font, margins, spacing, figure scale, and the submission/arXiv split are unchanged.
+
+## Presentation changes
+
+- Reframed the collision condition as **function identifiability**: equal noiseless received sums imply equal desired-function values. The model explicitly defines “f is identifiable through E” and “E identifies f,” and states the equivalent existence of a noiseless receiver.
+- Rebuilt the introduction around one progression: function-dependent digital modulation, which collisions matter, the continuous-curve perspective, the variance example, identifiability, noise sensitivity, and geometric optimization.
+- Explained why the two coordinates of a complex symbol carry real-valued additive statistics, and how restricting a continuous encoder to a finite alphabet gives a digital constellation. The text does not claim finite-alphabet global optimality from a continuous-class result.
+- Clarified the abstract and scoped the projection decoder to the original function class.
+- Added short transitions at the assumptions, characterization, convex design, enclosing ellipse, extension, decoding, certification, numerical results, and conclusion.
+- Distinguished the extension's common-completion assumption on the prescribed preprocessing functions and postprocessing F from the identifiability condition on an encoder.
+- Replaced computation-related “exactness” throughout the manuscript and retained “exact” where it refers to an algebraic identity, numerical certificate, score, or formula.
+
+## Validation and scope
+
+Both PDFs compile without unresolved references or overfull/underfull boxes; revised pages were rendered and inspected. All 143 displayed mathematical blocks match the preceding version byte for byte. Formal statements have only equivalent terminology changes. The coverage inventory's 17 statement extracts match the current full source verbatim; the submission retains 15 results.
+
+Numerical scripts, recorded results, plotted data, and certificate values are unchanged. The package check verifies all 20 original numerical Git-blob identities and all 55 audited Lean source/configuration hashes. The Lean declaration names remain stable, and the coverage inventory explains their correspondence to identifiability/noiseless recovery. This presentation revision adds no formal proofs and does not change the remaining formalization obligations.
+
+## Builds
+
+```sh
+latexmk -pdf manuscript.tex
+latexmk -pdf manuscript_arxiv.tex
+```
+
+The source archive includes both build files and all arXiv-only appendices. The existing draft GitHub branch receives the revision without merging main.
+
+---
+
+# Previous content review — September 15, 2026
+
+Before the presentation revision below, the submission was **49 pages including references** and the extended arXiv version was **55 pages**. Both retain the existing font, margins, spacing and figure scale.
 
 ## Corrections
 

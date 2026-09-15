@@ -39,23 +39,23 @@ $$
 $$
 Section~\ref{sec:examples} optimizes the scaling and translation of this two-moment curve.
 
-\emph{Jensen gaps.} Convex $\psi=\phi$ gives the empirical Jensen gap. For $\phi(s)=s^4$ and $e^s$, this is $t_4-m^4$ and $K^{-1}\sum_k e^{s_k}-e^m$, respectively. The fourth central moment also involves the second and third raw moments and differs from $t_4-m^4$. More generally, bounded $\phi$ gives the feasible encoder $\enc(s)=\alpha[s+i\phi(s)]$, $\alpha=\sqrt{P/(1+\|\phi\|_\infty^2)}>0$, proving that $S,T$ suffice for exact computation. Our converse identifies when every exact shared continuous encoder must preserve them.
+\emph{Jensen gaps.} Convex $\psi=\phi$ gives the empirical Jensen gap. For $\phi(s)=s^4$ and $e^s$, this is $t_4-m^4$ and $K^{-1}\sum_k e^{s_k}-e^m$, respectively. The fourth central moment also involves the second and third raw moments and differs from $t_4-m^4$. More generally, bounded $\phi$ gives the feasible encoder $\enc(s)=\alpha[s+i\phi(s)]$, $\alpha=\sqrt{P/(1+\|\phi\|_\infty^2)}>0$, showing that $S,T$ determine the desired function. Our converse identifies when every shared continuous encoder that permits noiseless recovery must preserve both sums.
 
 \emph{Relation to nomographic functions.} A scalar nomographic representation has the form
 $$
  f(\mathbf s)=\Phi\!\left(\sum_{k=1}^K h_k(s_k)\right),
 $$
-where $h_k:I\to\R$ are local preprocessing functions and $\Phi$ postprocesses attainable sums~\cite{goldenbaum2015}. We use two real statistics, $(S,T)\in\R^2$, followed by $F(m,t)=t-\psi(m)$, with $(m,t)=(S/K,T/K)$: a two-coordinate nomographic construction within one complex symbol. The classes overlap, as the mean illustrates. Under Theorem~\ref{thm:rigidity}'s assumptions, no shared continuous scalar encoder $h:I\to\R$ computes \eqref{eq:target} exactly, because two linearly independent real coefficient vectors are necessary. This restriction does not exclude transmitter-dependent or discontinuous preprocessing.
+where $h_k:I\to\R$ are local preprocessing functions and $\Phi$ postprocesses attainable sums~\cite{goldenbaum2015}. We use two real statistics, $(S,T)\in\R^2$, followed by $F(m,t)=t-\psi(m)$, with $(m,t)=(S/K,T/K)$: a two-coordinate nomographic construction within one complex symbol. The classes overlap, as the mean illustrates. Under Theorem~\ref{thm:rigidity}'s assumptions, no shared continuous scalar encoder $h:I\to\R$ makes \eqref{eq:target} identifiable from its sum, because two linearly independent real coefficient vectors are necessary. This restriction does not exclude transmitter-dependent or discontinuous preprocessing.
 
-\subsection{Exact Computation and Separation}
-For a specified continuous desired function $f:I^K\to\R$, we call $\enc$ \emph{exact} if
+\subsection{Function Identifiability and Separation}
+For a specified continuous desired function $f:I^K\to\R$, we say that $f$ is \emph{identifiable through $\enc$}, or that $\enc$ \emph{identifies $f$}, if
 \begin{equation}
  \forall\,\mathbf s,\mathbf t\in I^K,\qquad
  r_\enc(\mathbf s)=r_\enc(\mathbf t)
  \ \Longrightarrow\ f(\mathbf s)=f(\mathbf t).
  \label{eq:exactness}
 \end{equation}
-Equivalently, a noiseless receiver $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, satisfies $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Distances between superpositions representing unequal function values determine noise sensitivity.
+Condition~\eqref{eq:exactness} is the \emph{identifiability condition for $f$}. It requires the received sum to distinguish unequal function values, while allowing different input configurations with the same value to coincide. Equivalently, there exists a noiseless receiver $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, such that $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Identifiability alone imposes no quantitative bound on sensitivity to noise. To control that sensitivity, we compare distances between superpositions representing unequal function values.
 
 For a nonconstant $f:I^K\to\R$, we define the squared-separation score
 \begin{equation}
@@ -65,11 +65,11 @@ For a nonconstant $f:I^K\to\R$, we define the squared-separation score
  {|f(\mathbf s)-f(\mathbf t)|^2}\in[0,\infty).
  \label{eq:score}
 \end{equation}
-A positive score guarantees exactness and $|f(\mathbf s)-f(\mathbf t)|\le |r_\enc(\mathbf s)-r_\enc(\mathbf t)|/\sqrt{\Lambda_{\sq}}$ for every $\mathbf s,\mathbf t\in I^K$. Proposition~\ref{prop:amplification} identifies $1/\sqrt{\Lambda_{\sq}}$ as the smallest achievable uniform noise-amplification constant.
+A positive score guarantees identifiability of $f$ and $|f(\mathbf s)-f(\mathbf t)|\le |r_\enc(\mathbf s)-r_\enc(\mathbf t)|/\sqrt{\Lambda_{\sq}}$ for every $\mathbf s,\mathbf t\in I^K$. Proposition~\ref{prop:amplification} identifies $1/\sqrt{\Lambda_{\sq}}$ as the smallest achievable uniform noise-amplification constant.
 
 We maximize \eqref{eq:score} over the class
 $$
  \mathcal E_P=\{\enc\in C(I;\C):\sup_{s\in I}|\enc(s)|^2\le P\},\qquad
  \Lambda_{\sq}^\star(f)=\sup_{\enc\in\mathcal E_P}\Lambda_{\sq}(\enc;f).
 $$
-Under the assumptions below, Section~\ref{sec:design} proves $\enc(s)=c+us+v\phi(s)$ for every exact encoder, giving $r_\enc(\mathbf s)=Kc+uS+vT$. The offset $c$ positions the curve in the peak-power disk; the lengths and angle of $u,v$ control moment-recovery sensitivity. This reduces continuous-function optimization to finitely many coefficients.
+Under the assumptions below, Section~\ref{sec:design} proves $\enc(s)=c+us+v\phi(s)$ for every encoder satisfying \eqref{eq:exactness}, giving $r_\enc(\mathbf s)=Kc+uS+vT$. The offset $c$ positions the curve in the peak-power disk; the lengths and angle of $u,v$ control moment-recovery sensitivity. This reduces continuous-function optimization to finitely many coefficients.

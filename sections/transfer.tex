@@ -14,11 +14,10 @@ $$
  \mathscr D(d)\ge c_{\mathscr D}d^2\quad(0\le d\le2K\sqrt P),\qquad
  \lim_{d\downarrow0}\frac{\mathscr D(d)}{d^2}=c_{\mathscr D}>0.
 $$
-Under the hypotheses of Proposition~\ref{prop:score}, every continuous encoder $\enc:I\to\R^2$ that satisfies the peak constraint and exactly computes $f_{\phi,\psi}:I^K\to\R$ satisfies $\Lambda_{\mathscr D}(\enc;f_{\phi,\psi})=c_{\mathscr D}\Lambda_{\sq}(\enc;f_{\phi,\psi})$. Consequently, every optimal encoder for this desired function remains optimal, and the optimal score is multiplied by $c_{\mathscr D}$.
+Under the hypotheses of Proposition~\ref{prop:score}, every continuous encoder $\enc:I\to\R^2$ that satisfies the peak constraint and identifies $f_{\phi,\psi}:I^K\to\R$ satisfies $\Lambda_{\mathscr D}(\enc;f_{\phi,\psi})=c_{\mathscr D}\Lambda_{\sq}(\enc;f_{\phi,\psi})$. Consequently, every optimal encoder for this desired function remains optimal, and the optimal score is multiplied by $c_{\mathscr D}$.
 \end{corollary}
 \begin{proof}
-The lower envelope gives $\Lambda_{\mathscr D}\ge c_{\mathscr D}\Lambda_{\sq}$. Proposition~\ref{prop:score} supplies pairs attaining the opposite inequality in the limit. Nonexact encoders have zero score because $\mathscr D(0)=0$.
+The lower envelope gives $\Lambda_{\mathscr D}\ge c_{\mathscr D}\Lambda_{\sq}$. Proposition~\ref{prop:score} supplies pairs attaining the opposite inequality in the limit. Encoders that fail the identifiability condition have zero score because $\mathscr D(0)=0$.
 \end{proof}
 
 Examples are $\mathscr D(d)=d^2+ad^4$ with $a\ge0$ and $\mathscr D(d)=e^{ad^2}-1$ with $a>0$. The original uncentered $e^{ad^2}$ criterion has $\mathscr D(0)=1$ and is not covered. No closed-form optimizer for that criterion is claimed here. Gaussian MSE and optimality at a fixed disturbance radius also remain separate problems.
-

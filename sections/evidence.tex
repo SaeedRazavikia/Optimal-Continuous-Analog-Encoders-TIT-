@@ -1,5 +1,5 @@
 \section{Numerical Results}\label{sec:evidence}
-We check the implemented curves, evaluate the robustness--MSE tradeoff, and compare small-noise predictions with measured errors.
+The numerical results connect the geometric design to its receiver performance. We first check the implemented curves against the analytic formulas, then evaluate the robustness--MSE tradeoff and compare small-noise predictions with measured errors.
 
 \subsection{Analytic Checks}
 We check the scores of the curves in Fig.~\ref{fig:curves}; their global optimality follows from the analytic proofs.
@@ -17,7 +17,7 @@ The quadratic baseline is feasible by the peak identity with $b=1$. For the quar
 $$|\enc_{\rm base}(s)|^2/P=\tfrac45[x+(x^2-1/2)^2]\le1,$$
 since $x\le1$ and $(x^2-1/2)^2\le1/4$. Its exact score is $(4/85)K^2P$. Table~\ref{tab:values} compares these baselines with the certified optima; score gains do not imply MSE gains.
 
-The reproduction package contains checkers, rational certificates, simulation seeds, and recorded results.\footnote{\href{https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/blob/7a513ed38147a73f109f9b184dafba59c17ee89b/REPRODUCIBILITY.md}{Reproduction instructions and numerical source, commit \texttt{7a513ed}.} The accompanying source archive also includes these files.} All checks pass: coefficients, quadratic stationarity, quartic peak and multiplier identities, asymmetric mean penalties, shrinking source perturbations, and Gram rank reduction. The decoder checker also compares the nonorthogonal strip formula with received-plane quadratic programming and checks exactness and disturbance bounds for several $K$ and $P$. These checks validate implementations; the analytic identities and rational certificate in Section~\ref{sec:certified} establish feasibility and global bounds independently of sampling.
+The reproduction package contains checkers, rational certificates, simulation seeds, and recorded results.\footnote{\href{https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/blob/7a513ed38147a73f109f9b184dafba59c17ee89b/REPRODUCIBILITY.md}{Reproduction instructions and numerical source, commit \texttt{7a513ed}.} The accompanying source archive also includes these files.} All checks pass: coefficients, quadratic stationarity, quartic peak and multiplier identities, asymmetric mean penalties, shrinking source perturbations, and Gram rank reduction. The decoder checker also compares the nonorthogonal strip formula with received-plane quadratic programming and checks noiseless recovery and disturbance bounds for several $K$ and $P$. These checks validate implementations; the analytic identities and rational certificate in Section~\ref{sec:certified} establish feasibility and global bounds independently of sampling.
 
 
 
