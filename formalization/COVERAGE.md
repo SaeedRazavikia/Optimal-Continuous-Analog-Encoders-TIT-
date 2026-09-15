@@ -1,16 +1,16 @@
 # Manuscript proof coverage inventory
 
-This inventory covers the complete arXiv source (17 numbered statement environments). The submission version omits the ancillary criterion-transfer corollary and approximate-rigidity proposition, together with the Lean-verification appendix; it retains 15 mathematical results. The presentation revision uses function identifiability for the condition permitting noiseless recovery without changing the mathematical claims.
+This inventory covers the complete arXiv source (17 numbered statement environments). The submission version omits the ancillary criterion-transfer corollary and approximate-rigidity proposition, together with the Lean-verification appendix; it retains 15 mathematical results. The terminology revision uses identifiable computation for noiseless recovery of the desired function and high-SNR asymptotics for the vanishing-noise-variance limit, without changing the mathematical claims.
 
 Status: **the manuscript is not fully formalized**. This inventory covers the 17 theorem, lemma, proposition, and corollary statements reachable from the revised `manuscript.tex`, including the unlabeled criterion-transfer corollary. The quadratic and quartic cases are now one theorem; the general extension is in the main text as Theorem 4. Source-order numbers below are inventory positions, not printed theorem numbers. Statements are exact extracts from the accompanying revision titled *Geometric Optimization of Continuous Encoders for Moment-Based Computation*.
 
-This inventory records scope; `Audit.lean`, `verify.py`, and the saved verification report determine the declarations actually checked. Checked specializations or conditional lemmas do not certify a broader manuscript theorem. `EXTENSION_SCOPE.md` gives the additional obligations for the new proof. Existing Lean identifiers containing `exact` retain their original names: in encoder and decoder statements, they refer to the same condition for noiseless recovery or function identifiability used in the manuscript. This terminology revision does not change the Lean proof sources or their verified scope.
+This inventory records scope; `Audit.lean`, `verify.py`, and the saved verification report determine the declarations actually checked. Checked specializations or conditional lemmas do not certify a broader manuscript theorem. `EXTENSION_SCOPE.md` gives the additional obligations for the new proof. Existing Lean identifiers containing `exact` retain their original names: in encoder and decoder statements, they refer to the same condition for noiseless recovery or identifiable computation used in the manuscript. This terminology revision does not change the Lean proof sources or their verified scope.
 
 ## Coverage of complete manuscript statements
 
 | Source order | Result | Current coverage |
 |---|---|---|
-| 1 | `thm:rigidity` | Identifiability within the affine family and affine representation from local charts checked; producing those charts from function identifiability remains unverified. |
+| 1 | `thm:rigidity` | Identifiability within the affine family and affine representation from local charts checked; producing those charts from identifiable computation remains unverified. |
 | 2 | `thm:sdp` | General operational score, reconstruction, compactness and positive maximum attainment checked within the coefficient class; unrestricted reduction remains unverified. |
 | 3 | `thm:parabola` | Quadratic/quartic coefficient optima and general operational score checked; unrestricted continuous-class conclusion remains unverified. |
 | 4 | `thm:extension` | General attained-pair SDP, positive-definite operational realization and coefficient-class optimum checked; smoothing/dense propagation checked from local charts. Topological production of charts, analytic and endpoint specializations remain unverified. |
@@ -32,9 +32,9 @@ This inventory records scope; `Audit.lean`, `verify.py`, and the saved verificat
 
 ### 1. `thm:rigidity` — theorem
 
-Source: `sections/rigidity.tex`. **Identifiability within the affine family and affine representation from local charts checked; producing those charts from function identifiability remains unverified.**
+Source: `sections/rigidity.tex`. **Identifiability within the affine family and affine representation from local charts checked; producing those charts from identifiable computation remains unverified.**
 
-**Context and hypotheses.** K≥4; I=[−1,1]; φ continuous on I, C¹ in the interior, nonaffine; ψ continuous on I, C¹ in the interior, strictly convex/concave. E is a continuous planar encoder. Function identifiability means that equal noiseless received sums imply equal values of the desired function.
+**Context and hypotheses.** K≥4; I=[−1,1]; φ continuous on I, C¹ in the interior, nonaffine; ψ continuous on I, C¹ in the interior, strictly convex/concave. E is a continuous planar encoder. Identifiable computation means that equal noiseless received sums imply equal values of the desired function.
 
 ```latex
 \begin{theorem}
@@ -51,7 +51,7 @@ with $u,v$ linearly independent, equivalently $\det[\,u\ v\,]\ne0$.
 
 **Dependencies.** Lemmas lem:collision and lem:affine for necessity. Invertibility of the coefficient map (S,T)↦uS+vT for sufficiency, followed by the prescribed scalar receiver function.
 
-**Verified scope and remaining gap.** `Analog.RigidityCompletion.FeatureEncoder.exact_iff_det_ne_zero_of_nonaffine` proves the identifiability equivalence within the affine moment family. `Analog.GeneralRigidity` constructs actual local inverse sections, derives independent tangent anchors from functional independence, and integrates derivative relations through the source endpoints. `Analog.EncoderRegularity.planar_affine_of_local_charts` derives encoder differentiability and the affine representation from continuous local triple factorizations; its dense-chart version also derives regularity and propagation from the actual regular triple-statistic image. `Analog.PlanarTopology` proves encoder injectivity, a closed source-curve embedding and continuous recovery of both triple statistics directly from function identifiability. None of these statements produces the reverse local factorization from continuity and function identifiability alone: that remaining step uses planar invariance of domain. The established coefficient-independence argument then applies once the affine representation is available.
+**Verified scope and remaining gap.** `Analog.RigidityCompletion.FeatureEncoder.exact_iff_det_ne_zero_of_nonaffine` proves the identifiability equivalence within the affine moment family. `Analog.GeneralRigidity` constructs actual local inverse sections, derives independent tangent anchors from functional independence, and integrates derivative relations through the source endpoints. `Analog.EncoderRegularity.planar_affine_of_local_charts` derives encoder differentiability and the affine representation from continuous local triple factorizations; its dense-chart version also derives regularity and propagation from the actual regular triple-statistic image. `Analog.PlanarTopology` proves encoder injectivity, a closed source-curve embedding and continuous recovery of both triple statistics directly from identifiable computation. None of these statements produces the reverse local factorization from continuity and identifiable computation alone: that remaining step uses planar invariance of domain. The established coefficient-independence argument then applies once the affine representation is available.
 
 ### 2. `thm:sdp` — theorem
 
@@ -87,7 +87,7 @@ where $z(s)=(1,s,\phi(s))^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block
 
 **Dependencies.** Theorem thm:rigidity; Proposition prop:score; Schur complement equivalence; positivity of G from independent endpoint slopes; rank-two Gram reconstruction by reducing the translation diagonal; a positive feasible point; compactness from three spanning vectors of preprocessing values; attainment.
 
-**Verified scope and remaining gap.** `Analog.GeneralDesign.positive_sdp_operational_synthesis` combines genuine PSD/Schur reconstruction with the general operational score: every positive feasible SDP point yields a continuous planar curve satisfying every peak constraint, identifying the desired function and achieving an actual score of at least K²λ. Independence of endpoint directions follows from strict curvature of the mean-dependent term. `Analog.SynthesisAttainment` derives spanning anchors from strict curvature of the preprocessing function and a positive feasible design from continuity and P>0. It derives coordinate bounds from actual anchor evaluations, proves the continuum feasible set closed and compact, and proves positive maximum-separation attainment with an operational realization. Its `operational_maximum_attained` compares the continuous optimizer with positive score against all affine coefficient curves, including singular and constant curves; `positive_score_implies_positive_gram` handles those competitors without assuming their nondegeneracy. The general continuous-class upper bound still requires unrestricted rigidity; additional final interfaces and hypotheses are listed in THEOREM_MAP.md.
+**Verified scope and remaining gap.** `Analog.GeneralDesign.positive_sdp_operational_synthesis` combines genuine PSD/Schur reconstruction with the general operational score: every positive feasible SDP point yields a continuous planar curve satisfying every peak constraint, permitting identifiable computation of the desired function and achieving an actual score of at least K²λ. Independence of endpoint directions follows from strict curvature of the mean-dependent term. `Analog.SynthesisAttainment` derives spanning anchors from strict curvature of the preprocessing function and a positive feasible design from continuity and P>0. It derives coordinate bounds from actual anchor evaluations, proves the continuum feasible set closed and compact, and proves positive maximum-separation attainment with an operational realization. Its `operational_maximum_attained` compares the continuous optimizer with positive score against all affine coefficient curves, including singular and constant curves; `positive_score_implies_positive_gram` handles those competitors without assuming their nondegeneracy. The general continuous-class upper bound still requires unrestricted rigidity; additional final interfaces and hypotheses are listed in THEOREM_MAP.md.
 
 ### 3. `thm:parabola` — theorem
 
@@ -118,7 +118,7 @@ for $\phi(s)=s^4$,
 \end{theorem}
 ```
 
-**Dependencies.** Theorem thm:rigidity; Proposition prop:score; reflection/translation projection or an equivalent direct algebraic converse; all-interval peak identity; minimization of M²/[b(2−b)]+1/b²; explicit root formula; P and K² scaling; exclusion of encoders that do not identify the desired function.
+**Dependencies.** Theorem thm:rigidity; Proposition prop:score; reflection/translation projection or an equivalent direct algebraic converse; all-interval peak identity; minimization of M²/[b(2−b)]+1/b²; explicit root formula; P and K² scaling; exclusion of encoders that do not permit identifiable computation of the desired function.
 
 **Verified scope and remaining gap.** `Analog.GeneralQuadratic.quadratic_optimal_closed_form` and `Analog.quadratic_optimal_all_power` prove the complete quadratic Gram optimum, its root characterization and displayed parameter, for every M>0 and P>0. `Analog.quadratic_variance_operational_optimal` assembles the actual all-pair score, continuum peak feasibility and optimum 4K²P/(9+6√3) over every planar quadratic curve, including degenerate curves, for K≥2. The general operational score and shrinking-pair theorem are checked in `Analog.GeneralScore`; they are no longer an unverified ingredient for general ψ.
 
@@ -128,7 +128,7 @@ for $\phi(s)=s^4$,
 
 Source: `sections/examples.tex`; proof in `sections/polynomial_appendix.tex`. **General attained-pair SDP, positive-definite operational realization and coefficient-class optimum checked; smoothing/dense propagation checked from local charts. Topological production of charts, analytic and endpoint specializations remain unverified.**
 
-**Context and hypotheses.** K≥4; I=[−1,1]; γ=(φ₁,φ₂) continuous on I and C¹ in its interior; 1,φ₁,φ₂ functionally independent. M is the actual image of valid K-input configurations under μγ. F is continuous on M. The common-completion identification hypothesis holds locally on a dense open subset of the regular triple-statistic image. The design conclusion additionally assumes P>0 and F nonconstant and Lipschitz on M.
+**Context and hypotheses.** K≥4; I=[−1,1]; γ=(φ₁,φ₂) continuous on I and C¹ in its interior; 1,φ₁,φ₂ functionally independent. M is the actual image of valid K-dimensional input vectors under μγ. F is continuous on M. The common-completion identification hypothesis holds locally on a dense open subset of the regular triple-statistic image. The design conclusion additionally assumes P>0 and F nonconstant and Lipschitz on M.
 
 ```latex
 \begin{theorem}[Extension to two additive statistics]
@@ -152,14 +152,14 @@ $$
 \end{aligned}
  \label{eq:general-sdp}
 \end{equation}
-Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields a planar encoder that identifies $f$ and satisfies the peak constraint.
+Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields a planar encoder that satisfies the identifiability condition for $f$ and the peak constraint.
 \end{enumerate}
 \end{theorem}
 ```
 
-**Dependencies and remaining scope.** `Analog.CompletionIdentification` proves the common-completion collision implication. `Analog.AdditiveStatistics`, `Analog.AttainableScore` and `Analog.TwoStatisticDesign` model actual admissible tuples, affine encoding, function identifiability and the attained-pair score. `Analog.TwoStatisticAttainment` derives spanning anchors from functional independence, compactness of the full seven-variable feasible set and a positive attained maximum. `Analog.TwoStatisticPositivity.general_sdp_operational_attainment` derives positive definiteness from the actual dense common-completion condition and jointly realizes the SDP optimum as a continuous peak-feasible encoder that identifies the desired function and achieves score K²λ; `general_operational_maximum_attained` compares it with every coefficient curve, including singular competitors. No optimizer or positive-definite block is assumed in these final theorems.
+**Dependencies and remaining scope.** `Analog.CompletionIdentification` proves the common-completion collision implication. `Analog.AdditiveStatistics`, `Analog.AttainableScore` and `Analog.TwoStatisticDesign` model actual admissible tuples, affine encoding, identifiable computation and the attained-pair score. `Analog.TwoStatisticAttainment` derives spanning anchors from functional independence, compactness of the full seven-variable feasible set and a positive attained maximum. `Analog.TwoStatisticPositivity.general_sdp_operational_attainment` derives positive definiteness from the actual dense common-completion condition and jointly realizes the SDP optimum as a continuous peak-feasible encoder permitting identifiable computation of the desired function and achieving score K²λ; `general_operational_maximum_attained` compares it with every coefficient curve, including singular competitors. No optimizer or positive-definite block is assumed in these final theorems.
 
-`Analog.EncoderRegularity.planar_affine_of_dense_charts` proves automatic C¹ regularity, dense propagation and the endpoint-inclusive affine representation from continuous local factorizations on an identifying set O with the actual inclusion `regularTripleImage ⊆ closure O`. Only production of those charts from function identifiability and common-completion identification remains missing in this rigidity chain; it is not disguised as a proved topological result. Analytic identification and endpoint-gradient/explicit polynomial specializations remain unverified. Formal F is total on the plane but evaluated only on M; regularity outside M is not assumed. A finite Lipschitz constant in the Lean product metric is equivalent to one in the Euclidean metric. See `EXTENSION_SCOPE.md`. The label `thm:polynomial` remains an alias.
+`Analog.EncoderRegularity.planar_affine_of_dense_charts` proves automatic C¹ regularity, dense propagation and the endpoint-inclusive affine representation from continuous local factorizations on an identifying set O with the actual inclusion `regularTripleImage ⊆ closure O`. Only production of those charts from identifiable computation and common-completion identification remains missing in this rigidity chain; it is not disguised as a proved topological result. Analytic identification and endpoint-gradient/explicit polynomial specializations remain unverified. Formal F is total on the plane but evaluated only on M; regularity outside M is not assumed. A finite Lipschitz constant in the Lean product metric is equivalent to one in the Euclidean metric. See `EXTENSION_SCOPE.md`. The label `thm:polynomial` remains an alias.
 
 ### 5. `prop:amplification` — proposition
 
@@ -175,7 +175,7 @@ with $0^{-1/2}=+\infty$. A continuous decoder attains the infimum whenever it is
 \end{proposition}
 ```
 
-**Dependencies.** Uniform guarantee implies function identifiability and pairwise Lipschitz inequality; well-defined receiver function on the received set; compactness; McShane extension preserving the optimal Lipschitz constant; infimum/supremum identity including Λ=0; continuity and attainment of finite constants; scalar output clipping.
+**Dependencies.** Uniform guarantee implies identifiable computation and pairwise Lipschitz inequality; well-defined receiver function on the received set; compactness; McShane extension preserving the optimal Lipschitz constant; infimum/supremum identity including Λ=0; continuity and attainment of finite constants; scalar output clipping.
 
 **Verified scope and remaining gap.** `Analog.Decoder.sharp_uniform_decoder` proves existence of a globally Lipschitz continuous decoder that recovers the desired function without noise and has uniform constant 1/√Λ, and proves this constant no larger than any finite uniform constant for any other decoder. `finite_uniform_decoder_iff_positive_score` and `zero_score_no_finite_uniform_decoder` establish the zero-score/infinite-required-amplification case. The metric theorem covers arbitrary received maps and nonconstant real desired functions, a larger class than the manuscript. The extended-real symbol A itself is not introduced as a separate formal infimum: the source proves the equivalent attained-minimum statement when finite and impossibility of every finite constant when Λ=0. `Analog.Decoder.uniform_iff_additive_noise` gives the additive-disturbance formulation, and `Analog.ArbitraryEncoder.asComplex_squared_distance` verifies that the complex metric is precisely the manuscript Euclidean cost. Its variance bridge connects this metric score to the actual list-based multiple-access variance score. Scalar clipping is covered by `Analog.Decoder.clip_uniform`.
 
@@ -205,11 +205,11 @@ An additional scalar projection onto an interval containing $f(I^K)$ preserves t
 
 Source: `sections/pareto.tex`. **General Gaussian strip-decoder leading-MSE formula and permitted output clipping checked within the coefficient class; unrestricted classification remains separate.**
 
-**Context and hypotheses.** The synthesis assumptions hold. The input prior satisfies |m|<1 almost surely; Qπ=E[w(m)w(m)ᵀ] is positive definite. Noise is independent circular complex Gaussian CN(0,N0). The decoder is the prescribed strip projection and receiver function, with optional clipping locally inactive at the true desired-function value almost surely. G is the coefficient Gram matrix of any continuous peak-admissible encoder from which the desired function is identifiable.
+**Context and hypotheses.** The synthesis assumptions hold. The input prior satisfies |m|<1 almost surely; Qπ=E[w(m)w(m)ᵀ] is positive definite. Noise is independent circular complex Gaussian CN(0,N0). The decoder is the prescribed strip projection and receiver function, with optional clipping locally inactive at the true desired-function value almost surely. G is the coefficient Gram matrix of any continuous peak-admissible encoder permitting identifiable computation of the desired function. The asymptotic MSE is evaluated with P, K, the encoder, and the input prior fixed as N0↓0; equivalently, the per-transmitter peak SNR P/N0 tends to infinity.
 
 ```latex
 \begin{proposition}\label{prop:general-small-noise}
-For every continuous encoder $\enc:I\to\R^2$ that identifies $f_{\phi,\psi}:I^K\to\R$ and satisfies \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
+For every continuous encoder $\enc:I\to\R^2$ satisfying the identifiability condition \eqref{eq:exactness} for $f_{\phi,\psi}:I^K\to\R$ and the peak constraint \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
 \begin{equation}
  \mathcal J_\pi(G):=\lim_{N_0\downarrow0}
  \frac{\mathbb E_{\pi,N}|\widehat f(Y)-f(\mathbf s)|^2}{N_0}
@@ -219,11 +219,11 @@ For every continuous encoder $\enc:I\to\R^2$ that identifies $f_{\phi,\psi}:I^K\
 \end{proposition}
 ```
 
-**Dependencies.** Theorem thm:rigidity; local inactivity of projection and permitted clipping; differentiability of the receiver function; coupling N=√N0 Z; Gaussian covariance I2/2; pointwise small-noise limit; integrable uniform domination from Theorem thm:decoder; dominated convergence and trace/expectation identities.
+**Dependencies.** Theorem thm:rigidity; local inactivity of projection and permitted clipping; differentiability of the receiver function; coupling N=√N0 Z; Gaussian covariance I2/2; pointwise high-SNR limit; integrable uniform domination from Theorem thm:decoder; dominated convergence and trace/expectation identities.
 
 **Verified scope and remaining gap.** `Analog.GeneralSmallNoise.source_leading_mse_inverseGram` proves the actual general strip-decoder limit for admissible input lists and independent normalized isotropic noise. It derives noiseless recovery, inverse moment recovery, local differentiability, measurable bounded slope moments, dominated convergence and the inverse-Gram trace expression. The scalar risk parameters are μ=−E[ψ′(m)] and v=E[ψ′(m)²]−E[ψ′(m)]², giving Q=[[v+μ²,μ],[μ,1]] and the normalization 1/(2K²).
 
-`Analog.GaussianNoise.gaussian_source_leading_mse` instantiates the genuine circular Gaussian law from two independent real N(0,1/2) coordinates and derives its moments and integrability. `clipped_leading_mse_inverseGram` and `gaussian_clipped_leading_mse` cover optional scalar output clipping when the true value lies strictly inside the clipping interval almost surely; no uniform distance from the boundary is assumed. These are complete coefficient-family decoder limits, with no derivative or Lipschitz conclusion assumed. Passing from every continuous encoder from which the desired function is identifiable to that coefficient family still requires unrestricted rigidity.
+`Analog.GaussianNoise.gaussian_source_leading_mse` instantiates the genuine circular Gaussian law from two independent real N(0,1/2) coordinates and derives its moments and integrability. `clipped_leading_mse_inverseGram` and `gaussian_clipped_leading_mse` cover optional scalar output clipping when the true value lies strictly inside the clipping interval almost surely; no uniform distance from the boundary is assumed. These are complete coefficient-family decoder limits, with no derivative or Lipschitz conclusion assumed. Passing from every continuous encoder permitting identifiable computation of the desired function to that coefficient family still requires unrestricted rigidity.
 
 ### 8. `thm:pareto` — theorem
 
@@ -245,7 +245,7 @@ Using the enclosing-ellipse class $\mathcal C_P$ in \eqref{eq:ellipse-class}, fo
 \end{aligned}
  \label{eq:pareto-sdp}
 \end{equation}
-At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields a planar encoder that identifies $f_{\phi,\psi}$ through
+At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields a planar encoder permitting identifiable computation of $f_{\phi,\psi}$ via
 $$
  \mathsf U^\T\mathsf U=X^{-1},\qquad
  \enc(s)=\mathsf U(g(s)-a).
@@ -257,7 +257,7 @@ $$
  \gamma_c=\left(\max_{\sigma\in\{-,+\}}
  w_\sigma^\T X_0w_\sigma\right)^{-1}.
 $$
-The frontier is constant on $[0,\gamma_c]$. The encoder minimizing average small-noise error already meets every separation requirement in this interval. If $\gamma_c<\lambda_\star$, it is strictly increasing thereafter, and every optimal encoder on that branch satisfies $\Lambda_\sq=K^2\gamma$.
+The frontier is constant on $[0,\gamma_c]$. The encoder minimizing the asymptotic MSE coefficient already meets every separation requirement in this interval. If $\gamma_c<\lambda_\star$, it is strictly increasing thereafter, and every optimal encoder on that branch satisfies $\Lambda_\sq=K^2\gamma$.
 \end{theorem}
 ```
 
@@ -277,13 +277,13 @@ Source: `sections/pareto.tex`. **Complete constrained quadratic coefficient fron
 \begin{corollary}\label{cor:quadratic-pareto}
 For every $0\le\gamma\le\lambda_\star$, define
 $b_\gamma=\min\{b_{\rm eff},b_+(\gamma/P)\}.$
-An encoder attaining the global frontier over all continuous encoders that identify $f_{\phi,\psi}$ and satisfy the peak constraint is
+An encoder attaining the global frontier over all continuous encoders permitting identifiable computation of $f_{\phi,\psi}$ under the peak constraint is
 \begin{equation}
  \enc_\gamma(s)=\sqrt P\left[\sqrt{b_\gamma(2-b_\gamma)}\,s
        +i(b_\gamma s^2-1)\right],
  \label{eq:quadratic-pareto-map}
 \end{equation}
-and its optimal small-noise coefficient is
+and its optimal asymptotic MSE coefficient is
 \begin{equation}
  \mathcal V_\pi(\gamma)=\frac1{2K^2P}
  \left[\frac{M_{\rm eff}^2}{b_\gamma(2-b_\gamma)}
@@ -296,7 +296,7 @@ The constant portion ends at $\gamma_c=P R_M(b_{\rm eff})$.
 
 **Dependencies.** Theorem thm:pareto; reflection/translation-projection dominance for both prior objective and separation; quadratic feasible-boundary characterization; root existence/uniqueness and monotonicity of b(x),R_M; interval form of the feasible floor set; constrained scalar minimization; P,K scaling.
 
-**Verified scope and remaining gap.** `Analog.QuadraticFrontier` proves existence and uniqueness of the upper-branch root, the cubic identity, monotonicity of the stationary parameter, the exact plateau test, and global constrained optimality of the clipped parameter. `clipped_curve_optimal_all_power` gives the displayed risk and peak/separation constraints at every P>0, against all nondegenerate quadratic coefficient curves; it includes the maximal-floor case rather than assuming an interior optimum. `Analog.GeneralQuadratic` supplies the explicit stationary parameter. The new Gaussian limit identifies the inverse-Gram objective for the implemented decoder. The hypotheses 0<M_eff<M are explicit scalar premises in the quadratic optimizer theorem; deriving them and diagonal Q from the stated source symmetry is part of the additional prior-specialization inventory below. Enlarging competitors to all continuous encoders from which the desired function is identifiable still requires rigidity.
+**Verified scope and remaining gap.** `Analog.QuadraticFrontier` proves existence and uniqueness of the upper-branch root, the cubic identity, monotonicity of the stationary parameter, the exact plateau test, and global constrained optimality of the clipped parameter. `clipped_curve_optimal_all_power` gives the displayed risk and peak/separation constraints at every P>0, against all nondegenerate quadratic coefficient curves; it includes the maximal-floor case rather than assuming an interior optimum. `Analog.GeneralQuadratic` supplies the explicit stationary parameter. The new Gaussian limit identifies the inverse-Gram objective for the implemented decoder. The hypotheses 0<M_eff<M are explicit scalar premises in the quadratic optimizer theorem; deriving them and diagonal Q from the stated source symmetry is part of the additional prior-specialization inventory below. Enlarging competitors to all continuous encoders permitting identifiable computation of the desired function still requires rigidity.
 
 ### 10. `thm:certifiedgrid` — theorem
 
@@ -332,12 +332,12 @@ Then $(\rho_h H_h,\rho_h U_h)$ satisfies every constraint of \eqref{eq:sdp}, and
 
 Source: `sections/rigidity_proof.tex`. **Complete general collision statement checked, including endpoint triple inputs and without differentiability assumptions.**
 
-**Context and hypotheses.** K≥4; φ defines T=Σφ(s); ψ is strictly convex or strictly concave; no differentiability is assumed. The desired function T/K−ψ(S/K) is identifiable from the encoder’s noiseless received sum. Both colliding triples lie in the source interior. No encoder continuity is needed for this lemma.
+**Context and hypotheses.** K≥4; φ defines T=Σφ(s); ψ is strictly convex or strictly concave; no differentiability is assumed. The encoder permits identifiable computation of the desired function T/K−ψ(S/K). Both colliding triples lie in the source interior. No encoder continuity is needed for this lemma.
 
 ```latex
 \begin{lemma}
 \label{lem:collision}
-Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave. Suppose $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target} is identifiable through $\enc:I\to\R^2$. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
+Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave. Suppose $\enc:I\to\R^2$ permits identifiable computation of $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
 \begin{align*}
  &\sum_{j=1}^3\enc(a_j)=\sum_{j=1}^3\enc(b_j)\\
  &\quad\Longrightarrow\quad
@@ -366,7 +366,7 @@ Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times 
 
 **Dependencies.** Planar invariance of domain makes every injective fixed-t slice an open map; local constancy; connectedness of J.
 
-**Verified scope and remaining gap.** `Analog.open_slice_fiber_constancy` proves constancy under an explicit `IsOpenMap` hypothesis on every slice and preconnectedness of its parameter space. `Analog.PlanarTopology.continuous_recovery_of_compact` supplies a continuous recovery map on an actual compact received range from collision preservation, and `continuous_triple_moment_recovery` applies it under function identifiability. This is the recovery direction, not local constancy on moment fibers. Continuity and injectivity have not been connected to planar slice openness; `CONTINUOUS_SCOPE.md` records the remaining invariance-of-domain dependency.
+**Verified scope and remaining gap.** `Analog.open_slice_fiber_constancy` proves constancy under an explicit `IsOpenMap` hypothesis on every slice and preconnectedness of its parameter space. `Analog.PlanarTopology.continuous_recovery_of_compact` supplies a continuous recovery map on an actual compact received range from collision preservation, and `continuous_triple_moment_recovery` applies it under identifiable computation. This is the recovery direction, not local constancy on moment fibers. Continuity and injectivity have not been connected to planar slice openness; `CONTINUOUS_SCOPE.md` records the remaining invariance-of-domain dependency.
 
 ### 13. `lem:affine` — lemma
 
@@ -383,7 +383,7 @@ Let $\phi:I\to\R$ be nonaffine and belong to $C(I)\cap C^1((-1,1))$, and let $\e
 
 **Dependencies.** Lemma lem:topology; distinct derivative anchors from nonaffineness; C¹ inverse-function charts; local moment factorization; compactly supported smoothing and cutoff construction; differentiation along fibers via implicit-function theorem; affine derivative integration; endpoint continuity; independence of u,v using open moment image.
 
-**Verified scope and remaining gap.** `Analog.EncoderRegularity.contDiffAt_of_triple_factorization` derives automatic C¹ regularity from an actual continuous source-box factorization. It constructs the pair-coordinate inverse, localizes the receiver by a Tietze extension on a smaller closed ball and uses a genuinely normalized smooth convolution kernel. `planar_affine_of_local_charts` assembles the affine representation through both endpoints without assuming encoder differentiability. The stronger `planar_affine_of_dense_charts` needs charts only over a set dense in the actual regular triple image and proves the required regularity and derivative propagation itself. `Analog.GeneralRigidity` provides independent tangent anchors, local sections, kernel calculations and integration; `Analog.RigidityCompletion` supplies the original-family coefficient-independence consequence of function identifiability. The remaining obligation is deriving the local charts from the collision implication through planar topology, not smoothing or dense propagation.
+**Verified scope and remaining gap.** `Analog.EncoderRegularity.contDiffAt_of_triple_factorization` derives automatic C¹ regularity from an actual continuous source-box factorization. It constructs the pair-coordinate inverse, localizes the receiver by a Tietze extension on a smaller closed ball and uses a genuinely normalized smooth convolution kernel. `planar_affine_of_local_charts` assembles the affine representation through both endpoints without assuming encoder differentiability. The stronger `planar_affine_of_dense_charts` needs charts only over a set dense in the actual regular triple image and proves the required regularity and derivative propagation itself. `Analog.GeneralRigidity` provides independent tangent anchors, local sections, kernel calculations and integration; `Analog.RigidityCompletion` supplies the original-family coefficient-independence consequence of identifiable computation. The remaining obligation is deriving the local charts from the collision implication through planar topology, not smoothing or dense propagation.
 
 ### 14. `prop:score` — proposition
 
@@ -432,7 +432,7 @@ $$
  \mathscr D(d)\ge c_{\mathscr D}d^2\quad(0\le d\le2K\sqrt P),\qquad
  \lim_{d\downarrow0}\frac{\mathscr D(d)}{d^2}=c_{\mathscr D}>0.
 $$
-Under the hypotheses of Proposition~\ref{prop:score}, every continuous encoder $\enc:I\to\R^2$ that satisfies the peak constraint and identifies $f_{\phi,\psi}:I^K\to\R$ satisfies $\Lambda_{\mathscr D}(\enc;f_{\phi,\psi})=c_{\mathscr D}\Lambda_{\sq}(\enc;f_{\phi,\psi})$. Consequently, every optimal encoder for this desired function remains optimal, and the optimal score is multiplied by $c_{\mathscr D}$.
+Under the hypotheses of Proposition~\ref{prop:score}, every continuous encoder $\enc:I\to\R^2$ that satisfies the peak constraint and the identifiability condition for $f_{\phi,\psi}:I^K\to\R$ satisfies $\Lambda_{\mathscr D}(\enc;f_{\phi,\psi})=c_{\mathscr D}\Lambda_{\sq}(\enc;f_{\phi,\psi})$. Consequently, every optimal encoder for this desired function remains optimal, and the optimal score is multiplied by $c_{\mathscr D}$.
 \end{corollary}
 ```
 
@@ -458,11 +458,11 @@ then $\operatorname{dist}_\infty(E,\mathcal A_\phi)\le\eta(\epsilon)$. The funct
 \end{proposition}
 ```
 
-**Dependencies.** Approximate collision inequality; Arzelà–Ascoli compactness and closedness of the encoder class; continuity/Lipschitz dependence of the scalar defect d_L; continuity of distance to A_φ even though A_φ is nonclosed; compact subsequence argument; function identifiability in the limit; Theorem thm:rigidity; construction, finiteness and monotonicity of η and its zero limit.
+**Dependencies.** Approximate collision inequality; Arzelà–Ascoli compactness and closedness of the encoder class; continuity/Lipschitz dependence of the scalar defect d_L; continuity of distance to A_φ even though A_φ is nonclosed; compact subsequence argument; identifiable computation in the limit; Theorem thm:rigidity; construction, finiteness and monotonicity of η and its zero limit.
 
-**Verified scope and remaining gap.** `Analog.ApproximateRigidity` constructs the modulus as a supremum of distances over actual defect sublevels with zero inserted for the empty case. It proves nonnegativity, monotonicity, η(0)=0 and the zero limit by minimizing the defect on compact sets at positive distance from the class of encoders permitting noiseless recovery. No closedness of that class is required. The file also proves the K-term complex-channel perturbation estimate, Lipschitz continuity of the actual pair defect with constant KL, function identifiability when the defect is zero and the defect bound from an L-Lipschitz approximate decoder.
+**Verified scope and remaining gap.** `Analog.ApproximateRigidity` constructs the modulus as a supremum of distances over actual defect sublevels with zero inserted for the empty case. It proves nonnegativity, monotonicity, η(0)=0 and the zero limit by minimizing the defect on compact sets at positive distance from the class of encoders permitting noiseless recovery. No closedness of that class is required. The file also proves the K-term complex-channel perturbation estimate, Lipschitz continuity of the actual pair defect with constant KL, identifiable computation when the defect is zero and the defect bound from an L-Lipschitz approximate decoder.
 
-`encoderClass_isCompact` derives closedness and Arzelà–Ascoli compactness for complex continuous encoders on the full interval with the actual peak and common-modulus bounds. It requires only the one-sided limit ω(h)→0 for h>0; no condition ω(0)=0 is added. `continuous_encoder_stability` assembles these steps and constructs η for any class containing all encoders from which the desired function is identifiable. Its remaining structural premise is precisely the characterization of encoders permitting noiseless recovery. Taking that class to be the independent affine moment family still needs the unfinished unrestricted rigidity theorem; no independent proof of that premise is claimed.
+`encoderClass_isCompact` derives closedness and Arzelà–Ascoli compactness for complex continuous encoders on the full interval with the actual peak and common-modulus bounds. It requires only the one-sided limit ω(h)→0 for h>0; no condition ω(0)=0 is added. `continuous_encoder_stability` assembles these steps and constructs η for any class containing all encoders permitting identifiable computation of the desired function. Its remaining structural premise is precisely the characterization of encoders permitting noiseless recovery. Taking that class to be the independent affine moment family still needs the unfinished unrestricted rigidity theorem; no independent proof of that premise is claimed.
 
 
 ## Additional proved claims outside numbered theorem environments
@@ -471,21 +471,21 @@ The phrase “all proofs” also includes proofs written in prose and numerical 
 
 | Location | Claim requiring separate coverage |
 |---|---|
-| `sections/model.tex` | Positive squared separation implies function identifiability; checked compact-range recovery in `Analog.PlanarTopology` supplies receiver continuity, and `Analog.CriterionTransfer` derives the physical peak-distance bound. Remaining examples and prose specializations need their own matching declarations. |
+| `sections/model.tex` | Positive squared separation implies identifiable computation; checked compact-range recovery in `Analog.PlanarTopology` supplies receiver continuity, and `Analog.CriterionTransfer` derives the physical peak-distance bound. Remaining examples and prose specializations need their own matching declarations. |
 | `sections/assumptions.tex` | Endpoint-derivative counterexample and explanation that rigidity assumptions alone do not guarantee positive separation. |
 | `sections/certified_synthesis.tex`, equations `eq:dualwitness`, `eq:expcertificate` | Soundness of finite primal/dual witnesses; matrix positivity and rational exponential enclosures; the displayed global upper/lower bounds and certified relative gap. Python exact rational checks are not Lean proofs. |
 | `sections/examples.tex` | Root existence, uniqueness and closed form where not included in a formal theorem; exact displayed baselines and relative improvements; four active quartic peak contacts. |
 | `sections/decoding.tex` | K=4 attainable variance moment-region boundary and intermediate attainment; Jensen containment for even preprocessing functions; explicit moment-interaction decoder; finite-disturbance-radius minimax error ω_E(2τ)/2 and Borel decoder construction; expected-error bound for arbitrary finite-second-moment noise. |
 | `sections/implementation.tex` | The normed additive-noise formulation, termwise received perturbation bound, decoded implementation bound, uniform-gain specialization and peak-safe quantization are checked in `Analog.Implementation`; remaining prose specializations must map to these hypotheses, including calibration assumptions. |
 | `sections/pareto.tex` | Qπ positive definiteness equivalent to nonzero variance of ψ′(m); symmetry giving diagonal Qπ; M_eff bounds; independent uniform-source moment formula. |
-| `sections/criterion_appendix.tex` | Function identifiability with arbitrarily poor conditioning; collision example at zero coefficient; positive uncentered-exponential score without function identifiability; binary-source optimum 64P/9 and strict loss from restricting the continuous optimum. |
-| Numerical experiment sections and source scripts | Stated experimental configurations, coefficients, baselines and data processing must remain reproducible; kernel proof of the deterministic theorem cannot certify measured Monte Carlo outcomes. |
+| `sections/criterion_appendix.tex` | Identifiable computation with arbitrarily poor conditioning; collision example at zero coefficient; positive uncentered-exponential score without identifiable computation; binary-source optimum 64P/9 and strict loss from restricting the continuous optimum. |
+| Numerical experiment sections and source scripts | Stated experimental settings, coefficients, baselines and data processing must remain reproducible; kernel proof of the deterministic theorem cannot certify measured Monte Carlo outcomes. |
 
 ## Minimum chain for the unrestricted variance optimum
 
 1. The arbitrary-encoder general collision lemma is now checked, including its variance specialization.
 2. Complete planar invariance of domain or an equally strong checked substitute, then the original fiber-constancy lemma.
-3. Produce local triple factorizations from function identifiability via topology. Given continuous local charts, normalized convolution/Tietze regularization now derives encoder differentiability; the checked dense-chart argument derives propagation, and derivative integration reaches both endpoints. Native inverse sections and coefficient independence are also checked. The missing topological production of charts is the remaining step in this rigidity chain.
+3. Produce local triple factorizations from identifiable computation via topology. Given continuous local charts, normalized convolution/Tietze regularization now derives encoder differentiability; the checked dense-chart argument derives propagation, and derivative integration reaches both endpoints. Native inverse sections and coefficient independence are also checked. The missing topological production of charts is the remaining step in this rigidity chain.
 4. The operational all-pair score and admissible shrinking-pair sharpness are now checked for general strictly curved preprocessing functions and regular convex/concave mean-dependent terms at K≥2; variance additionally includes degenerate curves.
 5. Arbitrary peak power and transmitter count are connected to the checked variance optimizer over all quadratic competitors, including degenerate/zero-score curves. The final theorem over every continuous peak-feasible encoder still needs the rigidity reduction and the resulting competitor-class argument.
 

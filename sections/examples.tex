@@ -80,7 +80,7 @@ The preceding family combines two statistics in the specific form $t-\psi(m)$. F
 \end{equation}
 Here $\varphi_1,\varphi_2:I\to\R$ are prescribed local preprocessing functions, and $F$ combines their averages at the receiver. We assume $\gamma\in C(I;\R^2)\cap C^1(J;\R^2)$ and linear independence of the three real functions $1,\varphi_1,\varphi_2$; equivalently, $\gamma(I)$ is not contained in an affine line. The original family uses $\gamma(s)=(s,\phi(s))^\T$ and $F(a,b)=b-\psi(a)$. Other choices include the variance of squared observations, $\gamma(s)=(s^2,s^4)^\T$ and $F(a,b)=b-a^2$.
 
-If we require only continuity and allow $\gamma$ to be chosen, \eqref{eq:general-function} describes precisely the continuous desired functions identifiable through a shared continuous planar encoder. Such an encoder supplies its two coordinates as $\gamma$; conversely, a scaled version of any bounded continuous $\gamma$ transmits the two sums. Prescribing $\gamma$ raises a further question: must every encoder that identifies $f$ preserve these particular sums? This requires $F$ to distinguish them sufficiently. For example, $F(a,b)=a$ ignores the second sum.
+If we require only continuity and allow $\gamma$ to be chosen, \eqref{eq:general-function} describes precisely the continuous desired functions that admit identifiable computation with a shared continuous planar encoder. Such an encoder supplies its two coordinates as $\gamma$; conversely, a scaled version of any bounded continuous $\gamma$ transmits the two sums. Prescribing $\gamma$ raises a further question: must every encoder permitting identifiable computation of $f$ preserve these particular sums? This requires $F$ to distinguish them sufficiently. For example, $F(a,b)=a$ ignores the second sum.
 
 We state this additional condition using common completions of three inputs. It is a property of the prescribed statistics and $F$, separate from the identifiability condition \eqref{eq:exactness} for an encoder. Define
 $$
@@ -117,7 +117,7 @@ $$
 \end{aligned}
  \label{eq:general-sdp}
 \end{equation}
-Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields a planar encoder that identifies $f$ and satisfies the peak constraint.
+Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields a planar encoder that satisfies the identifiability condition for $f$ and the peak constraint.
 \end{enumerate}
 \end{theorem}
 Appendix~\ref{app:polynomial} proves the theorem. Program~\eqref{eq:general-sdp} has the same seven scalar variables as \eqref{eq:sdp}; the general postprocessing function requires constraints over attainable pairs in place of the two endpoint inequalities. The finite-$K$ set $\mathcal M$ need not be convex, so replacing it by its convex hull need not preserve the optimum. The theorem characterizes the exact program; finite discretization requires a separate accuracy certificate.
@@ -185,6 +185,6 @@ $$
 $$
 The channel provides the same two sums $S$ and $Q$ as in variance computation, while their product requires different optimal scales. Further examples are $F(m,q)=m^2q+\eta q^2+\zeta m^4$ for $\eta,\zeta\ge0$, with $\alpha=2+4\zeta$ and $\beta=1+2\eta$, and $F(m,q)=m^3q^2+mq^4$, with $\alpha=4$ and $\beta=6$.
 
-\emph{A nonpolynomial example.} Let $V=q-m^2$ and $f(\mathbf s)=1-e^{-V}$. The transformation $v\mapsto1-e^{-v}$ is injective on $[0,1]$, so an encoder identifies this desired function if and only if it identifies variance. Moreover, $\nabla F=e^{-V}(-2m,1)^\T$ satisfies \eqref{eq:general-endpoints} with $\alpha=2$ and $\beta=1$. Therefore its optimal encoder and squared-separation score are also those of variance. This example extends the explicit result beyond polynomial postprocessing without introducing a different transmit curve.
+\emph{A nonpolynomial example.} Let $V=q-m^2$ and $f(\mathbf s)=1-e^{-V}$. The transformation $v\mapsto1-e^{-v}$ is injective on $[0,1]$, so the same encoders permit identifiable computation of this desired function and of variance. Moreover, $\nabla F=e^{-V}(-2m,1)^\T$ satisfies \eqref{eq:general-endpoints} with $\alpha=2$ and $\beta=1$. Therefore its optimal encoder and squared-separation score are also those of variance. This example extends the explicit result beyond polynomial postprocessing without introducing a different transmit curve.
 
-Proposition~\ref{prop:amplification} below applies to the uniform disturbance guarantee for the general extension. The explicit strip receiver and small-noise frontier retain their stated assumptions on the original family $f_{\phi,\psi}$.
+Proposition~\ref{prop:amplification} below applies to the uniform disturbance guarantee for the general extension. The explicit strip receiver and high-SNR MSE frontier retain their stated assumptions on the original family $f_{\phi,\psi}$.

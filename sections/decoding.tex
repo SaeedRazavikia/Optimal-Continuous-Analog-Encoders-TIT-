@@ -1,5 +1,5 @@
 \section{Decoding}\label{sec:decoding}
-Identifiability specifies the desired function only on the noiseless received set. Noise can move the observation outside that set, so a receiver also needs a rule there. Extending the noiseless inverse naively may amplify disturbances without bound; the variance inverse, for example, contains a squared coordinate. We first relate squared separation to the best uniform noise bound, then construct a projection decoder that attains it.
+Identifiable computation requires a decoder that recovers the desired function on the noiseless received set. Noise can move the observation outside that set, so a receiver also needs a rule there. Extending the noiseless inverse naively may amplify disturbances without bound; the variance inverse, for example, contains a squared coordinate. We first relate squared separation to the best uniform noise bound, then construct a projection decoder that attains it.
 
 % \subsection{Uniform Error Bound}
 For a fixed encoder, define $\mathcal A(\enc;f)$ as the infimum of constants $L\ge0$ for which one decoder $\widehat f:\R^2\to\R$ satisfies
@@ -16,7 +16,7 @@ $$\mathcal A(\enc;f)=\Lambda_\sq(\enc;f)^{-1/2},$$
 with $0^{-1/2}=+\infty$. A continuous decoder attains the infimum whenever it is finite.
 \end{proposition}
 \begin{proof}
-The choice $n=0$ requires noiseless recovery and hence identifiability. Using one noiseless received point as the observation under another input gives $|\Delta f|\le L|\Delta r|$, which proves the lower bound. Conversely, a finite supremum of $|\Delta f|/|\Delta r|$ defines a Lipschitz receiver function $d_0:\mathcal R_\enc\to\R$ on the compact noiseless received set $\mathcal R_\enc$. McShane's construction~\cite{mcshane1934},
+The choice $n=0$ requires noiseless recovery and hence the identifiability condition. Using one noiseless received point as the observation under another input gives $|\Delta f|\le L|\Delta r|$, which proves the lower bound. Conversely, a finite supremum of $|\Delta f|/|\Delta r|$ defines a Lipschitz receiver function $d_0:\mathcal R_\enc\to\R$ on the compact noiseless received set $\mathcal R_\enc$. McShane's construction~\cite{mcshane1934},
 $$\widehat f(y)=\inf_{z\in\mathcal R_\enc}\{d_0(z)+L|y-z|\},$$
 extends $d_0$ with the same constant. The triangle inequality proves global Lipschitz continuity; agreement with $d_0$ on $\mathcal R_\enc$ then gives \eqref{eq:uniform}. Clipping the scalar output to any interval containing $f(I^K)$ preserves the guarantee.
 \end{proof}
@@ -79,7 +79,7 @@ Orthogonality makes the received projection coordinatewise clipping. For $a=2\sq
 
 Projection controls the raw inverse outside the noiseless received set: the raw variance and fourth-order inverses contain $(\operatorname{Re}y)^2$ and $(\operatorname{Re}y)^4$, respectively, and are not globally Lipschitz. For a fixed encoder and known disturbance radius $\tau\ge0$, define
 $$\omega_\enc(d)=\max_{\substack{\mathbf s,\mathbf t\in I^K\\|r_\enc(\mathbf s)-r_\enc(\mathbf t)|\le d}}|f(\mathbf s)-f(\mathbf t)|,\qquad d\ge0.$$
-The minimum worst-case absolute error at radius $\tau$ equals $\omega_\enc(2\tau)/2$. Two configurations separated by at most $2\tau$ can give the same midpoint observation, proving the lower bound. A matching decoder outputs the midpoint of the smallest and largest values of $f(\mathbf s)$ consistent with the observation and radius. Compactness gives these extrema. Their maximum is upper semicontinuous and minimum lower semicontinuous on the compact possible-observation set, so the midpoint rule has a Borel measurable extension. This criterion depends on the full ambiguity profile, rather than one constant for every disturbance size.
+The minimum worst-case absolute error at radius $\tau$ equals $\omega_\enc(2\tau)/2$. Two noiseless received sums at distance at most $2\tau$ can give the same midpoint observation under admissible disturbances, proving the lower bound. A matching decoder outputs the midpoint of the smallest and largest values of $f(\mathbf s)$ consistent with the observation and radius. Compactness gives these extrema. Their maximum is upper semicontinuous and minimum lower semicontinuous on the compact possible-observation set, so the midpoint rule has a Borel measurable extension. This criterion depends on the full ambiguity profile, rather than one constant for every disturbance size.
 
 For any finite-second-moment noise, \eqref{eq:uniform} implies
 $$\mathbb E|\widehat f(Y)-f(\mathbf s)|^2\le L_\enc^2\mathbb E|N|^2,$$

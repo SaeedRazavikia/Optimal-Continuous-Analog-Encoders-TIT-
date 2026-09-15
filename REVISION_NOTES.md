@@ -1,3 +1,18 @@
+# Communications terminology revision — September 15, 2026
+
+The submission remains **51 pages including references** and the extended arXiv version **57 pages**, with unchanged typography.
+
+- Replaced “input configurations” with **input vectors**, introduced the vector of transmitter observations in the introduction, and used received sums explicitly where the distance is measured in the received plane.
+- Defined **identifiable computation** in plain terms: the noiseless received sum uniquely determines the desired function value. The formal collision condition is unchanged, and the extension's common-completion condition remains distinct.
+- Replaced visible “small-noise” wording with **high-SNR** or **asymptotic MSE coefficient**, as appropriate, throughout the abstract, body, proofs, captions, tables, figure labels, and coverage inventory.
+- Specified the Gaussian noise convention: N0 is the complex noise variance/noise power per channel use, and each real component has variance N0/2. The high-SNR limit is N0→0 at fixed P, K, encoder, and input distribution; P/N0 denotes the per-transmitter peak SNR.
+- Kept finite-SNR performance separate from optimization of the limiting MSE coefficient. Existing internal labels and numerical filenames remain stable.
+- Shortened repeated explanations and the abstract to retain the page count while making the terminology explicit.
+
+Both PDFs compile cleanly. Revised pages and the updated figure label were rendered and inspected. All 143 displayed mathematical blocks, numerical table values, plotted data, and audited Lean proof sources are unchanged. The 17 formal-statement extracts in COVERAGE.md match the current full manuscript source. The remaining formalization obligations are unchanged; this revision adds no formal proofs.
+
+---
+
 # Presentation and terminology revision — September 15, 2026
 
 The submission is **51 pages including references**; the extended arXiv version is **57 pages**. This uses the author's approved two-page allowance for a clearer presentation. Font, margins, spacing, figure scale, and the submission/arXiv split are unchanged.

@@ -1,5 +1,5 @@
 \section{Proof of Theorem~\ref{thm:sdp}}\label{app:design-proof}
-We first compute the exact score under the hypotheses of Section~\ref{sec:synthesis}. The key issue is sharpness: a gradient bound must be approached by actual input configurations. We then show that the matrix optimization preserves both this score and planar realizability.
+We first compute the exact score under the hypotheses of Section~\ref{sec:synthesis}. The key issue is sharpness: a gradient bound must be approached by admissible input vectors. We then show that the matrix optimization preserves both this score and planar realizability.
 
 \begin{proposition}
 \label{prop:score}
@@ -27,7 +27,7 @@ $$
 $$
 shows that the last two constraints enforce the score in Proposition~\ref{prop:score}. Thus \eqref{eq:sdp} upper-bounds every positive-score continuous encoder, by Theorem~\ref{thm:rigidity}.
 
-Conversely, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$. At every feasible point with $\lambda>0$, the two distinct endpoint slopes imply $G\succ0$: a null vector of $G$ would have to be orthogonal to both independent vectors $w_-,w_+$. Replace $h$ by $\ell^\T G^{-1}\ell$. The resulting matrix remains positive semidefinite, has rank two, preserves $G$, and decreases every peak quadratic form by the same nonnegative constant. It is therefore the Gram matrix of three vectors in $\R^2$, giving a feasible encoder that identifies $f_{\phi,\psi}$ and has score at least $K^2\lambda$.
+Conversely, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$. At every feasible point with $\lambda>0$, the two distinct endpoint slopes imply $G\succ0$: a null vector of $G$ would have to be orthogonal to both independent vectors $w_-,w_+$. Replace $h$ by $\ell^\T G^{-1}\ell$. The resulting matrix remains positive semidefinite, has rank two, preserves $G$, and decreases every peak quadratic form by the same nonnegative constant. It is therefore the Gram matrix of three vectors in $\R^2$, giving a feasible encoder that satisfies the identifiability condition for $f_{\phi,\psi}$ and has score at least $K^2\lambda$.
 
 The reconstruction given in Section~\ref{sec:synthesis} realizes this reduced Gram matrix.
 

@@ -2,7 +2,7 @@
 
 We prove Theorem~\ref{thm:extension}, verify the stated sufficient conditions, and derive its quadratic specialization. Throughout, the two preprocessing functions and $F$ are prescribed before encoder design.
 
-The representation $f=F\circ\boldsymbol\mu_\gamma$ also describes the full continuous function class identifiable through a shared continuous planar encoder when the preprocessing functions may be chosen freely with only continuity imposed on $\gamma$. Indeed, any encoder satisfying the identifiability condition supplies $\gamma=\enc$; this condition makes $F(\boldsymbol\mu_\gamma(\mathbf s))=f(\mathbf s)$ well defined, and the compact-quotient argument following \eqref{eq:exactness} makes $F$ continuous. Conversely, continuity and boundedness of $\gamma$ permit a continuous encoder $\enc=\rho\gamma$ with $\rho>0$ satisfying any prescribed $P>0$, after which the receiver recovers $\boldsymbol\mu_\gamma$ by division by $K\rho$.
+The representation $f=F\circ\boldsymbol\mu_\gamma$ also describes all continuous functions that admit identifiable computation with a shared continuous planar encoder when the preprocessing functions may be chosen freely with only continuity imposed on $\gamma$. Indeed, any encoder satisfying the identifiability condition supplies $\gamma=\enc$; this condition makes $F(\boldsymbol\mu_\gamma(\mathbf s))=f(\mathbf s)$ well defined, and the compact-quotient argument following \eqref{eq:exactness} makes $F$ continuous. Conversely, continuity and boundedness of $\gamma$ permit a continuous encoder $\enc=\rho\gamma$ with $\rho>0$ satisfying any prescribed $P>0$, after which the receiver recovers $\boldsymbol\mu_\gamma$ by division by $K\rho$.
 
 \subsection{Classification Under the Identifiability Condition}
 
@@ -48,7 +48,7 @@ $$
 $$
 Every triple $(x,y_*,z_*)$ is regular, so the same constants give $e'(x)=a_e\varphi_1'(x)+b_e\varphi_2'(x)$ for all $x\in J$. Integration and endpoint continuity yield $\enc=c+\mathsf U\gamma$ with constant $c\in\R^2$ and $\mathsf U\in\R^{2\times2}$.
 
-If $\mathsf U$ were singular, an identifying open neighborhood $B$ would contain distinct $p,\widetilde p$ with $\mathsf Up=\mathsf U\widetilde p$. These statistics are attained by interior triples, whose encoded sums $3c+\mathsf Up$ agree. Identifiability of $f$ under every common completion and \eqref{eq:completion-id} force $p=\widetilde p$, a contradiction. Thus $\det\mathsf U\ne0$. Conversely,
+If $\mathsf U$ were singular, an identifying open neighborhood $B$ would contain distinct $p,\widetilde p$ with $\mathsf Up=\mathsf U\widetilde p$. These statistics are attained by interior triples, whose encoded sums $3c+\mathsf Up$ agree. The identifiability condition for $f$ under every common completion and \eqref{eq:completion-id} force $p=\widetilde p$, a contradiction. Thus $\det\mathsf U\ne0$. Conversely,
 $$
  r_\enc(\mathbf s)=Kc+K\mathsf U\boldsymbol\mu_\gamma(\mathbf s)
 $$
@@ -65,7 +65,7 @@ For $\enc=c+\mathsf U\gamma$ and $G=\mathsf U^\T\mathsf U\succ0$, cancellation o
  \frac{(\mu-\nu)^\T G(\mu-\nu)}{|F(\mu)-F(\nu)|^2}.
  \label{eq:general-score-appendix}
 \end{equation}
-Every pair in $\mathcal M$ is attained by input configurations, so this is an equality of the original pairwise infima.
+Every pair in $\mathcal M$ is attained by input vectors, so this is an equality of the original pairwise infima.
 
 Let $F$ have a Lipschitz constant $L>0$ on $\mathcal M$. A sufficiently small $\rho>0$ makes $\enc=\rho\gamma$ peak admissible. Its coefficient Gram matrix is feasible in \eqref{eq:general-sdp} with $\lambda=\rho^2/L^2>0$. Every continuous encoder with positive score satisfies the identifiability condition and hence has the classified form. Its Gram matrix is feasible with $\lambda=\Lambda_{\sq}/K^2$ by \eqref{eq:general-score-appendix}. Thus the program bounds all positive-score competitors; zero-score encoders cannot improve the positive feasible value.
 

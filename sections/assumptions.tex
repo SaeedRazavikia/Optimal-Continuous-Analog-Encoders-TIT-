@@ -1,5 +1,5 @@
 \subsection{Assumptions}\label{sec:assumptions}
-Identifiability is the first requirement: the received sum must determine the desired function without noise. A uniform noise guarantee requires additional control of sensitivity. We distinguish the assumptions for these two steps:
+Identifiable computation is the first requirement: the noiseless received sum must determine the desired function. A uniform noise guarantee requires additional control of sensitivity. We distinguish the assumptions for these two steps:
 $$
 \begin{aligned}
 \mathrm{R}:\quad&\phi,\psi\in C(I)\cap C^1((-1,1)),\quad\phi\text{ nonaffine},\\
@@ -10,4 +10,4 @@ $$
 Here $C^1(I)$ requires finite continuous one-sided derivatives at both endpoints. Regime R gives the encoder characterization, and regime S gives sharp separation and design. Individual results state their additional assumptions; the two-statistic extension has its own common-completion condition.
 
 \paragraph{Endpoint slopes}
-Regime R alone need not give positive separation. For $\phi(s)=s^2$ and $\psi(s)=-\sqrt{1-s}$, Theorem~\ref{thm:rigidity} forces every encoder that identifies $f_{\phi,\psi}$ to be an affine quadratic curve. The equal-input configurations $s_k=1$ and $s_k=1-h$ have received difference $O(h)$ but desired-function difference $\sqrt h-2h+h^2$, so their squared-separation quotient tends to zero. Encoders that fail the identifiability condition also have zero score by \eqref{eq:score}. Regime S excludes this endpoint singularity and permits the sharp sensitivity formula.
+Regime R alone need not give positive separation. For $\phi(s)=s^2$ and $\psi(s)=-\sqrt{1-s}$, Theorem~\ref{thm:rigidity} forces every encoder permitting identifiable computation of $f_{\phi,\psi}$ to be an affine quadratic curve. The input vectors with $s_k=1$ and $s_k=1-h$ for all $k$ have received difference $O(h)$ but desired-function difference $\sqrt h-2h+h^2$, so their squared-separation quotient tends to zero. Encoders that fail the identifiability condition also have zero score by \eqref{eq:score}. Regime S excludes this endpoint singularity and permits the sharp sensitivity formula.

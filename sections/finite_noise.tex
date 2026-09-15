@@ -1,4 +1,4 @@
-\subsection{Finite-Noise Performance}\label{sec:finite-noise}
+\subsection{Finite-SNR Performance}\label{sec:finite-noise}
 We vary the noise power for variance and the fourth-order Jensen gap, using the projection decoder of Section~\ref{sec:decoding} followed by clipping to $[0,1]$. For $p\in\{2,4\}$, write
 $$
  f_p=t_p-m^p,\qquad
@@ -15,7 +15,7 @@ For independent sources with a common continuous density on $(-1,1)$, the desire
 \end{equation}
 
 
-The terms in \eqref{eq:small-noise-mse} correspond to errors in the empirical moment $t_p$ and sample mean $m$. The worst-case criterion uses $M=p$, whereas the small-noise coefficient uses $M_{\rm eff}=p\sqrt{\mathbb E[m^{2p-2}]}$. Substituting $M_{\rm eff}$ into the quadratic or quartic formulas minimizes this coefficient within the stated orthogonal family. We compute the required moments analytically and use the same decoder for all designs. This prior-aware comparison does not optimize finite-noise Bayesian risk; Section~\ref{sec:pareto} constrains the tradeoff with uniform robustness.
+The terms in \eqref{eq:small-noise-mse} correspond to errors in the empirical moment $t_p$ and sample mean $m$. The worst-case criterion uses $M=p$, whereas the asymptotic MSE coefficient uses $M_{\rm eff}=p\sqrt{\mathbb E[m^{2p-2}]}$. Substituting $M_{\rm eff}$ into the quadratic or quartic formulas minimizes this coefficient within the stated orthogonal family. We compute the required moments analytically and use the same decoder for all designs. This prior-aware comparison does not optimize finite-SNR Bayesian risk; Section~\ref{sec:pareto} constrains the tradeoff with uniform robustness.
 
 
 
@@ -24,12 +24,12 @@ We set $P=1$ and $K\in\{4,16\}$. For each $K$ and uniform or endpoint-Beta prior
 
 \begin{figure*}[!t]
  \centering\paperfigure{figures/tikz/finite_noise}
- \caption{MSE reduction, $100(1-\mathrm{MSE}_{\rm design}/\mathrm{MSE}_{\rm base})$. Solid: separation-optimal curves; dashed: prior-aware small-noise curves. All designs share the peak constraint, projection decoder, and output clipping. Error bars show pointwise paired 95\% confidence intervals, often smaller than the markers. Endpoint Beta: $2X-1$, $X\sim\operatorname{Beta}(0.3,0.3)$.}
+ \caption{MSE reduction, $100(1-\mathrm{MSE}_{\rm design}/\mathrm{MSE}_{\rm base})$. Solid: separation-optimal curves; dashed: prior-aware curves optimized for high SNR. All designs share the peak constraint, projection decoder, and output clipping. Error bars show pointwise paired 95\% confidence intervals, often smaller than the markers. Endpoint Beta: $2X-1$, $X\sim\operatorname{Beta}(0.3,0.3)$.}
  \label{fig:finite-noise}
 \end{figure*}
 
 \begin{table}[t]
-\caption{MSE at $P/N_0=20$ dB, in units of $10^{-4}$. U: uniform; B: endpoint Beta. Robust: separation-optimal curve; tuned: prior-aware small-noise curve.}
+\caption{MSE at $P/N_0=20$ dB, in units of $10^{-4}$. U: uniform; B: endpoint Beta. Robust: separation-optimal curve; tuned: prior-aware curve optimized for high SNR.}
 \label{tab:finite-noise}
 \centering\small
 \begin{tabular}{@{}cccrrr@{}}\toprule
@@ -49,4 +49,4 @@ Across the 72 combinations of desired function, prior, $K$, and SNR, separation-
 
 At $-10$ dB, for uniform sources, $K=4$, and variance, the prior-mean estimator has MSE $0.02294$, versus $0.1032$ for the separation-optimal curve and implemented decoder. Thus these comparisons establish neither universal MSE dominance nor Bayesian optimality.
 
-At $30$ dB, endpoint-Beta sources with $K=4$ give normalized errors $3.49\%$--$7.19\%$ below their small-noise limits, beyond Monte Carlo uncertainty; boundary clipping remains relevant. The code records all conditions, paired uncertainties, analytic prior moments, seeds, and decoder cross-checks.
+At $30$ dB, endpoint-Beta sources with $K=4$ give normalized MSE values $\operatorname{MSE}/N_0$ that are $3.49\%$--$7.19\%$ below their high-SNR limits, beyond Monte Carlo uncertainty; boundary clipping remains relevant. The code records all conditions, paired uncertainties, analytic prior moments, seeds, and decoder cross-checks.

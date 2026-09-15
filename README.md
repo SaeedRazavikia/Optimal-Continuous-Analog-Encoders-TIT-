@@ -2,7 +2,7 @@
 
 Saeed Razavikia. Revised September 15, 2026.
 
-The manuscript studies identifiability and robust computation of real-valued moment-based functions over a multiple-access channel using one shared continuous encoder and one complex channel use. It characterizes the required encoder structure under stated assumptions, optimizes peak-constrained separation, and develops sharp decoding and a robustness–small-noise tradeoff. The extension treats two prescribed additive statistics under a common-completion identification condition.
+The manuscript studies identifiability and robust computation of real-valued moment-based functions over a multiple-access channel using one shared continuous encoder and one complex channel use. It characterizes the required encoder structure under stated assumptions, optimizes peak-constrained separation, and develops sharp decoding and a robustness–high-SNR tradeoff. The extension treats two prescribed additive statistics under a common-completion identification condition.
 
 Build the 51-page submission version (including references) with:
 

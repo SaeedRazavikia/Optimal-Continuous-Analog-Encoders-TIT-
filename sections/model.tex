@@ -1,6 +1,6 @@
 \section{System Model}\label{sec:model}
 \subsection{Multiple-Access Channel}
-In Fig.~\ref{fig:system}, each transmitter $k\in\{1,\ldots,K\}$ holds a calibrated real observation $s_k\in I=[-1,1]\subset\R$, where $K\in\mathbb N$ and $K\ge1$. Write $\mathbf s=(s_1,\ldots,s_K)^\T\in I^K\subset\R^K$. The transmitters apply a shared continuous encoder $\enc:I\to\C$ over one simultaneous complex channel use. We identify $\C$ with $\R^2$, whose components are the in-phase and quadrature coordinates. The inputs and desired function are real valued. Unless stated otherwise, converse and optimal-design results assume $K\ge4$.
+In Fig.~\ref{fig:system}, each transmitter $k\in\{1,\ldots,K\}$ holds a calibrated real observation $s_k\in I=[-1,1]\subset\R$, where $K\in\mathbb N$ and $K\ge1$. We collect these observations in the input vector $\mathbf s=(s_1,\ldots,s_K)^\T\in I^K\subset\R^K$. The transmitters apply a shared continuous encoder $\enc:I\to\C$ over one simultaneous complex channel use. We identify $\C$ with $\R^2$, whose components are the in-phase and quadrature coordinates. The inputs and desired function are real valued. Unless stated otherwise, converse and optimal-design results assume $K\ge4$.
 
 For a given $P>0$, we impose the per-transmitter pointwise power constraint
 \begin{equation}
@@ -13,7 +13,7 @@ With synchronized transmissions and unit effective channel gains after compensat
  \qquad \widehat f(Y)=D(Y),
  \label{eq:mac-model}
 \end{equation}
-where $r_\enc:I^K\to\C$, $r_\enc(\mathbf s)=\sum_{k=1}^K\enc(s_k)$, is the noiseless superposition and $D:\C\to\R$ is the receiver. The disturbance $N\in\C$ is arbitrary for uniform error bounds; small-noise analysis assumes $N\sim\mathcal{CN}(0,N_0)$ independent of $\mathbf s$, with $\mathbb E|N|^2=N_0$. The one-use payload count excludes calibration and synchronization overhead. Section~\ref{sec:implementation} bounds residual implementation and channel errors.
+where $r_\enc:I^K\to\C$, $r_\enc(\mathbf s)=\sum_{k=1}^K\enc(s_k)$, is the noiseless superposition and $D:\C\to\R$ is the receiver. For uniform error bounds, $N\in\C$ is arbitrary. For MSE analysis, we assume $N\sim\mathcal{CN}(0,N_0)$ independent of $\mathbf s$, with complex variance $N_0=\mathbb E|N|^2$, the noise power per channel use; each real component has variance $N_0/2$. We define the per-transmitter peak SNR as $P/N_0$. Our high-SNR limit takes $N_0\downarrow0$ at fixed $P$, $K$, encoder, and input distribution. The one-use payload count excludes calibration and synchronization overhead. Section~\ref{sec:implementation} bounds residual implementation and channel errors.
 
 \subsection{Desired Functions and Examples}
 We fix the input calibration and desired function before designing the encoder. For continuous real-valued functions $\phi,\psi:I\to\R$, we consider $f_{\phi,\psi}:I^K\to\R$ defined by
@@ -45,17 +45,17 @@ Section~\ref{sec:examples} optimizes the scaling and translation of this two-mom
 $$
  f(\mathbf s)=\Phi\!\left(\sum_{k=1}^K h_k(s_k)\right),
 $$
-where $h_k:I\to\R$ are local preprocessing functions and $\Phi$ postprocesses attainable sums~\cite{goldenbaum2015}. We use two real statistics, $(S,T)\in\R^2$, followed by $F(m,t)=t-\psi(m)$, with $(m,t)=(S/K,T/K)$: a two-coordinate nomographic construction within one complex symbol. The classes overlap, as the mean illustrates. Under Theorem~\ref{thm:rigidity}'s assumptions, no shared continuous scalar encoder $h:I\to\R$ makes \eqref{eq:target} identifiable from its sum, because two linearly independent real coefficient vectors are necessary. This restriction does not exclude transmitter-dependent or discontinuous preprocessing.
+where $h_k:I\to\R$ are local preprocessing functions and $\Phi$ postprocesses attainable sums~\cite{goldenbaum2015}. We use two real statistics, $(S,T)\in\R^2$, followed by $F(m,t)=t-\psi(m)$, with $(m,t)=(S/K,T/K)$: a two-coordinate nomographic construction within one complex symbol. The classes overlap, as the mean illustrates. Under Theorem~\ref{thm:rigidity}'s assumptions, no shared continuous scalar encoder $h:I\to\R$ permits identifiable computation of \eqref{eq:target}, because two linearly independent real coefficient vectors are necessary. This restriction does not exclude transmitter-dependent or discontinuous preprocessing.
 
-\subsection{Function Identifiability and Separation}
-For a specified continuous desired function $f:I^K\to\R$, we say that $f$ is \emph{identifiable through $\enc$}, or that $\enc$ \emph{identifies $f$}, if
+\subsection{Identifiable Computation and Separation}
+For a specified continuous desired function $f:I^K\to\R$, an encoder $\enc$ permits \emph{identifiable computation} if its noiseless received sum uniquely determines $f(\mathbf s)$. Formally, we require
 \begin{equation}
  \forall\,\mathbf s,\mathbf t\in I^K,\qquad
  r_\enc(\mathbf s)=r_\enc(\mathbf t)
  \ \Longrightarrow\ f(\mathbf s)=f(\mathbf t).
  \label{eq:exactness}
 \end{equation}
-Condition~\eqref{eq:exactness} is the \emph{identifiability condition for $f$}. It requires the received sum to distinguish unequal function values, while allowing different input configurations with the same value to coincide. Equivalently, there exists a noiseless receiver $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, such that $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Identifiability alone imposes no quantitative bound on sensitivity to noise. To control that sensitivity, we compare distances between superpositions representing unequal function values.
+Condition~\eqref{eq:exactness} is the \emph{identifiability condition for $f$}. It requires unequal function values to have different received sums, while allowing input vectors with the same function value to produce the same sum. Equivalently, there exists a noiseless receiver $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, such that $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Identifiability alone imposes no quantitative bound on sensitivity to noise. To control that sensitivity, we compare distances between superpositions representing unequal function values.
 
 For a nonconstant $f:I^K\to\R$, we define the squared-separation score
 \begin{equation}

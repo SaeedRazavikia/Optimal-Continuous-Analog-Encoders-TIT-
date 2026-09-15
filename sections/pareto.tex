@@ -1,5 +1,7 @@
-\section{Small-Noise Design}\label{sec:pareto}
-The uniform criterion protects every input, including those that occur rarely under a given source distribution. If typical inputs have lower receiver sensitivity, adapting the encoder to that distribution can reduce average error. We quantify this benefit through the leading Gaussian small-noise MSE coefficient while retaining a prescribed uniform guarantee. Throughout this section we use the hypotheses of Theorem~\ref{thm:sdp} and the strip decoder \eqref{eq:stripdecoder}. The input vector has a fixed joint distribution $\pi$, independent of the noise; its coordinates need not be independent. We assume $|m|<1$ almost surely and define
+\section{High-SNR Design}\label{sec:pareto}
+Worst-case separation protects every input. We now use the input distribution to reduce the asymptotic MSE coefficient while retaining a prescribed uniform guarantee. As defined in Section~\ref{sec:model}, we take $N_0\downarrow0$ with $P$, $K$, the encoder, and the input distribution fixed, so the per-transmitter peak SNR $P/N_0$ tends to infinity.
+
+Throughout this section we use the hypotheses of Theorem~\ref{thm:sdp} and the strip decoder \eqref{eq:stripdecoder}. The input vector has a fixed joint distribution $\pi$, independent of the noise; its coordinates need not be independent. We assume $|m|<1$ almost surely and define
 \begin{equation}
  w(m)=\begin{pmatrix}-\psi'(m)\\1\end{pmatrix},\qquad
  Q_\pi=\mathbb E_\pi[w(m)w(m)^\T]\succ0.
@@ -8,7 +10,7 @@ The uniform criterion protects every input, including those that occur rarely un
 The matrix $Q_\pi\in\mathbb S^2$ averages the sensitivity of $F(m,t)=t-\psi(m)$ to perturbations of the recovered statistics $(m,t)$. Positive definiteness is equivalent to $\operatorname{Var}_\pi(\psi'(m))>0$. Bounded endpoint slopes make $Q_\pi$ finite. We allow scalar output clipping only when the true value $f(\mathbf s)$ lies strictly inside the chosen clipping interval almost surely.
 
 \begin{proposition}\label{prop:general-small-noise}
-For every continuous encoder $\enc:I\to\R^2$ that identifies $f_{\phi,\psi}:I^K\to\R$ and satisfies \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
+For every continuous encoder $\enc:I\to\R^2$ satisfying the identifiability condition \eqref{eq:exactness} for $f_{\phi,\psi}:I^K\to\R$ and the peak constraint \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
 \begin{equation}
  \mathcal J_\pi(G):=\lim_{N_0\downarrow0}
  \frac{\mathbb E_{\pi,N}|\widehat f(Y)-f(\mathbf s)|^2}{N_0}
@@ -16,12 +18,12 @@ For every continuous encoder $\enc:I\to\R^2$ that identifies $f_{\phi,\psi}:I^K\
  \label{eq:general-small-noise}
 \end{equation}
 \end{proposition}
-Thus $\operatorname{MSE}=N_0\mathcal J_\pi(G)+o(N_0)$: the coefficient $\mathcal J_\pi(G)$ determines the first-order error at low noise power.
+Thus $\operatorname{MSE}=N_0\mathcal J_\pi(G)+o(N_0)$: the coefficient $\mathcal J_\pi(G)$ determines the first-order MSE at high SNR.
 \begin{proof}
 Theorem~\ref{thm:rigidity} forces an invertible coefficient matrix $\mathsf U=[u\ v]\in\R^{2\times2}$. At every noiseless point with $|m|<1$, strip projection is locally inactive and the received-coordinate gradient is $\mathsf U^{-\T}w(m)/K$. Any permitted output clipping is also locally inactive. Couple the noises as $N=\sqrt{N_0}Z$, with $\mathbb E[ZZ^\T]=I_2/2$ in real coordinates. Differentiability gives the pointwise limit of the squared error divided by $N_0$. Theorem~\ref{thm:decoder} bounds this quotient by $L_\enc^2|Z|^2$, an integrable random variable. Dominated convergence yields \eqref{eq:general-small-noise}.
 \end{proof}
 
-We can now choose how much uniform robustness to retain while minimizing average small-noise error. Let $\lambda_\star$ denote the optimum in \eqref{eq:sdp}. For a required separation floor $0\le\gamma\le\lambda_\star$, define $\mathcal V_\pi(\gamma)$ as the smallest coefficient \eqref{eq:general-small-noise} among all continuous encoders that identify $f_{\phi,\psi}$ and satisfy the peak constraint and $\Lambda_\sq\ge K^2\gamma$. This design guarantees uniform amplification at most $1/(K\sqrt\gamma)$ when $\gamma>0$.
+We can now choose how much uniform robustness to retain while minimizing the asymptotic MSE coefficient. Let $\lambda_\star$ denote the optimum in \eqref{eq:sdp}. For a required separation floor $0\le\gamma\le\lambda_\star$, define $\mathcal V_\pi(\gamma)$ as the smallest coefficient \eqref{eq:general-small-noise} among all continuous encoders permitting identifiable computation of $f_{\phi,\psi}$ under the peak constraint and $\Lambda_\sq\ge K^2\gamma$. This design guarantees uniform amplification at most $1/(K\sqrt\gamma)$ when $\gamma>0$.
 
 \begin{theorem}[Robustness--accuracy frontier]\label{thm:pareto}
 Using the enclosing-ellipse class $\mathcal C_P$ in \eqref{eq:ellipse-class}, for $\gamma>0$ we obtain $\mathcal V_\pi(\gamma)$ from the five-variable convex program
@@ -36,7 +38,7 @@ Using the enclosing-ellipse class $\mathcal C_P$ in \eqref{eq:ellipse-class}, fo
 \end{aligned}
  \label{eq:pareto-sdp}
 \end{equation}
-At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields a planar encoder that identifies $f_{\phi,\psi}$ through
+At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields a planar encoder permitting identifiable computation of $f_{\phi,\psi}$ via
 $$
  \mathsf U^\T\mathsf U=X^{-1},\qquad
  \enc(s)=\mathsf U(g(s)-a).
@@ -48,11 +50,11 @@ $$
  \gamma_c=\left(\max_{\sigma\in\{-,+\}}
  w_\sigma^\T X_0w_\sigma\right)^{-1}.
 $$
-The frontier is constant on $[0,\gamma_c]$. The encoder minimizing average small-noise error already meets every separation requirement in this interval. If $\gamma_c<\lambda_\star$, it is strictly increasing thereafter, and every optimal encoder on that branch satisfies $\Lambda_\sq=K^2\gamma$.
+The frontier is constant on $[0,\gamma_c]$. The encoder minimizing the asymptotic MSE coefficient already meets every separation requirement in this interval. If $\gamma_c<\lambda_\star$, it is strictly increasing thereafter, and every optimal encoder on that branch satisfies $\Lambda_\sq=K^2\gamma$.
 \end{theorem}
 The proof appears in Appendix~\ref{app:general-frontier-proof}.
 
-This theorem optimizes encoders for a fixed decoder architecture and the leading small-noise coefficient. It does not optimize finite-noise risk over arbitrary estimators, nor interchange the limit $N_0\downarrow0$ with a noise-dependent encoder optimization. The objective and endpoint constraints in \eqref{eq:pareto-sdp} are linear, but its peak condition remains a continuum of matrix inequalities; a finite-grid solver requires a separate certificate.
+This theorem optimizes encoders for a fixed decoder architecture and the asymptotic MSE coefficient. It does not optimize finite-SNR risk over arbitrary estimators, nor interchange the limit $N_0\downarrow0$ with a noise-dependent encoder optimization. The objective and endpoint constraints in \eqref{eq:pareto-sdp} are linear, but its peak condition remains a continuum of matrix inequalities; a finite-grid solver requires a separate certificate.
 
 \subsection{Quadratic Frontier}
 For the quadratic preprocessing function $\phi(s)=s^2$, symmetry reduces the matrix tradeoff to one encoder coefficient. The distinction between the two objectives then appears directly as a worst-case slope and a root-mean-square slope. For $\phi(s)=s^2$, even $\psi$, and a symmetric distribution of $m$, set
@@ -73,13 +75,13 @@ $$b^3-2b^2+r(M^2-1)b+2r=0.$$
 \begin{corollary}\label{cor:quadratic-pareto}
 For every $0\le\gamma\le\lambda_\star$, define
 $b_\gamma=\min\{b_{\rm eff},b_+(\gamma/P)\}.$
-An encoder attaining the global frontier over all continuous encoders that identify $f_{\phi,\psi}$ and satisfy the peak constraint is
+An encoder attaining the global frontier over all continuous encoders permitting identifiable computation of $f_{\phi,\psi}$ under the peak constraint is
 \begin{equation}
  \enc_\gamma(s)=\sqrt P\left[\sqrt{b_\gamma(2-b_\gamma)}\,s
        +i(b_\gamma s^2-1)\right],
  \label{eq:quadratic-pareto-map}
 \end{equation}
-and its optimal small-noise coefficient is
+and its optimal asymptotic MSE coefficient is
 \begin{equation}
  \mathcal V_\pi(\gamma)=\frac1{2K^2P}
  \left[\frac{M_{\rm eff}^2}{b_\gamma(2-b_\gamma)}
@@ -92,8 +94,8 @@ The proof appears in Appendix~\ref{app:quadratic-frontier-proof}. Increasing $b_
 
 \begin{figure*}[t]
  \centering\paperfigure{figures/tikz/pareto_frontier}
- \caption{Variance design with a prescribed separation floor. Left: reduction of the optimal small-noise MSE coefficient relative to the separation-optimal encoder; markers identify where the required separation floor becomes active. Right: the preprocessing curve $g(s)=(s,s^2)^\T$ and containing ellipses for full robustness, $90\%$ retention, and the uniform-$K=16$ prior optimum. The ellipses express the peak constraint in the coordinates of $g(s)$; they are not noise confidence regions.}
+ \caption{Variance design with a prescribed separation floor. Left: reduction of the optimal asymptotic MSE coefficient relative to the separation-optimal encoder; markers identify where the required separation floor becomes active. Right: the preprocessing curve $g(s)=(s,s^2)^\T$ and containing ellipses for full robustness, $90\%$ retention, and the uniform-$K=16$ prior optimum. The ellipses express the peak constraint in the coordinates of $g(s)$; they are not noise confidence regions.}
  \label{fig:pareto}
 \end{figure*}
 
-Figure~\ref{fig:pareto} relates this frontier to the enclosing ellipses of Section~\ref{sec:inverse-synthesis}. For variance and independent uniform sources, $M=2$ and $M_{\rm eff}=2/\sqrt{3K}$. The choice $\gamma=\eta\lambda_\star$, $0\le\eta\le1$, therefore specifies the entire tradeoff analytically through a single scalar root. It interpolates between the prior-optimal small-noise encoder and the separation-optimal encoder while making the retained uniform guarantee explicit.
+Figure~\ref{fig:pareto} relates this frontier to the enclosing ellipses of Section~\ref{sec:inverse-synthesis}. For variance and independent uniform sources, $M=2$ and $M_{\rm eff}=2/\sqrt{3K}$. The choice $\gamma=\eta\lambda_\star$, $0\le\eta\le1$, therefore specifies the entire tradeoff analytically through a single scalar root. It interpolates between the encoder minimizing the asymptotic MSE coefficient and the separation-optimal encoder while making the retained uniform guarantee explicit.
