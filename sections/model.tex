@@ -13,7 +13,7 @@ With synchronized transmissions and unit effective channel gains after compensat
  \qquad \widehat f(Y)=D(Y),
  \label{eq:mac-model}
 \end{equation}
-where $r_\enc:I^K\to\C$, $r_\enc(\mathbf s)=\sum_{k=1}^K\enc(s_k)$, is the noiseless superposition and $D:\C\to\R$ is the receiver. For uniform error bounds, $N\in\C$ is arbitrary. For MSE analysis, we assume $N\sim\mathcal{CN}(0,N_0)$ independent of $\mathbf s$, with complex variance $N_0=\mathbb E|N|^2$, the noise power per channel use; each real component has variance $N_0/2$. We define the per-transmitter peak SNR as $P/N_0$. Our high-SNR limit takes $N_0\downarrow0$ at fixed $P$, $K$, encoder, and input distribution. The one-use payload count excludes calibration and synchronization overhead. Section~\ref{sec:implementation} bounds residual implementation and channel errors.
+where $r_\enc:I^K\to\C$, $r_\enc(\mathbf s)=\sum_{k=1}^K\enc(s_k)$, is the noiseless superposition and $D:\C\to\R$ is the decoder. For uniform error bounds, $N\in\C$ is arbitrary. For MSE analysis, we assume $N\sim\mathcal{CN}(0,N_0)$ independent of $\mathbf s$, with complex variance $N_0=\mathbb E|N|^2$, the noise power per channel use; each real component has variance $N_0/2$. We define the per-transmitter peak SNR as $P/N_0$. Our high-SNR limit takes $N_0\downarrow0$ at fixed $P$, $K$, encoder, and input distribution. The one-use payload count excludes calibration and synchronization overhead. Section~\ref{sec:implementation} bounds residual implementation and channel errors.
 
 \subsection{Desired Functions and Examples}
 We fix the input calibration and desired function before designing the encoder. For continuous real-valued functions $\phi,\psi:I\to\R$, we consider $f_{\phi,\psi}:I^K\to\R$ defined by
@@ -26,7 +26,7 @@ We fix the input calibration and desired function before designing the encoder. 
 \end{equation}
 Here $\phi$ preprocesses local observations and $\psi$ acts on the empirical mean. Define $S=\sum_k s_k$, $T=\sum_k\phi(s_k)$, $m=S/K\in I$, and $t=T/K\in\R$, so $f_{\phi,\psi}(\mathbf s)=t-\psi(m)$. For integer $p\ge1$, write $t_p=K^{-1}\sum_k s_k^p$ for the empirical $p$th raw moment; in particular, $Q=\sum_k s_k^2$ and $q=Q/K=t_2$.
 
-\emph{Mean.} With $\phi(s)=s$ and $\psi\equiv0$, the encoder $\enc(s)=\sqrt P\,s$ and noiseless receiver $D(y)=\operatorname{Re}(y)/(K\sqrt P)$ compute $f(\mathbf s)=m$ from one real statistic. This case of \eqref{eq:target} does not satisfy our converse's nonaffineness and strict-convexity assumptions.
+\emph{Mean.} With $\phi(s)=s$ and $\psi\equiv0$, the encoder $\enc(s)=\sqrt P\,s$ and noiseless decoder $D(y)=\operatorname{Re}(y)/(K\sqrt P)$ compute $f(\mathbf s)=m$ from one real statistic. This case of \eqref{eq:target} does not satisfy our converse's nonaffineness and strict-convexity assumptions.
 
 \emph{Variance.} Choosing $\phi(s)=\psi(s)=s^2$ gives the empirical variance
 $$
@@ -55,7 +55,7 @@ For a specified continuous desired function $f:I^K\to\R$, an encoder $\enc$ perm
  \ \Longrightarrow\ f(\mathbf s)=f(\mathbf t).
  \label{eq:exactness}
 \end{equation}
-Condition~\eqref{eq:exactness} is the \emph{identifiability condition for $f$}. It requires unequal function values to have different received sums, while allowing input vectors with the same function value to produce the same sum. Equivalently, there exists a noiseless receiver $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, such that $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Identifiability alone imposes no quantitative bound on sensitivity to noise. To control that sensitivity, we compare distances between superpositions representing unequal function values.
+Condition~\eqref{eq:exactness} is the \emph{identifiability condition for $f$}. It requires unequal function values to have different received sums, while allowing input vectors with the same function value to produce the same sum. Equivalently, there exists a noiseless decoder $D_0:\mathcal R_\enc\to\R$, $\mathcal R_\enc=r_\enc(I^K)\subset\C$, such that $D_0(r_\enc(\mathbf s))=f(\mathbf s)$ for every $\mathbf s\in I^K$. It is continuous because the continuous surjection from compact $I^K$ onto Hausdorff $\mathcal R_\enc$ is a quotient map. Identifiability alone imposes no quantitative bound on sensitivity to noise. To control that sensitivity, we compare distances between superpositions representing unequal function values.
 
 For a nonconstant $f:I^K\to\R$, we define the squared-separation score
 \begin{equation}

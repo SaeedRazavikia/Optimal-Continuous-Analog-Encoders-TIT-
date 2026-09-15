@@ -1,3 +1,27 @@
+# Pre-submission language and content review — September 15, 2026
+
+The submission remains **51 pages including references**; the arXiv version remains **57 pages**. Both compile without warnings, undefined references, or overfull/underfull boxes. Revised pages were rendered and inspected.
+
+## Corrections
+
+- Used **linear independence** for the assumption on the constant function and the two preprocessing functions. This avoids confusion with the different differential notion of functional independence.
+- Called the mathematical decoding maps **decoders**, consistently distinguishing them from the physical receiver.
+- Specified that the projection decoder projects onto a **closed convex received strip**, which contains the generally nonconvex attainable received set. Clarified that the projected point need not correspond to an input vector.
+- Replaced vague references to a “squared score” and “inverse conditioning” with the defined squared-separation score and smallest uniform noise-amplification constant. Identified the limiting parameter value beta=0 explicitly.
+- Clarified that mixing Gram designs preserves **feasibility at the required separation floor**, rather than preserving the actual separation value.
+- Explicitly distinguished the two numerical experiments, whose different Monte Carlo draws can produce slightly different MSE estimates for the same encoder and SNR.
+- Made the Table I caption consistent with the defined squared-separation and amplification quantities.
+
+## Content checks
+
+Focused independent reviews covered the original encoder characterization and its topology/regularization steps; score sharpness and SDP/ellipse attainment; quadratic/quartic optima and the unified extension; projection and minimax decoding; Gaussian high-SNR limits and the robustness–MSE frontier; implementation bounds; certificates; numerical tables and figures; and introductory attribution and formalization scope. No substantive mathematical or numerical error was found in the reviewed material.
+
+The numerical review checked all table entries against archived results, all 288 finite-SNR plot quantities and error bars, the Pareto transition markers, certified exponential bounds and outward rounding, reduction ranges, and the stated deviations from high-SNR predictions. No Monte Carlo experiments were rerun or archival numerical data modified.
+
+All 143 displayed mathematical blocks are unchanged. The only formal-statement wording change calls the receiver function in the decoder theorem a decoder; all 17 coverage extracts match the current full source. The package verifies 20 numerical-source identities and 55 audited Lean source/configuration hashes. This review adds no formal proofs and does not change the explicitly documented remaining formalization obligations.
+
+---
+
 # Communications terminology revision — September 15, 2026
 
 The submission remains **51 pages including references** and the extended arXiv version **57 pages**, with unchanged typography.

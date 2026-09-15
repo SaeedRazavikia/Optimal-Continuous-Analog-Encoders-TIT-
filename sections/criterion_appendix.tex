@@ -4,9 +4,9 @@ The preceding optima concern squared separation on a continuous input interval. 
 \subsection{Identifiable Computation and Conditioning}
 The family
 $$\enc_\beta(s)=\sqrt P[s+i\beta(1-s^2)],\qquad0<\beta\le1,$$
-allows noiseless recovery of $mq$, but its squared score is
+allows noiseless recovery of $mq$, but its squared-separation score is
 $$\Lambda_\sq(\enc_\beta;mq)=K^2P\frac{\beta^2}{1+\beta^2}.$$
-Its inverse conditioning therefore diverges as $\beta\downarrow0$. At zero and $K=4$, inputs $(1,1,0,0)$ and $(1/2,1/2,1/2,1/2)$ give the same received sum whereas the desired function $f(\mathbf s)=mq$ takes the respective values $1/4$ and $1/8$.
+The smallest uniform noise-amplification constant therefore diverges as $\beta\downarrow0$. At $\beta=0$ and $K=4$, inputs $(1,1,0,0)$ and $(1/2,1/2,1/2,1/2)$ give the same received sum whereas the desired function $f(\mathbf s)=mq$ takes the respective values $1/4$ and $1/8$.
 
 For a nonconstant bounded desired function $f:I^K\to\R$, the uncentered exponential criterion assigns every encoder a positive score of at least $1/(\sup_{I^K}f-\inf_{I^K}f)^2$, even if the identifiability condition fails. Its nonzero value at zero distance therefore requires identifiability to be imposed separately. Noise-dependent exponential optimization requires a separate analysis.
 
