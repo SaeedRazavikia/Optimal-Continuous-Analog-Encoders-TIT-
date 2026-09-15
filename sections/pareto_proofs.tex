@@ -1,6 +1,7 @@
 \section{Frontier Proofs}\label{app:frontier-proofs}
 
 \subsection{General Frontier}\label{app:general-frontier-proof}
+We use inverse-Gram coordinates to establish attainment and Gram coordinates to compare designs at different separation floors. This change of variables keeps the peak constraint fixed while exposing the strict convexity needed for uniqueness and the frontier's shape.
 \begin{proof}
 Corollary~\ref{cor:inverse-synthesis} identifies $\mathcal C_P$ with the continuous exact peak-admissible encoders and ensures $X\succ0$. Proposition~\ref{prop:score} gives the two endpoint budgets, and Proposition~\ref{prop:general-small-noise} gives the linear objective. Thus \eqref{eq:pareto-sdp} optimizes over the full continuous exact class.
 
@@ -15,6 +16,7 @@ The unconstrained minimizer remains feasible precisely through its actual floor 
 \end{proof}
 
 \subsection{Quadratic Frontier}\label{app:quadratic-frontier-proof}
+For the quadratic preprocessing function $\phi(s)=s^2$, symmetry reduces the matrix problem to one scalar parameter. We first justify this reduction over the full feasible class and then impose the separation floor on the resulting family.
 \begin{proof}
 Write $G=\left(\begin{smallmatrix}A&C\\C&B\end{smallmatrix}\right)$. The reflection and translation-projection construction used for Theorem~\ref{thm:quartic}, applied here to $s^2$, preserves feasibility and $A,B$ while setting $C=0$. This decreases
 $$

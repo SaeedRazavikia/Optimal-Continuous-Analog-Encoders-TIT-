@@ -42,8 +42,8 @@
   \node[draw=figTeal,line width=.85pt,rounded corners=3pt,fill=figTeal!5,
     minimum width=3.46cm,minimum height=1.05cm,align=center]
     (decoder) at (12.96,2.86)
-    {Projection decoder $D_{\enc}$\\[2pt]
-     $\widehat f=\widehat t-\psi(\widehat m)$};
+    {Projection decoder $\widehat f$\\[2pt]
+     $\widehat f(Y)=\widehat t-\psi(\widehat m)$};
   \draw[signal] (add.east) -- node[above=3pt] {$Y$} (decoder.west);
   \draw[draw=figTeal,line width=.85pt,-{Latex[length=2.1mm]}]
     (decoder.east) -- (16.05,2.86);
@@ -51,6 +51,6 @@
   \node[align=center] at (12.98,1.50)
     {$\displaystyle Y=\sum_{k=1}^{K}\enc(s_k)+N$};
   % \node[align=center,text=figGray] at (12.98,.42)
-  %   {prescribed target $f_{\phi,\psi}=t-\psi(m)$\\[3pt]
+  %   {desired function $f_{\phi,\psi}=t-\psi(m)$\\[3pt]
   %    $m=K^{-1}\sum_k s_k,\qquad t=K^{-1}\sum_k\phi(s_k)$};
 \end{tikzpicture}

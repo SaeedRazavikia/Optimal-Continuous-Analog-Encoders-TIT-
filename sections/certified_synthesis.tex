@@ -1,8 +1,8 @@
 \section{Certified Design}\label{sec:certified}
-The continuum of peak constraints in \eqref{eq:sdp} requires a certificate between sampled inputs. We supply one for twice continuously differentiable features. This additional smoothness serves numerical certification; it does not enter the classification theorem. The procedure combines finite semidefinite optimization, an interpolation remainder, and primal--dual verification. Its implementation requires verified enclosures of the feature and endpoint-slope values and a verified derivative bound; smoothness alone does not supply a computational oracle.
+The explicit curves and quadratic frontier require only scalar calculations. For a general local preprocessing function $\phi:I\to\R$, numerical optimization must also control the encoder between sampled inputs. We return here to the separation-design program \eqref{eq:sdp} and supply a certificate for its continuum of peak constraints when $\phi$ is twice continuously differentiable. This additional smoothness serves numerical certification; it does not enter the classification theorem. The procedure combines finite semidefinite optimization, an interpolation remainder, and primal--dual verification. Its implementation requires verified enclosures of $\phi(s)$ and the endpoint derivatives $\psi'(\pm1)$ and a verified derivative bound; smoothness alone does not supply a computational oracle.
 
 \begin{theorem}\label{thm:certifiedgrid}
-Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I)$. Let $\mathcal T_h$ contain both endpoints, have maximum adjacent spacing $h$, and include three fixed points whose feature vectors span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)$ be an optimizer. Set
+Assume the hypotheses of Theorem~\ref{thm:sdp} and $\phi\in C^2(I;\R)$. Let $\mathcal T_h\subset I$ be a finite grid containing both endpoints, with maximum adjacent spacing $h>0$, and containing three fixed inputs whose vectors $z(s)=(1,s,\phi(s))^\T$ span $\R^3$. Let $U_h$ denote the optimum obtained by imposing the peak constraints only on $\mathcal T_h$, and let $(H_h,U_h)\in\mathbb S_+^3\times[0,\infty)$ be an optimizer. Set
 $$
  Z_j=\max_{s\in I}\|z^{(j)}(s)\|_2,\qquad j=0,1,2,
 $$
@@ -14,7 +14,7 @@ $$
 Then $(\rho_h H_h,\rho_h U_h)$ satisfies every constraint of \eqref{eq:sdp}, and
 \begin{equation}
  \rho_h U_h\le\lambda_\star\le U_h,
- \qquad U_h-\rho_h U_h=O(h^2).
+ \qquad U_h-\rho_h U_h=O(h^2)\quad(h\downarrow0).
  \label{eq:certifiedgrid}
 \end{equation}
 \end{theorem}
@@ -26,7 +26,7 @@ $$
 $$
 is an achieved lower bound, provided the denominator is positive: scale $H$ by the same factor and apply the planar reconstruction in Theorem~\ref{thm:sdp}. A tighter derivative bound than the norm bound above is equally valid.
 
-For a verified upper bound, let $\alpha_i\ge0$ be weights at any finitely many inputs $t_i\in I$. Define $\overline D=\operatorname{diag}(0,D_-+D_+)$ for $D_-,D_+\suc0$ and require
+The feasible reconstruction supplies an achieved score; an upper bound is also needed to measure how much improvement remains possible. For such a bound, let $\alpha_i\ge0$ be weights at any finitely many inputs $t_i\in I$. Define $\overline D=\operatorname{diag}(0,D_-+D_+)$ for $D_-,D_+\in\mathbb S_+^2$ and require
 \begin{align}
  Q&=\sum_i\alpha_i z(t_i)z(t_i)^\T-\overline D\suc0,\label{eq:dualwitness}\\
  w_-^\T D_-w_-+w_+^\T D_+w_+&\ge1.\nonumber
@@ -39,10 +39,10 @@ $$
 $$
 Thus $U=P\sum_i\alpha_i$ is a global upper bound. The first omitted term is $\operatorname{tr}(QH)\ge0$, and the last inequality uses both score constraints and the normalization in \eqref{eq:dualwitness}. These witnesses yield the stopping rule $(U-L)/U\le\varepsilon$ for $U>0$. Exact grid solutions converge by Theorem~\ref{thm:certifiedgrid}; in computation, primal and dual verification errors must also decrease to obtain arbitrarily small certified gaps.
 
-\subsection{Exponential Feature}
-We apply the procedure to the nonpolynomial target
+\subsection{Exponential Preprocessing}
+The local preprocessing function $\phi(s)=e^s$ illustrates how the procedure extends beyond polynomial curves without requiring a closed-form optimum. With $\psi(m)=e^m$, we consider the desired function
 $$
- f(\mathbf s)=\frac1K\sum_k e^{s_k}-e^{K^{-1}\sum_k s_k}.
+ f:I^K\to\R,\qquad f(\mathbf s)=\frac1K\sum_{k=1}^K e^{s_k}-e^{K^{-1}\sum_{k=1}^K s_k}.
 $$
 We normalize $P=1$; multiplication of the encoder by $\sqrt P$ restores arbitrary peak power. SciPy's sequential quadratic programming routine supplies a candidate for the finite convex problem on 401 grid points. We then round and repair its primal and dual matrices and verify the resulting witnesses independently of solver tolerances.
 
@@ -64,10 +64,10 @@ For orientation, the reconstructed curve has approximate coordinates
  \frac{\operatorname{Im}\enc(s)}{\sqrt P}
  &\approx-0.7900289+0.5211418e^s.
 \end{align*}
-The certificate uses the stored rational Gram matrix and exact reconstruction, not these rounded display coefficients. Figure~\ref{fig:certified} shows the resulting curve and the certified gap as we refine only the verification grid while holding the candidate and dual witness fixed. The limiting gap of that fixed-candidate experiment also includes the candidate and witness repair errors.
+The certificate uses the stored rational Gram matrix and exact reconstruction, not these rounded display coefficients. Figure~\ref{fig:certified} shows the resulting curve and the certified gap as we refine only the verification grid while holding the candidate and dual witness fixed. The limiting gap of that fixed-candidate experiment also includes the candidate and witness repair errors. This certificate quantifies the separation accuracy of the numerical design. We next assess the analytical curves and their receiver performance under the distinct statistical criteria developed above.
 
 \begin{figure*}[t]
  \centering\paperfigure{figures/tikz/certified_synthesis}
- \caption{Certified design for the exponential feature. Left: the reconstructed feasible encoder and the unit peak boundary; markers identify the candidate contact inputs used in the certificate. Right: the global relative-gap bound as the verification grid increases from 51 to 1001 points, with a fixed candidate and dual upper bound. The repaired encoder need not meet the peak boundary exactly.}
+ \caption{Certified design for exponential preprocessing, $\phi(s)=e^s$. Left: the reconstructed feasible encoder and the unit peak boundary; markers identify the candidate contact inputs used in the certificate. Right: the global relative-gap bound as the verification grid increases from 51 to 1001 points, with a fixed candidate and dual upper bound. The repaired encoder need not meet the peak boundary exactly.}
  \label{fig:certified}
 \end{figure*}

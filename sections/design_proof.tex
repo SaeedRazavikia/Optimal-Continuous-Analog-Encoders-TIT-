@@ -1,22 +1,23 @@
 \section{Proof of Theorem~\ref{thm:sdp}}\label{app:design-proof}
-We first compute the exact score under the hypotheses of Section~\ref{sec:synthesis}.
+We first compute the exact score under the hypotheses of Section~\ref{sec:synthesis}. The key issue is sharpness: a gradient bound must be approached by actual input configurations. We then show that the matrix optimization preserves both this score and planar realizability.
 
 \begin{proposition}
 \label{prop:score}
-For an encoder \eqref{eq:affine} with independent $u,v$, the operational score is given by \eqref{eq:exactscore}.
+Under the hypotheses of Section~\ref{sec:synthesis}, let $\enc:I\to\R^2$ have the form \eqref{eq:affine} with $c,u,v\in\R^2$ and linearly independent $u,v$. Its operational score for $f_{\phi,\psi}:I^K\to\R$ is given by \eqref{eq:exactscore}.
 The infimum is approached by pairs with received distance tending to zero.
 \end{proposition}
 \begin{proof}
-In the moment coordinates $(S,T)$, the target has gradient $K^{-1}(-\psi'(S/K),1)$. The squared received distance is $\Delta p^\T G\Delta p$, where here $\Delta p=(\Delta S,\Delta T)^\T$. Since $\psi'$ is monotone, it ranges between its endpoint values. The quadratic function $(-q,1)G^{-1}(-q,1)^\T$ is convex in $q$, so its maximum occurs at an endpoint. Integrating the gradient along the straight segment between two moment points proves the lower bound in \eqref{eq:exactscore}. The segment need not be attainable: the formula $T/K-\psi(S/K)$ is defined on the entire strip $|S|\le K$.
+In the moment coordinates $(S,T)$, the desired function is $F_K(S,T)=T/K-\psi(S/K)$, with gradient $K^{-1}(-\psi'(S/K),1)^\T\in\R^2$. The squared received distance is $\Delta p^\T G\Delta p$, where here $\Delta p=(\Delta S,\Delta T)^\T$. Since $\psi'$ is monotone, it ranges between its endpoint values. The quadratic function $(-q,1)G^{-1}(-q,1)^\T$ is convex in $q$, so its maximum occurs at an endpoint. Integrating the gradient along the straight segment between two moment points proves the lower bound in \eqref{eq:exactscore}. The segment need not be attainable: the formula $T/K-\psi(S/K)$ is defined on the entire strip $|S|\le K$.
 
 For sharpness, fix an interior mean $m$ and choose two distinct nearby inputs $x,y$ with $(x+y)/2=m$; set the remaining inputs to $m$. Strict convexity or concavity of $\phi$ gives $\phi'(x)\ne\phi'(y)$. For any moment direction $d=(d_S,d_T)^\T$, choose $\alpha,\beta$ to solve
 $$
  \begin{pmatrix}1&1\\\phi'(x)&\phi'(y)\end{pmatrix}
  \begin{pmatrix}\alpha\\\beta\end{pmatrix}=d.
 $$
-Vary only these two inputs along $x+h\alpha,y+h\beta$. The input vector remains admissible for sufficiently small $h$, and its moment derivative is $d$. With $w(m)=(-\psi'(m),1)^\T$ and $d=G^{-1}w(m)$, the target derivative is $w(m)^\T G^{-1}w(m)/K>0$. The separation quotient along this path therefore tends to $K^2/[w(m)^\T G^{-1}w(m)]$. Let $m$ approach the endpoint with the larger dual norm. At each mean choose a nonzero displacement small enough that the received distance is below $1/n$ and the quotient is within $1/n$ of its local limit. Continuity of the endpoint slopes gives equality and the shrinking-pair statement. This construction uses actual input perturbations and requires no uniform perturbation radius near the endpoint.
+Vary only these two inputs along $x+h\alpha,y+h\beta$. The input vector remains admissible for sufficiently small $h$, and its moment derivative is $d$. With $w(m)=(-\psi'(m),1)^\T$ and $d=G^{-1}w(m)$, the derivative of the desired function along this perturbation is $w(m)^\T G^{-1}w(m)/K>0$. The separation quotient along this path therefore tends to $K^2/[w(m)^\T G^{-1}w(m)]$. Let $m$ approach the endpoint with the larger dual norm. At each mean choose a nonzero displacement small enough that the received distance is below $1/n$ and the quotient is within $1/n$ of its local limit. Continuity of the endpoint slopes gives equality and the shrinking-pair statement. This construction uses actual input perturbations and requires no uniform perturbation radius near the endpoint.
 \end{proof}
 \subsection{Optimality and Attainment}
+With the operational score established, the remaining task is to justify the Gram formulation. In particular, a feasible $3\times3$ matrix must yield coefficients in the two-dimensional transmit plane without increasing their peak energy.
 \begin{proof}[Proof of Theorem~\ref{thm:sdp}]
 Every planar coefficient triple $(c,u,v)$ defines its $3\times3$ Gram matrix $H$. The peak inequalities are exactly the stated quadratic forms. For $G\succ0$, the identity
 $$
@@ -30,7 +31,7 @@ Conversely, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}
 
 The reconstruction given in Section~\ref{sec:synthesis} realizes this reduced Gram matrix.
 
-Finally, a sufficiently small nondegenerate moment curve is feasible and has positive score. Nonaffineness of $\phi$ supplies three inputs for which the vectors $z(s)$ span $\R^3$. If $Z$ has those three feature vectors as columns, $Z^\T HZ\suc0$ has trace at most $3P$, giving $\|H\|_2\le3P\|Z^{-1}\|_2^2$. The last diagonal score constraint gives $0\le\lambda\le G_{22}$. The constraints are closed, and $\lambda$ is bounded by either final matrix inequality. An optimum therefore exists, is positive, and admits the rank-two reconstruction above.
+Finally, a sufficiently small nondegenerate moment curve is feasible and has positive score. Nonaffineness of $\phi$ supplies three inputs for which the vectors $z(s)$ span $\R^3$. If $Z$ has those three vectors $z(s)$ as columns, $Z^\T HZ\suc0$ has trace at most $3P$, giving $\|H\|_2\le3P\|Z^{-1}\|_2^2$. The last diagonal score constraint gives $0\le\lambda\le G_{22}$. The constraints are closed, and $\lambda$ is bounded by either final matrix inequality. An optimum therefore exists, is positive, and admits the rank-two reconstruction above.
 \end{proof}
 \subsection{Enclosing Ellipses}
 \begin{corollary}\label{cor:inverse-synthesis}

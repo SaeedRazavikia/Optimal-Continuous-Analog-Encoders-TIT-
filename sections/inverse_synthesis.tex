@@ -1,26 +1,31 @@
 \subsection{Enclosing Ellipses}
 \label{sec:inverse-synthesis}
-Inverse-metric coordinates give a smaller equivalent formulation and make the design geometry explicit. Write $g(s)=(s,\phi(s))^\T$. Let $\mathcal C_P$ be the set of pairs $X\in\mathbb S^2$, $a\in\R^2$ satisfying
+We introduce an equivalent representation because the inverse matrix $X=G^{-1}$ simplifies both robustness and average-error design. In these coordinates, the endpoint sensitivities in \eqref{eq:exactscore} become the linear expressions $w_\pm^\T Xw_\pm$. The small-noise MSE coefficient derived in Section~\ref{sec:pareto} will likewise be linear in $X$. We therefore rewrite the peak constraint in terms of $X$ now, so that both optimization problems use the same convex feasible set.
+
+Define the local preprocessing vector $g:I\to\R^2$ by $g(s)=(s,\phi(s))^\T$. Let $\mathcal C_P\subset\mathbb S^2\times\R^2$ be the set of pairs $(X,a)$ satisfying
 \begin{equation}
+ \forall s\in I,\qquad
  \begin{pmatrix}P&(g(s)-a)^\T\\g(s)-a&X\end{pmatrix}
- \suc0\quad(s\in I).
+ \succeq0.
  \label{eq:ellipse-class}
 \end{equation}
-Every member has $X\succ0$. Indeed, a null vector of $X$ would be orthogonal to $g(s)-a$ for every $s$, confining the nonaffine feature graph to an affine line. The Schur complement shows that $\mathcal C_P$ describes ellipses
+The matrix in \eqref{eq:ellipse-class} is a real symmetric $3\times3$ matrix, affine in the five real variables in $(X,a)$. Every feasible $X$ is positive definite. Indeed, a null vector of $X$ would be orthogonal to $g(s)-a$ for every $s\in I$, confining the graph of the nonaffine function $\phi$ to an affine line. The Schur complement therefore gives the equivalent condition
 $$
- (g(s)-a)^\T X^{-1}(g(s)-a)\le P
+ \forall s\in I,\qquad (g(s)-a)^\T X^{-1}(g(s)-a)\le P.
 $$
-containing the feature curve. We reconstruct an encoder by choosing $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$. Conversely, every exact encoder defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
+Thus $\mathcal C_P$ describes ellipses containing the preprocessing curve $g(I)$. We reconstruct an encoder by choosing an invertible $\mathsf U\in\R^{2\times2}$ with $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$ for every $s\in I$. Conversely, an exact peak-admissible encoder $\enc(s)=c+\mathsf U g(s)$ defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
 
-We may equivalently solve the six-variable convex program
+The ellipse lies in the coordinates $(s,\phi(s))$, before transmission. The encoder translates its center to the origin and maps the ellipse to the allowed peak-power disk in $\R^2\cong\C$. Choosing the ellipse therefore selects the relative scaling and orientation of the two transmitted quantities under the original power constraint.
+
+We can equivalently solve the six-variable convex program
 \begin{equation}
 \begin{aligned}
- t_\star=\min_{X,a,t}\quad &t\\
+ t_\star=\min_{X\in\mathbb S^2,\,a\in\R^2,\,t\in\R}\quad &t\\
  \text{subject to}\quad &(X,a)\in\mathcal C_P,\\
- &w_-^\T Xw_-\le t,\qquad w_+^\T Xw_+\le t.
+ &w_-^\T Xw_-\le t,\qquad w_+^\T Xw_+\le t,
 \end{aligned}
  \label{eq:inverse-synthesis}
 \end{equation}
 and recover the optimal score as $K^2/t_\star$. Corollary~\ref{cor:inverse-synthesis} in Appendix~\ref{app:design-proof} establishes equivalence and attainment.
 
-This is an enclosing-ellipsoid formulation of the same computation problem. We minimize target-sensitive widths rather than volume, using classical convex geometric tools~\cite[Chap. 8]{boyd2004}. The Gram form remains convenient for the numerical certificate in Section~\ref{sec:certified}; the inverse form makes the prior-dependent objective in Section~\ref{sec:pareto} linear.
+We use classical enclosing-ellipsoid tools~\cite[Chap. 8]{boyd2004}, but minimize sensitivity in the directions $w_\pm$ rather than ellipse volume. In Section~\ref{sec:pareto}, we retain \eqref{eq:ellipse-class} and replace the objective by $\operatorname{tr}(Q_\pi X)/(2K^2)$, where $Q_\pi\in\mathbb S^2$ describes the sensitivity of the desired function under the input distribution. This shared formulation makes the robustness--accuracy tradeoff convex. The Gram formulation \eqref{eq:sdp} remains useful for the numerical certificate in Section~\ref{sec:certified}.

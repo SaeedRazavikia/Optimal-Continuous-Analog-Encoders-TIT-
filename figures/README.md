@@ -22,7 +22,7 @@ python code/export_tikz_empirical.py
 
 These commands export plotting data; they do not run a new optimization or Monte Carlo study. The primary results and certificate files retain their existing meanings.
 
-Compile the entire paper with `python build.py`. To export one figure independently on a configured TeX installation, run from the manuscript root:
+Compile the entire paper with `latexmk -pdf manuscript.tex`. To export one figure independently on a configured TeX installation, run from the manuscript root:
 
 ```bash
 pdflatex -jobname=optimal_curves '\def\FigureName{optimal_curves}\input{figures/standalone.tex}'

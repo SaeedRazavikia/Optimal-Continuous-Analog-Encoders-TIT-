@@ -1,25 +1,37 @@
-# Communications presentation and proof revision
+# Review corrections and formal verification — September 15, 2026
 
-This revision makes the manuscript easier to enter from communications theory while retaining its information-theoretic converse and precise computation model.
+## Manuscript corrections
 
-## Presentation and organization
+The revision preserves the title, section structure, main mathematical claims, and numerical values. It makes these targeted corrections:
 
-- Uses **transmitter**, **input distribution**, and **encoder design** consistently in the active paper and figure labels. Nonorthogonal feature directions are distinguished from statistical correlation.
-- Rewrites the abstract around the channel, computation task, transmit curve, receiver, and robustness–accuracy tradeoff. The classification preview explicitly retains its target assumptions.
-- Defines both normalized moments in the system model, explains the physical meaning of the separation score, and introduces `E(s)=c+us+vφ(s)` and the receiver's moment recovery before the rigidity proof.
-- Explains the Gram entries as coefficient energies and an inner product, and the small-noise coefficient through `MSE=N₀J+o(N₀)`.
-- Orders the main sections as system model, rigidity, encoder design, explicit curves, decoding and implementation, small-noise design, certified design, and numerical results.
-- Places the finite-noise table after the experimental setup and keeps the performance figure before the conclusions. All six scientific figures remain native TikZ/PGFPlots.
-- Removes the repeated sensing/calibration introduction from Implementation Errors and balances the reference columns.
+- Uses “infimum” for the all-pair separation criterion in the introduction.
+- Defines the dissimilarity-based criterion explicitly and distinguishes its symbol from the decoder.
+- Describes paired-delta-method intervals as nominal pointwise 95% confidence intervals.
+- Makes continuity explicit for the prescribed bounded preprocessing curve in the extension example and proof.
+- Clarifies the fixed-encoder optimization over exact decoders and the scope of the strip decoder's small-noise statement.
+- Removes unnecessary differentiability from the collision lemma.
+- Protects capitalization of scheme names, mathematical terms and Lean in the bibliography.
+- Adds an immutable numerical-source citation and restores scripts, archived results and reproduction instructions to the source package.
+- Updates Appendix I and proof-coverage documents to describe the enlarged checked development and remaining gaps.
 
-## Proof exposition
+Table values, figure data and certificate bounds agree with the archived numerical records. The exact rational certificate was independently rerun. Simulation intervals remain empirical evidence, separate from Lean verification.
 
-The quadratic-frontier reduction now proves the feasible boundary directly. Convexity of `At+(bt+c)²` on `[0,1]` reduces the peak constraint to two endpoint inequalities. This replaces a reference to the quartic proof that did not establish the needed quadratic fact.
+## Formalization changes
 
-The general score's sharpness proof now varies two actual transmitter inputs. Their unequal feature derivatives allow any first-order moment direction. Endpoint limits give the exact score, and arbitrarily small path steps give the shrinking-pair clause. This avoids requiring an attainable-neighborhood theorem in the score proof and matches the new Lean development.
+Fourteen additional proof modules extend the preceding 33-module artifact. The new development proves general two-statistic compactness and positive attainment, positive definiteness from common-completion identification, general sharp decoding and the circular-Gaussian trace limit with output clipping, continuity of the attained Gram frontier, enclosing-ellipse equivalence, the explicit quadratic frontier, C² grid certification and its O(h²) scaling loss, dissimilarity transfer, and approximate-computation stability for the actual compact encoder class.
 
-## Formal verification
+The rigidity components now include genuine local inverse charts, local continuous extension and convolution smoothing, propagation from the dense identifying set, and integration through endpoints. Local factorization must still be derived from exact computation using planar invariance of domain. Full unrestricted classification and its assembly, the analytic identification criterion, general endpoint-gradient specializations, and further coverage-inventory items remain incomplete. Approximate stability's affine-family conclusion retains exact-classification as a dependency. Missing results are not inserted as axioms or claimed as proved.
 
-The final verified declaration list and exact source hashes are in `formalization/verification/report.json`. `formalization/THEOREM_MAP.md` gives the main interfaces; `formalization/COVERAGE.md` records every numbered manuscript statement and distinguishes complete results, specializations, and conditional steps.
+The exact declaration inventory and proof-source hashes are in formalization/verification/report.json. COVERAGE.md records all 17 numbered statements and additional unnumbered claims, distinguishing complete coefficient-class results from unrestricted statements.
 
-The unrestricted continuous-encoder theorem still requires the topological local-factorization and automatic-differentiability arguments. Successful verification of the new finite-dimensional, operational, and probabilistic components does not by itself complete that theorem or every proof in the paper. The acknowledgment therefore identifies selected verified results rather than claiming complete formalization.
+## Validation and version identity
+
+The full build passed (2,781 jobs), and the `lean --trust=0` audit passed for 673 declarations in 47 modules, with all 55 source/configuration hashes matching. The pinned Lean 4.24.0/mathlib project rejects warnings; only propext, Classical.choice and Quot.sound are accepted. Compiler binaries and dependency caches are excluded.
+
+The final manuscript compiles to 59 pages without warnings, unresolved references, or overfull/underfull boxes. Changed pages were rendered and visually inspected. SHA256SUMS.txt records the packaged files. Numerical scripts and archived results retain their exact source identities at commit 7a513ed38147a73f109f9b184dafba59c17ee89b.
+
+The manuscript's proof-artifact citation identifies audited proof commit 6783e9c68823213e2f4bc31259ab6a1ad6072d89. Updates are published on the existing codex/lean-two-statistic-extension branch and draft pull request, without merging main. A local audit and a GitHub Actions run are separate records.
+
+## Reproduction
+
+Build the paper with `latexmk -pdf manuscript.tex`. Run `lake exe cache get` and `python3 verify.py` from formalization for the proof audit. See REPRODUCIBILITY.md for numerical commands and formalization/README.md for precise verification scope.

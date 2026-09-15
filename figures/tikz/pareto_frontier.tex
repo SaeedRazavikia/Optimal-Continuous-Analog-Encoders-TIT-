@@ -43,11 +43,11 @@
  table[x=eta,y=gain]{figures/data/pareto_transition_endpoint_beta_K16.dat};
 
 \nextgroupplot[
- title={(b) The peak constraint in feature space},
+ title={(b) The peak constraint on $g(I)$},
  axis equal image,
  xmin=-1.5,xmax=1.5,ymin=-0.075,ymax=1.9283557047,
  xtick={-1,0,1},ytick={0,0.5,1,1.5},
- xlabel={First feature coordinate},ylabel={Second feature coordinate},
+ xlabel={First coordinate of $g(s)$},ylabel={Second coordinate of $g(s)$},
  legend to name=paretoEllipseLegend,legend columns=2]
 \addplot[figGray,densely dotted,line width=1.1pt]
  table[x=x,y=y]{figures/data/pareto_ellipse_robust.dat};
@@ -60,7 +60,7 @@
 \addlegendentry{Prior optimum}
 \addplot[black,line width=1.3pt]
  table[x=x,y=y]{figures/data/pareto_feature_curve.dat};
-\addlegendentry{Feature curve}
+\addlegendentry{$g(s)=(s,s^2)^\T$}
 \addplot[black,only marks,mark=*,mark size=1.7pt,forget plot]
  table[x=x,y=y]{figures/data/pareto_contact_points.dat};
 \end{groupplot}

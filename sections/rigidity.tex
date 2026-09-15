@@ -2,16 +2,18 @@
 We first identify the encoder family required for exact computation and then optimize its geometry under the peak constraint.
 
 \subsection{Exact Encoders}\label{sec:rigidity}
+A real-valued desired function $f:I^K\to\R$ might appear to require less information than its two defining statistics $S$ and $T$. The next theorem rules out that possibility under the rigidity assumptions: computing $f$ exactly for every input configuration forces the shared encoder to preserve both sums. This gives the converse needed to compare a proposed curve with all continuous alternatives.
+
 \begin{theorem}
 \label{thm:rigidity}
-Let $K\ge4$. Assume $\phi\in C(I)\cap C^1((-1,1))$ is nonaffine and $\psi\in C(I)\cap C^1((-1,1))$ is strictly convex or strictly concave. A continuous planar encoder exactly computes \eqref{eq:target} if and only if
+Let $K\ge4$. Assume $\phi\in C(I)\cap C^1((-1,1))$ is nonaffine and $\psi\in C(I)\cap C^1((-1,1))$ is strictly convex or strictly concave. A continuous encoder $\enc:I\to\R^2\cong\C$ exactly computes $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}, in the sense of \eqref{eq:exactness}, if and only if
 \begin{equation}
  \enc(s)=c+u s+v\phi(s),
- \qquad c,u,v\in\R^2,
+ \qquad s\in I,\quad c,u,v\in\R^2,
  \label{eq:affine}
 \end{equation}
-with $u,v$ linearly independent in the real plane.
+with $u,v$ linearly independent, equivalently $\det[\,u\ v\,]\ne0$.
 \end{theorem}
-The proof appears in Appendix~\ref{app:rigidity-proof}. Its key step uses a fourth transmitter to show that equal encoded triple sums must preserve both aggregate features. The receiver can then recover $S,T$ from $r_\enc-Kc=uS+vT$ and evaluate the target. Thus exact computation leaves the scale, orientation, and offset of the feature curve available for noise-aware design.
+The proof appears in Appendix~\ref{app:rigidity-proof}. Its key step uses a fourth transmitter to show that equal encoded triple sums must preserve both sums $S$ and $T$. The receiver can then recover $S,T$ from $r_\enc-Kc=uS+vT$ and evaluate $f_{\phi,\psi}$. Thus exact computation leaves the scale, orientation, and offset of the preprocessing curve $(s,\phi(s))$ available for noise-aware design.
 
-The classification uses one complex channel use and $K\ge4$. It does not settle the unrestricted $K=3$ case. Its assumptions permit unbounded endpoint derivatives and therefore do not alone imply positive separation.
+The classification uses one complex channel use and $K\ge4$. It does not establish the necessity of \eqref{eq:affine} for unrestricted continuous encoders when $K=3$.\footnote{For $K=3$, a collision between two encoded triples implies only $T-\widetilde T=3[\psi(S/3)-\psi(\widetilde S/3)]$; changes in the two statistics can cancel in this identity. For $K\ge4$, we append the same fourth input $w\in I$ and $K-4$ zeros to both triples. Exactness then gives $T-\widetilde T=K[\psi((S+w)/K)-\psi((\widetilde S+w)/K)]$ for every $w\in I$. Comparing $w=0$ and $w=1/2$, strict convexity or concavity forces $S=\widetilde S$, and hence $T=\widetilde T$; see Lemma~\ref{lem:collision}. There is no fourth input to vary when $K=3$, so this proof does not establish preservation of both sums in that case. The affine form with independent $u,v$ remains sufficient for exact computation when $K=3$; only its necessity is unresolved here.} Its assumptions permit unbounded endpoint derivatives and therefore do not alone imply positive separation.

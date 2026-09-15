@@ -1,6 +1,43 @@
-\section{Quartic Design}\label{app:quartic-proof}
+\section{Proof of Theorem~\ref{thm:parabola}}\label{app:quartic-proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:quartic}]
+We prove the quadratic and quartic cases separately. Both proofs establish optimality over all continuous encoders by combining the rigidity theorem with a certificate from the active peak constraints.
+
+\subsection{Quadratic Preprocessing}\label{app:quadratic-proof}
+\begin{proof}[Proof of the quadratic case]
+Nonexact encoders have zero score. For every exact encoder, Theorem~\ref{thm:rigidity} gives $\enc(s)=c+us+vs^2$ with $u,v$ linearly independent over $\R$. Since $\psi$ is even, Theorem~\ref{thm:sdp} gives
+$$
+ \frac{\Lambda_{\sq}}{K^2}
+ =\frac{AB-C^2}{A+M^2B+2M|C|}.
+$$
+Normalize $P=1$. The stated parameter satisfies $1<b<2$ and
+$$M^2b(b-1)=(2-b)^2.$$
+We prove the converse directly from the peak constraints. Averaging those at $\pm1$ gives $A+|c+v|^2\le1$, while the constraint at zero gives $|c|^2\le1$. Set $L=bA+(b-1)B$ and $D=A+M^2B$. The identity
+\begin{align*}
+ L+|bc+v|^2
+ =b\bigl(A+|c+v|^2\bigr)+b(b-1)|c|^2\le b^2
+\end{align*}
+implies $L\le b^2$. The parameter equation then yields the certificate
+\begin{align*}
+ b(b-1)DL-bAB
+ &=(b-1)\bigl[bA-(2-b)B\bigr]^2\ge0.
+\end{align*}
+Hence $AB\le b^2(b-1)D$. Subtracting $C^2$ from the numerator and adding $2M|C|$ to the denominator preserves the bound, proving $\Lambda_{\sq}/K^2\le b^2(b-1)$.
+
+The proposed curve $\enc_2^\star$ has $A=b(2-b)$, $B=b^2$, and $C=0$. It attains equality and satisfies the full peak identity
+$$
+ |\enc_2^\star(s)|^2=1-b^2s^2(1-s^2)\le1\qquad(s\in[-1,1]).
+$$
+Scaling by $\sqrt P$ restores the stated power and score. The parameter formula follows by solving its quadratic equation; its unique solution in $(1,2)$ also has the stable form
+$$b=\frac{2\bigl(\sqrt{M^2+8}+M\bigr)}{\sqrt{M^2+8}+3M}.$$
+\end{proof}
+
+For variance, the baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$. Equation~\eqref{eq:parabola} therefore improves squared separation by $3.1337\%$; this percentage does not describe an MSE reduction. We also formalize the operational score and its optimum over all quadratic coefficient curves for every $P>0$ and integer $K\ge2$ in Lean~4. Appendix~\ref{app:lean} specifies the scope of that formal verification and the separate reduction from arbitrary continuous encoders.
+
+\subsection{Quartic Preprocessing}
+
+The quartic peak energy can attain its maximum at interior inputs. We therefore verify the full interval through a factorization and use its contact points to construct a global optimality certificate.
+
+\begin{proof}[Proof of the quartic case]
 Theorem~\ref{thm:rigidity} forces the quartic form for every exact encoder. Averaging the peak constraints at $s$ and $-s$ gives $A s^2+|c+v s^4|^2\le P$. Project $c$ onto the line of $v$ and choose the linear coefficient perpendicular to $v$. This preserves $A,B$, reduces the averaged norms, and removes $C$; Proposition~\ref{prop:score} shows that the score cannot decrease. Normalize $P=1$, write the resulting orthogonal curve as $\sqrt A\,s+i(bs^4+c)$ with $A,b>0$, and minimize the convex function
 $$
  J(A,b,c)=M^2/A+1/b^2
@@ -34,3 +71,17 @@ Both multipliers are positive. Let $y_\rho=b_\rho\rho^2+c_\rho=-b_\rho(1+\rho)^2
 \end{equation}
 The last two follow by substitution. The first reduces exactly to \eqref{eq:quarticroot}, using $A=2B\rho(1+\rho)^2$. The Lagrangian is convex and has zero gradient at the proposed point, which therefore minimizes it globally. Any point satisfying all peak constraints satisfies these two constraints and has objective at least this minimum. Since the proposed curve also satisfies the full continuum by \eqref{eq:quarticpeak}, it is globally optimal. Scaling restores $P$ and gives \eqref{eq:quarticscore}.
 \end{proof}
+
+For the fourth-order Jensen gap, $M=4$, and \eqref{eq:quarticroot} reduces to
+$$
+ 3\rho^4+4\rho^3+\rho^2+6\rho-2=0,
+ \qquad \rho\simeq0.297207855283.
+$$
+The corresponding coefficients and score are
+\begin{align*}
+ a_\rho&\simeq0.997539156206,\\
+ b_\rho&\simeq0.997413500602,\\
+ c_\rho&\simeq-0.927301933535,\\
+ \Lambda_{\sq}^\star/(K^2P)&\simeq0.058533506998.
+\end{align*}
+Equations~\eqref{eq:quarticroot} and~\eqref{eq:quarticcoefficients} define the exact values. The factorization \eqref{eq:quarticpeak} identifies the four peak contacts $s=\pm1$ and $s=\pm\sqrt\rho$; at $s=0$, the peak inequality is strict.

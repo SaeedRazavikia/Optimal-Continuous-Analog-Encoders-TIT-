@@ -2,16 +2,16 @@
 \label{app:approx-rigidity}
 Exact rigidity also gives a qualitative statement for approximate implementations when the admissible encoder class is compact. The common regularity and decoder bounds below are explicit additional assumptions.
 
-Fix the target and hypotheses of Theorem~\ref{thm:rigidity}. Let $\omega:[0,2]\to[0,\infty)$ satisfy $\omega(h)\to0$ as $h\downarrow0$. Let $\mathcal E_{P,\omega}$ consist of the encoders $E\in C(I;\R^2)$ satisfying
+Fix the desired function $f_{\phi,\psi}:I^K\to\R$ and impose the hypotheses of Theorem~\ref{thm:rigidity}. Let $\omega:[0,2]\to[0,\infty)$ satisfy $\omega(h)\to0$ as $h\downarrow0$. Let $\mathcal E_{P,\omega}$ consist of the encoders $E\in C(I;\R^2)$ satisfying
 $$
  \|E\|_\infty\le\sqrt P,\quad
- |E(s)-E(t)|\le\omega(|s-t|)\quad(s,t\in I).
+ |E(s)-E(t)|\le\omega(|s-t|)\quad\forall s,t\in I.
 $$
-Write $\mathcal A_\phi$ for the family $c+us+v\phi(s)$ with independent $u,v$, and use uniform distance to this family.
+Write $\mathcal A_\phi\subset C(I;\R^2)$ for the family $s\mapsto c+us+v\phi(s)$ with $c,u,v\in\R^2$ and linearly independent $u,v$, and use uniform distance to this family.
 
 \begin{proposition}
 \label{prop:approx-rigidity}
-For fixed $P$, $\omega$, and $L>0$, there is a nondecreasing function $\eta(\epsilon)$ tending to zero as $\epsilon\downarrow0$ with the following property. If $E\in\mathcal E_{P,\omega}$ and an $L$-Lipschitz decoder $D:\R^2\to\R$ satisfy
+For fixed $P$, $\omega$, and $L>0$, there is a nondecreasing function $\eta:[0,\infty)\to[0,\infty)$ with $\lim_{\epsilon\downarrow0}\eta(\epsilon)=0$ and the following property. For every $\epsilon\ge0$, if $E\in\mathcal E_{P,\omega}$ and an $L$-Lipschitz decoder $D:\R^2\to\R$ satisfy
 $$
  \sup_{\mathbf s\in I^K}
  |D(r_E(\mathbf s))-f_{\phi,\psi}(\mathbf s)|\le\epsilon,
@@ -19,7 +19,7 @@ $$
 then $\operatorname{dist}_\infty(E,\mathcal A_\phi)\le\eta(\epsilon)$. The function $\eta$ may also depend on the fixed $K$, $\phi$, and $\psi$.
 \end{proposition}
 \begin{proof}
-Approximate computation and decoder Lipschitz continuity imply, for every pair of source configurations,
+Approximate computation and decoder Lipschitz continuity imply, for every $\mathbf s,\mathbf t\in I^K$,
 \begin{equation}
  |f(\mathbf s)-f(\mathbf t)|
  \le 2\epsilon+L|r_E(\mathbf s)-r_E(\mathbf t)|.
@@ -40,7 +40,7 @@ $$
  |f(\mathbf s)-f(\mathbf t)|
  \le L|r_E(\mathbf s)-r_E(\mathbf t)|.
 $$
-Thus $E$ computes $f$ exactly, and Theorem~\ref{thm:rigidity} places $E$ in $\mathcal A_\phi$ with independent feature directions. Uniform convergence then contradicts the positive distance. This proof requires no convergence of the decoders.
+Thus $E$ computes $f$ exactly, and Theorem~\ref{thm:rigidity} places $E$ in $\mathcal A_\phi$ with linearly independent coefficient vectors $u,v\in\R^2$. Uniform convergence then contradicts the positive distance. This proof requires no convergence of the decoders.
 \end{proof}
 
 This proposition supplies neither an explicit rate nor a quantitative parameter-identification guarantee. Its assumptions hold, for example, for encoders with a prescribed common Lipschitz constant and decoders with a fixed disturbance-amplification budget. Peak power alone does not supply the compactness used in the proof. We do not assert that these additional assumptions are necessary or that the proposition resolves quantitative approximate rigidity.

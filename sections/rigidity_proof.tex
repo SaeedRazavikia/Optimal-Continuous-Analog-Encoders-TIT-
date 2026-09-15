@@ -1,9 +1,15 @@
 \section{Proof of Theorem~\ref{thm:rigidity}}\label{app:rigidity-proof}
-We use three lemmas. A fourth transmitter first turns equality of encoded triple sums into equality of both moments; topology and regularization then determine the encoder.
+We separate the proof into three steps because continuity alone does not permit us to differentiate the encoder. A fourth transmitter first turns equality of encoded triple sums into equality of both moments. We then use topology to obtain local dependence on those moments and regularization to justify differentiation. The resulting derivative identities determine the encoder coefficients.
 
 \begin{lemma}
 \label{lem:collision}
-Suppose $K\ge4$, $\psi$ is $C^1$ in the interval interior and strictly convex or strictly concave, and $\enc$ exactly computes \eqref{eq:target}. If two interior triples have the same encoded sum, then they have the same $S$ and $T$.
+Let $K\ge4$, $I=[-1,1]$, $\phi:I\to\R$, and $\psi:I\to\R$, where $\psi$ is strictly convex or strictly concave. Suppose $\enc:I\to\R^2$ exactly computes $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target}. Then, for every $\mathbf a,\mathbf b\in(-1,1)^3$,
+\begin{align*}
+ &\sum_{j=1}^3\enc(a_j)=\sum_{j=1}^3\enc(b_j)\\
+ &\quad\Longrightarrow\quad
+ \begin{pmatrix}\sum_{j=1}^3 a_j\\\sum_{j=1}^3\phi(a_j)\end{pmatrix}
+ =\begin{pmatrix}\sum_{j=1}^3 b_j\\\sum_{j=1}^3\phi(b_j)\end{pmatrix}.
+\end{align*}
 \end{lemma}
 \begin{proof}
 Let the triple statistics be $(S,T)$ and $(\widetilde S,\widetilde T)$. Complete both triples with the same fourth input $w$ and $K-4$ zeros. Exactness gives
@@ -25,21 +31,21 @@ $$
 contradicting the equal increments. Strict concavity reverses this inequality, and exchanging the triples excludes $a>\widetilde a$. Thus $S=\widetilde S$, and exactness at $w=0$ gives $T=\widetilde T$. This proof also permits endpoint inputs and does not require differentiability of $\psi$.
 \end{proof}
 
-The next lemma uses invariance of domain: a continuous injection from an open subset of $\R^2$ into $\R^2$ has open image~\cite[Theorem 2B.3]{hatcher}.
+The collision lemma ensures that the received sum determines the moments. We must also show that it cannot vary locally while those moments remain fixed. The next lemma supplies this converse dependence using invariance of domain: a continuous injection from an open subset of $\R^2$ into $\R^2$ has open image~\cite[Theorem 2B.3]{hatcher}.
 
 \begin{lemma}
 \label{lem:topology}
-Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q$ on its image such that $q(R(p,t))=p$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
+Let $B\subset\R^2$ be open, let $J\subset\R$ be an interval, and let $R:B\times J\to\R^2$ be continuous. Suppose there is a map $q:R(B\times J)\to B$ such that $q(R(p,t))=p$ for every $(p,t)\in B\times J$. Then $R(p,t)$ is independent of $t$ for each fixed $p$.
 \end{lemma}
 \begin{proof}
 For fixed $t_0$, the map $p\mapsto R(p,t_0)$ is a continuous injection, so $R(B,t_0)$ is open. Fix $p$. For $t$ sufficiently close to $t_0$, continuity gives $R(p,t)\in R(B,t_0)$. Thus $R(p,t)=R(p',t_0)$ for some $p'\in B$. Applying $q$ yields $p'=p$, so $R(p,t)=R(p,t_0)$. The function $t\mapsto R(p,t)$ is locally constant, and connectedness of $J$ makes it constant. This argument does not require differentiability or continuity of $q$.
 \end{proof}
 
-The final lemma adapts restricted Cauchy--Pexider rigidity~\cite[Theorem 1.6 and Sec. 5]{charalambides2013} to a one-way collision implication and a $C^1$ nonaffine feature that may contain affine subintervals.
+The final lemma adapts restricted Cauchy--Pexider rigidity~\cite[Theorem 1.6 and Sec. 5]{charalambides2013} to a one-way collision implication and a nonaffine local preprocessing function $\phi$ of class $C^1$ that may contain affine subintervals.
 
 \begin{lemma}
 \label{lem:affine}
-Let $\phi\in C(I)\cap C^1((-1,1))$ be nonaffine, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then $\enc$ has form \eqref{eq:affine} with linearly independent $u,v$.
+Let $\phi:I\to\R$ be nonaffine and belong to $C(I)\cap C^1((-1,1))$, and let $\enc:I\to\R^2$ be continuous. Suppose equality of encoded sums for any two interior triples implies equality of their $S$ and $T$ statistics. Then $\enc$ has form \eqref{eq:affine} with $c,u,v\in\R^2$ and linearly independent $u,v$.
 \end{lemma}
 \begin{proof}
 \emph{Step 1: Local factorization through the moments.}
@@ -63,7 +69,7 @@ $$
 $$
 where $C_0=\int[\enc(y(w))+\enc(z(w))]\rho(w)\,dw$ is independent of $x$. Choose the source interval $X$ and support of $\rho$ small enough that $\{(x,\phi(x))+w:x\in\overline X,\ w\in\operatorname{supp}\rho\}$ is compactly contained in $B$. Choose a smooth compactly supported cutoff in $B$ equal to one near this set, multiply $H$ by it, and extend the product by zero. The integral is then a smooth convolution as a function of the two-dimensional argument. Its composition with the $C^1$ curve $x\mapsto(x,\phi(x))$ is $C^1$. Since $x_0$ was arbitrary, $\enc$ is $C^1$ throughout the interval interior. No regularity of the original decoder was assumed.
 
-\emph{Step 3: Affine dependence on the features.}
+\emph{Step 3: Affine dependence on $s$ and $\phi(s)$.}
 Consider a real component $e$ of the now differentiable encoder. Equation~\eqref{eq:localfactor} makes $e(x)+e(y)+e(z)$ constant on each local moment fiber. The two-moment map has rank two whenever $\phi'(y)\ne\phi'(z)$, so the implicit-function theorem identifies its differential kernel with the tangent space of that fiber. The differential of the encoded sum annihilates this kernel. Hence
 $$
  (e'(x),e'(y),e'(z))

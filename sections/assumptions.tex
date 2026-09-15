@@ -1,34 +1,40 @@
 \subsection{Assumptions}
-Table~\ref{tab:assumptions} separates the classification assumptions from those needed for sharp optimization. In particular, differentiability in the interval interior does not provide a finite disturbance guarantee at the endpoints. Strict convexity or concavity of the feature is a sufficient condition for the endpoint rank argument; we do not claim that it is necessary.
+Table~\ref{tab:assumptions} states which assumptions each result requires. We separate the characterization of exact encoders from the stronger conditions needed for a positive sharp separation score. Differentiability only in the interior of $I$ does not ensure finite sensitivity at its endpoints. Strict convexity or concavity of the local preprocessing function $\phi$ suffices for the endpoint rank argument used in the score formula; we do not claim that it is necessary.
+
+Throughout, $C^1(I)$ denotes real-valued continuously differentiable functions with finite continuous one-sided derivatives at the endpoints. We state separately when only interior differentiability is needed.
 
 \begin{table*}[t]
 \centering
-\caption{Assumptions for the main results. All rows use continuous encoders, $K\ge4$, $I=[-1,1]$, and $P>0$.}
+\setlength{\tabcolsep}{5pt}
+\caption{Assumptions and scope of the main results. Throughout, $I=[-1,1]\subset\R$, $K\ge4$, $P>0$, $f:I^K\to\R$, and the shared encoder $\enc:I\to\R^2\cong\C$ is continuous. Optimization results impose the pointwise power constraint \eqref{eq:peak-model}.}
 \label{tab:assumptions}
 \footnotesize
 \begin{minipage}{0.98\textwidth}
-\textbf{R: Rigidity regime.} $\phi,\psi\in C(I)\cap C^1((-1,1))$; $\phi$ nonaffine; $\psi$ strictly convex or strictly concave.\\[2pt]
-\textbf{S: Score regime.} R, with $\phi$ strictly convex or strictly concave and $\psi\in C^1(I)$.
+\textbf{R (exact-encoder characterization):} $\phi,\psi\in C(I)\cap C^1((-1,1))$; $\phi$ is nonaffine; $\psi$ is strictly convex or strictly concave.\\[2pt]
+\textbf{S (sharp separation and design):} R, with $\phi$ strictly convex or strictly concave and $\psi\in C^1(I)$.
 \end{minipage}
 \vspace{5pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}cp{0.60\textwidth}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.27\textwidth}>{\centering\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.60\textwidth}@{}}
 \toprule
-Result & Regime & Additional requirements\\
+Result & Regime & Scope and additional requirements\\
 \midrule
- Theorem~\ref{thm:rigidity} & R & Exact computation\\
- Theorem~\ref{thm:sdp} & S & Pointwise peak constraint\\
-% Theorem~\ref{thm:certifiedgrid} & S & $\phi\in C^2(I)$; fixed spanning anchors; verified function and derivative bounds\\
- Theorem~\ref{thm:decoder} & S & Nondegenerate moment curve; specified projection decoder\\
- Theorem~\ref{thm:pareto} & S & Fixed prior; specified strip decoder; $|m|<1$ a.s.; $Q_\pi\succ0$; independent circular Gaussian noise; locally inactive output clipping a.s.\\
- %Proposition~\ref{prop:approx-rigidity} & R & Common encoder modulus; fixed peak and decoder Lipschitz bounds; uniform computation error\\
+Exact encoders, Theorem~\ref{thm:rigidity} & R & $f=f_{\phi,\psi}$; exactness as in \eqref{eq:exactness}.\\
+Optimal separation, Theorem~\ref{thm:sdp} & S & $f=f_{\phi,\psi}$; global optimization over $\mathcal E_P$.\\
+Explicit curves, Theorem~\ref{thm:parabola} & S & $\phi(s)=s^2$ or $s^4$; $\psi$ is even.\\
+Two-statistic extension, Theorem~\ref{thm:extension} & --- & $\gamma\in C(I;\R^2)\cap C^1((-1,1);\R^2)$; $1,\varphi_1,\varphi_2$ linearly independent; $F\in C(\mathcal M;\R)$; condition~\eqref{eq:completion-id}. Part 2 also requires nonconstant Lipschitz $F$. Formula~\eqref{eq:polyopt} further assumes quadratic $\gamma$, $C^1$ postprocessing near $\mathcal C_2$, and \eqref{eq:general-endpoints}.\\
+Projection receiver, Theorem~\ref{thm:decoder} & S & $f=f_{\phi,\psi}$; $\enc(s)=c+us+v\phi(s)$ with $\det[\,u\ v\,]\ne0$; specified strip-projection receiver.\\
+Small-noise frontier, Theorem~\ref{thm:pareto} & S & Fixed joint input distribution $\pi$; specified strip decoder; $|m|<1$ almost surely; $Q_\pi\succ0$; independent circular Gaussian noise; any output clipping is locally inactive almost surely.\\
+Certified design, Theorem~\ref{thm:certifiedgrid} & S & $\phi\in C^2(I)$; grids contain both endpoints and three fixed points with linearly independent $z(s)$; numerical implementation uses verified function, derivative, and matrix bounds.\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 \paragraph{Endpoint slopes}
-Consider $\phi(s)=s^2$ and $\psi(s)=-\sqrt{1-s}$. Both satisfy the rigidity hypotheses, but $\psi'$ diverges at $1$. Theorem~\ref{thm:rigidity} makes every exact continuous encoder an affine quadratic curve. Compare the two equal-input configurations $s_k=1$ and $s_k=1-h$, where $h\downarrow0$. Their received difference is
+Consider $\phi(s)=s^2$ and $\psi(s)=-\sqrt{1-s}$. Both satisfy R, but $\psi'$ diverges at $1$. Theorem~\ref{thm:rigidity} makes every exact continuous encoder an affine quadratic curve. Compare the two equal-input configurations $s_k=1$ and $s_k=1-h$ for all $k$, where $h\downarrow0$. Their received difference is
 $$
 \Delta r=K[-hu+(-2h+h^2)v]=O(h),
 $$
-whereas their target difference is $\sqrt h-2h+h^2$. Their squared-separation quotient therefore tends to zero. Every exact encoder has zero score, and nonexact encoders have zero score by definition. Thus the rigidity assumptions alone permit a zero global optimum and no decoder with finite uniform disturbance amplification.
+whereas the difference between their desired function values is $\sqrt h-2h+h^2$. Their squared-separation quotient therefore tends to zero. Every exact encoder has zero score, and every nonexact encoder has zero score by \eqref{eq:score}. Thus R alone permits a zero global optimum and no receiver with finite uniform disturbance amplification.
+
+We therefore first establish which sums exactness requires the transmitters to preserve, and then impose S to optimize robustness.

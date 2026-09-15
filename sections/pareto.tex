@@ -1,14 +1,14 @@
 \section{Small-Noise Design}\label{sec:pareto}
-The uniform criterion protects every input. Mean-squared error under Gaussian noise instead averages the receiver sensitivity over an input distribution. We now optimize the latter while retaining a prescribed uniform guarantee. Throughout this section we use the hypotheses of Theorem~\ref{thm:sdp} and the strip decoder \eqref{eq:stripdecoder}. The input vector has a fixed joint distribution $\pi$, independent of the noise; its coordinates need not be independent. We assume $|m|<1$ almost surely and define
+The uniform criterion protects every input, including those that occur rarely under a given source distribution. If typical inputs have lower receiver sensitivity, adapting the encoder to that distribution can reduce average error. We quantify this benefit through the leading Gaussian small-noise MSE coefficient while retaining a prescribed uniform guarantee. Throughout this section we use the hypotheses of Theorem~\ref{thm:sdp} and the strip decoder \eqref{eq:stripdecoder}. The input vector has a fixed joint distribution $\pi$, independent of the noise; its coordinates need not be independent. We assume $|m|<1$ almost surely and define
 \begin{equation}
  w(m)=\begin{pmatrix}-\psi'(m)\\1\end{pmatrix},\qquad
  Q_\pi=\mathbb E_\pi[w(m)w(m)^\T]\succ0.
  \label{eq:prior-matrix}
 \end{equation}
-The matrix $Q_\pi$ averages the target sensitivity to perturbations of the two recovered moments. Positive definiteness is equivalent to $\operatorname{Var}_\pi(\psi'(m))>0$. Bounded endpoint slopes make $Q_\pi$ finite. We allow scalar output clipping only when the true target lies strictly inside the chosen clipping interval almost surely.
+The matrix $Q_\pi\in\mathbb S^2$ averages the sensitivity of $F(m,t)=t-\psi(m)$ to perturbations of the recovered statistics $(m,t)$. Positive definiteness is equivalent to $\operatorname{Var}_\pi(\psi'(m))>0$. Bounded endpoint slopes make $Q_\pi$ finite. We allow scalar output clipping only when the true value $f(\mathbf s)$ lies strictly inside the chosen clipping interval almost surely.
 
 \begin{proposition}\label{prop:general-small-noise}
-For every continuous exact peak-admissible encoder, let $G$ be its feature Gram matrix. If $N\sim\mathcal{CN}(0,N_0)$, then the specified decoder satisfies
+For every continuous encoder $\enc:I\to\R^2$ that exactly computes $f_{\phi,\psi}:I^K\to\R$ and satisfies \eqref{eq:peak-model}, let $G=\mathsf U^\T\mathsf U\in\mathbb S_{++}^2$ be the Gram matrix of its coefficient vectors $u,v$. If $N\sim\mathcal{CN}(0,N_0)$, then the strip decoder $\widehat f:\R^2\to\R$ satisfies
 \begin{equation}
  \mathcal J_\pi(G):=\lim_{N_0\downarrow0}
  \frac{\mathbb E_{\pi,N}|\widehat f(Y)-f(\mathbf s)|^2}{N_0}
@@ -18,7 +18,7 @@ For every continuous exact peak-admissible encoder, let $G$ be its feature Gram 
 \end{proposition}
 Thus $\operatorname{MSE}=N_0\mathcal J_\pi(G)+o(N_0)$: the coefficient $\mathcal J_\pi(G)$ determines the first-order error at low noise power.
 \begin{proof}
-Theorem~\ref{thm:rigidity} forces an invertible feature matrix $\mathsf U$. At every noiseless point with $|m|<1$, strip projection is locally inactive and the received-coordinate gradient is $\mathsf U^{-\T}w(m)/K$. Any permitted output clipping is also locally inactive. Couple the noises as $N=\sqrt{N_0}Z$, with $\mathbb E[ZZ^\T]=I_2/2$ in real coordinates. Differentiability gives the pointwise limit of the squared error divided by $N_0$. Theorem~\ref{thm:decoder} bounds this quotient by $L_\enc^2|Z|^2$, an integrable random variable. Dominated convergence yields \eqref{eq:general-small-noise}.
+Theorem~\ref{thm:rigidity} forces an invertible coefficient matrix $\mathsf U=[u\ v]\in\R^{2\times2}$. At every noiseless point with $|m|<1$, strip projection is locally inactive and the received-coordinate gradient is $\mathsf U^{-\T}w(m)/K$. Any permitted output clipping is also locally inactive. Couple the noises as $N=\sqrt{N_0}Z$, with $\mathbb E[ZZ^\T]=I_2/2$ in real coordinates. Differentiability gives the pointwise limit of the squared error divided by $N_0$. Theorem~\ref{thm:decoder} bounds this quotient by $L_\enc^2|Z|^2$, an integrable random variable. Dominated convergence yields \eqref{eq:general-small-noise}.
 \end{proof}
 
 Let $\lambda_\star$ denote the optimum in \eqref{eq:sdp}. For a required normalized separation score $0\le\gamma\le\lambda_\star$, called the separation floor, define $\mathcal V_\pi(\gamma)$ as the smallest coefficient \eqref{eq:general-small-noise} among all continuous exact encoders satisfying the peak constraint and $\Lambda_\sq\ge K^2\gamma$. This design guarantees uniform amplification at most $1/(K\sqrt\gamma)$ when $\gamma>0$.
@@ -36,7 +36,7 @@ Using the enclosing-ellipse class $\mathcal C_P$ in \eqref{eq:ellipse-class}, fo
 \end{aligned}
  \label{eq:pareto-sdp}
 \end{equation}
-At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse feature Gram matrix $X$, and yields an exact planar encoder through
+At $\gamma=0$, we omit the last two inequalities. An optimum exists, has a unique inverse Gram matrix $X=G^{-1}\in\mathbb S_{++}^2$, and yields an exact planar encoder through
 $$
  \mathsf U^\T\mathsf U=X^{-1},\qquad
  \enc(s)=\mathsf U(g(s)-a).
@@ -55,7 +55,7 @@ The proof appears in Appendix~\ref{app:general-frontier-proof}.
 This theorem optimizes encoders for a fixed decoder architecture and the leading small-noise coefficient. It does not optimize finite-noise risk over arbitrary estimators, nor interchange the limit $N_0\downarrow0$ with a noise-dependent encoder optimization. The objective and endpoint constraints in \eqref{eq:pareto-sdp} are linear, but its peak condition remains a continuum of matrix inequalities; a finite-grid solver requires a separate certificate.
 
 \subsection{Quadratic Frontier}
-For $\phi(s)=s^2$, even $\psi$, and a symmetric distribution of $m$, set
+For the quadratic preprocessing function $\phi(s)=s^2$, symmetry reduces the matrix tradeoff to one encoder coefficient. The distinction between the two objectives then appears directly as a worst-case slope and a root-mean-square slope. For $\phi(s)=s^2$, even $\psi$, and a symmetric distribution of $m$, set
 $$
  M=|\psi'(1)|,\qquad M_{\rm eff}=\sqrt{\mathbb E_\pi[\psi'(m)^2]}.
 $$
@@ -88,11 +88,11 @@ and its optimal small-noise coefficient is
 \end{equation}
 The constant portion ends at $\gamma_c=P R_M(b_{\rm eff})$.
 \end{corollary}
-The proof appears in Appendix~\ref{app:quadratic-frontier-proof}.
+The proof appears in Appendix~\ref{app:quadratic-frontier-proof}. Increasing $b_\gamma$ allocates more of the available scale to the second moment $t=q$ and less to the sample mean $m$. The separation floor limits this reallocation because inputs near the endpoint means remain sensitive to mean-estimation errors.
 
 \begin{figure*}[t]
  \centering\paperfigure{figures/tikz/pareto_frontier}
- \caption{Variance design with a prescribed separation floor. Left: reduction of the optimal small-noise MSE coefficient relative to the separation-optimal encoder; markers identify where the required separation floor becomes active. Right: the feature curve $(s,s^2)$ and containing ellipses for full robustness, $90\%$ retention, and the uniform-$K=16$ prior optimum. The ellipses express the peak constraint in feature coordinates; they are not noise confidence regions.}
+ \caption{Variance design with a prescribed separation floor. Left: reduction of the optimal small-noise MSE coefficient relative to the separation-optimal encoder; markers identify where the required separation floor becomes active. Right: the preprocessing curve $g(s)=(s,s^2)^\T$ and containing ellipses for full robustness, $90\%$ retention, and the uniform-$K=16$ prior optimum. The ellipses express the peak constraint in the coordinates of $g(s)$; they are not noise confidence regions.}
  \label{fig:pareto}
 \end{figure*}
 
