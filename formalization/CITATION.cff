@@ -8,7 +8,7 @@ title: Lean proofs for analog moment computation
 authors:
   - family-names: Razavikia
     given-names: Saeed
-version: 0.1.0
+version: 0.2.0
 abstract: >-
   Lean 4 formalization accompanying Geometric Optimization of Continuous Encoders
   for Moment-Based Computation. The artifact includes checked results on operational
@@ -21,5 +21,5 @@ keywords:
   - over-the-air computation
   - analog encoders
 repository-code: https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-
-url: https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization
+url: https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/codex/lean-two-statistic-extension/formalization
 

@@ -1,7 +1,9 @@
 # Repository and proof version
 
-This revision extends the Lean project from repository commit `7a513ed38147a73f109f9b184dafba59c17ee89b` with four modules for the unified two-statistic extension. Use the proof sources, audit manifest, and verification records from the same commit. A moving branch name does not uniquely identify the audited source.
+Version 0.2.0 expands the unified two-statistic development and the decoder, probabilistic design, certification, and approximation proofs. It extends the project originally published at repository commit 7a513ed38147a73f109f9b184dafba59c17ee89b.
 
-Run `lake exe cache get` and `python3 verify.py` from this revision's `formalization/` directory. The exact source/configuration hashes and theorem dependencies are recorded in `verification/report.json`. Toolchain and dependency revisions remain pinned. The supplied local audit is separate from a GitHub Actions run; the repository's verification workflow records the latter.
+Use proof sources, audit manifest, and verification records from the same revision. The exact source/configuration hashes and theorem dependencies are in verification/report.json. Run `lake exe cache get` and `python3 verify.py` from formalization to reproduce them. The compiler and mathlib revisions remain pinned.
 
-For an artifact citation, use a permanent link containing the reviewed commit SHA. `CITATION.cff` records software metadata. Keep the scope statements in `COVERAGE.md` and `EXTENSION_SCOPE.md`: the new common-completion and constructive design results do not complete the full extended continuous-encoder theorem.
+The manuscript cites an immutable proof commit. A moving branch does not uniquely identify an audited source. CITATION.cff records software metadata; use the desired commit SHA in a permanent artifact link. The local audit and GitHub Actions runs are separate records.
+
+The coverage inventory and scope documents are part of the artifact. This release does not certify the complete unrestricted continuous-encoder converse or every proof in the manuscript.

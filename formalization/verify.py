@@ -63,20 +63,19 @@ report = {
     'mathlib_commit': 'f897ebcf72cd16f89ab4577d0c826cd14afaafc7',
     'theorem_axioms': axioms, 'source_sha256': hashes,
     'kernel_recheck': 'lake env lean --trust=0 Audit.lean',
-    'scope': 'Unified extension: common-completion collision under identification, arbitrary '
-             'two-statistic affine exactness, actual attainable-pair score and pair constraints, '
-             'and operational planar synthesis under explicit Gram positive definiteness. '
-             'The extended continuous converse, positive definiteness from identification, '
-             'new attainment argument, analytic criterion and endpoint-gradient specialization '
-             'remain incomplete. Original family: general collision; full operational score and shrinking pairs for nondegenerate '
-             'two-feature curves; general operational SDP reconstruction and positive maximum '
-             'attainment; attained convex Gram-risk frontier including zero floor; actual '
-             'small-noise dominated-convergence limit and variance-decoder specialization; '
-             'native moment geometry and conditional independent affine representation; '
-             'all-quadratic operational variance optimum, general-M quadratic/quartic certificates, '
-             'sharp decoding and implementation bounds. Unrestricted continuous rigidity, '
-             'complete general probabilistic trace/frontier equivalence, frontier endpoint '
-             'continuity, certified-grid and remaining appendix results are not complete.',
+    'scope': 'Selected manuscript results. Complete coefficient-class operational score, '
+             'SDP attainment and reconstruction, general sharp decoder and circular-Gaussian '
+             'small-noise trace with clipping, continuous attained Gram frontier, enclosing-ellipse '
+             'equivalence, explicit quadratic frontier, C2 grid certification and O(h^2) scaling, '
+             'and criterion transfer. Unified extension: actual attainable-pair constraints, '
+             'common-completion collisions, positive definiteness from identification, compactness '
+             'and positive operational maximum over all coefficient curves. Continuous recovery, '
+             'automatic smoothing, dense-chart propagation and endpoint integration are checked; '
+             'the charts still require an unformalized planar topological argument. Approximate '
+             'stability is proved for the actual compact encoder class conditional on exact-class '
+             'identification. Unrestricted continuous rigidity, analytic identification and '
+             'general endpoint-gradient specializations, and additional coverage-inventory '
+             'obligations remain incomplete.',
 }
 (OUT/'report.json').write_text(json.dumps(report, indent=2)+'\n')
 print('PASS: compilation and theorem dependency audit completed.')

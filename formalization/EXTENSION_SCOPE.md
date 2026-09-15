@@ -1,39 +1,38 @@
-# Unified two-statistic extension: formal verification scope
+# Unified two-statistic extension: verification scope
 
-This update accompanies **Geometric Optimization of Continuous Encoders for Moment-Based Computation**, Theorem 4 (`thm:extension`, with legacy alias `thm:polynomial`) and Appendix F. The prescribed curve is γ(s)=(φ₁(s),φ₂(s)), the desired function is real-valued F(μγ), and the source inputs lie in [-1,1].
+This document covers Theorem 4 (`thm:extension`, legacy alias `thm:polynomial`) and Appendix F of **Geometric Optimization of Continuous Encoders for Moment-Based Computation**. The prescribed curve is γ(s)=(φ₁(s),φ₂(s)), the desired function is real-valued F(μγ), and every source input lies in [-1,1].
 
-The formal `F : ℝ × ℝ → ℝ` is a total function whose values are used only on the actual attainable set. A function originally given on that set can be extended arbitrarily outside it; no outside regularity enters these results.
+The extension remains **partially formalized**. The general SDP and its operational optimum over all affine coefficient curves are proved. The analytic rigidity argument, including actual smoothing and propagation from the dense identifying set, is proved from local continuous factorizations. Producing those factorizations from exactness and common-completion identification still requires the unformalized planar topological argument.
 
-The extension is **partially formalized**. The audit certifies the Lean statements below, including their explicit hypotheses. It does not certify all of Theorem 4.
+The formal `F : ℝ × ℝ → ℝ` is total, but the score and design results use its values and Lipschitz assumption only on the actual attainable set. No convex hull or sampled grid replaces that set.
 
-## New formal statements
+## Verified statements and their hypotheses
 
-| Paper argument | Principal Lean declaration | Exact scope |
+| Paper argument | Principal Lean declaration | Scope |
 |---|---|---|
-| Affine received sum | `Analog.AdditiveStatistics.received_encoder_mean` | Arbitrary prescribed planar γ; actual valid K-input lists; K>0. |
-| Exactness of invertible affine encoders | `Analog.AdditiveStatistics.exact_computation_of_det` and `exact_computation_of_gram` | Arbitrary real-valued F; nonsingular coefficient matrix. |
-| Cancellation of the offset and K² normalization | `Analog.AdditiveStatistics.received_squaredDistance` | Actual channel squared distance equals the coefficient Gram form of empirical-statistic differences times K². |
-| Positive score implies exactness | `Analog.TwoStatisticDesign.positive_score_implies_exact` | Arbitrary encoder; nonconstant desired function on the actual attainable set. |
-| Common-completion collision implication | `Analog.CompletionIdentification.triple_collision_preserves_statistics` | K≥4, exact computation, and the stated identification condition on B; actual valid triples whose prescribed sums lie in B, and common fillers. |
-| Injective scalar transformations preserve identification | `Analog.CompletionIdentification.identifiesOn_postcomp_iff` | Injectivity is an explicit hypothesis; no analytic identification criterion is assumed proved. |
-| Exact attainable-pair infimum | `Analog.TwoStatisticDesign.affine_operational_score` | K>0 and nonconstant F on the actual finite-K attainable set; includes degenerate coefficient matrices. |
-| Threshold equals all attained-pair inequalities | `Analog.TwoStatisticDesign.affine_score_bound_iff` | K>0 and nonconstant F on the attainable set; all and only attainable pairs, including equal-function-value pairs. |
-| Planar peak-feasible reconstruction | `Analog.TwoStatisticDesign.planar_synthesis` | Genuine 3×3 Gram positivity, an explicitly positive-definite lower 2×2 block, and every continuum peak constraint. |
-| Operational realization of the reconstructed design | `Analog.TwoStatisticDesign.positive_definite_operational_synthesis` | K>0, continuous γ, nonconstant F on the attainable set, H≽0, explicitly positive-definite lower Gram block, and all peak/pair constraints. Produces a continuous exact encoder and the actual score bound. |
+| Affine received sum and K² distance normalization | `Analog.AdditiveStatistics.received_encoder_mean`, `received_squaredDistance` | Arbitrary prescribed planar γ and actual valid K-input lists, K>0. |
+| Exact computation by invertible affine encoders | `Analog.AdditiveStatistics.exact_computation_of_det` | Arbitrary real-valued F; nonsingular coefficient matrix. |
+| Exact attainable-pair score and equivalent inequalities | `Analog.TwoStatisticDesign.affine_operational_score`, `affine_score_bound_iff` | Nonconstant F on the actual attainable set; includes singular coefficient curves. |
+| Positive score implies exact computation | `Analog.TwoStatisticDesign.positive_score_implies_exact` | Arbitrary encoder; nonconstant desired function. |
+| Common-completion collision implication | `Analog.CompletionIdentification.triple_collision_preserves_statistics` | K≥4, exactness, identification on B, actual valid triples, and common fillers. |
+| Independent interior tangents and actual regular triple statistics | `Analog.GeneralRigidity.independent_tangents`, `regularTripleImage_nonempty`, `regularTripleImage_valid` | Continuity on the closed interval, interior differentiability, and functional independence. |
+| Local inverse-function sections and differential kernels | `Analog.GeneralRigidity.pairStatistic_local_section`, `determinant_of_local_fibers` | Genuine independent tangent anchors and actual local statistic-fiber constancy. |
+| Automatic encoder regularity from a local continuous factorization | `Analog.EncoderRegularity.contDiffAt_of_triple_factorization` | Source-box factorization; receiver continuous only on its local chart; prescribed curve C¹ at the relevant inputs. The proof constructs the local extension and normalized convolution kernel. |
+| Dense identification through endpoint-inclusive affine representation | `Analog.EncoderRegularity.planar_affine_of_dense_charts` | The stated curve and encoder regularity, independence, and density on the actual regular triple image. Continuous local factorizations are assumed only at identifying triples. Encoder differentiability and propagation of derivative identities are derived. |
+| Spanning anchors, compact feasible set, and positive attained SDP maximum | `Analog.TwoStatisticAttainment.attained_statistic_maximum` | Continuous independent γ, P>0, and nonconstant Lipschitz F on the attainable set. Anchors, bounds, and positive feasibility are constructed. |
+| Positive definiteness from identification | `Analog.TwoStatisticPositivity.positive_feasible_gram`, `localIdentification_of_commonCompletion` | Positive feasible score and the common-completion condition; positive definiteness is no longer an additional design hypothesis. |
+| Exact operational realization of an attained SDP optimum | `Analog.TwoStatisticPositivity.general_sdp_operational_attainment` | K≥4 and the preceding design/identification assumptions. Produces a continuous exact peak-admissible planar encoder with score exactly K² times the SDP optimum. |
+| Operational optimality over all coefficient curves | `Analog.TwoStatisticPositivity.general_operational_maximum_attained` | All affine coefficient curves are competitors, including singular ones. The theorem does not yet quantify over all continuous encoders. |
 
-`Analog.Operational.quotients_stat_image` proves equality of the defining quotient sets under attainable-image reindexing. The corresponding score and lower-bound lemmas are in `AttainableScore.lean`. The attainable set is the image of the actual valid K-input configurations under `meanStatistic`; no convex hull, asymptotic moment region, or sampled grid replaces it.
-
-The existing `GramSynthesis` module supplies the Schur-complement and Cholesky identities. The new design module applies those identities to both arbitrary coordinates of γ. It does not infer positive definiteness of G merely from feasibility: that implication is one of the outstanding steps below.
+`Analog.Operational.quotients_stat_image` and `AttainableScore.lean` establish reindexing of the original pairwise infimum. `GramSynthesis` provides the Schur-complement and planar reconstruction identities. The dense propagation in `GeneralRigidity` uses the local submersion and continuity of derivatives; it does not replace the manuscript's dense condition by identification everywhere.
 
 ## Remaining obligations
 
-1. Derive the dense local identification hypothesis from the stated real-analytic criterion and its polynomial specialization.
-2. Prove local topological factorization using invariance of domain, regularize the continuous encoder, extend derivative relations from the dense identifying set, and integrate to constant affine coefficients for general γ.
-3. Prove coefficient nonsingularity, and positive definiteness of every positive feasible Gram block, from local identification.
-4. Derive general spanning anchors and positive feasibility, establish compactness of the new pair-constrained feasible set, and prove attained optimality over all continuous encoders.
-5. Verify the general endpoint-gradient score reduction and its attainable perturbation witnesses, then connect the existing quadratic coefficient optimizer to the polynomial and nonpolynomial examples.
+1. Derive `DensePlanarCharts` from continuity, exact computation, and common-completion identification using planar invariance of domain. This is the remaining interface in the affine-representation converse. The full classification still needs its final nonsingularity/operational assembly for arbitrary continuous F, and the resulting reduction must enlarge the verified coefficient-class optimum to all continuous encoders.
+2. Prove the real-analytic sufficient condition for identification and its polynomial characterization.
+3. Prove the general endpoint-gradient score specialization, its actual attainable perturbation witnesses, and the connections to the polynomial and nonpolynomial examples. Existing original-family score and quadratic optimization theorems retain their stated scope.
 
-The original-family score, reconstruction, and attainment results retain their original assumptions. They are not silently promoted to the arbitrary-γ arbitrary-F extension. No missing theorem is supplied as an axiom or an assumed conclusion.
+These obligations are not supplied as axioms or silently absorbed into the verified statements. `CONTINUOUS_SCOPE.md` details the topological interface; `COVERAGE.md` records the broader manuscript inventory.
 
 ## Reproduce
 
@@ -44,4 +43,4 @@ lake exe cache get
 python3 verify.py
 ```
 
-The project retains Lean 4.24.0 and mathlib commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`. `verification/report.json` records the complete declaration audit and source hashes. The allowed logical dependencies remain `propext`, `Classical.choice`, and `Quot.sound`; unfinished proofs and additional axioms fail verification.
+The artifact pins Lean 4.24.0 and mathlib commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`. A successful run writes declaration dependencies and source hashes to `verification/report.json`. Only `propext`, `Classical.choice`, and `Quot.sound` are allowed; unfinished proofs or additional axioms fail verification.

@@ -6,9 +6,10 @@ import Analog.AttainableScore
 
 The source curve is γ(s) = (φ₁(s), φ₂(s)); neither coordinate is required
 to be the identity. The positive definiteness of the lower Gram block is
-an explicit hypothesis. Deriving it from common-completion identification,
-and proving optimum attainment over all continuous encoders, are separate
-obligations of the manuscript's unified extension.
+an explicit hypothesis in this foundational reconstruction module.
+TwoStatisticPositivity derives it from common-completion identification and
+proves attained operational optimality over all coefficient curves.
+The unrestricted continuous-encoder converse remains a separate obligation.
 -/
 
 noncomputable section
