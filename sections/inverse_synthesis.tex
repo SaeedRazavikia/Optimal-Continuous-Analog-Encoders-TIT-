@@ -1,26 +1,31 @@
 \subsection{Enclosing Ellipses}
 \label{sec:inverse-synthesis}
-Inverse-metric coordinates give a smaller equivalent formulation and make the design geometry explicit. Write $g(s)=(s,\phi(s))^\T$. Let $\mathcal C_P$ be the set of pairs $X\in\mathbb S^2$, $a\in\R^2$ satisfying
+The Gram formulation is convenient for maximizing separation. To compare this objective with average estimation error later, we also express the same design through $X=G^{-1}$. Both the endpoint sensitivities $w_\pm^\T Xw_\pm$ and the asymptotic MSE coefficient in Section~\ref{sec:pareto} are linear in $X$. Rewriting the peak constraint in these coordinates gives a common convex feasible set for both design problems and a geometric interpretation as an enclosing ellipse.
+
+Define the local preprocessing vector $g:I\to\R^2$ by $g(s)=(s,\phi(s))^\T$. Let $\mathcal C_P\subset\mathbb S^2\times\R^2$ be the set of pairs $(X,a)$ satisfying
 \begin{equation}
+ \forall s\in I,\qquad
  \begin{pmatrix}P&(g(s)-a)^\T\\g(s)-a&X\end{pmatrix}
- \suc0\quad(s\in I).
+ \succeq0.
  \label{eq:ellipse-class}
 \end{equation}
-Every member has $X\succ0$. Indeed, a null vector of $X$ would be orthogonal to $g(s)-a$ for every $s$, confining the nonaffine feature graph to an affine line. The Schur complement shows that $\mathcal C_P$ describes ellipses
+The matrix in \eqref{eq:ellipse-class} is a real symmetric $3\times3$ matrix, affine in the five real variables in $(X,a)$. Every feasible $X$ is positive definite. Indeed, a null vector of $X$ would be orthogonal to $g(s)-a$ for every $s\in I$, confining the graph of the nonaffine function $\phi$ to an affine line. The Schur complement therefore gives the equivalent condition
 $$
- (g(s)-a)^\T X^{-1}(g(s)-a)\le P
+ \forall s\in I,\qquad (g(s)-a)^\T X^{-1}(g(s)-a)\le P.
 $$
-containing the feature curve. We reconstruct an encoder by choosing $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$. Conversely, every exact encoder defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
+Thus $\mathcal C_P$ describes ellipses containing the preprocessing curve $g(I)$. We reconstruct an encoder by choosing an invertible $\mathsf U\in\R^{2\times2}$ with $\mathsf U^\T\mathsf U=X^{-1}$ and setting $\enc(s)=\mathsf U(g(s)-a)$ for every $s\in I$. Conversely, every peak-admissible encoder $\enc(s)=c+\mathsf U g(s)$ satisfying the identifiability condition defines $X=G^{-1}$ and $a=-\mathsf U^{-1}c$.
 
-We may equivalently solve the six-variable convex program
+The encoder translates the enclosing ellipse to the origin and maps it to the peak-power disk, thereby selecting the scaling and orientation of the transmitted statistics.
+
+We can equivalently solve the six-variable convex program
 \begin{equation}
 \begin{aligned}
- t_\star=\min_{X,a,t}\quad &t\\
+ t_\star=\min_{X\in\mathbb S^2,\,a\in\R^2,\,t\in\R}\quad &t\\
  \text{subject to}\quad &(X,a)\in\mathcal C_P,\\
- &w_-^\T Xw_-\le t,\qquad w_+^\T Xw_+\le t.
+ &w_-^\T Xw_-\le t,\qquad w_+^\T Xw_+\le t,
 \end{aligned}
  \label{eq:inverse-synthesis}
 \end{equation}
 and recover the optimal score as $K^2/t_\star$. Corollary~\ref{cor:inverse-synthesis} in Appendix~\ref{app:design-proof} establishes equivalence and attainment.
 
-This is an enclosing-ellipsoid formulation of the same computation problem. We minimize target-sensitive widths rather than volume, using classical convex geometric tools~\cite[Chap. 8]{boyd2004}. The Gram form remains convenient for the numerical certificate in Section~\ref{sec:certified}; the inverse form makes the prior-dependent objective in Section~\ref{sec:pareto} linear.
+Unlike minimum-volume ellipsoid design~\cite[Chap. 8]{boyd2004}, we minimize sensitivity in the directions $w_\pm$. Section~\ref{sec:pareto} retains \eqref{eq:ellipse-class} and minimizes $\operatorname{tr}(Q_\pi X)/(2K^2)$ for a prescribed input distribution. The Gram formulation \eqref{eq:sdp} instead supports the numerical certificate in Section~\ref{sec:certified}.

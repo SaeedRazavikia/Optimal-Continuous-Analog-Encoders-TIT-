@@ -1,5 +1,8 @@
-% Compile this file for the two-column paper, or manuscript_submission.tex
-% for the single-column, double-spaced manuscript. Both share all content.
+% Default: submission version. Compile manuscript_arxiv.tex for the extended version.
+\newif\ifArxivVersion
+\ifdefined\ArxivVersion\ArxivVersiontrue\else\ArxivVersionfalse\fi
+% Single-column manuscript. Compile with latexmk -pdf manuscript.tex,
+% or run pdflatex, bibtex, and pdflatex twice.
 % \ifdefined\SubmissionFormat
 %   % IEEEtran's 12pt unity baseline is 13.92pt; this factor gives 24pt.
 %   \def\CLASSINPUTbaselinestretch{1.724137931}
@@ -17,7 +20,7 @@
 \usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,patterns}
 \usepgfplotslibrary{groupplots,fillbetween}
 \input{figures/tikz/styles}
-\usepackage{placeins,balance}
+\usepackage{placeins,balance,adjustbox}
 \usepackage[hidelinks]{hyperref}
 \ifdefined\SubmissionFormat
   \usepackage{etoolbox,adjustbox}
@@ -51,26 +54,30 @@
     \begin{adjustbox}{max width=\linewidth}\input{#1}\end{adjustbox}%
     \endgroup}
 \else
-  \newcommand{\paperfigure}[1]{\input{#1}}
+  \newcommand{\paperfigure}[1]{%
+    \begin{adjustbox}{max width=\linewidth}\input{#1}\end{adjustbox}}
 \fi
+
+
+
 \newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
 \newcommand{\enc}{\mathscr E}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
 \newcommand{\sq}{\mathrm{sq}}\newcommand{\T}{\mathsf T}\newcommand{\suc}{\succeq}
-\hypersetup{pdftitle={Optimal Continuous Analog Encoders for Moment-Based Computation},pdfauthor={Saeed Razavikia}}
-\title{Optimal Continuous Analog Encoders for\\Moment-Based Computation}
+\hypersetup{pdftitle={Geometric Optimization of Continuous Encoders for Moment-Based Computation},pdfauthor={Saeed Razavikia}}
+\title{Geometric Optimization of Continuous Encoders\\for Moment-Based Computation}
 \author{Saeed Razavikia,~\IEEEmembership{Member,~IEEE} \thanks{Saeed Razavikia is with the Department of Network and Systems Engineering, KTH Royal Institute of Technology, Stockholm, Sweden (e-mail: \href{mailto:sraz@kth.se}{sraz@kth.se}).}}
 \begin{document}\maketitle
 \begin{abstract}
-We study the computation of moment-based functions, including variance, from simultaneous analog transmissions over one complex multiple-access channel use. Each transmitter applies the same continuous encoder to a bounded scalar input and obeys a pointwise peak-power constraint. For at least four transmitters and targets satisfying the stated regularity and strict convexity or concavity assumptions, we prove that exact computation forces the encoder to preserve two specific features: the input and its prescribed nonlinear transformation. This reduces the design of an arbitrary continuous encoder to the geometry of a planar curve. We derive the exact worst-case separation score, formulate globally optimal encoder design as a convex program, and obtain explicit quadratic and quartic curves. A certified numerical procedure handles other smooth features, with an exponential example achieving a global gap below $0.006\%$. A simple projection decoder attains the smallest possible uniform noise-amplification constant. For this decoder and a specified input distribution, we characterize the best small-noise mean-squared error subject to a required separation score. The resulting tradeoff is continuous and convex and admits an explicit scalar characterization for quadratic features. For independent uniform inputs, retaining $90\%$ of optimal separation reduces the small-noise error coefficient by $17.68\%$ and $29.07\%$ with four and sixteen transmitters, respectively. Numerical experiments and deterministic mismatch bounds assess the designs beyond the ideal noiseless model.
+Function computation over multiple-access channels evaluates a desired function from simultaneous transmissions. Variance, for example, can be computed from the sums of observations and their squares. Motivated by digital constellation design, we map each bounded real observation to a point on a continuous curve in the complex plane, whose two coordinates convey these sums in one channel use. We characterize curves that permit identifiable computation: the noiseless received sum uniquely determines the desired function value. We then optimize their geometry for noise robustness under a power constraint for every input. For a class of moment-based functions including variance, we prove that every shared continuous encoder satisfying this identifiability condition must preserve two prescribed sums when there are at least four transmitters and the stated regularity and convexity conditions hold. This characterization reduces global encoder design to convex optimization under a worst-case separation criterion, which compares received distances with differences in function values. We derive explicit optimal quadratic and quartic curves and extend the framework to functions of two prescribed additive statistics. For the original function class, a projection decoder attains the smallest uniform noise-amplification constant. For a specified input distribution and this decoder, we also characterize the tradeoff between worst-case separation and the leading mean-squared error term at high signal-to-noise ratio.
 \end{abstract}
-\begin{IEEEkeywords}Over-the-air computation, analog encoding, multiple-access channels, moment representations, convex optimization, Lipschitz decoding.\end{IEEEkeywords}
+\begin{IEEEkeywords}Function computation, multiple-access channels, over-the-air computation, continuous encoding, moment representations, convex optimization, Lipschitz decoding.\end{IEEEkeywords}
 \begin{figure*}[t]
  \centering\paperfigure{figures/tikz/system_model}
- \caption{One-use analog computation over a complex multiple-access channel. Every transmitter applies the same continuous encoder to its calibrated input and satisfies the pointwise peak constraint. The channel superposes the symbols; the receiver estimates the prescribed moment-and-mean target from one noisy aggregate. Effective channel gains are unity after compensation, and the payload count excludes calibration and synchronization overhead.}
+ \caption{One-use computation of a real-valued function over a complex multiple-access channel. Every transmitter applies the same continuous encoder to its calibrated input and satisfies the pointwise peak constraint. The channel superposes the symbols; the receiver estimates the desired function $f_{\phi,\psi}:I^K\to\R$ from one noisy aggregate. Effective channel gains are unity after compensation, and the payload count excludes calibration and synchronization overhead.}
  \label{fig:system}
 \end{figure*}
 \input{sections/introduction}
@@ -95,9 +102,12 @@ We study the computation of moment-based functions, including variance, from sim
 \input{sections/pareto_proofs}
 \input{sections/certification_proof}
 \input{sections/polynomial_appendix}
+% Ancillary results and formal verification are retained for arXiv.
+\ifArxivVersion
 \input{sections/criterion_appendix}
 \input{sections/approximate_rigidity}
 \input{sections/formalization_appendix}
+\fi
 \input{sections/acknowledgment}
 % \ifdefined\SubmissionFormat\else\balance\fi
 % \input{bibliography}

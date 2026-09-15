@@ -1,0 +1,26 @@
+{
+  "repository": "SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-",
+  "commit": "7a513ed38147a73f109f9b184dafba59c17ee89b",
+  "git_blob_sha": {
+    "code/certified_synthesis.py": "8e288d881c05ab46ee600375036716b819215639",
+    "code/decoders.py": "8432487bc6c8194d99275925cd9b53cb1f626344",
+    "code/export_tikz_analytic.py": "659b73ef8d382de1ff1c622d1e3820bfa0c76e93",
+    "code/export_tikz_empirical.py": "b9750ea693f46b741a65aa35839bf5288b1039d9",
+    "code/finite_noise.py": "5ff7dc6dd0e92cfcd960ecddc9e389d5bec12f4c",
+    "code/independent_reproduce.py": "e48ca5368c4788824345a807bf9b39aabcb852d3",
+    "code/make_figures.py": "e5f50468758433cafd22ac11f8116be4042a8275",
+    "code/pareto_frontier.py": "c81fb0284af94494063353c75c3b407d25aff81b",
+    "code/verify_decoders.py": "e0491abf3db9cb9674245ddab386a2c0164d2f14",
+    "code/verify_extension.py": "105e92860b5b3b657057a0459025ac47a16e025d",
+    "requirements.txt": "471f776f67541bcaadd042782a1c0a438d0009f3",
+    "results/certified_synthesis.json": "b030ed67a786b9261bda036c330bf836123811be",
+    "results/decoder_checks.json": "7c6b293373eb53218d2286e90df0b1708fe9f1c2",
+    "results/decoder_samples.json": "ee407b35011a2003710aedfc782755d7f2a73a47",
+    "results/extension_rerun.json": "e35323dcf45ecaecf04778ccd2dad17ec26660fa",
+    "results/finite_noise.csv": "84edac13061c4d46b6ca50453f8a438d8e8d64c0",
+    "results/finite_noise.json": "47033e83dfacd3906493ee49ccf481b3b6381cb0",
+    "results/independent_reproduction.json": "77eb2944c292a8b6e2b45999120b8eccdb5fafd2",
+    "results/pareto_frontier.csv": "6a76085ce0859a08c11a615accb3283b0bc585d5",
+    "results/pareto_frontier.json": "b4fc8a2176e76524444823f68cedd92d695a586d"
+  }
+}

@@ -1,68 +1,183 @@
-\section{Polynomial Readouts}\label{app:polynomial}
+\section{Proof of the Unified Extension}\label{app:polynomial}
 
-We can also enlarge the class with explicit optima for $D(d)=d^2$. Let
+We prove Theorem~\ref{thm:extension}, verify the stated sufficient conditions, and derive its quadratic specialization. Throughout, the two preprocessing functions and $F$ are prescribed before encoder design.
+
+The representation $f=F\circ\boldsymbol\mu_\gamma$ also describes all continuous functions that admit identifiable computation with a shared continuous planar encoder when the preprocessing functions may be chosen freely with only continuity imposed on $\gamma$. Indeed, any encoder satisfying the identifiability condition supplies $\gamma=\enc$; this condition makes $F(\boldsymbol\mu_\gamma(\mathbf s))=f(\mathbf s)$ well defined, and the compact-quotient argument following \eqref{eq:exactness} makes $F$ continuous. Conversely, continuity and boundedness of $\gamma$ permit a continuous encoder $\enc=\rho\gamma$ with $\rho>0$ satisfying any prescribed $P>0$, after which the receiver recovers $\boldsymbol\mu_\gamma$ by division by $K\rho$.
+
+\subsection{Classification Under the Identifiability Condition}
+
+\begin{proof}[Proof of the classification in Theorem~\ref{thm:extension}]
+Linear independence of $1,\varphi_1,\varphi_2$ implies that two interior tangents of $\gamma$ are independent. Otherwise all tangent vectors span at most a line, so some nonzero $a\in\R^2$ satisfies $a^\T\gamma'=0$ on $J$. Integration and endpoint continuity would make $a^\T\gamma$ constant on $I$, contradicting independence. Fix an independent tangent pair $\gamma'(y_*),\gamma'(z_*)$.
+
+\emph{Local factorization.} If two encoded triple sums agree, appending the same fourth input $x\in J$ and the same $K-4$ fillers gives equal desired-function values $R_x$ for every $x$. When both triple statistics lie in one identifying neighborhood $B$ from \eqref{eq:completion-id}, their equality follows. Thus, locally in $B$, an encoded triple sum determines its two-dimensional statistic $p$.
+
+Fix any first input $x_0\in J$. Near $(y_*,z_*)$, the pair map $(y,z)\mapsto T_3(x_0,y,z)$ is a local $C^1$ diffeomorphism. Its image is open in $\Omega_3$ and therefore meets the dense identifying set $\mathcal O$. Choose $y_0,z_0$ with independent tangents and $p_0=T_3(x_0,y_0,z_0)\in\mathcal O$. The inverse function theorem supplies coordinates
+$$
+ (x,y,z)\longmapsto(p,x)=(T_3(x,y,z),x)
+$$
+on a product $B\times L$ about $(p_0,x_0)$, with $B$ contained in an identifying neighborhood. Write the encoded triple sum as $A(p,x)$. The preceding implication makes $q(A(p,x))=p$ well defined on the image. Lemma~\ref{lem:topology} makes $A$ independent of $x$. Hence a continuous $H$ on $B$ satisfies, on a sufficiently small source box,
 \begin{equation}
- f(\mathbf s)=F(m,q),\qquad
- F(m,q)=\sum_{(i,j)\in\mathcal I}a_{ij}m^i q^j,
- \label{eq:polyclass}
+ \enc(x)+\enc(y)+\enc(z)
+ =H\bigl(\gamma(x)+\gamma(y)+\gamma(z)\bigr).
+ \label{eq:general-localfactor}
 \end{equation}
-where $\mathcal I$ is finite, $i,j$ are nonnegative integers, $a_{ij}\ge0$, and all present powers $i$ have the same parity $\epsilon\in\{0,1\}$. Assume the target depends on both arguments, equivalently
-\begin{align*}
- \alpha&=F_m(1,1)=\sum i a_{ij}>0,\\
- \beta&=F_q(1,1)=\sum j a_{ij}>0.
-\end{align*}
-The polynomial degree is unrestricted. This class includes products of moments and sums of interactions, extending the preceding moment-minus-mean class.
 
-\begin{theorem}
-\label{thm:polynomial}
-Let $K\ge4$ and let \eqref{eq:polyclass} satisfy the stated conditions. Define
+\emph{Automatic differentiability.} The pair map $(y,z)\mapsto w=\gamma(y)+\gamma(z)$ has a local $C^1$ inverse $(y(w),z(w))$ near $(y_0,z_0)$. Choose a smooth density $\rho$ of integral one with compact support inside its image. Integrating \eqref{eq:general-localfactor} gives
 $$
- t=\frac{\alpha}{2\beta},\qquad
- b=\frac{2}{1-t^2+t\sqrt{t^2+2}},\qquad a_0=\sqrt{b(2-b)}.
+ \enc(x)=\int H(\gamma(x)+w)\rho(w)\,dw-C_0,
 $$
-An optimal encoder over every continuous shared peak-admissible map is
-\begin{equation}
-\begin{aligned}
- \enc^\star(s)&=\sqrt P\,[a_0s+i(bs^2-1)],\\
- \Lambda_{\sq}^\star(f)&=\frac{K^2P}{\beta^2}b^2(b-1).
-\end{aligned}
- \label{eq:polyopt}
-\end{equation}
-\end{theorem}
-\begin{proof}
-\emph{Step 1: Exactness forces both moments.}
-Suppose two interior triples with statistics $(S,Q)$ and $(\widetilde S,\widetilde Q)$ have equal received sums. Complete both triples with one common input $x$ and $K-4$ zeros. Exactness implies the polynomial identity
+where $C_0=\int[\enc(y(w))+\enc(z(w))]\rho(w)\,dw$ is independent of $x$. Shrink the source interval and the support of $\rho$ so that all arguments of $H$ lie in a compact subset of $B$. Multiplying $H$ by a smooth cutoff equal to one near that set and extending by zero gives a compactly supported continuous $\widetilde H$. The function
 $$
- F((S+x)/K,(Q+x^2)/K)
- =F((\widetilde S+x)/K,(\widetilde Q+x^2)/K)
+ \mathcal B(a)=\int\widetilde H(a+w)\rho(w)\,dw
+             =\int\widetilde H(z)\rho(z-a)\,dz
 $$
-for all real $x$, since it holds on $(-1,1)$.
+is smooth: derivatives fall on $\rho$, and compact support justifies differentiation under the integral. Therefore $\enc=\mathcal B\circ\gamma-C_0$ is $C^1$ near $x_0$. Since $x_0$ was arbitrary, $\enc\in C^1(J;\R^2)$.
 
-Put $c_{ij}=a_{ij}/K^{i+j}$ and $d=\max(i+2j)$ over nonzero terms. Every weighted degree $i+2j$ has parity $\epsilon$, so no term has degree $d-1$. If a highest-degree term has $i>0$, the coefficient of $x^{d-1}$ is
+\emph{Constant affine coefficients.} At a regular triple whose statistic lies in $\mathcal O$, permute the inputs if necessary to select an independent tangent pair in the local factorization above. For a real component $e$ of $\enc$, differentiating along a local fiber of $T_3$ then gives
 $$
- S\sum_{i+2j=d}i c_{ij},
+ (e'(x),e'(y),e'(z))\in\operatorname{rowspan}DT_3(x,y,z).
 $$
-with a strictly positive multiplier. Thus $S=\widetilde S$. For a completion with $S+x\ne0$ and positive second moments, $F((S+x)/K,q)$ is strictly monotone in $q$: all nonzero derivative terms have the same sign. Hence $Q=\widetilde Q$.
+The implicit function theorem identifies the fiber tangent space with $\ker DT_3$, and the derivative of the encoded sum annihilates this kernel. Near every regular triple, $T_3$ maps open neighborhoods to open sets. Density of $\mathcal O$ therefore supplies regular triples with statistics in $\mathcal O$ approaching any given regular triple. Continuity of the derivative rows, and the vanishing of their $3\times3$ determinant, extend the row-space inclusion to every regular triple.
 
-Otherwise the highest-degree term is a pure second-moment power, so $d=2J$ and that term is $c_{0J}(Q+x^2)^J$. The coefficient of $x^{d-2}$ is $Jc_{0J}Q$ plus constants from terms of weighted degree $d-2$. It follows that $Q=\widetilde Q$. In this case all mean powers are even, and for each positive second moment $F$ is strictly increasing in $|m|$. Equality for all completions gives $(S+x)^2=(\widetilde S+x)^2$ on an interval and hence $S=\widetilde S$.
+Fix $y=y_*$ and $z=z_*$. Their two entries determine unique constants $a_e,b_e$ satisfying
+$$
+ \begin{pmatrix}\varphi_1'(y_*)&\varphi_2'(y_*)\\
+ \varphi_1'(z_*)&\varphi_2'(z_*)\end{pmatrix}
+ \begin{pmatrix}a_e\\b_e\end{pmatrix}
+ =\begin{pmatrix}e'(y_*)\\e'(z_*)\end{pmatrix}.
+$$
+Every triple $(x,y_*,z_*)$ is regular, so the same constants give $e'(x)=a_e\varphi_1'(x)+b_e\varphi_2'(x)$ for all $x\in J$. Integration and endpoint continuity yield $\enc=c+\mathsf U\gamma$ with constant $c\in\R^2$ and $\mathsf U\in\R^{2\times2}$.
 
-Lemma~\ref{lem:affine}, with $\phi(s)=s^2$, now forces every continuous exact encoder to be $c+us+vs^2$ with independent real vectors $u,v$. No additional encoder smoothness is assumed.
-
-\emph{Step 2: Exact score of a quadratic curve.}
-Let $G=\left(\begin{smallmatrix}A&C\\C&B\end{smallmatrix}\right)$ be the Gram matrix of $u,v$. On $|m|\le1$, $0\le q\le1$, the coefficient assumptions give $|F_m|\le\alpha$ and $|F_q|\le\beta$. At $(1,1)$ the gradient is $(\alpha,\beta)$, and at $(-1,1)$ it is $((-1)^{\epsilon+1}\alpha,(-1)^\epsilon\beta)$. Thus an all-pair line-integral bound gives
+If $\mathsf U$ were singular, an identifying open neighborhood $B$ would contain distinct $p,\widetilde p$ with $\mathsf Up=\mathsf U\widetilde p$. These statistics are attained by interior triples, whose encoded sums $3c+\mathsf Up$ agree. The identifiability condition for $f$ under every common completion and \eqref{eq:completion-id} force $p=\widetilde p$, a contradiction. Thus $\det\mathsf U\ne0$. Conversely,
 $$
- \Lambda_{\sq}(\enc;f)
- \ge\frac{K^2(AB-C^2)}{\alpha^2B+\beta^2A+2\alpha\beta|C|}.
+ r_\enc(\mathbf s)=Kc+K\mathsf U\boldsymbol\mu_\gamma(\mathbf s)
 $$
-This bound is sharp. Choose distinct interior inputs approaching whichever consensus endpoint maximizes the gradient's dual norm. The two-moment map has rank two there. Arbitrarily small attainable moment displacements in the dual-gradient direction approach the displayed quotient. This proves equality.
-
-\emph{Step 3: Peak-constrained optimization.}
-Reflection of the source flips the sign of $\Delta S$ and preserves $\Delta Q$ and the absolute target gap. Averaging peak constraints at $s,-s$, projecting the translation onto the quadratic coefficient, and choosing the linear coefficient orthogonal to it preserves $A,B$ and removes $C$ without worsening the score. The three peak constraints at $0,\pm1$ then reduce the optimum to $A=P b(2-b)$ and $B=P b^2$, $1\le b<2$. The peak identity $|\enc_b(s)|^2/P=1-b^2s^2(1-s^2)\le1$ verifies the whole interval. Minimization of
-$$
- \frac{\alpha^2}{b(2-b)}+\frac{\beta^2}{b^2}
-$$
-gives $\alpha^2b(b-1)=\beta^2(2-b)^2$, which yields \eqref{eq:polyopt}. Any nonexact competitor has zero squared score.
+allows recovery of $\boldsymbol\mu_\gamma$ and evaluation of $F$, proving sufficiency.
 \end{proof}
 
-More examples are $m^2q+\eta q^2+\zeta m^4$ for $\eta,\zeta\ge0$, with $\alpha=2+4\zeta$ and $\beta=1+2\eta$, and $m^3q^2+m q^4$, with $\alpha=4$, $\beta=6$. Affine output changes scale the score but preserve the map. A fixed interval homeomorphism may also calibrate all inputs before computing the moments.
+\subsection{Convex Design and Attainment}
 
+\begin{proof}[Proof of the design claim in Theorem~\ref{thm:extension}]
+For $\enc=c+\mathsf U\gamma$ and $G=\mathsf U^\T\mathsf U\succ0$, cancellation of $c$ gives
+\begin{equation}
+ \Lambda_{\sq}(\enc;f)
+ =K^2\inf_{\substack{\mu,\nu\in\mathcal M\\F(\mu)\ne F(\nu)}}
+ \frac{(\mu-\nu)^\T G(\mu-\nu)}{|F(\mu)-F(\nu)|^2}.
+ \label{eq:general-score-appendix}
+\end{equation}
+Every pair in $\mathcal M$ is attained by input vectors, so this is an equality of the original pairwise infima.
+
+Let $F$ have a Lipschitz constant $L>0$ on $\mathcal M$. A sufficiently small $\rho>0$ makes $\enc=\rho\gamma$ peak admissible. Its coefficient Gram matrix is feasible in \eqref{eq:general-sdp} with $\lambda=\rho^2/L^2>0$. Every continuous encoder with positive score satisfies the identifiability condition and hence has the classified form. Its Gram matrix is feasible with $\lambda=\Lambda_{\sq}/K^2$ by \eqref{eq:general-score-appendix}. Thus the program bounds all positive-score competitors; zero-score encoders cannot improve the positive feasible value.
+
+We next show why no rank constraint on the $3\times3$ matrix $H$ is needed. Let $(H,\lambda)$ be feasible with $\lambda>0$, and let $G$ be its lower-right block. If $G$ were singular, choose $0\ne v\in\ker G$ and distinct $p,\widetilde p=p+\varepsilon v$ inside an identifying neighborhood. For every common completion, their attained averages differ by $\varepsilon v/K$. The pair constraint gives $R_x(p)=R_x(\widetilde p)$ for every $x\in J$, contradicting \eqref{eq:completion-id}. Consequently $G\succ0$.
+
+Write
+$$
+ H=\begin{pmatrix}h&\ell^\T\\\ell&G\end{pmatrix},\qquad
+ \mathsf U^\T\mathsf U=G,\qquad c=\mathsf U^{-\T}\ell.
+$$
+Positive semidefiniteness gives $h\ge\ell^\T G^{-1}\ell=\|c\|^2$. The actual Gram matrix of the planar coefficient vectors $c$ and the columns of $\mathsf U$ therefore differs from $H$ only by reducing its top-left entry to $\|c\|^2$. This preserves $G$, reduces every peak quadratic form $z_\gamma(s)^\T Hz_\gamma(s)$ by the same nonnegative amount, and leaves all pair constraints unchanged. Hence $c+\mathsf U\gamma$ is a planar peak-admissible encoder with score at least $K^2\lambda$.
+
+Finally, independence provides $s_1,s_2,s_3\in I$ for which $Z=[z_\gamma(s_1)\ z_\gamma(s_2)\ z_\gamma(s_3)]$ is invertible. The peak constraints and $H\succeq0$ imply
+$$
+ \operatorname{tr}(Z^\T HZ)\le3P,\qquad
+ \|H\|_{\mathrm{op}}\le3P\|Z^{-1}\|_{\mathrm{op}}^2.
+$$
+Fix an attainable pair $\mu_0,\nu_0$ with unequal $F$ values. Its pair constraint gives
+$$
+ \lambda\le
+ \frac{\|H\|_{\mathrm{op}}\|\mu_0-\nu_0\|^2}
+ {|F(\mu_0)-F(\nu_0)|^2}.
+$$
+The feasible set is closed and bounded in a finite-dimensional space, so its positive optimum $\lambda_\gamma^\star$ is attained. The planar construction attains $K^2\lambda_\gamma^\star$, because a larger score would contradict the program's upper bound.
+\end{proof}
+
+\subsection{Sufficient Conditions for Identification}
+
+For the original family, choose $\gamma(s)=(s,\phi(s))^\T$, $F(a,b)=b-\psi(a)$, and $s_\circ=0$. If two triple statistics $(S,T)$ and $(\widetilde S,\widetilde T)$ have equal values under every common completion, then
+$$
+ T-\widetilde T
+ =K\left[\psi\!\left(\frac{S+x}{K}\right)
+ -\psi\!\left(\frac{\widetilde S+x}{K}\right)\right]
+ \qquad(x\in J).
+$$
+The strict-increment argument in Lemma~\ref{lem:collision}, comparing $x=0$ and $x=1/2$, gives $S=\widetilde S$ and then $T=\widetilde T$. Thus \eqref{eq:completion-id} holds globally on the regular triple-sum image. Nonaffineness of $\phi$ supplies independence of $1,s,\phi(s)$.
+
+We next prove that \eqref{eq:analytic-nondegenerate} is sufficient for completion identifiability. Assume $F$ is real analytic on all of $\R^2$ and has no nonzero constant direction annihilating its gradient. Put
+$$
+ \widehat F(p)=F((p+d_\circ)/K),\qquad g=\nabla\widehat F.
+$$
+For $a,b\in J$, the determinant of the derivative of $p\mapsto(R_a(p),R_b(p))$ is
+$$
+ D_{a,b}(p)=\det[g(p+\gamma(a)),g(p+\gamma(b))].
+$$
+Suppose every such determinant vanished identically. Differentiating with respect to $b$ at $b=a$ and translating $p$ gives
+$$
+ \det[g(z),Dg(z)\gamma'(a)]=0
+ \qquad(z\in\R^2,\ a\in J).
+$$
+Two independent tangents imply $\det(g,\partial_jg)=0$ for $j=1,2$. The nondegeneracy assumption excludes $g_1\equiv0$. On a connected open ball where $g_1\ne0$, both derivatives of $g_2/g_1$ vanish, so $g_2=\kappa g_1$ for a constant $\kappa$. The real-analytic identity theorem extends this equality to $\R^2$, making $(-\kappa,1)^\T g\equiv0$. Translation and scalar rescaling of the argument give the same forbidden direction for $\nabla F$.
+
+Some fixed $a,b$ therefore have $D_{a,b}$ not identically zero. Its nonzero set intersected with $\Omega_3$ is dense and open. At every point of this set, the inverse function theorem makes $(R_a,R_b)$ locally injective, which implies \eqref{eq:completion-id}. Analyticity on the whole plane is used here; an analytic extension from a smaller domain is not assumed.
+
+For polynomial $F$, failure of \eqref{eq:analytic-nondegenerate} is equivalent to $F(z)=h(w^\T z)$ for some nonzero $w$ and univariate polynomial $h$. Indeed, a constant direction annihilating $\nabla F$ makes $F$ constant on every line in that direction; orthogonal linear coordinates reduce $F$ to a polynomial in the remaining coordinate. Conversely, differentiating $h(w^\T z)$ supplies such an annihilating direction. This proves the polynomial criterion without restrictions on coefficient signs, parity, or degree.
+
+\subsection{Quadratic Specialization and Examples}
+
+Assume $\gamma(s)=(s,s^2)^\T$, completion identifiability, and the stated $C^1$ regularity and bounds \eqref{eq:general-endpoints} on $\mathcal C_2=\{(m,q):m^2\le q\le1\}$. For an encoder $\enc=c+us+vs^2$ satisfying the identifiability condition, write
+$$
+ G=\begin{pmatrix}A&C\\C&B\end{pmatrix}
+ =\begin{pmatrix}\|u\|^2&u^\T v\\u^\T v&\|v\|^2\end{pmatrix}\succ0.
+$$
+Convexity of $w\mapsto w^\T G^{-1}w$ shows that its maximum on the gradient rectangle is attained at a corner. The endpoint condition gives
+$$
+ M_G=\max_{\sigma\in\{+,-\}}w_\sigma^\T G^{-1}w_\sigma
+ =\frac{\alpha^2B+\beta^2A+2\alpha\beta|C|}{AB-C^2}.
+$$
+For any $\mu,\nu\in\mathcal M$, the joining segment lies in the convex set $\mathcal C_2$. Integrating the gradient on that segment and applying Cauchy--Schwarz in the metric $G$ gives
+$$
+ |F(\mu)-F(\nu)|\le\sqrt{M_G}\sqrt{(\mu-\nu)^\T G(\mu-\nu)}.
+$$
+Equation~\eqref{eq:general-score-appendix} therefore gives $\Lambda_{\sq}\ge K^2/M_G$.
+
+To prove sharpness using attainable pairs, choose interior input vectors approaching the consensus endpoint whose gradient attains $M_G$, with at least two distinct components at each step. For example, near the positive endpoint use $(1-2\varepsilon,1-\varepsilon,\ldots,1-\varepsilon)$ with $\varepsilon\downarrow0$. The derivative of the moment map is
+$$
+ \frac1K\begin{pmatrix}1&\cdots&1\\2s_1&\cdots&2s_K\end{pmatrix},
+$$
+which has rank two at each such vector. An open neighborhood of each corresponding moment pair $\mu_n$ therefore lies in $\mathcal M$. Set $g_n=\nabla F(\mu_n)$, which is nonzero for large $n$. Small displacements $tG^{-1}g_n$ are attainable, and their separation quotients tend as $t\to0$ to $K^2/(g_n^\T G^{-1}g_n)$. Letting $n\to\infty$ gives the reverse bound. Thus
+\begin{equation}
+ \Lambda_{\sq}(\enc;f)
+ =\frac{K^2(AB-C^2)}{\alpha^2B+\beta^2A+2\alpha\beta|C|}.
+ \label{eq:polynomial-score}
+\end{equation}
+The convex hull supplies the lower bound, whereas actual finite-$K$ moment pairs supply the upper bound.
+
+Put $M=\alpha/\beta$. The objective in \eqref{eq:polynomial-score} is $\beta^{-2}$ times the quadratic objective in Appendix~\ref{app:quadratic-proof}. Its peak-power certificate applies to arbitrary coefficient triples $(c,u,v)$ and uses only the scalar $M$. It gives
+$$
+ A=Pb(2-b),\qquad B=Pb^2,\qquad C=0,
+$$
+where $b\in(1,2)$ uniquely satisfies
+$$
+ \alpha^2b(b-1)=\beta^2(2-b)^2.
+$$
+Uniqueness follows because the left side increases strictly on $[1,2]$, while the right side decreases strictly. Solving for $b$ gives $b_{\alpha,\beta}$ and \eqref{eq:polyopt}. The proposed curve obeys
+$$
+ |\enc^\star(s)|^2/P=1-b^2s^2(1-s^2)\le1
+ \qquad(s\in I).
+$$
+Encoders that fail the identifiability condition have zero score, so the positive optimum is global over all continuous peak-admissible encoders.
+
+For the polynomial example \eqref{eq:polyclass}, nonnegative coefficients yield $|F_m|\le\alpha$ and $|F_q|\le\beta$ on $[-1,1]\times[0,1]$. Common parity $\epsilon$ of the powers of $m$ gives
+$$
+ w_+=(\alpha,\beta)^\T,\qquad
+ w_-=((-1)^{\epsilon+1}\alpha,(-1)^\epsilon\beta)^\T,
+$$
+which supply the four corners together with their negatives. To verify identification, suppose $F(m,q)=h(am+bq)$. Dependence on both moments forces $a,b\ne0$ and $d=\deg h\ge1$. Its highest-total-degree part is a nonzero multiple of $(am+bq)^d$, containing nonzero terms with $m$ exponents zero and one. Lower-degree terms cannot cancel either term, contradicting common parity. The analytic criterion applies, proving the original polynomial result as an example of the extension.
+
+Finally, $F(m,q)=1-e^{-(q-m^2)}$ is globally real analytic with
+$$
+ \nabla F(m,q)=e^{-(q-m^2)}(-2m,1)^\T.
+$$
+On $\mathcal C_2$, $0\le q-m^2\le1$, so the gradient bounds hold with $(\alpha,\beta)=(2,1)$. At the consensus endpoints, the gradients are $(-2,1)^\T$ and $(2,1)^\T$, which also exclude any constant annihilating direction. The analytic criterion and quadratic specialization apply. This nonpolynomial desired function therefore has the same optimal encoder and squared-separation score as variance.
+
+An affine output change $\widetilde f=\eta f+\delta$, with $\eta,\delta\in\R$ and $\eta\ne0$, preserves the optimal encoder and divides its score by $\eta^2$. A fixed interval homeomorphism $h:I\to I$ likewise gives the encoder $\enc^\star\circ h$ for $f(h(s_1),\ldots,h(s_K))$, with the same peak constraint and score.

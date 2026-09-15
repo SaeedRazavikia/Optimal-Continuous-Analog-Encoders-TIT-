@@ -1,19 +1,19 @@
 \subsection{Robustness--MSE Tradeoff}
 \label{sec:pareto-evidence}
-We evaluate Corollary~\ref{cor:quadratic-pareto} for variance, $P=1$, and independent uniform or endpoint-Beta sources, where the latter means $s=2X-1$ with $X\sim\operatorname{Beta}(0.3,0.3)$. We use $K\in\{4,16\}$ and write $\eta=\gamma/\lambda_\star$ for the required fraction of optimal squared separation. Figure~\ref{fig:pareto} displays the exact small-noise frontier and its enclosing-ellipse geometry.
+We evaluate Corollary~\ref{cor:quadratic-pareto} for variance, $P=1$, $K\in\{4,16\}$, and independent uniform or endpoint-Beta sources, defined by $s=2X-1$ with $X\sim\operatorname{Beta}(0.3,0.3)$. We write $\eta=\gamma/\lambda_\star$ for the required fraction of optimal squared separation. Figure~\ref{fig:pareto} shows the optimal frontier for the asymptotic MSE coefficient and its enclosing-ellipse geometry.
 
 
 
-For uniform sources, the prior optimum retains $83.91\%$ of separation at $K=4$ and $60.91\%$ at $K=16$. A $90\%$ floor is active in both cases and selects the same encoder coefficients $a=0.9038538$, $b=1.4278414$, and $c=-1$. The source-dependent small-noise reductions are $17.68\%$ and $29.07\%$, respectively, while the sharp disturbance factor increases by $5.41\%$. For the endpoint-Beta prior at $K=4$, the unconstrained prior optimum already retains $91.67\%$, so a $90\%$ floor remains inactive.
+For uniform sources, the prior optimum retains $83.91\%$ of separation at $K=4$ and $60.91\%$ at $K=16$. A $90\%$ floor is active in both cases, giving $a=0.9038538$, $b=1.4278414$, and $c=-1$. The reductions in the asymptotic MSE coefficient are $17.68\%$ and $29.07\%$, respectively, while the sharp disturbance factor increases by $5.41\%$. For endpoint-Beta sources at $K=4$, the prior optimum retains $91.67\%$, so the $90\%$ floor is inactive.
 
-We also evaluate eight prescribed retentions per scenario at $P/N_0=20$ dB, using $200{,}000$ independent source/noise draws per scenario and shared draws across encoders. Table~\ref{tab:pareto} compares the leading-coefficient prediction with measured gains at the $90\%$ floor. The intervals use the paired delta-method variance of the relative MSE reduction and provide pointwise $95\%$ Monte Carlo coverage. Their finite-noise values assess these specified designs; the theorem concerns the limiting coefficient.
+We evaluate eight prescribed retentions per scenario at $P/N_0=20$ dB using $200{,}000$ independent source/noise draws, shared across encoders. Table~\ref{tab:pareto} compares predicted and measured gains at the $90\%$ floor, with nominal pointwise $95\%$ confidence intervals from the paired delta method. These finite-SNR measurements assess the specified designs; the theorem concerns the limiting coefficient.
 
 \begin{table}[t]
-\caption{MSE reductions relative to the separation-optimal variance encoder at a $90\%$ required separation floor. U: uniform; B: endpoint Beta. All entries are percentages.}
+\caption{MSE reductions (\%) from the separation-optimal variance encoder at a $90\%$ separation floor. U: uniform; B: endpoint Beta.}
 \label{tab:pareto}
 \centering\small
 \begin{tabular}{@{}ccrr@{}}\toprule
-Prior & $K$ & Small-noise limit & $20$ dB, paired $95\%$ interval\\\midrule
+Prior & $K$ & High-SNR limit & $20$ dB, paired $95\%$ interval\\\midrule
 U & 4 & 17.68 & $17.99\ [17.84,18.14]$\\
 U & 16 & 29.07 & $29.10\ [29.02,29.19]$\\
 B & 4 & 9.79 & $10.85\ [10.70,11.00]$\\
@@ -21,4 +21,6 @@ B & 16 & 25.09 & $25.12\ [25.00,25.24]$\\\bottomrule
 \end{tabular}
 \end{table}
 
-Twelve comparisons with a separately parameterized convex problem agree to $1.04\times10^{-9}$ relative objective error. Two runs report line-search termination despite residuals within $2.41\times10^{-10}$; the package records these consistency checks, not certificates. A second implementation reproduces the two uniform $90\%$ points, the exponential rational certificate, sixteen coefficient/moment cases, and a nondiagonal decoder comparison. These separate implementations use the same environment; external reproduction remains distinct.
+Twelve comparisons with a separately parameterized convex problem agree within $1.04\times10^{-9}$ relative objective error. Two runs report line-search termination despite residuals within $2.41\times10^{-10}$; these are consistency checks, not certificates. A second implementation reproduces the two uniform $90\%$ points, exponential rational certificate, sixteen coefficient/moment cases, and nondiagonal decoder comparison. Both implementations use the same environment and do not constitute external reproduction.
+
+We next vary the noise power to assess clipping and nonlinear receiver effects beyond this regime.

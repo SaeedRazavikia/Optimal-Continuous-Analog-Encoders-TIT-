@@ -1,22 +1,32 @@
-# Optimal Continuous Analog Encoders for Moment-Based Computation
+# Geometric Optimization of Continuous Encoders for Moment-Based Computation
 
-Author: Saeed Razavikia. Revised 13 September 2026.
+Saeed Razavikia. Revised September 15, 2026.
 
-Open `manuscript_submission.pdf` for the single-column, double-spaced version, or `manuscript.pdf` for the two-column IEEE-format paper. Run `python3 build.py` to build both; `SUBMISSION_FORMAT.md` documents the layouts. Edit `manuscript.tex`, `sections/`, and `bibliography.tex` to change the manuscript. The package contains six fully editable TikZ/PGFPlots figures, their plotting tables, numerical data, exact rational synthesis witnesses, reusable decoders, and executable reproduction scripts. Every displayed figure compiles directly from LaTeX; no figure PDF or raster image is embedded.
+The manuscript studies identifiability and robust computation of real-valued moment-based functions over a multiple-access channel using one shared continuous encoder and one complex channel use. It characterizes the required encoder structure under stated assumptions, optimizes peak-constrained separation, and develops sharp decoding and a robustness–high-SNR tradeoff. The extension treats two prescribed additive statistics under a common-completion identification condition.
 
-Start with `SUBMISSION_FORMAT.md` for the current layouts and build commands, `PROOF_ORGANIZATION.md` for proof placement, `PRESENTATION_REVISION.md` for the earlier narrative and TikZ revision, `SUBMISSION_PREPARATION.md` for the submission package, `DEVELOPMENT_RECORD.md` for the preceding technical strengthening, `REVISION_RESPONSE.md` for the earlier six-issue revision, and `REPRODUCIBILITY.md` for execution instructions. `EXTERNAL_REVIEW_PACKET.md` provides a specialist review brief and commands for reproduction in a fresh environment. `notes/novelty_review.md` documents the closer Cauchy–Pexider precedent and the precise distinction retained in the contribution. `notes/proof_review.md` records the independent internal proof review; it is not external peer review.
+Build the 51-page submission version (including references) with:
 
-The main contribution is the chain from scalar exactness to necessary encoder geometry, peak-constrained optimization, and sharp uniform decoding. The development now adds a general source-averaged small-noise formula and a global robustness-constrained encoder frontier for the specified decoder. An equivalent enclosing-ellipse formulation uses six variables for separation synthesis and five variables for the constrained small-noise problem. Quadratic features admit an explicit frontier; the general formulation retains a continuum of peak constraints.
+~~~sh
+latexmk -pdf manuscript.tex
+~~~
 
-Implementation bounds quantify encoder approximation, peak-feasible quantization, and residual channel errors. A separate compactness corollary gives qualitative approximate rigidity under a common encoder continuity modulus and a fixed decoder Lipschitz bound; it supplies no explicit approximation rate. `notes/structural_review.md` records the additional mathematical review, and `notes/novelty_challenge.md` records the closer literature comparison.
+Build the 57-page extended arXiv version with:
 
-The finite-noise experiments evaluate specified designs and decoders; neither the experiments nor the small-noise frontier certify unrestricted finite-noise MSE optimality. `code/pareto_frontier.py` reproduces the new variance-frontier example. `code/independent_reproduce.py` checks the exponential certificate, selected analytic quantities, decoder calculations, and two frontier points with a second implementation. `notes/independent_reproduction.md` explains the method and its limits: this is a second implementation in the same environment, not external human review or different-machine reproduction. External specialist review and historical-originality confirmation remain outstanding.
+~~~sh
+latexmk -pdf manuscript_arxiv.tex
+~~~
 
-Original roadmap materials and reconstruction history are retained as reference context, not as current research results.
+Both builds use the same font, margins, spacing, main results and proofs. The arXiv wrapper enables the ancillary criterion, approximate-rigidity and Lean-verification appendices. The submission excludes those appendices; their sources remain in this package. The former assumptions table is replaced by the concise assumptions in Section II-D.
 
+Edit the LaTeX files in the root and sections directory, and use bibliography.bib for references. The figure sources and plotting data are included. The source package also contains the numerical code, archived experiments, and exact rational certificates. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for commands and [NUMERICAL_SOURCE.json](NUMERICAL_SOURCE.json) for their original source identities.
 
-The verified Lean artifact is documented in `FORMALIZATION.md`; pinned dependencies, proof sources, a complete manuscript coverage inventory, and the verification report are included in `formalization/`. The current artifact checks 405 public theorem and lemma declarations in 29 modules. It includes the full general operational score, operational design attainment over all affine-feature curves, attained Gram-risk frontiers, small-noise limiting arguments, stronger rigidity bridges, and the earlier variance, coefficient, decoder, and implementation results. The entire manuscript and unrestricted continuous-encoder theorem remain unformalized.
+The Lean project is in [formalization/](formalization/). Its [coverage inventory](formalization/COVERAGE.md) distinguishes complete formal statements from conditional components and remaining manuscript obligations. The full continuous-encoder converse and some further specializations remain incomplete. A successful build and axiom audit certify the declarations actually written, not unformalized paper results.
 
-Proof placement and the merged encoder-design section are documented in `PROOF_ORGANIZATION.md`. Detailed proofs appear in the appendices, with selected short arguments retained in the main text.
+Run the pinned Lean build and audit from the formalization directory:
 
-The Lean artifact is ready for a standalone GitHub repository. `formalization/PUBLISH.md` explains upload and verification; `formalization/CITATION.cff` supplies software citation metadata. Upload awaits a repository destination, so no live repository link is claimed in the manuscript.
+~~~sh
+lake exe cache get
+python3 verify.py
+~~~
+
+The audit records exact proof-source hashes and logical dependencies. The project uses no additional mathematical axioms or unfinished proofs. [REVISION_NOTES.md](REVISION_NOTES.md) describes the current changes; older development and submission notes retained in the repository describe earlier snapshots.

@@ -1,11 +1,13 @@
 \subsection{Optimal Design}\label{sec:synthesis}
-We now assume $\phi\in C(I)\cap C^1((-1,1))$ and $\psi\in C^1(I)$, each strictly convex or strictly concave. Finite endpoint slopes of the mean-dependent term provide a uniform disturbance guarantee; $\phi$ needs differentiability only in the interval interior. For the encoder coefficients in \eqref{eq:affine}, define
+The characterization leaves finitely many coefficients to choose. We now optimize $u,v\in\R^2$ together with the offset $c$, using regime S: $\phi\in C(I)\cap C^1((-1,1))$ and $\psi\in C^1(I)$, each strictly convex or strictly concave. Finite endpoint slopes of the mean-dependent term provide a uniform disturbance guarantee; $\phi$ needs differentiability only in the interval interior.
+
+Let $\mathbb S^n$ denote the real symmetric $n\times n$ matrices, and let $\mathbb S^n_+$ and $\mathbb S^n_{++}$ denote its positive semidefinite and positive definite subsets; $H\succeq0$ and $H\succ0$ mean positive semidefinite and positive definite, respectively. For the encoder coefficients in \eqref{eq:affine}, we define
 \begin{align*}
- G&=\begin{pmatrix}A&C\\ C&B\end{pmatrix},\quad
- w_\pm=\begin{pmatrix}-\psi'(\pm1)\\1\end{pmatrix},\\
- A&=|u|^2,\quad B=|v|^2,\quad C=\operatorname{Re}(u\overline v).
+ G&=\begin{pmatrix}A&C\\ C&B\end{pmatrix}\in\mathbb S^2_{++},\quad
+ w_\pm=\begin{pmatrix}-\psi'(\pm1)\\1\end{pmatrix}\in\R^2,\\
+ A&=|u|^2,\quad B=|v|^2,\quad C=u^\T v=\operatorname{Re}(u\overline v),
 \end{align*}
-Here $A,B$ are the squared lengths of the two feature directions and $C$ is their real inner product. The Gram matrix $G$ therefore records the part of the transmit geometry that affects received distances; $C=0$ means orthogonal directions. The vectors $w_\pm$ describe the target sensitivity at the extreme input means.
+where the complex expression for $C$ uses the identification $\R^2\cong\C$. The scalars $A,B$ are the squared lengths of $u,v$, and $C$ is their real inner product. The Gram matrix $G$ therefore records the part of the transmit geometry that affects received distances; $C=0$ means orthogonal directions. The vectors $w_\pm$ describe the sensitivity of $f_{\phi,\psi}$ at the extreme input means.
 
 \begin{theorem}
 \label{thm:sdp}
@@ -28,10 +30,12 @@ The infimum is approached at arbitrarily small received distance. The global opt
 \end{aligned}
 \label{eq:sdp}
 \end{equation}
-where $z(s)=(1,s,\phi(s))^\T$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields an exact planar encoder.
+where $z(s)=(1,s,\phi(s))^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. This is a convex semidefinite problem with seven real variables and a continuum of scalar peak constraints. Its optimum is attained and yields a planar encoder satisfying the identifiability condition.
 \end{theorem}
 See Appendix~\ref{app:design-proof} for the score calculation and the proof of optimality and attainment. Equation~\eqref{eq:exactscore} separates two design roles: $\phi$ determines the feasible peak geometry, while $\psi$ enters through its two extreme slopes.
 
-To implement a solution, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$, choose $L^{\T}L=G$, and set $c=(L^\T)^{-1}\ell$. The columns of $L$ give $u,v$. Reducing $h$ to $\ell^{\T}G^{-1}\ell$ preserves the score and can only lower the peak energy, so a planar encoder always suffices.
+The score balances sensitivity of $f_{\phi,\psi}$ against the received distance available in the directions $u$ and $v$. Enlarging a direction can reduce its noise amplification, but the peak constraint couples both directions through the entire curve. The semidefinite formulation performs this allocation jointly with the curve's offset.
 
-The peak constraint must hold between samples. Section~\ref{sec:examples} gives explicit curves with analytic certificates, and Section~\ref{sec:certified} provides certified numerical design for other smooth features.
+To implement a solution, write $H=\left(\begin{smallmatrix}h&\ell^\T\\\ell&G\end{smallmatrix}\right)$, choose an invertible $L\in\R^{2\times2}$ with $L^{\T}L=G$, and set $c=(L^\T)^{-1}\ell$. The columns of $L$ give $u,v$. Reducing $h$ to $\ell^{\T}G^{-1}\ell$ preserves the score and can only lower the peak energy, so a planar encoder always suffices.
+
+The peak constraint must hold between samples. Section~\ref{sec:examples} gives explicit curves with analytic certificates, and Section~\ref{sec:certified} provides certified numerical design for other smooth preprocessing functions $\phi$.

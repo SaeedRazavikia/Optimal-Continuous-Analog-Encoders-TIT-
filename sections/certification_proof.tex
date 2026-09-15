@@ -1,4 +1,5 @@
 \section{Grid Certificate}\label{app:grid-proof}
+The grid problem gives an upper bound by omitting peak constraints. To obtain a feasible continuous encoder, we bound the energy excess between samples and remove it by scaling. Fixed spanning inputs make this bound uniform as the grid is refined.
 \begin{proof}[Proof of Theorem~\ref{thm:certifiedgrid}]
 Differentiating the peak function $q_H$ defined in Section~\ref{sec:certified} gives
 $$
@@ -8,5 +9,5 @@ $$
 $$
 On each interval of length at most $h$, the linear-interpolation remainder is bounded in absolute value by $M_hh^2/8$. The sampled peak inequalities therefore imply $q_{H_h}(s)\le P+M_hh^2/8$ throughout $I$. Scaling preserves the homogeneous semidefinite constraints and enforces the continuous peak bound. Dropping peak constraints gives the upper inequality in \eqref{eq:certifiedgrid}.
 
-Let $Z$ contain the three fixed spanning feature vectors. As in the proof of Theorem~\ref{thm:sdp}, every grid-feasible Gram matrix satisfies $\|H\|_2\le3P\|Z^{-1}\|_2^2$. This uniform bound proves existence of a grid optimizer, bounds $M_h$ independently of $h$, and bounds $U_h$ through $U_h\le G_{22}$. Consequently, $U_h(1-\rho_h)=O(h^2)$.
+Let $Z\in\R^{3\times3}$ have columns equal to the three fixed spanning vectors $z(s)$. As in the proof of Theorem~\ref{thm:sdp}, every grid-feasible Gram matrix satisfies $\|H\|_2\le3P\|Z^{-1}\|_2^2$. This uniform bound proves existence of a grid optimizer, bounds $M_h$ independently of $h$, and bounds $U_h$ through $U_h\le G_{22}$. Consequently, $U_h(1-\rho_h)=O(h^2)$.
 \end{proof}

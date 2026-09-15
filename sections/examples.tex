@@ -1,76 +1,20 @@
 \section{Optimal Curves}\label{sec:examples}
 
-We now turn the convex characterization into explicit encoder curves. Figure~\ref{fig:curves} shows how the prescribed local feature and target function determine the optimal scale, translation, and peak-contact pattern.
+The convex design problem gives explicit solutions for several useful desired functions. We first present quadratic and quartic preprocessing functions $\phi(s)$ in \eqref{eq:target}, including variance and the fourth-order Jensen gap. We then extend the framework to general functions of two prescribed additive statistics. Figure~\ref{fig:curves} illustrates the resulting modulation curves and the source values at which they use the full allowed peak power.
 
-\subsection{Quadratic Features}
-Set $\phi(s)=s^2$ and let $\psi\in C^1(I)$ be even and strictly convex or strictly concave.
-We set $M=|\psi'(1)|>0$ and $t=M/2$, and define
-\begin{align*}
- b&=\frac{2}{1-t^2+t\sqrt{t^2+2}},\\
- a&=\sqrt{b(2-b)}.
-\end{align*}
-For numerical evaluation, the equivalent denominator $1+2t/(\sqrt{t^2+2}+t)$ avoids cancellation at large $t$.
-
-\begin{theorem}
-\label{thm:parabola}
-For every $K\ge4$, an optimal encoder for $f=Q/K-\psi(S/K)$ over all continuous peak-admissible maps is
+\subsection{Quadratic and Quartic Preprocessing Functions}
+\label{sec:quadratic-quartic}
+For $p\in\{2,4\}$, write $\phi_p(s)=s^p$. Let $\psi:I\to\R$ be even, continuously differentiable on $I=[-1,1]$, and strictly convex or strictly concave. Its endpoint slope $M=|\psi'(1)|$ is positive. For $\phi(s)=s^2$, define
+$$
+ b=\frac{2\bigl(\sqrt{M^2+8}+M\bigr)}{\sqrt{M^2+8}+3M},
+ \qquad a=\sqrt{b(2-b)}.
+$$
+Here $1<b<2$. For $\phi(s)=s^4$, let $\rho\in(0,1/3)$ be the unique solution of
 \begin{equation}
-\begin{aligned}
- \enc^\star(s)&=\sqrt P\,[a s+i(bs^2-1)],\\
- \Lambda_{\sq}^\star(f)&=K^2P\,b^2(b-1).
-\end{aligned}
- \label{eq:parabola}
-\end{equation}
-Thus an infinite-dimensional class of nonlinear mean-dependent terms has an explicit optimal encoder determined by $M$ alone.
-\end{theorem}
-\begin{proof}
-Nonexact encoders have zero score. For every exact encoder, rigidity gives a nondegenerate quadratic curve. Since $\psi$ is even, Theorem~\ref{thm:sdp} gives
-$$
- \frac{\Lambda_{\sq}}{K^2}
- =\frac{AB-C^2}{A+M^2B+2M|C|}.
-$$
-Normalize $P=1$. The stated parameter satisfies $1<b<2$ and
-$$M^2b(b-1)=(2-b)^2.$$
-We prove the converse directly from the peak constraints. Averaging those at $\pm1$ gives $A+|c+v|^2\le1$, while the constraint at zero gives $|c|^2\le1$. Set $L=bA+(b-1)B$ and $D=A+M^2B$. The identity
-\begin{align*}
- L+|bc+v|^2
- =b\bigl(A+|c+v|^2\bigr)+b(b-1)|c|^2\le b^2
-\end{align*}
-implies $L\le b^2$. The parameter equation then yields the certificate
-\begin{align*}
- b(b-1)DL-bAB
- &=(b-1)\bigl[bA-(2-b)B\bigr]^2\ge0.
-\end{align*}
-Hence $AB\le b^2(b-1)D$. Subtracting $C^2$ from the numerator and adding $2M|C|$ to the denominator preserves the bound, proving $\Lambda_{\sq}/K^2\le b^2(b-1)$.
-
-The proposed curve has $A=b(2-b)$, $B=b^2$, and $C=0$. It attains equality and satisfies the full peak identity
-$$
- |\enc_b(s)|^2=1-b^2s^2(1-s^2)\le1\qquad(s\in[-1,1]).
-$$
-Scaling by $\sqrt P$ restores the stated power and score. The parameter formula follows by solving its quadratic equation; its unique solution in $(1,2)$ also has the stable form
-$$b=\frac{2\bigl(\sqrt{M^2+8}+M\bigr)}{\sqrt{M^2+8}+3M}.$$
-\end{proof}
-
-Examples include $\psi(m)=m^{2r}$ for every integer $r\ge1$, $\psi(m)=-\eta m^{2r}$ for $\eta>0$, and $\psi(m)=m^2+\eta m^4$ for $\eta\ge0$. In the last case $M=2+4\eta$. Strict convexity permits a vanishing second derivative at isolated points, so $m^4$ satisfies the theorem. More generally, different even strictly convex mean functions with the same endpoint slope share the same optimal geometry.
-
-For variance, $M=2$ and $b=2/\sqrt3$, so
-$$
- \Lambda_{\sq}^\star(V)=\frac{4K^2P}{9+6\sqrt3}.
-$$
-The baseline $\sqrt P[s+i(s^2-1)]$ has score $K^2P/5$, so the improvement is $3.1337\%$ in squared separation. This is not an MSE improvement. We formalize its operational score and optimum over all quadratic coefficient curves for every $P>0$ and $K\ge2$ in Lean~4; Appendix~\ref{app:lean} states the scope and the remaining continuous-encoder reduction.
-
-\begin{figure*}[t]
-\centering\paperfigure{figures/tikz/optimal_curves}
-\caption{Optimal encoders and analytic peak contacts for $K\ge4$, with $\bar\lambda^\star=\Lambda_\sq^\star/(K^2P)$. The baselines are $\sqrt P[s+i(s^2-1)]$ for variance and $mq$, and $(2\sqrt P/\sqrt5)[s+i(s^4-1/2)]$ for the quartic Jensen gap. All curves satisfy the same pointwise peak constraint.}
-\label{fig:curves}\end{figure*}
-
-\subsection{Quartic Features}
-We next set $\phi(s)=s^4$ and again assume $\psi$ is even and strictly convex or strictly concave. Put $M=|\psi'(1)|$. Let $\rho$ be the unique solution in $(0,1/3)$ of
-\begin{equation}
- 8\rho^2(1+\rho)(1+3\rho)=M^2(1-3\rho).
+ 8\rho^2(1+\rho)(1+3\rho)=M^2(1-3\rho),
  \label{eq:quarticroot}
 \end{equation}
-The left side increases strictly from zero, and the right side decreases strictly to zero on this interval. Define
+and define
 \begin{equation}
 \begin{aligned}
  d_\rho&=1+2\rho+9\rho^2,\qquad
@@ -80,46 +24,167 @@ The left side increases strictly from zero, and the right side decreases strictl
 \end{aligned}
 \label{eq:quarticcoefficients}
 \end{equation}
+The root is well defined because the left side of \eqref{eq:quarticroot} increases strictly from zero, whereas the right side decreases strictly to zero. The corresponding normalized separation constants are
+$$
+ \lambda_2=b^2(b-1),\qquad
+ \lambda_4=\frac{1}{M^2/a_\rho^2+1/b_\rho^2}
+ =\frac{8\rho}{d_\rho\,[M^2+2\rho(1+\rho)^2]}.
+$$
 
-\begin{theorem}
-\label{thm:quartic}
-For every $K\ge4$, an optimal continuous encoder for $K^{-1}\sum_k s_k^4-\psi(S/K)$ is
+\begin{theorem}[Quadratic and quartic encoders]
+\label{thm:parabola}\label{thm:quartic}
+Let $K\ge4$ be an integer and let $P>0$. Under the preceding assumptions on $\psi$, the desired functions $f_{\phi,\psi}:I^K\to\R$ in \eqref{eq:target} admit the following globally optimal encoders among all continuous maps $\enc:I\to\C$ satisfying $|\enc(s)|^2\le P$ for every $s\in I$:
+for $\phi(s)=s^2$,
 \begin{equation}
- \boxed{\enc^\star(s)=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)]}.
- \label{eq:quarticmap}
+\begin{aligned}
+ \enc_2^\star(s)&=\sqrt P\,[a s+i(bs^2-1)],\qquad s\in I,\\
+ \Lambda_{\sq}^\star(f_{\phi_2,\psi})&=K^2P\lambda_2;
+\end{aligned}
+ \label{eq:parabola}
 \end{equation}
-Its optimal squared separation is
+for $\phi(s)=s^4$,
 \begin{equation}
- \boxed{\Lambda_{\sq}^\star
- =\frac{K^2P}{M^2/a_\rho^2+1/b_\rho^2}
- =\frac{8K^2P\rho}
- {d_\rho\,[M^2+2\rho(1+\rho)^2]}}.
+\begin{aligned}
+ \enc_4^\star(s)&=\sqrt P\,[a_\rho s+i(b_\rho s^4+c_\rho)],\qquad s\in I,\\
+ \Lambda_{\sq}^\star(f_{\phi_4,\psi})&=K^2P\lambda_4.
+\end{aligned}
  \label{eq:quarticscore}
 \end{equation}
 \end{theorem}
-Reflection reduces the design to orthogonal coefficients, and two active peak constraints certify global optimality. Appendix~\ref{app:quartic-proof} gives the proof.
+Appendix~\ref{app:quartic-proof} proves both claims and verifies the peak constraint on the entire interval. For either preprocessing function, $\psi$ affects the optimal coefficients only through $M$.
 
-For the fourth-order Jensen gap, $\psi(m)=m^4$ and $M=4$. Equation~\eqref{eq:quarticroot} becomes
+For variance, $\phi(s)=\psi(s)=s^2$, so $M=2$, $b=2/\sqrt3$, and
 $$
- 3\rho^4+4\rho^3+\rho^2+6\rho-2=0,
- \qquad\rho\simeq0.297207855283.
+ \Lambda_{\sq}^\star(V)=\frac{4K^2P}{9+6\sqrt3}.
 $$
-Hence an optimal map and value are
-\begin{align*}
- \operatorname{Re}\enc^\star(s)/\sqrt P&\simeq0.997539156206\,s,\\
- \operatorname{Im}\enc^\star(s)/\sqrt P&\simeq0.997413500602\,s^4-0.927301933535,
-\end{align*}
-$$
- \Lambda_{\sq}^\star\simeq0.058533506998\,K^2P.
-$$
-The formulas defining the root and coefficients are exact; these decimals are for interpretation. Four source values use full peak energy: $s=\pm1$ and $s=\pm\sqrt\rho$. The center has strictly smaller energy. This differs from the optimal quadratic map, whose contacts occur at $-1,0,1$.
+For the fourth-order Jensen gap, $\phi(s)=\psi(s)=s^4$, so $M=4$ and $\lambda_4\simeq0.058533507$. The quadratic curve reaches the peak power at $s=-1,0,1$; the quartic curve reaches it at $s=\pm1$ and $s=\pm\sqrt\rho$. Thus changing the preprocessing function changes both the modulation curve and its active peak constraints.
 
+The theorem also covers $\psi(m)=m^{2r}$ for every integer $r\ge1$, $\psi(m)=-\eta m^{2r}$ for $\eta>0$, and $\psi(m)=m^2+\eta m^4$ for $\eta\ge0$. In the last case, $M=2+4\eta$. Strict convexity allows a vanishing second derivative at isolated points; in particular, it includes $m^4$.
 
-\subsection{Moment Interaction}
-The interaction $f=mq$ illustrates a change of readout within the same quadratic feature family. Under the same continuous shared-encoder model and $K\ge4$, we obtain
+\begin{figure*}[t]
+\centering\paperfigure{figures/tikz/optimal_curves}
+\caption{Optimal encoders and source values attaining the peak power for $K\ge4$, with $\bar\lambda^\star=\Lambda_\sq^\star/(K^2P)$. The baselines are $\sqrt P[s+i(s^2-1)]$ for variance and the moment product $mq$, and $(2\sqrt P/\sqrt5)[s+i(s^4-1/2)]$ for the quartic Jensen gap. All curves satisfy the same pointwise peak constraint.}
+\label{fig:curves}\end{figure*}
+
+\subsection{Extension to Two Prescribed Additive Statistics}
+\label{sec:polynomial}\label{sec:extension}
+The preceding family combines two statistics in the specific form $t-\psi(m)$. Functions such as the moment product $mq$ also use two sums, but combine them differently. We now give a common characterization and design theorem that includes both forms, with polynomial functions of moments as one example. Let $J=(-1,1)$, and fix
+\begin{equation}
+\begin{aligned}
+ \gamma(s)&=(\varphi_1(s),\varphi_2(s))^\T\in\R^2,\qquad
+ \boldsymbol\mu_\gamma(\mathbf s)=\frac1K\sum_{k=1}^K\gamma(s_k),\\
+ f(\mathbf s)&=F(\boldsymbol\mu_\gamma(\mathbf s)),\qquad
+ \mathcal M=\boldsymbol\mu_\gamma(I^K),\quad F\in C(\mathcal M;\R).
+\end{aligned}
+ \label{eq:general-function}
+\end{equation}
+Here $\varphi_1,\varphi_2:I\to\R$ are prescribed local preprocessing functions, and $F$ combines their averages at the receiver. We assume $\gamma\in C(I;\R^2)\cap C^1(J;\R^2)$ and linear independence of the three real functions $1,\varphi_1,\varphi_2$; equivalently, $\gamma(I)$ is not contained in an affine line. The original family uses $\gamma(s)=(s,\phi(s))^\T$ and $F(a,b)=b-\psi(a)$. Other choices include the variance of squared observations, $\gamma(s)=(s^2,s^4)^\T$ and $F(a,b)=b-a^2$.
+
+If we require only continuity and allow $\gamma$ to be chosen, \eqref{eq:general-function} describes precisely the continuous desired functions that admit identifiable computation with a shared continuous planar encoder. Such an encoder supplies its two coordinates as $\gamma$; conversely, a scaled version of any bounded continuous $\gamma$ transmits the two sums. Prescribing $\gamma$ raises a further question: must every encoder permitting identifiable computation of $f$ preserve these particular sums? This requires $F$ to distinguish them sufficiently. For example, $F(a,b)=a$ ignores the second sum.
+
+We state this additional condition using common completions of three inputs. It is a property of the prescribed statistics and $F$, separate from the identifiability condition \eqref{eq:exactness} for an encoder. Define
+$$
+ T_3(x,y,z)=\gamma(x)+\gamma(y)+\gamma(z),\qquad
+ \Omega_3=\{T_3(x,y,z):(x,y,z)\in J^3,\ \operatorname{rank}DT_3(x,y,z)=2\}.
+$$
+This set is nonempty and open. Fix a filler input $s_\circ\in J$ and put $d_\circ=(K-4)\gamma(s_\circ)$. For $p\in\Omega_3$ and $x\in J$, define the completed function value $R_x(p)=F((p+\gamma(x)+d_\circ)/K)$. Its argument belongs to the actual attainable set $\mathcal M$. We require a dense open subset $\mathcal O\subseteq\Omega_3$ such that each $p_0\in\mathcal O$ has an open neighborhood $B\subseteq\Omega_3$ satisfying
+\begin{equation}
+ \forall p,\widetilde p\in B,\qquad
+ [R_x(p)=R_x(\widetilde p)\ \text{for every }x\in J]
+ \ \Longrightarrow\ p=\widetilde p.
+ \label{eq:completion-id}
+\end{equation}
+Thus nearby sums can be distinguished through their desired function values under common remaining inputs. These comparisons are used only in the proof and do not require additional transmissions. For $\gamma(s)=(s,\phi(s))^\T$ and $F(a,b)=b-\psi(a)$, Lemma~\ref{lem:collision} verifies this condition under the original rigidity assumptions.
+
+\begin{theorem}[Extension to two additive statistics]
+\label{thm:extension}\label{thm:polynomial}
+Let $K\ge4$, $P>0$, and let \eqref{eq:general-function} satisfy the regularity, independence, and common-completion condition stated above.
+\begin{enumerate}
+\item A continuous encoder $\enc:I\to\R^2\cong\C$ satisfies the identifiability condition \eqref{eq:exactness} for $f$ if and only if
+$$
+ \enc(s)=c+\mathsf U\gamma(s),\qquad s\in I,\quad
+ c\in\R^2,\quad\mathsf U\in\R^{2\times2},\quad\det\mathsf U\ne0.
+$$
+\item If $F$ is additionally nonconstant and Lipschitz on $\mathcal M$ in the Euclidean norm, then $\Lambda_\sq^\star(f)=K^2\lambda_\gamma^\star$, where $\lambda_\gamma^\star>0$ is the attained optimum of
+\begin{equation}
+\begin{aligned}
+ \text{maximize}\quad &\lambda\\
+ \text{over}\quad &H\in\mathbb S^3,\quad\lambda\ge0,\\
+ \text{subject to}\quad &H\succeq0,\\
+ &z_\gamma(s)^\T H z_\gamma(s)\le P\qquad(s\in I),\\
+ &(\mu-\nu)^\T G(\mu-\nu)\ge\lambda|F(\mu)-F(\nu)|^2
+       \qquad(\mu,\nu\in\mathcal M).
+\end{aligned}
+ \label{eq:general-sdp}
+\end{equation}
+Here $z_\gamma(s)=(1,\gamma(s)^\T)^\T\in\R^3$ and $G$ is the lower-right $2\times2$ block of $H$. Every optimizer yields a planar encoder that satisfies the identifiability condition for $f$ and the peak constraint.
+\end{enumerate}
+\end{theorem}
+Appendix~\ref{app:polynomial} proves the theorem. Program~\eqref{eq:general-sdp} has the same seven scalar variables as \eqref{eq:sdp}; the general postprocessing function requires constraints over attainable pairs in place of the two endpoint inequalities. The finite-$K$ set $\mathcal M$ need not be convex, so replacing it by its convex hull need not preserve the optimum. The theorem characterizes the exact program; finite discretization requires a separate accuracy certificate.
+
+\emph{Verifying the completion condition.} A useful sufficient condition is that $F$ extend to a real analytic function on all of $\R^2$ and satisfy
+\begin{equation}
+ \forall\ell\in\R^2,\qquad
+ [\ell^\T\nabla F\equiv0\text{ on }\R^2]\ \Longrightarrow\ \ell=0.
+ \label{eq:analytic-nondegenerate}
+\end{equation}
+For polynomial $F$, this excludes precisely functions of one linear combination, $F(z)=h(w^\T z)$ with $w\ne0$ and univariate polynomial $h$. Arbitrary coefficient signs, mixed parity, and polynomial degree are allowed for this encoder classification. Appendix~\ref{app:polynomial} proves the sufficient condition. The Lipschitz assumption for design holds, for example, whenever $F$ extends to a $C^1$ function on a neighborhood of $\operatorname{conv}\gamma(I)$.
+
+\emph{An explicit quadratic specialization.} For $\gamma(s)=(s,s^2)^\T$, retain \eqref{eq:completion-id} and suppose $F$ is $C^1$ on a neighborhood of $\mathcal C_2=\{(m,q)\in\R^2:m^2\le q\le1\}$. Set $w_\pm=\nabla F(\pm1,1)$. If constants $\alpha,\beta>0$ satisfy
+\begin{equation}
+\begin{aligned}
+ &|F_m(m,q)|\le\alpha,\quad |F_q(m,q)|\le\beta
+       \qquad((m,q)\in\mathcal C_2),\\
+ &\{w_+,-w_+,w_-,-w_-\}
+   =\{(\epsilon_1\alpha,\epsilon_2\beta)^\T:\epsilon_1,\epsilon_2\in\{-1,1\}\},
+\end{aligned}
+ \label{eq:general-endpoints}
+\end{equation}
+then the endpoint argument and quadratic peak-power certificate give an explicit optimum. Define
+$$
+ b_{\alpha,\beta}
+ =\frac{2\bigl(\sqrt{\alpha^2+8\beta^2}+\alpha\bigr)}
+ {\sqrt{\alpha^2+8\beta^2}+3\alpha},\qquad
+ a_{\alpha,\beta}=\sqrt{b_{\alpha,\beta}(2-b_{\alpha,\beta})}.
+$$
+An optimal encoder over $\mathcal E_P$ and its score are
+\begin{equation}
+\begin{aligned}
+ \enc^\star(s)&=\sqrt P\,[a_{\alpha,\beta}s+i(b_{\alpha,\beta}s^2-1)],\qquad s\in I,\\
+ \Lambda_{\sq}^\star(f)&=\frac{K^2P}{\beta^2}
+ b_{\alpha,\beta}^2(b_{\alpha,\beta}-1).
+\end{aligned}
+ \label{eq:polyopt}
+\end{equation}
+The proof in Appendix~\ref{app:polynomial} establishes sharpness using attainable perturbations near the two consensus inputs. Conditions~\eqref{eq:general-endpoints} are additional sufficient assumptions for this explicit formula; they are not required by the general design program.
+
+\emph{Polynomial functions of the first two moments.} Polynomial functions of moments provide an example of this specialization:
+\begin{equation}
+ f(\mathbf s)=F(m,q),\qquad
+ F(m,q)=\sum_{(i,j)\in\mathcal I}a_{ij}m^i q^j,
+ \label{eq:polyclass}
+\end{equation}
+where $\mathcal I\subset\mathbb Z_{\ge0}^2$ is finite, $a_{ij}\ge0$, and all exponents $i$ with $a_{ij}>0$ have a common parity $\epsilon\in\{0,1\}$. If
+$$
+ \alpha=F_m(1,1)=\sum_{(i,j)\in\mathcal I}i a_{ij}>0,\qquad
+ \beta=F_q(1,1)=\sum_{(i,j)\in\mathcal I}j a_{ij}>0,
+$$
+then both \eqref{eq:completion-id} and \eqref{eq:general-endpoints} hold, and \eqref{eq:polyopt} follows. The sign and parity restrictions thus verify the explicit optimum for this example family, while Theorem~\ref{thm:extension} covers more general functions.
+
+For the moment product,
+$$
+ f(\mathbf s)=mq
+ =\frac{1}{K^2}\left(\sum_{k=1}^K s_k\right)
+ \left(\sum_{k=1}^K s_k^2\right),
+$$
+we have $\alpha=\beta=1$, which gives the optimal curve and score:
 $$
  \enc^\star(s)=\sqrt P\left[\frac{2\sqrt2}{3}s
  +i\left(\frac43s^2-1\right)\right],\qquad
- \Lambda_{\sq}^\star=\frac{16}{27}K^2P.
+ \Lambda_{\sq}^\star(f)=\frac{16}{27}K^2P.
 $$
-Theorem~\ref{thm:polynomial} in Appendix~\ref{app:polynomial} proves this result for a larger, explicitly restricted polynomial readout class. The extension changes the optimal scales through the endpoint derivatives of the readout; it introduces no additional additive statistic. We use the quartic and nonpolynomial examples to demonstrate changes in the feature curve itself.
+The channel provides the same two sums $S$ and $Q$ as in variance computation, while their product requires different optimal scales. Further examples are $F(m,q)=m^2q+\eta q^2+\zeta m^4$ for $\eta,\zeta\ge0$, with $\alpha=2+4\zeta$ and $\beta=1+2\eta$, and $F(m,q)=m^3q^2+mq^4$, with $\alpha=4$ and $\beta=6$.
+
+\emph{A nonpolynomial example.} Let $V=q-m^2$ and $f(\mathbf s)=1-e^{-V}$. The transformation $v\mapsto1-e^{-v}$ is injective on $[0,1]$, so the same encoders permit identifiable computation of this desired function and of variance. Moreover, $\nabla F=e^{-V}(-2m,1)^\T$ satisfies \eqref{eq:general-endpoints} with $\alpha=2$ and $\beta=1$. Therefore its optimal encoder and squared-separation score are also those of variance. This example extends the explicit result beyond polynomial postprocessing without introducing a different transmit curve.
+
+Proposition~\ref{prop:amplification} below applies to the uniform disturbance guarantee for the general extension. The explicit strip receiver and high-SNR MSE frontier retain their stated assumptions on the original family $f_{\phi,\psi}$.

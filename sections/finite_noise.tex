@@ -1,12 +1,12 @@
-\subsection{Finite-Noise Performance}\label{sec:finite-noise}
-We next evaluate the same encoders with the projection decoder of Section~\ref{sec:decoding}, followed by clipping to $[0,1]$. This comparison separates uniform disturbance robustness from average performance under a specified input distribution. For $p\in\{2,4\}$, write
+\subsection{Finite-SNR Performance}\label{sec:finite-noise}
+We vary the noise power for variance and the fourth-order Jensen gap, using the projection decoder of Section~\ref{sec:decoding} followed by clipping to $[0,1]$. For $p\in\{2,4\}$, write
 $$
  f_p=t_p-m^p,\qquad
  \enc(s)=\sqrt P\,[as+i(bs^p+c)],\quad a,b>0.
 $$
-Let $N=\sqrt{N_0}Z$, where $Z$ is circular Gaussian with $\mathbb E|Z|^2=1$, independent of the sources. Thus each real noise component has variance $N_0/2$.
+Let $N=\sqrt{N_0}Z$, where $Z$ is circular Gaussian, independent of the sources, with $\mathbb E|Z|^2=1$; each real component of $N$ has variance $N_0/2$.
 
-For independent sources with a common continuous density on $(-1,1)$, the target lies strictly inside $(0,1)$ almost surely. Proposition~\ref{prop:general-small-noise} therefore specializes to
+For independent sources with a common continuous density on $(-1,1)$, the desired function $f_p:I^K\to\R$ takes values strictly inside $(0,1)$ almost surely. Proposition~\ref{prop:general-small-noise} therefore specializes to
 \begin{equation}
  \lim_{N_0\downarrow0}\frac{\operatorname{MSE}(\enc,N_0)}{N_0}
  =\frac{1}{2K^2P}\left(\frac{1}{b^2}
@@ -15,15 +15,21 @@ For independent sources with a common continuous density on $(-1,1)$, the target
 \end{equation}
 
 
-The constrained theorem in Section~\ref{sec:pareto} interpolates between these objectives. The worst-case criterion uses the endpoint slope $M=p$, whereas \eqref{eq:small-noise-mse} uses $M_{\rm eff}=p\sqrt{\mathbb E[m^{2p-2}]}$. We construct a prior-aware comparison curve by inserting $M_{\rm eff}$ into the quadratic or quartic coefficient formulas. This choice minimizes the leading small-noise coefficient within the stated orthogonal curve family. We evaluate its moments analytically, without fitting simulation data, and use the same decoder for all designs. This comparison does not optimize finite-noise Bayesian risk.
+The terms in \eqref{eq:small-noise-mse} correspond to errors in the empirical moment $t_p$ and sample mean $m$. The worst-case criterion uses $M=p$, whereas the asymptotic MSE coefficient uses $M_{\rm eff}=p\sqrt{\mathbb E[m^{2p-2}]}$. Substituting $M_{\rm eff}$ into the quadratic or quartic formulas minimizes this coefficient within the stated orthogonal family. We compute the required moments analytically and use the same decoder for all designs. This prior-aware comparison does not optimize finite-SNR Bayesian risk; Section~\ref{sec:pareto} constrains the tradeoff with uniform robustness.
 
 
 
 
-We set $P=1$, $K\in\{4,16\}$, and draw independent uniform or endpoint-Beta sources. For each input distribution and transmitter count, we generate $200{,}000$ input vectors and independent standardized Gaussian disturbances. We reuse these draws across designs, targets, and the nine SNR values from $-10$ to $30$ dB in $5$-dB steps. Here SNR means the per-transmitter peak ratio $P/N_0$, not an aggregate received-power ratio. Paired standard errors account for the shared draws; intervals are pointwise, without a multiple-comparison adjustment.
+In a separate experiment, we set $P=1$ and $K\in\{4,16\}$. For each $K$ and uniform or endpoint-Beta prior, we generate $200{,}000$ independent input vectors and independent standardized Gaussian disturbances. We share these draws across encoders, desired functions, and nine SNR values from $-10$ to $30$ dB in $5$-dB steps. SNR denotes the per-transmitter peak ratio $P/N_0$. Paired standard errors account for shared draws; confidence intervals are pointwise, without multiple-comparison adjustment.
+
+\begin{figure*}[!t]
+ \centering\paperfigure{figures/tikz/finite_noise}
+ \caption{MSE reduction, $100(1-\mathrm{MSE}_{\rm design}/\mathrm{MSE}_{\rm base})$. Solid: separation-optimal curves; dashed: prior-aware curves optimized for high SNR. All designs share the peak constraint, projection decoder, and output clipping. Error bars show pointwise paired 95\% confidence intervals, often smaller than the markers. Endpoint Beta: $2X-1$, $X\sim\operatorname{Beta}(0.3,0.3)$.}
+ \label{fig:finite-noise}
+\end{figure*}
 
 \begin{table}[t]
-\caption{MSE at $P/N_0=20$ dB, in units of $10^{-4}$. U: uniform; B: endpoint Beta. Robust: separation-optimal curve; tuned: prior-aware small-noise curve.}
+\caption{MSE at $P/N_0=20$ dB, in units of $10^{-4}$. U: uniform; B: endpoint Beta. Robust: separation-optimal curve; tuned: prior-aware curve optimized for high SNR.}
 \label{tab:finite-noise}
 \centering\small
 \begin{tabular}{@{}cccrrr@{}}\toprule
@@ -39,4 +45,8 @@ $p$ & Prior & $K$ & Baseline & Robust & Tuned\\\midrule
 \end{tabular}
 \end{table}
 
-Across the 72 tested target/prior/$K$/SNR combinations, the separation-optimal curves reduce MSE by $6.12\%$--$22.92\%$ relative to the specified baselines. However, the prior-aware curves further reduce MSE by $5.69\%$--$72.01\%$ relative to the separation-optimal curves. Figure~\ref{fig:finite-noise} and Table~\ref{tab:finite-noise} display both outcomes. These average-performance gains sacrifice worst-case robustness: for the quartic gap with uniform sources and $K=16$, prior-aware tuning reduces $\Lambda_\sq/(K^2P)$ from $0.05853$ to $0.007273$. At low SNR, even the known prior-mean estimator can perform better: for uniform sources, $K=4$, variance, and $-10$ dB, its MSE is $0.02294$, compared with $0.1032$ for the separation-optimal curve and implemented decoder. These results quantify the operating behavior of specified designs; they establish neither universal MSE dominance nor Bayesian optimality. At $30$ dB, the endpoint-Beta, $K=4$ normalized errors still lie $3.49\%$--$7.19\%$ below their small-noise limits, beyond Monte Carlo uncertainty; boundary clipping remains relevant at this finite noise level. The code records every tested condition, paired uncertainty, analytic prior moments, seeds, and decoder cross-checks.
+Across the 72 combinations of desired function, prior, $K$, and SNR, separation-optimal curves reduce MSE by $6.12\%$--$22.92\%$ from the baselines; prior-aware curves give a further $5.69\%$--$72.01\%$ reduction (Fig.~\ref{fig:finite-noise} and Table~\ref{tab:finite-noise}). Prior-aware tuning can reduce robustness: for the quartic gap with uniform sources and $K=16$, prior-aware tuning reduces $\Lambda_\sq/(K^2P)$ from $0.05853$ to $0.007273$.
+
+At $-10$ dB, for uniform sources, $K=4$, and variance, the prior-mean estimator has MSE $0.02294$, versus $0.1032$ for the separation-optimal curve and implemented decoder. Thus these comparisons establish neither universal MSE dominance nor Bayesian optimality.
+
+At $30$ dB, endpoint-Beta sources with $K=4$ give normalized MSE values $\operatorname{MSE}/N_0$ that are $3.49\%$--$7.19\%$ below their high-SNR limits, beyond Monte Carlo uncertainty; boundary clipping remains relevant. The code records all conditions, paired uncertainties, analytic prior moments, seeds, and decoder cross-checks.

@@ -8,8 +8,8 @@ Every figure in the manuscript is drawn directly with TikZ/PGFPlots. The manuscr
 | `certified_synthesis.tex` | Exponential encoder and certified verification-grid gap | Certified synthesis |
 | `optimal_curves.tex` | Variance, quartic Jensen gap, and moment-interaction curves with peak contacts | Explicit optimal curves |
 | `decoder_geometry.tex` | Received moment region, containing strip, and projection decoder | Decoding |
-| `pareto_frontier.tex` | Robustness–small-noise-MSE tradeoff and containing ellipses | Frontier theorem |
-| `finite_noise.tex` | Paired finite-noise comparisons and confidence intervals | Numerical evidence |
+| `pareto_frontier.tex` | Robustness–asymptotic-MSE tradeoff and containing ellipses | Frontier theorem |
+| `finite_noise.tex` | Paired finite-SNR comparisons and confidence intervals | Numerical evidence |
 
 `tikz/styles.tex` defines the shared palette and plot styles. Curves also use different line styles and markers so their identities remain clear in monochrome. Captions are maintained in the manuscript sections.
 
@@ -22,7 +22,7 @@ python code/export_tikz_empirical.py
 
 These commands export plotting data; they do not run a new optimization or Monte Carlo study. The primary results and certificate files retain their existing meanings.
 
-Compile the entire paper with `python build.py`. To export one figure independently on a configured TeX installation, run from the manuscript root:
+Compile the entire paper with `latexmk -pdf manuscript.tex`. To export one figure independently on a configured TeX installation, run from the manuscript root:
 
 ```bash
 pdflatex -jobname=optimal_curves '\def\FigureName{optimal_curves}\input{figures/standalone.tex}'

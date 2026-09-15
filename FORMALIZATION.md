@@ -1,9 +1,9 @@
-# Formal verification scope
+# Formal verification
 
-The accompanying `formalization/` project contains the checked sources, `THEOREM_MAP.md`, the complete 18-statement inventory in `COVERAGE.md`, and the verification report with source hashes.
+The current Lean artifact is in [formalization/](formalization/). Use its [README](formalization/README.md), [theorem map](formalization/THEOREM_MAP.md), and [coverage inventory](formalization/COVERAGE.md) as the authoritative description of this revision.
 
-This revision adds the complete general operational score and shrinking-pair theorem, actual two-input moment paths, general operational reconstruction from PSD constraints, maximum-separation attainment, native local moment geometry and the fiber-to-affine rigidity chain, the dominated-convergence MSE limit and variance-decoder specialization, and substantial convex-frontier results.
+The project now checks general two-statistic coefficient design and attainment, the general sharp decoder and Gaussian small-noise trace, the continuous attained Gram frontier and explicit quadratic frontier, enclosing-ellipse equivalence, C² grid certification, dissimilarity transfer, and approximate-computation stability conditional on exact-class identification. It also checks the continuous converse's smoothing, dense propagation, and endpoint integration components.
 
-The original variance optimization, quadratic/quartic certificates, sharp decoders, and implementation results are preserved. The main general score proof in the paper now follows the verified two-input path argument.
+The full unrestricted continuous-encoder converse remains unfinished: exactness and common-completion identification must still be connected to the local continuous charts through planar invariance of domain. The analytic identification criterion, general endpoint-gradient specializations, and other obligations listed in the coverage inventory also remain unverified. Compilation certifies the formal statements written, not missing steps of the paper.
 
-The remaining unrestricted continuous-encoder proof needs topological local factorization and automatic differentiability. The full general decoder-to-trace formula, complete inverse-form probabilistic frontier, certified-grid proof, and remaining appendix results also remain incomplete. The Lean-verification appendix and the acknowledgment accurately identify selected verified results.
+From formalization, run `lake exe cache get` followed by `python3 verify.py`. The report records the pinned versions, theorem dependencies and exact source hashes. No unfinished proof or additional mathematical axiom is accepted. The supplied local audit and the repository's GitHub Actions record are separate evidence.

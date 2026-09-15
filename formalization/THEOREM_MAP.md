@@ -1,11 +1,11 @@
 # Principal manuscript-to-Lean correspondence
 
 The table identifies exact checked statements. `COVERAGE.md` separately lists
-all manuscript results, their current source locations, hypotheses, and remaining gaps. The main text now combines exact structure and optimal design in one section; supporting lemmas and the score proposition appear in the proof appendices. Result labels provide stable identifiers across renumbering.
+all manuscript results, their current source locations, hypotheses, and remaining gaps. The unified extension is mapped separately in `EXTENSION_SCOPE.md`; its coefficient-class design and analytic reduction from dense local charts are checked, while its complete continuous-encoder theorem remains unverified. The main text now combines exact structure and optimal design in one section; supporting lemmas and the score proposition appear in the proof appendices. Result labels provide stable identifiers across renumbering.
 
 | Manuscript component | Lean declaration | Scope |
 |---|---|---|
-| General triple collision, `lem:collision` | `Analog.GeneralCollision.triple_collision_preserves_moments` | Full statement, with weaker readout regularity and endpoint inputs allowed. |
+| General triple collision, `lem:collision` | `Analog.GeneralCollision.triple_collision_preserves_moments` | Full revised statement; no differentiability assumptions, and endpoint inputs are also allowed. |
 | Open-slice constancy step, `lem:topology` | `Analog.open_slice_fiber_constancy` | Explicit openness hypothesis; planar invariance of domain is not proved. |
 | Derivative step, `lem:affine` | `Analog.DifferentialRigidity.kernel_annihilation_iff_affine_slopes` | Two distinct feature-slope anchors and the kernel hypothesis; see the module for the analytic extensions. |
 | Closed-interval derivative integration | `Analog.DifferentialRigidity.planar_differential_rigidity` | Continuity, interior differentiability, nonaffinity and component kernel conditions; no automatic differentiability or coefficient independence. |
@@ -49,6 +49,37 @@ all manuscript results, their current source locations, hypotheses, and remainin
 | Operational maximum | `Analog.SynthesisAttainment.operational_maximum_attained` | Actual finite-input score maximum over ALL six-coefficient affine-feature curves, including singular and constant competitors; continuous exact attainer. |
 | Attained frontier | `Analog.FrontierAttainment.frontier_attained_on_maximal_interval` | Actual risk minimum at every floor in the full feasible interval, including zero; anchors and compactness derived. |
 | Unique attained Gram | `Analog.FrontierAttainment.minimum_unique_gram_of_strict_shape` | Existence and uniqueness of minimizing Gram matrix from strict feature shape and a feasible reference. |
+| Compact-range recovery | `Analog.PlanarTopology.continuous_recovery_of_compact`, `continuous_triple_moment_recovery` | Derives continuous recovery on the actual compact received range from collision preservation; does not reverse the fibers. |
+| Source-curve embedding | `Analog.PlanarTopology.exact_encoder_injOn`, `exact_encoder_closedEmbedding` | Injectivity and closed embedding follow from actual exactness under the original K≥4 assumptions; this is not planar invariance of domain. |
+| General two-statistic geometry | `Analog.GeneralRigidity.independent_tangents`, `pairStatistic_local_section`, `regularTripleImage_nonempty` | Independent tangent anchors, actual inverse-function sections and a nonempty regular triple-statistic image follow from the stated statistic regularity and functional independence. |
+| Automatic encoder regularity | `Analog.EncoderRegularity.contDiffAt_of_triple_factorization`, `planar_affine_of_local_charts` | Continuous local source-box factorizations imply automatic C¹ regularity and endpoint-inclusive affine representation, using a local Tietze extension and normalized convolution; encoder differentiability is not assumed. |
+| Dense-chart rigidity reduction | `Analog.EncoderRegularity.planar_affine_of_dense_charts` | Uses `DensePlanarCharts` only above O and the actual regular triple image contained in closure O; derives smoothness and dense propagation. Producing these charts from exactness and common-completion identification remains unverified. |
+| General sharp strip decoder | `Analog.GeneralDecoder.decode_optimal`, `decode_exact`, `decode_uniform` | Actual implemented decoder for the general moment family; exactness, global Lipschitz bound and minimal all-input/all-complex-noise amplification. Endpoint slopes are within-interval derivatives, with no differentiability outside I. |
+| General leading MSE | `Analog.GeneralSmallNoise.source_leading_mse_inverseGram` | Actual admissible source lists, derived inverse-channel differentiation and bounded measurable slope moments, and independent isotropic noise give the inverse-Gram risk divided by 2K². |
+| Actual Gaussian specialization | `Analog.GaussianNoise.gaussian_source_leading_mse` | Constructs circular complex Gaussian noise from two independent real Gaussian laws of variance 1/2 and derives its moments; no covariance or noise-integrability premise remains. |
+| Output-clipped leading MSE | `Analog.GeneralSmallNoise.clipped_leading_mse_inverseGram`, `Analog.GaussianNoise.gaussian_clipped_leading_mse` | Preserves the general trace formula when the true output is strictly inside the clipping interval almost surely; no uniform distance from the endpoints is required. |
+| Closed-interval frontier continuity | `Analog.FrontierContinuity.attained_continuous_frontier_of_strict_shape`, `mseValue_continuousOn` | Continuity and attainment for the full feasible Gram-floor interval, including both endpoints; anchors and optimizer witnesses are derived from strict feature shape, positive power and positive prior variance. |
+| Enclosing-ellipse equivalence | `Analog.InverseSynthesis.positive_of_feasible`, `feasible_iff_ellipse`, `ellipse_to_gram`, `gram_to_ellipse`, `roundtrip_gram`, `endpoint_cost_preserved` | Derives positive definiteness and both feasibility directions, with the actual inverse-Gram and endpoint costs preserved. |
+| Attained inverse synthesis | `Analog.InverseSynthesis.inverse_optimum_attained_of_strict_shape` | Positive attained inverse optimum equals the reciprocal maximal Gram floor; the unrestricted operational interpretation still requires rigidity. |
+| Quadratic constrained frontier | `Analog.QuadraticFrontier.upper_root_exists_unique`, `clippedParameter_plateau_iff`, `clipped_curve_optimal_all_power` | Unique upper root, plateau, clipped parameter and actual constrained quadratic coefficient optimum for every positive power, including maximal floor. Scalar premises 0<M_eff<M remain; source-prior specializations are separate. |
+| Certified continuum grid synthesis | `Analog.CertifiedGrid.c2_grid_certificate`, `certified_grid_bracket`, `grid_maximum_attained` | Actual sampled/continuum SDP optima and scaled feasible certificate, with C² derivative data, attained norm maxima and the spectral constant 2‖H‖(Z₁²+Z₀Z₂) derived. |
+| Uniform grid convergence | `Analog.CertifiedGrid.grid_scaling_gap_isBigO` | Fixed spanning anchors yield a uniform Gram-operator bound and the actual O(h²) scaling loss; numerical witness values and solver outputs remain separate evidence. |
+| Criterion transfer | `Analog.CriterionTransfer.score_transfer`, `peak_constrained_moment_transfer`, `collision_score_zero` | Actual dissimilarity-score identity from the local quadratic limit and general shrinking pairs, with the received-distance range derived from peak power; the nonexact collision case is also checked. |
+| General attained-pair SDP | `Analog.TwoStatisticAttainment.feasible_isCompact_of_independent`, `attained_statistic_maximum` | The actual seven-variable SDP on attained statistic pairs is compact and attains a positive maximum from statistic independence, continuity, positive power and a nonconstant Lipschitz desired function. |
+| General positive-definite realization | `Analog.TwoStatisticPositivity.positive_feasible_gram`, `localIdentification_of_commonCompletion` | Common-completion identification on the actual dense regular image forces a positive-score feasible Gram block to be positive definite; definiteness is derived rather than assumed. |
+| General operational optimum | `Analog.TwoStatisticPositivity.general_operational_maximum_attained`, `general_sdp_operational_attainment` | Positive attained SDP optimum, continuous exact planar realization and comparison against all two-statistic coefficient curves, including singular curves. The unrestricted continuous-encoder classification remains separate. |
+| Constructed compact stability modulus | `Analog.ApproximateRigidity.exists_stability_modulus`, `pairDefect_lipschitz`, `pairDefect_le_approximation` | Constructs a nonnegative nondecreasing modulus tending to zero from compact defect sublevels; the actual pair defect is Lipschitz and controlled by approximate Lipschitz decoding. |
+| Continuous-encoder stability | `Analog.ApproximateRigidity.encoderClass_isCompact`, `continuous_encoder_stability` | Derives Arzelà–Ascoli compactness from the actual peak and common-modulus constraints and constructs the proximity modulus. Only identification of every exact encoder with the chosen class remains a premise; the affine-class instance still needs unrestricted rigidity. |
+
+The strongest checked rigidity reduction now derives automatic encoder regularity,
+dense propagation and endpoint-inclusive affine representation from continuous
+local charts over the identifying statistic set. The remaining step is producing
+those charts from exactness and common-completion identification through planar
+topology. Compact-range recovery and the conditional open-slice lemma do not
+supply that step. Analytic common-completion and endpoint-localization
+specializations also remain unverified. The checked decoder, synthesis, frontier,
+criterion-transfer and stability components therefore do not constitute a proof
+of every unrestricted continuous-encoder conclusion, or of the entire manuscript.
 
 
 ## Quadratic certificate
@@ -88,3 +119,4 @@ handled explicitly. Scaling then restores arbitrary positive power.
 requests the axiom dependencies of those declarations, and `verify.py`
 checks that the audit contains exactly that manifest and no unexpected
 axioms. The packaged source hashes must match `verification/report.json`.
+

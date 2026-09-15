@@ -1,3 +1,35 @@
+'Analog.AdditiveStatistics.coefficient_gram_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.collision_preserves_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.encoder_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.encoder_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.exact_computation_of_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.exact_computation_of_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.meanStatistic_mem_attainable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.received_encoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.received_encoder_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.AdditiveStatistics.received_squaredDistance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.continuous_encoder_stability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.distanceValues_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.distanceValues_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.encoderClass_equicontinuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.encoderClass_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.encoderClass_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.exact_of_pairDefect_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.exists_computation_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.exists_stability_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.modulus_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.modulus_monotone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.modulus_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.modulus_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.modulus_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairDefect_bddAbove' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairDefect_le_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairDefect_le_approximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairDefect_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairDefect_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.pairTerm_le_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.sourceSuperposition_dist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.ApproximateRigidity.uniform_small_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.ArbitraryEncoder.asComplex_received' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.ArbitraryEncoder.asComplex_squared_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.ArbitraryEncoder.completeTriple_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -29,6 +61,59 @@
 'Analog.ArbitraryEncoder.zero_varianceScore_no_finite_decoder' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'Analog.CertifiedGrid.c2_derivative_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.c2_grid_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.certified_grid_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.continuous_norm_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.continuum_implies_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.coordinate_scaling_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.euclidean_feature_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.finite_grid_bracket' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.finite_grid_peak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.gramOperator_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.gram_operator_peak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.gram_peak_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_anchor_basis_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_coordinate_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_feasible_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_feasible_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_maximum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_operator_uniform_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_scaled_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.grid_scaling_gap_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.interval_peak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.interval_peak_bound_of_abs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.operator_grid_peak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.operator_peak_deriv_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.operator_peak_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.operator_peak_second_derivative_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.operator_peak_uniform_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.peak_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.quadratic_correction_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.scaling_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CertifiedGrid.scaling_gap_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompletionIdentification.completeTripleAt_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompletionIdentification.desiredFunction_completeTripleAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.CompletionIdentification.exact_completion_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompletionIdentification.identifiesOn_postcomp_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompletionIdentification.received_completeTripleAt_collision' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.CompletionIdentification.statisticSum_completeTripleAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.CompletionIdentification.triple_collision_preserves_statistics' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.CriterionTransfer.collision_score_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.local_quadratic_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.moment_score_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.peak_constrained_moment_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.received_distance_peak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.received_norm_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CriterionTransfer.score_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Curve.B_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Curve.actual_varianceScore_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Curve.basisDet_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -124,6 +209,17 @@
  Classical.choice,
  Quot.sound]
 'Analog.DifferentialRigidity.planar_differential_rigidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffAt_of_local_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffAt_of_local_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffAt_of_shift_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffAt_of_triple_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffOn_of_dense_scalar_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.contDiffOn_of_local_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.local_fibers_of_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.normalized_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.planar_affine_of_dense_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.planar_affine_of_local_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EncoderRegularity.scalar_affine_of_dense_charts' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Frontier.Design.form_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Frontier.Gram.dual_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Frontier.Gram.dual_convex_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -184,6 +280,31 @@
 'Analog.FrontierAttainment.to_design_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FrontierAttainment.to_from_design' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FrontierAttainment.truncated_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.attained_continuous_frontier_of_strict_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.FrontierContinuity.mseValue_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.riskSublevel_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.riskSublevel_of_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_continuousWithinAt_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_continuousWithinAt_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_convexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_le_of_riskSublevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_lowerSemicontinuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FrontierContinuity.value_upperSemicontinuousWithinAt_lt_max' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.GaussianNoise.asComplex_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.complex_cross_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.complex_imag_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.complex_norm_square_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.complex_real_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.coordinate_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.coordinate_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.coordinate_square_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.gaussian_clipped_leading_mse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GaussianNoise.gaussian_source_leading_mse' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralCollision.completion_readout_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralCollision.equal_increments_determine_center' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralCollision.featureMoment_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -196,6 +317,16 @@
 'Analog.GeneralCollision.triple_collision_preserves_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralCollision.triple_mean_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralCollision.triple_shifted_mean_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.amplification_reciprocal_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.decode_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.decode_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.decode_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.decode_squared_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.decode_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.forward_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.metricScore_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.postprocess_squared_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralDecoder.projected_squared_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralDesign.curveOfPlanar_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralDesign.curveOfPlanar_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralDesign.encoder_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -219,6 +350,36 @@
 'Analog.GeneralQuadratic.root_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralQuadratic.sos_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralQuadratic.supporting_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.affine_of_derivative_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.closure_preimage_of_map_nhds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.constant_combination_of_zero_derivative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.GeneralRigidity.determinant_of_local_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.global_slopes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.independent_tangents' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.kernel_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.local_fibers_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.notInAffineLine_of_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairDerivativeEquiv_coe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairDerivative_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairDerivative_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairDerivative_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairStatistic_hasStrictFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.pairStatistic_local_section' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.planar_affine_of_local_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.regularPairs_mem_nhds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.regularTripleImage_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.regularTripleImage_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.regular_pair_identifying_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.scalar_affine_of_dense_determinants' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.scalar_affine_of_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.scalar_affine_of_local_fibers' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.slope_of_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.slope_of_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.triple_kernel_of_section' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.triple_section_of_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralRigidity.zero_at_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralScore.coefficient_A_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralScore.dual_endpoint_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralScore.endpointDual_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -241,6 +402,20 @@
 'Analog.GeneralScore.strict_feature_operational_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralScore.target_nonconstant_of_midpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GeneralScore.target_nonconstant_of_strict_feature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.affine_square_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.clipped_leading_mse_inverseGram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.decode_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.gradient_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.gradient_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.gradient_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.inverse_mean_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.inverse_moment_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.leading_mse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.leading_mse_inverseGram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.output_clip_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.slopeField_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.slopeField_square_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.GeneralSmallNoise.source_leading_mse_inverseGram' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GramSynthesis.Planar.energy_eq_form3' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GramSynthesis.Planar.gram_psd' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GramSynthesis.dual_cauchy' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -262,6 +437,26 @@
 'Analog.GramSynthesis.schur_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GramSynthesis.schur_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.GramSynthesis.two_rank_one_constraints_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.ellipseDesign_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.ellipseDesign_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.ellipse_to_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.endpoint_cost_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.feasible_class_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.feasible_iff_ellipse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.gram_to_ellipse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.inverse_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.inverse_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.inverse_involutive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.inverse_optimum_attained_of_strict_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.InverseSynthesis.inverse_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.inverse_quad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.objective_designEllipse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.objective_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.positive_of_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.psd3_null_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.InverseSynthesis.roundtrip_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.distinct_feature_slopes' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.exists_source_path' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.exists_source_path_at_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -274,11 +469,58 @@
 'Analog.MomentPaths.sourcePath_eventually_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.sourcePath_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.le_score_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.le_score_stat_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.lowerBound_stat_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.lowerBound_stat_image_sq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.nonconstantOn_stat_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.quotients_bddBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.quotients_cost_congr_on' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.quotients_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.quotients_stat_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_cost_congr_on' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.score_cost_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.score_is_lowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Operational.score_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_stat_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_stat_image_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_stat_image_sq_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_stat_image_sq_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.score_stat_image_user_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.Operational.sq_mul_le_score_stat_image_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PlanarTopology.continuous_recovery_of_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PlanarTopology.continuous_triple_moment_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PlanarTopology.exact_encoder_closedEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PlanarTopology.exact_encoder_injOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.active_coefficient_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.clippedParameter_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.clippedParameter_plateau_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.clipped_curve_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.clipped_curve_optimal_all_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.curveRisk_eq_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.curveRisk_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.curveRisk_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.denominator_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.determinant_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.determinant_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.maximal_score_unique_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.optimalParameter_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.optimalRisk_eq_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.risk_le_of_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.risk_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.root_sign_above' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_eq_gramScore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_eq_iff_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_strictAntiOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.separation_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.stationarySlope_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.stationary_root_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.upperRoot_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.upperRoot_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.upper_branch_feasible_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.QuadraticFrontier.upper_root_exists_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Quartic.averaged_peak' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Quartic.coefficient_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.Quartic.coefficient_relations' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -428,6 +670,70 @@
 'Analog.SynthesisAttainment.quad_sum_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.SynthesisAttainment.rank_one_isotropic' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.SynthesisAttainment.zero_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.bound_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.cap_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.coordinate_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.diagonal_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.gram_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.Anchors.quad_basis_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.anchors_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.attained_statistic_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.continuous_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.feasible_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.feasible_isClosed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.feasible_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.feasible_isCompact_of_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticAttainment.form2_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.independent_has_nondegenerate_anchors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticAttainment.interpolation_reconstruct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.lipschitz_squared_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.maximum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.positive_feasible_of_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.positive_feasible_of_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticAttainment.positive_maximum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.quad_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticAttainment.zero_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.affine_operational_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.affine_score_bound_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.gramCost_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.planar_synthesis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.positive_definite_operational_synthesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticDesign.positive_score_implies_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticDesign.reconstruction_preserves_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.completedPoint_mem_attainable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.coordinatesOfCurve_feasible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.exists_line_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.general_operational_maximum_attained' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.general_sdp_operational_attainment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.localIdentification_of_commonCompletion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.localIdentification_of_dense_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.operational_maximum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.operational_score_eq_sdp_maximum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.positive_feasible_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.TwoStatisticPositivity.positive_pair_constraints_strict' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.TwoStatisticPositivity.positive_sdp_operational_synthesis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'Analog.complexCoordinates_distance' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.empiricalMoments_in_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.firstMoment_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -455,6 +761,170 @@
 'Analog.variance_score_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.variance_score_bound_all' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.variance_sos_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Analog.EncoderRegularity.planar_affine_of_dense_charts {φ₁ φ₂ : ℝ → ℝ} {E : ℝ → Analog.EncoderRegularity.Plane}
+  {O : Set Analog.EncoderRegularity.Plane} (h₁ : ContinuousOn φ₁ (Set.Icc (-1) 1))
+  (h₂ : ContinuousOn φ₂ (Set.Icc (-1) 1)) (hE : ContinuousOn E (Set.Icc (-1) 1))
+  (hC₁ : ContDiffOn ℝ 1 φ₁ (Set.Ioo (-1) 1)) (hC₂ : ContDiffOn ℝ 1 φ₂ (Set.Ioo (-1) 1))
+  (hind : Analog.GeneralRigidity.NotInAffineLine (Set.Icc (-1) 1) φ₁ φ₂)
+  (hdense : Analog.GeneralRigidity.regularTripleImage φ₁ φ₂ ⊆ closure O)
+  (hf : Analog.EncoderRegularity.DensePlanarCharts φ₁ φ₂ E O) :
+  ∃ c u v, ∀ x ∈ Set.Icc (-1) 1, E x = c + φ₁ x • u + φ₂ x • v
+Analog.TwoStatisticPositivity.general_sdp_operational_attainment {K : ℕ} (hK : 4 ≤ K) {γ : ℝ → ℝ × ℝ} {F : ℝ × ℝ → ℝ}
+  {P filler : ℝ} {L : NNReal} (hP : 0 < P) (hγ : ContinuousOn γ (Set.Icc (-1) 1))
+  (hdγ : DifferentiableOn ℝ γ (Set.Ioo (-1) 1)) (hind : Analog.TwoStatisticAttainment.IndependentStatistics γ)
+  (hn : Analog.Operational.NonconstantOn (Analog.AdditiveStatistics.attainable K γ) F)
+  (hL : LipschitzOnWith L F (Analog.AdditiveStatistics.attainable K γ))
+  (hfiller : Analog.ArbitraryEncoder.InSource filler)
+  (hci : Analog.TwoStatisticPositivity.CommonCompletionCondition K γ F filler) :
+  ∃ q,
+    Analog.TwoStatisticAttainment.Feasible γ (Analog.AdditiveStatistics.attainable K γ) F P q ∧
+      0 < q 6 ∧
+        (∀ (r : Analog.TwoStatisticAttainment.Coordinates),
+            Analog.TwoStatisticAttainment.Feasible γ (Analog.AdditiveStatistics.attainable K γ) F P r → r 6 ≤ q 6) ∧
+          ∃ e,
+            0 < Analog.GramSynthesis.det e.A e.B e.C ∧
+              ContinuousOn (Analog.AdditiveStatistics.encoder e γ) (Set.Icc (-1) 1) ∧
+                Analog.AdditiveStatistics.ExactComputation K γ F (Analog.AdditiveStatistics.encoder e γ) ∧
+                  (∀ s ∈ Set.Icc (-1) 1,
+                      Analog.ArbitraryEncoder.squaredDistance (Analog.AdditiveStatistics.encoder e γ s) 0 ≤ P) ∧
+                    Analog.TwoStatisticDesign.score K γ F (Analog.AdditiveStatistics.encoder e γ) = ↑K ^ 2 * q 6
+Analog.GeneralDecoder.decode_optimal (e : Analog.Curve) {K : ℕ} (hK : 2 ≤ K) (φ ψ : ℝ → ℝ)
+  (hD : 0 < Analog.GramSynthesis.det e.A e.B e.C)
+  (hφ : StrictConvexOn ℝ (Set.Icc (-1) 1) φ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) φ)
+  (hdφ : ∀ z ∈ Set.Ioo (-1) 1, DifferentiableAt ℝ φ z)
+  (hψ : ConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ ConcaveOn ℝ (Set.Icc (-1) 1) ψ) (hdψ : DifferentiableOn ℝ ψ (Set.Icc (-1) 1))
+  (hcψ : ContinuousOn (Analog.GeneralScore.readoutSlope ψ) (Set.Icc (-1) 1)) :
+  (∀ (xs : List ℝ),
+      Analog.ArbitraryEncoder.ValidInput K xs →
+        ∀ (N : ℂ),
+          |Analog.GeneralDecoder.decode e K ψ
+                  (Analog.ArbitraryEncoder.asComplex
+                      (Analog.ArbitraryEncoder.received (Analog.GeneralScore.encoder e φ) xs) +
+                    N) -
+                Analog.GeneralCollision.target K φ ψ xs| ≤
+            ↑(Analog.GeneralDecoder.amplification e K ψ) * ‖N‖) ∧
+    ∀ (L : NNReal) (D : ℂ → ℝ),
+      (∀ (xs : List ℝ),
+          Analog.ArbitraryEncoder.ValidInput K xs →
+            ∀ (N : ℂ),
+              |D
+                      (Analog.ArbitraryEncoder.asComplex
+                          (Analog.ArbitraryEncoder.received (Analog.GeneralScore.encoder e φ) xs) +
+                        N) -
+                    Analog.GeneralCollision.target K φ ψ xs| ≤
+                ↑L * ‖N‖) →
+        Analog.GeneralDecoder.amplification e K ψ ≤ L
+Analog.GaussianNoise.gaussian_clipped_leading_mse.{u_1} {Ω : Type u_1} [MeasurableSpace Ω] {μ : MeasureTheory.Measure Ω}
+  [MeasureTheory.IsProbabilityMeasure μ] (e : Analog.Curve) {K : ℕ} (hK : 0 < K) (ψ : ℝ → ℝ)
+  (hD : 0 < Analog.GramSynthesis.det e.A e.B e.C) (hd : DifferentiableOn ℝ ψ (Set.Icc (-1) 1))
+  (hc : ContinuousOn (Analog.GeneralScore.readoutSlope ψ) (Set.Icc (-1) 1))
+  (hshape : ConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ ConcaveOn ℝ (Set.Icc (-1) 1) ψ) {r : Ω → ℂ} {f : Ω → ℝ} (hr : Measurable r)
+  (hexact : ∀ᵐ (ω : Ω) ∂μ, Analog.GeneralDecoder.decode e K ψ (r ω) = f ω)
+  (hmean :
+    ∀ᵐ (ω : Ω) ∂μ,
+      -1 < (e.inverseMoments K (Analog.complexCoordinates (r ω))).1 ∧
+        (e.inverseMoments K (Analog.complexCoordinates (r ω))).1 < 1)
+  (a b : ℝ) (hclip : ∀ᵐ (ω : Ω) ∂μ, a < f ω ∧ f ω < b) :
+  Filter.Tendsto
+    (fun N =>
+      (∫ (p : Ω × ℂ),
+          (Analog.Decoder.clip a b (Analog.GeneralDecoder.decode e K ψ (r p.1 + √N • p.2)) - f p.1) ^
+            2 ∂μ.prod Analog.GaussianNoise.standardComplexGaussian) /
+        N)
+    (nhdsWithin 0 (Set.Ioi 0))
+    (nhds
+      (Analog.Frontier.risk (-∫ (ω : Ω), Analog.GeneralSmallNoise.slopeField e K ψ (r ω) ∂μ)
+          (∫ (ω : Ω), Analog.GeneralSmallNoise.slopeField e K ψ (r ω) ^ 2 ∂μ -
+            (∫ (ω : Ω), Analog.GeneralSmallNoise.slopeField e K ψ (r ω) ∂μ) ^ 2)
+          { A := e.A, B := e.B, C := e.C } /
+        (2 * ↑K ^ 2)))
+Analog.QuadraticFrontier.clipped_curve_optimal_all_power {m M P γ : ℝ} (hm : 0 < m) (hmM : m < M) (hP : 0 < P)
+  (hγ : 0 ≤ γ) (hγmax : γ ≤ P * Analog.QuadraticFrontier.separation M (Analog.GeneralQuadratic.optimalParameter M)) :
+  let r := γ / P;
+  have b := Analog.QuadraticFrontier.clippedParameter m M r ⋯ ⋯ ⋯;
+  have e := Analog.Curve.scale (√P) (Analog.GeneralQuadratic.optimalCurve b);
+  e.PeakFeasibleAt P ∧
+    γ ≤ Analog.GeneralQuadratic.gramScore e M ∧
+      Analog.QuadraticFrontier.curveRisk e m = (m ^ 2 / (b * (2 - b)) + 1 / b ^ 2) / P ∧
+        ∀ (other : Analog.Curve),
+          other.PeakFeasibleAt P →
+            0 < other.A * other.B - other.C ^ 2 →
+              γ ≤ Analog.GeneralQuadratic.gramScore other M →
+                Analog.QuadraticFrontier.curveRisk e m ≤ Analog.QuadraticFrontier.curveRisk other m
+Analog.CertifiedGrid.c2_grid_certificate (φ : ℝ → ℝ) (W : Analog.SynthesisAttainment.Anchors φ) (T : Finset ℝ)
+  (P a b h Z₀ Z₁ Z₂ : ℝ) (hP : 0 < P) (hh : 0 ≤ h) (h₀ : 0 ≤ Z₀) (h₁ : 0 ≤ Z₁) (h₂ : 0 ≤ Z₂)
+  (hW : ∀ (i : Fin 3), W.s i ∈ T) (hTa : -1 ∈ T) (hTb : 1 ∈ T) (hT : ∀ t ∈ T, t ∈ Set.Icc (-1) 1)
+  (hspacing : ∀ l ∈ T, ∀ r ∈ T, l < r → (∀ t ∈ T, l < t → t < r → False) → r - l ≤ h)
+  (hφ : ContDiffOn ℝ 2 φ (Set.Icc (-1) 1))
+  (hz₀ : ∀ s ∈ Set.Icc (-1) 1, ‖Analog.CertifiedGrid.euclideanFeature φ s‖ ≤ Z₀)
+  (hz₁ : ∀ s ∈ Set.Icc (-1) 1, ‖derivWithin (Analog.CertifiedGrid.euclideanFeature φ) (Set.Icc (-1) 1) s‖ ≤ Z₁)
+  (hz₂ :
+    ∀ s ∈ Set.Icc (-1) 1,
+      ‖derivWithin (derivWithin (Analog.CertifiedGrid.euclideanFeature φ) (Set.Icc (-1) 1)) (Set.Icc (-1) 1) s‖ ≤ Z₂) :
+  ∃ q qstar,
+    Analog.CertifiedGrid.GridFeasible φ T P a b q ∧
+      (∀ (r : Analog.SynthesisAttainment.Coordinates), Analog.CertifiedGrid.GridFeasible φ T P a b r → r 6 ≤ q 6) ∧
+        Analog.SynthesisAttainment.Feasible φ P a b qstar ∧
+          (∀ (r : Analog.SynthesisAttainment.Coordinates),
+              Analog.SynthesisAttainment.Feasible φ P a b r → r 6 ≤ qstar 6) ∧
+            have ρ := P / (P + 2 * ‖Analog.CertifiedGrid.gramOperator q‖ * (Z₁ ^ 2 + Z₀ * Z₂) * h ^ 2 / 8);
+            (Analog.SynthesisAttainment.Feasible φ P a b fun i => ρ * q i) ∧ ρ * q 6 ≤ qstar 6 ∧ qstar 6 ≤ q 6
+Analog.ApproximateRigidity.continuous_encoder_stability (K : ℕ) (P : ℝ) (ω : ℝ → ℝ)
+  (hω : Filter.Tendsto ω (nhdsWithin 0 (Set.Ioi 0)) (nhds 0)) (f : (Fin K → ↑Analog.ApproximateRigidity.Source) → ℝ)
+  (hf : Continuous f) {L : ℝ} (hL : 0 ≤ L) (A : Set Analog.ApproximateRigidity.Encoder)
+  (hclass :
+    ∀ E ∈ Analog.ApproximateRigidity.encoderClass P ω,
+      (∀ (s t : Fin K → ↑Analog.ApproximateRigidity.Source),
+          Analog.ApproximateRigidity.sourceSuperposition K E s = Analog.ApproximateRigidity.sourceSuperposition K E t →
+            f s = f t) →
+        E ∈ A) :
+  ∃ η,
+    Monotone η ∧
+      (∀ (ε : ℝ), 0 ≤ η ε) ∧
+        η 0 = 0 ∧
+          Filter.Tendsto η (nhdsWithin 0 (Set.Ici 0)) (nhds 0) ∧
+            ∀ (ε : ℝ),
+              0 ≤ ε →
+                ∀ E ∈ Analog.ApproximateRigidity.encoderClass P ω,
+                  ∀ (D : ℂ → ℝ),
+                    LipschitzWith ⟨L, hL⟩ D →
+                      (∀ (s : Fin K → ↑Analog.ApproximateRigidity.Source),
+                          |D (Analog.ApproximateRigidity.sourceSuperposition K E s) - f s| ≤ ε) →
+                        Metric.infDist E A ≤ η ε
+Analog.AdditiveStatistics.exact_computation_of_gram (e : Analog.GramSynthesis.Planar) (K : ℕ) (γ : ℝ → ℝ × ℝ)
+  (F : ℝ × ℝ → ℝ) (hD : 0 < Analog.GramSynthesis.det e.A e.B e.C) :
+  Analog.AdditiveStatistics.ExactComputation K γ F (Analog.AdditiveStatistics.encoder e γ)
+Analog.CompletionIdentification.triple_collision_preserves_statistics {K : ℕ} (hK : 4 ≤ K) (γ : ℝ → ℝ × ℝ)
+  (F : ℝ × ℝ → ℝ) (E : ℝ → ℝ × ℝ) (hexact : Analog.AdditiveStatistics.ExactComputation K γ F E) (filler : ℝ)
+  (hfiller : Analog.ArbitraryEncoder.InSource filler) (B : Set (ℝ × ℝ))
+  (hidentify : Analog.CompletionIdentification.IdentifiesOn K γ F ((K - 4) • γ filler) B) (xs ys : List ℝ)
+  (hxs : Analog.ArbitraryEncoder.ValidInput 3 xs) (hys : Analog.ArbitraryEncoder.ValidInput 3 ys)
+  (hxsB : Analog.AdditiveStatistics.statisticSum γ xs ∈ B) (hysB : Analog.AdditiveStatistics.statisticSum γ ys ∈ B)
+  (hcollision : Analog.ArbitraryEncoder.received E xs = Analog.ArbitraryEncoder.received E ys) :
+  Analog.AdditiveStatistics.statisticSum γ xs = Analog.AdditiveStatistics.statisticSum γ ys
+Analog.TwoStatisticDesign.affine_operational_score (e : Analog.GramSynthesis.Planar) {K : ℕ} (hK : 0 < K)
+  (γ : ℝ → ℝ × ℝ) (F : ℝ × ℝ → ℝ) (hn : Analog.Operational.NonconstantOn (Analog.AdditiveStatistics.attainable K γ) F) :
+  Analog.TwoStatisticDesign.score K γ F (Analog.AdditiveStatistics.encoder e γ) =
+    ↑K ^ 2 *
+      Analog.Operational.score (Analog.AdditiveStatistics.attainable K γ) F (Analog.TwoStatisticDesign.gramCost e)
+Analog.TwoStatisticDesign.positive_definite_operational_synthesis {K : ℕ} (hK : 0 < K) (γ : ℝ → ℝ × ℝ) (F : ℝ × ℝ → ℝ)
+  (hγ : ContinuousOn γ (Set.Icc (-1) 1))
+  (hn : Analog.Operational.NonconstantOn (Analog.AdditiveStatistics.attainable K γ) F) (h l₁ l₂ A B C P lam : ℝ)
+  (hA : 0 < A) (hD : 0 < Analog.GramSynthesis.det A B C) (hpsd : Analog.GramSynthesis.PSD3 h l₁ l₂ A B C)
+  (hpeak : ∀ s ∈ Set.Icc (-1) 1, Analog.GramSynthesis.form3 h l₁ l₂ A B C 1 (γ s).1 (γ s).2 ≤ P)
+  (hpairs :
+    ∀ μ ∈ Analog.AdditiveStatistics.attainable K γ,
+      ∀ ν ∈ Analog.AdditiveStatistics.attainable K γ,
+        lam * (F μ - F ν) ^ 2 ≤ Analog.GramSynthesis.form2 A B C (μ.1 - ν.1) (μ.2 - ν.2)) :
+  ∃ e,
+    e.A = A ∧
+      e.B = B ∧
+        e.C = C ∧
+          ContinuousOn (Analog.AdditiveStatistics.encoder e γ) (Set.Icc (-1) 1) ∧
+            Analog.AdditiveStatistics.ExactComputation K γ F (Analog.AdditiveStatistics.encoder e γ) ∧
+              (∀ s ∈ Set.Icc (-1) 1,
+                  Analog.ArbitraryEncoder.squaredDistance (Analog.AdditiveStatistics.encoder e γ s) 0 ≤ P) ∧
+                ↑K ^ 2 * lam ≤ Analog.TwoStatisticDesign.score K γ F (Analog.AdditiveStatistics.encoder e γ)
 Analog.quadratic_variance_operational_optimal {K : ℕ} (hK : 2 ≤ K) (P : ℝ) (hP : 0 < P) :
   have e := Analog.Curve.scale (√P) Analog.optimalCurve;
   e.PeakFeasibleAt P ∧
