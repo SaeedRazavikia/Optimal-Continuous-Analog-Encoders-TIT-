@@ -4,13 +4,13 @@ Saeed Razavikia. Revised September 15, 2026.
 
 The manuscript studies exact computation of real-valued moment-based functions over a multiple-access channel using one shared continuous encoder and one complex channel use. It characterizes the required encoder structure under stated assumptions, optimizes peak-constrained separation, and develops sharp decoding and a robustness–small-noise tradeoff. The extension treats two prescribed additive statistics under a common-completion identification condition.
 
-Build the 50-page submission version (including references) with:
+Build the 49-page submission version (including references) with:
 
 ~~~sh
 latexmk -pdf manuscript.tex
 ~~~
 
-Build the 56-page extended arXiv version with:
+Build the 55-page extended arXiv version with:
 
 ~~~sh
 latexmk -pdf manuscript_arxiv.tex

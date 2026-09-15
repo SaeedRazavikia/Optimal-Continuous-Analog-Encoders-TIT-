@@ -25,9 +25,9 @@ $$
 $$
 Increasing $K$ suppresses the normalized additive-noise term but not the bounds on coherently accumulated implementation and gain errors.
 
-For a complex quantizer with error at most $r\sqrt P$, $0<r<1$, transmit
+For $0<r<1$, let $\mathcal Q$ have error at most $r\sqrt P$ on $|z|\le(1-r)\sqrt P$. Transmit
 $$
- \widetilde\enc(s)=Q\bigl((1-r)\enc(s)\bigr).
+ \widetilde\enc(s)=\mathcal Q\bigl((1-r)\enc(s)\bigr).
 $$
 Then $|\widetilde\enc(s)|\le\sqrt P$ and $\epsilon\le2r$. Uniform nearest-level rounding with $B\ge2$ bits per component on $[-\sqrt P,\sqrt P]$ gives $r=\sqrt2/(2^B-1)<1$. Equation~\eqref{eq:implementation} bounds the resulting deterministic computation error. Residual amplitude and phase errors $|\alpha_k|\le\alpha_0$ and $|\theta_k|\le\theta_0\le\pi$, with $1+d_k=(1+\alpha_k)e^{i\theta_k}$, give $\delta\le\alpha_0+2\sin(\theta_0/2)$.
 

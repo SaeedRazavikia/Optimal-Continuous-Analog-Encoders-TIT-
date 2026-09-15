@@ -1,6 +1,6 @@
 \section{System Model}\label{sec:model}
 \subsection{Multiple-Access Channel}
-In Fig.~\ref{fig:system}, each transmitter $k\in\{1,\ldots,K\}$ holds a calibrated real observation $s_k\in I=[-1,1]\subset\R$, where $K\in\mathbb N$. Write $\mathbf s=(s_1,\ldots,s_K)^\T\in I^K\subset\R^K$. The transmitters apply a shared continuous encoder $\enc:I\to\C$ over one simultaneous complex channel use. We identify $\C$ with $\R^2$, whose components are the in-phase and quadrature coordinates. The inputs and desired function are real valued. Unless stated otherwise, converse and optimal-design results assume $K\ge4$.
+In Fig.~\ref{fig:system}, each transmitter $k\in\{1,\ldots,K\}$ holds a calibrated real observation $s_k\in I=[-1,1]\subset\R$, where $K\in\mathbb N$ and $K\ge1$. Write $\mathbf s=(s_1,\ldots,s_K)^\T\in I^K\subset\R^K$. The transmitters apply a shared continuous encoder $\enc:I\to\C$ over one simultaneous complex channel use. We identify $\C$ with $\R^2$, whose components are the in-phase and quadrature coordinates. The inputs and desired function are real valued. Unless stated otherwise, converse and optimal-design results assume $K\ge4$.
 
 For a given $P>0$, we impose the per-transmitter pointwise power constraint
 \begin{equation}

@@ -13,7 +13,7 @@ Set $\mathcal A=+\infty$ if no finite constant exists; one fixed decoder must ha
 \begin{proposition}\label{prop:amplification}
 Let $I=[-1,1]$, $K\in\mathbb N$ with $K\ge1$, $\enc:I\to\R^2$ be continuous, and $f:I^K\to\R$ be continuous and nonconstant. Then
 $$\mathcal A(\enc;f)=\Lambda_\sq(\enc;f)^{-1/2},$$
-with $0^{-1/2}=+\infty$. A continuous decoder attains every finite value.
+with $0^{-1/2}=+\infty$. A continuous decoder attains the infimum whenever it is finite.
 \end{proposition}
 \begin{proof}
 The choice $n=0$ enforces exactness. Using one noiseless received point as the observation under another input gives $|\Delta f|\le L|\Delta r|$, which proves the lower bound. Conversely, a finite supremum of $|\Delta f|/|\Delta r|$ defines a Lipschitz receiver function $d_0:\mathcal R_\enc\to\R$ on the compact noiseless received set $\mathcal R_\enc$. McShane's construction~\cite{mcshane1934},
@@ -77,7 +77,7 @@ For the moment interaction $f(\mathbf s)=m q$, projection onto the containing re
 Orthogonality makes the received projection coordinatewise clipping. For $a=2\sqrt2/3$, $b=4/3$, the dual gradient norm of $mq$ is at most $\sqrt{1/a^2+1/b^2}=3\sqrt3/4$, yielding the sharp constant $L_{mq}=3\sqrt3/(4K\sqrt P)$. The restricted polynomial class satisfies its endpoint partial-derivative bounds on the same rectangle, so projection followed by polynomial postprocessing also attains its sharp constant.
 
 
-Projection is essential to the all-noise guarantee: the raw variance and fourth-order inverses contain $(\operatorname{Re}y)^2$ and $(\operatorname{Re}y)^4$, respectively, and are not globally Lipschitz. For a fixed encoder and known disturbance radius $\tau\ge0$, define
+Projection controls the raw inverse outside the noiseless received set: the raw variance and fourth-order inverses contain $(\operatorname{Re}y)^2$ and $(\operatorname{Re}y)^4$, respectively, and are not globally Lipschitz. For a fixed encoder and known disturbance radius $\tau\ge0$, define
 $$\omega_\enc(d)=\max_{\substack{\mathbf s,\mathbf t\in I^K\\|r_\enc(\mathbf s)-r_\enc(\mathbf t)|\le d}}|f(\mathbf s)-f(\mathbf t)|,\qquad d\ge0.$$
 The minimum worst-case absolute error at radius $\tau$ equals $\omega_\enc(2\tau)/2$. Two configurations separated by at most $2\tau$ can give the same midpoint observation, proving the lower bound. A matching decoder outputs the midpoint of the smallest and largest values of $f(\mathbf s)$ consistent with the observation and radius. Compactness gives these extrema. Their maximum is upper semicontinuous and minimum lower semicontinuous on the compact possible-observation set, so the midpoint rule has a Borel measurable extension. This criterion depends on the full ambiguity profile, rather than one constant for every disturbance size.
 

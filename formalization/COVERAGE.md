@@ -1,6 +1,6 @@
 # Manuscript proof coverage inventory
 
-This inventory covers the complete arXiv source (17 numbered statement environments). The 50-page submission omits the ancillary criterion-transfer corollary and approximate-rigidity proposition, together with the Lean-verification appendix; its 15 retained statements are unchanged.
+This inventory covers the complete arXiv source (17 numbered statement environments). The 49-page submission omits the ancillary criterion-transfer corollary and approximate-rigidity proposition, together with the Lean-verification appendix; it retains 15 mathematical results. The latest editorial review clarifies minimum attainment in Proposition 1 without changing its mathematical claim.
 
 Status: **the manuscript is not fully formalized**. This inventory covers the 17 theorem, lemma, proposition, and corollary statements reachable from the revised `manuscript.tex`, including the unlabeled criterion-transfer corollary. The quadratic and quartic cases are now one theorem; the general extension is in the main text as Theorem 4. Source-order numbers below are inventory positions, not printed theorem numbers. Statements are exact extracts from the accompanying revision titled *Geometric Optimization of Continuous Encoders for Moment-Based Computation*.
 
@@ -171,7 +171,7 @@ Source: `sections/decoding.tex`. **Full operational content checked via attained
 \begin{proposition}\label{prop:amplification}
 Let $I=[-1,1]$, $K\in\mathbb N$ with $K\ge1$, $\enc:I\to\R^2$ be continuous, and $f:I^K\to\R$ be continuous and nonconstant. Then
 $$\mathcal A(\enc;f)=\Lambda_\sq(\enc;f)^{-1/2},$$
-with $0^{-1/2}=+\infty$. A continuous decoder attains every finite value.
+with $0^{-1/2}=+\infty$. A continuous decoder attains the infimum whenever it is finite.
 \end{proposition}
 ```
 
