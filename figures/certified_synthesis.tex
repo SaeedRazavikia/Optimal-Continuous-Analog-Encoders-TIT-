@@ -1,0 +1,85 @@
+\begin{figure*}[t]
+ \centering\paperfigure{%
+% BEGIN figures/tikz/certified_synthesis
+% Native exponential curve and five exact-certificate summary values.
+\begin{tikzpicture}
+\pgfplotstableread[row sep=\\]{
+c1 c2 l11 l12 l22 \\
+1.8321854032246792 -0.79002894450391214 2.1939971000776324 -1.194454497024295 0.52114176864689676 \\
+}\expcoefficients
+\pgfplotstablegetelem{0}{c1}\of\expcoefficients\edef\expCOne{\pgfplotsretval}
+\pgfplotstablegetelem{0}{c2}\of\expcoefficients\edef\expCTwo{\pgfplotsretval}
+\pgfplotstablegetelem{0}{l11}\of\expcoefficients\edef\expLOne{\pgfplotsretval}
+\pgfplotstablegetelem{0}{l12}\of\expcoefficients\edef\expLTwo{\pgfplotsretval}
+\pgfplotstablegetelem{0}{l22}\of\expcoefficients\edef\expLThree{\pgfplotsretval}
+\begin{groupplot}[
+  group style={group size=2 by 1,horizontal sep=0.57in},
+  width=2.65in,height=1.70in,scale only axis,
+  axis lines=left,axis line style={figGray!70},tick style={figGray!70},
+  /tikz/font=\fontsize{8}{9.5}\selectfont,
+  tick label style={font=\fontsize{8}{9.5}\selectfont},
+  title style={font=\fontsize{8}{10}\selectfont,yshift=2pt},
+  legend style={draw=none,font=\fontsize{8}{9.5}\selectfont,
+    cells={anchor=west}},
+]
+\nextgroupplot[
+  title={(a) Certified exponential encoder},axis equal image,
+  xmin=-1.15,xmax=1.15,ymin=-1.15,ymax=1.15,
+  xtick={-1,0,1},ytick={-1,0,1},
+  xlabel={$\Re(\enc(s))/\sqrt P$},
+  ylabel={$\Im(\enc(s))/\sqrt P$},
+  legend to name=certifiedCurveLegend,legend columns=3,
+  legend style={/tikz/every even column/.append style={column sep=6pt}},
+  clip=false,
+]
+\addplot[figGray!65,densely dotted,line width=0.8pt,domain=0:360,samples=141]
+  ({cos(x)},{sin(x)});
+\addlegendentry{Peak boundary}
+\addplot[figBlue,line width=1.5pt,domain=-1:1,samples=181]
+  ({\expCOne+\expLOne*x+\expLTwo*exp(x)},{\expCTwo+\expLThree*exp(x)});
+\addlegendentry{Feasible encoder}
+\addplot[figBlue,only marks,mark=o,mark size=2.2pt,
+  mark options={fill=white,line width=0.9pt},samples at={-1,0.795,1}]
+  ({\expCOne+\expLOne*x+\expLTwo*exp(x)},{\expCTwo+\expLThree*exp(x)});
+\addlegendentry{Candidate contacts}
+\node[font=\fontsize{7}{8}\selectfont,anchor=south east,xshift=24pt,yshift=6pt]
+  at (axis cs:-0.8012269497,-0.5983116019) {$s=-1$};
+\node[font=\fontsize{7}{8}\selectfont,anchor=north east,xshift=-4pt,yshift=-1pt]
+  at (axis cs:0.9313640908,0.3640087531) {$s=0.795$};
+\node[font=\fontsize{7}{8}\selectfont,anchor=south east,xshift=-4pt,yshift=-2pt]
+  at (axis cs:0.7793185491,0.6265812553) {$s=1$};
+
+\nextgroupplot[
+  title={(b) Verification-grid refinement},
+  xmode=log,ymode=log,xmin=43,xmax=1300,ymin=0.004,ymax=4,
+  xtick={51,101,201,401,1001},xticklabels={51,101,201,401,1001},
+  ytick={0.01,0.1,1},yticklabels={$0.01$,$0.1$,$1$},
+  xlabel={Number of verification grid points},ylabel={Certified relative gap (\%)},
+  grid=major,major grid style={figGray!18,line width=0.3pt},
+  minor tick num=0,
+]
+\addplot[figBlue,line width=1.3pt,mark=*,mark size=2.1pt,
+  mark options={fill=figBlue,draw=white,line width=0.4pt}]
+  table[x=n,y=gap_pct,row sep=\\]{
+n gap_pct lower upper \\
+51 2.2866320556722495 0.41007391055747533 0.41967022443757662 \\
+101 0.58173624879899311 0.41722885061660714 0.41967022443757662 \\
+201 0.14617566484116248 0.41905676869686459 0.41967022443757662 \\
+401 0.036688542782721593 0.41951625354773747 0.41967022443757662 \\
+1001 0.005989109550760389 0.41964508992808314 0.41967022443757662 \\
+};
+\node[anchor=north east,font=\fontsize{8}{9.5}\selectfont,
+  fill=white,inner sep=2pt,text=figBlue]
+  at (rel axis cs:0.97,0.95) {$100(U-L)/U$};
+\node[anchor=south east,font=\fontsize{8}{9.5}\selectfont,
+  fill=white,inner sep=2pt,text=figBlue]
+  at (axis cs:1015,0.0103) {$0.005989\%$};
+\end{groupplot}
+\node[anchor=north,yshift=-0.44in] at ($(group c1r1.south west)!.5!(group c2r1.south east)$)
+  {\pgfplotslegendfromname{certifiedCurveLegend}};
+\end{tikzpicture}
+% END figures/tikz/certified_synthesis
+}
+ \caption{{\color{black} Certified exponential encoder. Left: the reconstructed encoder, unit peak boundary, and candidate contact inputs. Right: the certified relative gap under grid refinement, with the candidate and dual certificate fixed. The repaired encoder need not touch the peak boundary.}}
+ \label{fig:certified}
+\end{figure*}

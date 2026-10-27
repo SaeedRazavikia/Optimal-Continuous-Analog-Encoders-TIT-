@@ -1,65 +1,44 @@
-"""Build both shared-source manuscript formats with local TeX runtime files.
+#!/usr/bin/env python3
+"""Build the current manuscript as build/Main.pdf with a configured TeX installation."""
 
-Usage: python3 build.py [--format both|paper|submission]
-"""
 from pathlib import Path
 import argparse
-import hashlib
-import os
 import shutil
 import subprocess
-
-ROOT = Path(__file__).resolve().parent
-BUILD = ROOT / 'build_runtime'
-BUILD.mkdir(exist_ok=True)
-ENV = os.environ.copy()
-parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--format', choices=['both', 'paper', 'submission'], default='both')
-FORMAT = parser.parse_args().format
+import sys
 
 
-def run(args, name, cwd=ROOT):
-    path = BUILD / (name+'.log')
-    with path.open('w') as out:
-        p = subprocess.run(args, cwd=cwd, env=ENV, stdout=out,
-                           stderr=subprocess.STDOUT)
-    if p.returncode:
-        print('\n'.join(path.read_text(errors='replace').splitlines()[-50:]))
-        raise SystemExit(f'{name} failed')
-    print(name+': completed')
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.parse_args()
+    root = Path(__file__).resolve().parent
+    missing = [name for name in ("latexmk", "pdflatex", "bibtex")
+               if shutil.which(name) is None]
+    if missing:
+        print("Missing TeX tools: " + ", ".join(missing), file=sys.stderr)
+        print("Install a configured TeX distribution with latexmk, IEEEtran, "
+              "TikZ/PGFPlots and the LaTeX packages used by Main.tex. "
+              "See docs/REPRODUCING.md.", file=sys.stderr)
+        return 1
+    result = subprocess.run(
+        ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error",
+         "-outdir=build", "Main.tex"],
+        cwd=root,
+        check=False,
+    )
+    if result.returncode:
+        print("Manuscript build failed; see the TeX output above and "
+              "build/Main.log if available. Check that your TeX installation "
+              "includes IEEEtran, TikZ/PGFPlots and the required packages.",
+              file=sys.stderr)
+        return result.returncode
+    output = root / "build" / "Main.pdf"
+    if not output.is_file() or not output.stat().st_size:
+        print("TeX finished without producing build/Main.pdf.", file=sys.stderr)
+        return 1
+    print(f"Built {output}")
+    return 0
 
 
-for tool in ['pdftex','pdflatex','kpsewhich']:
-    if shutil.which(tool) is None:
-        raise SystemExit('Missing TeX dependency: '+tool)
-fmt = subprocess.run(['kpsewhich','pdflatex.fmt'],capture_output=True,text=True)
-if not fmt.stdout.strip():
-    tree = Path('/usr/share/texlive/texmf-dist')
-    ENV['TEXMF'] = str(tree)
-    ENV['TEXMFVAR'] = str(BUILD/'texmf-var')
-    ENV['TEXMFCONFIG'] = str(BUILD/'texmf-config')
-    ENV['TEXFORMATS'] = str(BUILD)+os.pathsep
-    if not (BUILD/'pdflatex.fmt').exists():
-        run(['pdftex','-ini','-etex','-jobname=pdflatex','-progname=pdflatex',
-             '-interaction=nonstopmode','-halt-on-error','pdflatex.ini'],
-            'format',BUILD)
-    maproot = tree/'fonts/map/dvips'
-    parts=['amsfonts/cm.map','amsfonts/cmextra.map','amsfonts/symbols.map',
-           'amsfonts/latxfont.map','rsfs/rsfs.map','tetex/ps2pk35.map']
-    (BUILD/'pdftex.map').write_text('\n'.join((maproot/p).read_text() for p in parts))
-    ENV['TEXFONTMAPS'] = str(BUILD)+os.pathsep
-targets = {
-    'paper': ('manuscript', 'TIT_Paper_Revised.pdf'),
-    'submission': ('manuscript_submission', 'TIT_Paper_Submission.pdf'),
-}
-for kind, (stem, output_name) in targets.items():
-    if FORMAT != 'both' and FORMAT != kind:
-        continue
-    for n in range(3):
-        run(['pdflatex','-interaction=nonstopmode','-halt-on-error',
-             stem+'.tex'],f'{kind}_latex_pass_{n+1}')
-    raw=(ROOT/(stem+'.pdf')).read_bytes()
-    assert raw.rstrip().endswith(b'%%EOF'), 'PDF export is incomplete'
-    (ROOT/output_name).write_bytes(raw)
-    print(ROOT/output_name)
-    print('Verified PDF bytes:',len(raw),'SHA256:',hashlib.sha256(raw).hexdigest())
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,75 +1,53 @@
-# Lean proofs for the current moment-based encoder manuscript
+# Lean formalization
 
-This folder accompanies the supplied **Main.tex**, *Geometric Optimization of
-Continuous Encoders for Moment-Based Computation*. Version 0.4.0 extends the
-formalization for node-dependent preprocessing, arbitrary continuous encoders,
-general SDP design, Gaussian estimation and certified discretization.
+Proofs accompanying [Main.tex](../Main.tex), *It Takes Two Moments: Rigidity and
+Limits of Continuous Encoders for Over-the-Air Computation*.
 
-The [coverage inventory](COVERAGE.md) tracks the current **10** numbered
-statements, including remaining formula-level specialization wrappers.
-[THEOREM_MAP.md](THEOREM_MAP.md) lists the principal declarations and proof
-chains. Exact manuscript statements and the source fingerprint are recorded
-in [manuscript_targets.json](manuscript_targets.json).
+The saved local audit passed **1,198 public declarations in 100 modules**.
+The development covers heterogeneous rigidity, general SDP attainment,
+Gaussian statistical limits, and grid certification. Some formula and example
+wrappers remain incomplete; [COVERAGE.md](COVERAGE.md) gives the precise scope.
 
-## Main proof developments
+## Start here
 
-- **Heterogeneous rigidity:** the original-hypothesis equivalence, including
-  nonsingular common columns and separate offsets, with physical completion
-  density, automatic regularity and a proved planar topology argument.
-- **General SDP attainment:** dependent feature families, singular feasible
-  Gram blocks and zero optimum; positivity iff Euclidean Lipschitz readout;
-  global continuous-encoder optimality under rigidity.
-- **Gaussian estimation:** genuine nonnegative risks over all Borel decoders,
-  local-prior information bounds, smooth-test variational completeness,
-  changing-design and singular-limit converses, endpoint-decoder achievability,
-  and actual Gaussian-law/model/coefficient identification.
-- **General grid certification:** node-dependent continuum/sample programs,
-  attained optima, C2 scaling certificates, quadratic mesh gaps and actual
-  finite PSD matrix dual witnesses.
+| Purpose | File or folder |
+|---|---|
+| See what is proved and what remains | [COVERAGE.md](COVERAGE.md) |
+| Find the theorem for a manuscript result | [THEOREM_MAP.md](THEOREM_MAP.md) |
+| Read the Lean proofs | [Analog/](Analog/) |
+| Inspect verification results and source hashes | [verification/report.json](verification/report.json) |
+| Read the proof explanations | [notes/](notes/) |
 
-The earlier bounded-noise minimax theorem, all-rank reconstruction, operational
-scores and explicit-design proofs are retained. [UPDATE_SUMMARY.md](UPDATE_SUMMARY.md)
-records the completion status and verification totals. Historical evidence is
-preserved in `historical/v0.2.0/` and `historical/v0.3.0/`; those inventories do
-not describe current coverage.
+## Verify
 
-The full warning-free build and `--trust=0` audit passed for **1,198 public
-proof declarations in 100 modules**, including **476 new declarations in
-47 new modules** in this completion update. The only logical axioms are
-`propext`, `Classical.choice` and `Quot.sound`; there are no admitted proofs.
-
-## Reproduce verification
-
-The project pins Lean to `leanprover/lean4:v4.24.0`, mathlib to
-`f897ebcf72cd16f89ab4577d0c826cd14afaafc7`, and transitive revisions through
-`lake-manifest.json`. From the repository root, with this toolchain installed, run:
+Install Python 3, Git, and Lean through Elan. The checked-in `lean-toolchain`
+selects **Lean 4.24.0**; `lake-manifest.json` pins mathlib and its dependencies.
+From the repository root, run:
 
 ```sh
 cd formalization
 lake exe cache get
-python3 check_manuscript.py
-python3 update_audit.py --check
 python3 verify.py
 ```
 
-`verify.py` builds every imported module with warnings rejected, invokes
-`lean --trust=0 Audit.lean`, checks the exact declaration inventory and permits
-only `propext`, `Classical.choice` and `Quot.sound`. The result, declaration
-count and exact proof-source hashes are in `verification/report.json`.
-Failed runs record failure rather than retaining a stale passing status.
-Successful verification certifies the Lean statements with their hypotheses.
+The script checks manuscript correspondence and the declaration inventory,
+builds every module with warnings rejected, and runs `lean --trust=0 Audit.lean`.
+Only `propext`, `Classical.choice`, and `Quot.sound` are allowed axioms. Results
+are written to `verification/`; a failed run records a failure.
 
-After proof changes, run `python3 update_audit.py` before verifying. After a
-manuscript revision, review the mathematics and coverage before running
-`python3 check_manuscript.py --update`; recording correspondence is not a proof.
+The saved audit applies to the source hashes in its report. Each
+[GitHub Actions run](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
+has its own status. A passing audit certifies the Lean statements with their
+hypotheses, not every claim in the paper.
 
-The unchanged exact rational numerical certificate has its own check:
+## Updating proofs
 
-```sh
-python3 ../code/certified_synthesis.py --verify-only
-```
+After proof changes, run `python3 update_audit.py`, then `python3 verify.py`.
+After manuscript changes, review the mathematics and coverage before running
+`python3 check_manuscript.py --update`; this updates correspondence, not proofs.
 
-Compiler and dependency caches are not bundled. The optional `runtime/`
-directory describes the executable-path adapter used in the managed checking
-environment; ordinary Linux installations do not need it. The ported planar
-topology sources include their license and precise external provenance.
+The adapted topology proofs retain their
+[provenance](notes/completion-topology.md) and
+[third-party license](THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
+[runtime/](runtime/) documents the saved audit's environment; its adapter is
+unnecessary on an ordinary Linux installation.

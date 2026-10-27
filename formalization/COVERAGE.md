@@ -1,6 +1,6 @@
 # Coverage of the current manuscript
 
-This inventory follows the attached `Main.tex`. Its ten numbered theorem,
+This inventory follows the accompanying [`Main.tex`](../Main.tex). Its ten numbered theorem,
 proposition, and lemma environments are recorded in
 [`manuscript_targets.json`](manuscript_targets.json), with labels, statements,
 source locations, and the manuscript hash. Run `python3 check_manuscript.py`
@@ -16,8 +16,8 @@ not claimed to be complete.
 
 A successful [`verification/report.json`](verification/report.json) checks the
 stated Lean declarations. It does not turn a specialized or conditional result
-into a broader manuscript theorem. The earlier inventory remains unchanged in
-[`historical/v0.2.0/`](historical/v0.2.0/).
+into a broader manuscript theorem. Earlier inventories are available in
+[Git history](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/54d1083238b5e3e9a009138c3bb69c09d37f58e9/formalization/historical).
 
 ## Current statements
 
@@ -73,6 +73,5 @@ The strongest named correspondences are collected in
 [`notes/gaussian-fixed-minimax.md`](notes/gaussian-fixed-minimax.md).
 The final optimized theorem is in
 [`Analog/GaussianOptimizedMinimax.lean`](Analog/GaussianOptimizedMinimax.lean).
-Earlier `current-*-audit.md` notes record the findings at the start of this
-update; their former gap lists should be read with this current inventory.
-No missing conclusion is inserted as an axiom.
+This inventory is the current scope record. No missing conclusion is inserted
+as an axiom.

@@ -73,8 +73,8 @@ Earlier shared-curve score identities, explicit strip decoders, variance
 operational optima, quartic certificates, Gram frontiers, criterion transfer,
 and conditional approximate stability remain in the build. Their precise
 statements remain useful, but do not automatically supply an unassembled
-current-model wrapper. The historical map is preserved at
-[`historical/v0.2.0/THEOREM_MAP.md`](historical/v0.2.0/THEOREM_MAP.md).
+current-model wrapper. The earlier specialized map is available in
+[Git history](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/blob/54d1083238b5e3e9a009138c3bb69c09d37f58e9/formalization/historical/v0.2.0/THEOREM_MAP.md).
 
 The four requested completion areas are covered by the terminal declarations
 above. The separate current representation/example wrappers still outside
