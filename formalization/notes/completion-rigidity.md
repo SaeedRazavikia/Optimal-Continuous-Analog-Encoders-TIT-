@@ -1,6 +1,6 @@
 # Completed heterogeneous rigidity
 
-The full current theorem `Main.tex` `thm:rigidity` is proved in both directions:
+The full current theorem in the [paper](https://arxiv.org/abs/2610.21536v1) `thm:rigidity` is proved in both directions:
 
 ```text
 Analog.HeterogeneousFullRigidity.heterogeneous_rigidity

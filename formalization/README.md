@@ -1,28 +1,16 @@
-# Lean formalization
+# Lean proof project
 
-Proofs accompanying [Main.tex](../Main.tex), *It Takes Two Moments: Rigidity and
-Limits of Continuous Encoders for Over-the-Air Computation*.
-
-The saved local audit passed **1,198 public declarations in 100 modules**.
-The development covers heterogeneous rigidity, general SDP attainment,
-Gaussian statistical limits, and grid certification. Some formula and example
-wrappers remain incomplete; [COVERAGE.md](COVERAGE.md) gives the precise scope.
-
-## Start here
-
-| Purpose | File or folder |
-|---|---|
-| See what is proved and what remains | [COVERAGE.md](COVERAGE.md) |
-| Find the theorem for a manuscript result | [THEOREM_MAP.md](THEOREM_MAP.md) |
-| Read the Lean proofs | [Analog/](Analog/) |
-| Inspect verification results and source hashes | [verification/report.json](verification/report.json) |
-| Read the proof explanations | [notes/](notes/) |
+This project formalizes results from
+[It Takes Two Moments, arXiv:2610.21536v1](https://arxiv.org/abs/2610.21536v1).
+Start with the [statement and proof guide](../docs/STATEMENTS.md), then use
+[COVERAGE.md](COVERAGE.md) for exact scope and [THEOREM_MAP.md](THEOREM_MAP.md)
+to locate supporting declarations.
 
 ## Verify
 
 Install Python 3, Git, and Lean through Elan. The checked-in `lean-toolchain`
 selects **Lean 4.24.0**; `lake-manifest.json` pins mathlib and its dependencies.
-From the repository root, run:
+From the repository root:
 
 ```sh
 cd formalization
@@ -30,24 +18,43 @@ lake exe cache get
 python3 verify.py
 ```
 
-The script checks manuscript correspondence and the declaration inventory,
+The script checks the paper-correspondence catalog and theorem inventory,
 builds every module with warnings rejected, and runs `lean --trust=0 Audit.lean`.
-Only `propext`, `Classical.choice`, and `Quot.sound` are allowed axioms. Results
-are written to `verification/`; a failed run records a failure.
+Only `propext`, `Classical.choice`, and `Quot.sound` are allowed axioms.
+The recorded audit covers **1,198 public declarations in 100 modules**.
 
-The saved audit applies to the source hashes in its report. Each
-[GitHub Actions run](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
-has its own status. A passing audit certifies the Lean statements with their
-hypotheses, not every claim in the paper.
+Results and source hashes are written to [verification/report.json](verification/report.json).
+A failed run records a failure. Each [GitHub Actions run](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
+has its own status. The paper is read on arXiv; verification needs no LaTeX source.
 
-## Updating proofs
+## Paper correspondence
 
-After proof changes, run `python3 update_audit.py`, then `python3 verify.py`.
-After manuscript changes, review the mathematics and coverage before running
-`python3 check_manuscript.py --update`; this updates correspondence, not proofs.
+[paper_targets.json](paper_targets.json) retains the ten reviewed statement
+excerpts, their fingerprints, versioned paper links, and Lean declaration names.
+[check_correspondence.py](check_correspondence.py) checks this local catalog,
+the reader guide, and the declaration references without downloading the paper.
+The source-snapshot fingerprint is historical provenance, not a requirement to
+keep the full manuscript here.
 
-The adapted topology proofs retain their
-[provenance](notes/completion-topology.md) and
-[third-party license](THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
-[runtime/](runtime/) documents the saved audit's environment; its adapter is
+These checks detect stale or inconsistent correspondence records. They do not
+establish semantic equivalence between prose and Lean. Compare the paper's
+assumptions with the actual Lean declarations and the scope notes.
+
+## Updating the project
+
+After changing proofs, run `python3 update_audit.py`, then `python3 verify.py`.
+When updating the paper version or correspondence guide, review the mathematical
+statements and coverage first, edit the catalog and guide together, and run:
+
+```sh
+python3 check_correspondence.py --update
+python3 -m unittest discover -s tests -v
+python3 verify.py
+```
+
+Updating fingerprints records the reviewed correspondence; it does not add proofs.
+The explanatory [notes](notes/) describe the longer proof chains.
+Adapted topology sources retain their [provenance](notes/completion-topology.md)
+and [third-party license](THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
+[runtime/](runtime/) documents the local audit environment; its adapter is
 unnecessary on an ordinary Linux installation.

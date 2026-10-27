@@ -1,4 +1,4 @@
-"""Build every proof and audit public theorems against the current manuscript.
+"""Build every proof and audit the Lean declarations and local correspondence catalog.
 
 Install pinned Lean/mathlib dependencies, then run: python3 verify.py
 A passed report certifies the Lean statements, not every manuscript theorem.
@@ -7,6 +7,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -23,10 +24,11 @@ def hashes():
     files = [ROOT / name for name in [
         'Analog.lean', 'Audit.lean', 'lakefile.toml', 'lake-manifest.json',
         'lean-toolchain', 'verify.py', 'audit_targets.json', 'update_audit.py',
-        'check_manuscript.py', 'manuscript_targets.json',
+        'check_correspondence.py', 'paper_targets.json',
+        '../docs/STATEMENTS.md', 'tests/test_check_correspondence.py',
     ]] + sorted((ROOT / 'Analog').glob('*.lean'))
-    return {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in files if p.exists()}
+    return {os.path.relpath(p, ROOT): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in files}
 
 
 def save(report):
@@ -52,14 +54,16 @@ def main():
     report = {
         'status': 'running',
         'started_at_utc': datetime.now(timezone.utc).isoformat(),
-        'source_sha256': hashes(),
+        'source_sha256': {},
         'scope': 'Kernel audit of the explicit Lean declarations only. '
-                 'Current manuscript coverage and remaining obligations are in COVERAGE.md; '
-                 'a passing build does not certify all ten manuscript statements.',
+                 'Paper correspondence and remaining obligations are recorded in COVERAGE.md; '
+                 'a passing build does not prove equivalence between Lean statements and paper prose.',
     }
     save(report)
     try:
-        run([sys.executable, 'check_manuscript.py'], 'manuscript-check.log')
+        report['source_sha256'] = hashes()
+        save(report)
+        run([sys.executable, 'check_correspondence.py'], 'correspondence-check.log')
         run([sys.executable, 'update_audit.py', '--check'], 'inventory-check.log')
         targets = json.loads((ROOT / 'audit_targets.json').read_text())
         expected = set(targets)
@@ -86,13 +90,18 @@ def main():
                 raise RuntimeError(f'Unexpected axioms for {name}: {sorted(extra)}')
         if hashes() != report['source_sha256']:
             raise RuntimeError('Sources changed while verification was running; rerun.')
-        manuscript = json.loads((ROOT / 'manuscript_targets.json').read_text())
-        run([sys.executable, 'check_manuscript.py'], 'manuscript-check.log')
+        catalog = json.loads((ROOT / 'paper_targets.json').read_text())
+        run([sys.executable, 'check_correspondence.py'], 'correspondence-check.log')
         report.update(status='passed', lean_version=version, mathlib_commit=commit,
                       theorem_axioms=axioms, declaration_count=len(axioms),
                       module_count=len(list((ROOT / 'Analog').glob('*.lean'))),
-                      manuscript_sha256=manuscript['manuscript_sha256'],
-                      manuscript_statement_count=manuscript['statement_count'],
+                      paper_url=catalog['paper']['url'],
+                      paper_version=catalog['paper']['version'],
+                      paper_statement_count=catalog['statement_count'],
+                      correspondence_catalog_sha256=hashlib.sha256(
+                          (ROOT / 'paper_targets.json').read_bytes()).hexdigest(),
+                      correspondence_scope='Local catalog integrity and audited declaration links; '
+                                           'paper-to-Lean semantic correspondence requires review.',
                       kernel_recheck='lake env lean --trust=0 Audit.lean')
     except (OSError, ValueError, RuntimeError) as exc:
         report.update(status='failed', error=str(exc))

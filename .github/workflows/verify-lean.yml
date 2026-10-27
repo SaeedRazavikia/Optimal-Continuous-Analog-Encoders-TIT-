@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - 'formalization/**'
-      - 'Main.tex'
+      - 'docs/STATEMENTS.md'
       - '.github/workflows/verify-lean.yml'
   pull_request:
     paths:
       - 'formalization/**'
-      - 'Main.tex'
+      - 'docs/STATEMENTS.md'
       - '.github/workflows/verify-lean.yml'
   workflow_dispatch:
 
@@ -37,5 +37,7 @@ jobs:
           "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)"
       - name: Fetch the pinned mathlib cache
         run: lake exe cache get
+      - name: Test correspondence validation
+        run: python3 -m unittest discover -s tests -v
       - name: Build and audit every advertised declaration
         run: python3 verify.py

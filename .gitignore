@@ -1,28 +1,6 @@
-# Local environments and build products
+# Local Python and Lean build products
 .venv/
 __pycache__/
 *.py[cod]
-build/
-build_runtime/
+.lake/
 .DS_Store
-
-# Generated numerical exports; canonical JSON results are tracked
-/results/*.csv
-/results/decoder_samples.json
-/results/independent_certificate_only.json
-/figures/*.pdf
-/figures/*.png
-
-# LaTeX auxiliary files
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.synctex.gz
-*.toc
-
-# Keep the recorded proof-verification evidence
-!/formalization/verification/*.log

@@ -1,6 +1,6 @@
 # Completion of heterogeneous certified discretization
 
-The current `Main.tex` theorem `thm:certifiedgrid` has a node-dependent peak
+The [paper](https://arxiv.org/abs/2610.21536v1) theorem `thm:certifiedgrid` has a node-dependent peak
 curve and a common lower Gram block. Its sampled program retains every
 attainable-moment secant. The new development formalizes that program directly;
 it does not substitute the old one-curve/two-endpoint-constraint problem.

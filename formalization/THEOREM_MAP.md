@@ -1,4 +1,7 @@
-# Current manuscript-to-Lean correspondence
+# Paper-to-Lean correspondence
+
+The [statement and proof guide](../docs/STATEMENTS.md) is the reader-facing
+entry point for [arXiv:2610.21536v1](https://arxiv.org/abs/2610.21536v1).
 
 [`COVERAGE.md`](COVERAGE.md) records the scope of all ten current manuscript
 targets. This map names the strongest relevant declarations and the bridges
@@ -12,7 +15,7 @@ theorem to inspect.
 |---|---|---|
 | `thm:rigidity` | [`HeterogeneousFullRigidity.heterogeneous_rigidity`](Analog/HeterogeneousFullRigidity.lean) | Original closed-source/closed-mean assumptions; exact computation iff common nonsingular feature columns and individual offsets. Both directions and source endpoints are included. |
 | `thm:sdp` | [`HeterogeneousAttainment.heterogeneous_sdp_attained`](Analog/HeterogeneousAttainment.lean); `optimal_positive_iff_euclidean_lipschitz`; [`HeterogeneousGlobalOptimum.unrestricted_sdp_attained`](Analog/HeterogeneousGlobalOptimum.lean) | Attainment and no relaxation gap in the actual heterogeneous program, including dependent features and zero/singular optima; positivity iff Euclidean Lipschitz continuity; unrestricted continuous-encoder optimum under rigidity assumptions. |
-| `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Decoder.lean); `zero_score_no_finite_uniform_decoder` | Sharp attained finite constant for positive actual score, and impossibility of any finite constant at zero score, for arbitrary input and received maps. |
+| `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Amplification.lean); `zero_score_no_finite_uniform_decoder` | Sharp attained finite constant for positive actual score, and impossibility of any finite constant at zero score, for arbitrary input and received maps. |
 | `thm:decoder` | [`Decoder.pairwise_exists_lipschitz`](Analog/Decoder.lean); `sharp_uniform_decoder`; `clip_uniform` | Exact global Lipschitz extension and sharp uniform bound. The displayed compact-moment minimum formula is not yet identified in a named current-model theorem. |
 | `prop:radius-minimax` | [`RadiusMinimax.borel_radius_minimax`](Analog/RadiusMinimax.lean) | Actual maximizing pair, Borel midpoint decoder, and optimal half-modulus error for compact continuous-input models, including radius zero. |
 | `thm:identifiable-minimax` | [`GaussianFixedMinimax.fixed_encoder_minimax`](Analog/GaussianFixedMinimax.lean); [`GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved`](Analog/GaussianOptimizedMinimax.lean) | Full fixed-encoder and optimized all-Borel minimax limits, actual finite-node attainable domain, attained coefficient minimum, and a single noise-independent optimal encoder/decoder. Changing designs and singular limiting channels are handled by proved converses. |
@@ -76,6 +79,6 @@ statements remain useful, but do not automatically supply an unassembled
 current-model wrapper. The earlier specialized map is available in
 [Git history](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/blob/54d1083238b5e3e9a009138c3bb69c09d37f58e9/formalization/historical/v0.2.0/THEOREM_MAP.md).
 
-The four requested completion areas are covered by the terminal declarations
-above. The separate current representation/example wrappers still outside
+The terminal declarations above cover the core rigidity, design, Gaussian,
+and certification developments. The separate current representation/example wrappers still outside
 the named theorem assembly are identified in `COVERAGE.md`.

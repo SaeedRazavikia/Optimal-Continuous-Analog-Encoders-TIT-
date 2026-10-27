@@ -1,9 +1,11 @@
 # Independent final Gaussian audit
 
 Date: 2026-10-27. Result: passed. This was a read-only review of the final
-statements, definitions, and assembly proofs against `Main.tex`, in particular
+statements, definitions, and assembly proofs against the supplied source
+statement snapshot, in particular
 `prop:general-small-noise` and `thm:identifiable-minimax`. No proof-source changes
-were made during this audit.
+were made during this audit. The corresponding paper is
+[arXiv:2610.21536v1](https://arxiv.org/abs/2610.21536v1).
 
 ## Final statements checked
 

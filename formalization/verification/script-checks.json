@@ -1,41 +1,9 @@
 {
   "status": "passed",
-  "started_at_utc": "2026-10-27T10:53:11.783372+00:00",
-  "finished_at_utc": "2026-10-27T10:53:12.035263+00:00",
-  "checks": [
-    {
-      "check": "current manuscript accepted",
-      "expected_exit": 0,
-      "observed_exit": 0,
-      "output": "Manuscript correspondence is current: 10 statements."
-    },
-    {
-      "check": "current theorem inventory accepted",
-      "expected_exit": 0,
-      "observed_exit": 0,
-      "output": "Audit inventory is current: 1198 declarations in 100 modules."
-    },
-    {
-      "check": "manuscript change rejected",
-      "expected_exit": 1,
-      "observed_exit": 1,
-      "output": "Manuscript inventory is stale. Review the changed proofs and COVERAGE.md, then run python3 check_manuscript.py --update."
-    },
-    {
-      "check": "unlisted theorem module rejected",
-      "expected_exit": 1,
-      "observed_exit": 1,
-      "output": "Stale audit files: audit_targets.json, Analog.lean, Audit.lean. Run python3 update_audit.py."
-    }
-  ],
-  "source_validation": {
-    "status": "passed",
-    "declaration_count": 1198,
-    "module_count": 100,
-    "source_hash_count": 110,
-    "source_hashes_unchanged": true,
-    "manuscript_sha256": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
-    "manuscript_unchanged": true,
-    "negative_checks_used_temporary_copies": true
-  }
+  "command": "python3 -m unittest discover -s tests -v",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "output": "test_duplicate_statement_rejected (test_check_correspondence.CorrespondenceTests.test_duplicate_statement_rejected) ... ok\ntest_excerpt_change_rejected (test_check_correspondence.CorrespondenceTests.test_excerpt_change_rejected) ... ok\ntest_guide_change_rejected (test_check_correspondence.CorrespondenceTests.test_guide_change_rejected) ... ok\ntest_inconsistent_arxiv_version_rejected (test_check_correspondence.CorrespondenceTests.test_inconsistent_arxiv_version_rejected) ... ok\ntest_inconsistent_count_rejected (test_check_correspondence.CorrespondenceTests.test_inconsistent_count_rejected) ... ok\ntest_missing_declaration_source_rejected (test_check_correspondence.CorrespondenceTests.test_missing_declaration_source_rejected) ... ok\ntest_unrecorded_declaration_rejected (test_check_correspondence.CorrespondenceTests.test_unrecorded_declaration_rejected) ... ok\ntest_update_refreshes_hashes_after_structural_validation (test_check_correspondence.CorrespondenceTests.test_update_refreshes_hashes_after_structural_validation) ... ok\ntest_update_rejects_broken_mapping_without_writing (test_check_correspondence.CorrespondenceTests.test_update_rejects_broken_mapping_without_writing) ... ok\ntest_update_rejects_missing_guide_anchor (test_check_correspondence.CorrespondenceTests.test_update_rejects_missing_guide_anchor) ... ok\ntest_update_rejects_missing_lean_link (test_check_correspondence.CorrespondenceTests.test_update_rejects_missing_lean_link) ... ok\ntest_update_rejects_missing_paper_link (test_check_correspondence.CorrespondenceTests.test_update_rejects_missing_paper_link) ... ok\ntest_valid_catalog_needs_neither_paper_source_nor_network (test_check_correspondence.CorrespondenceTests.test_valid_catalog_needs_neither_paper_source_nor_network) ... ok\ntest_wrong_proof_url_rejected (test_check_correspondence.CorrespondenceTests.test_wrong_proof_url_rejected) ... ok\ntest_wrong_source_path_rejected (test_check_correspondence.CorrespondenceTests.test_wrong_source_path_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.013s\n\nOK\n",
+  "scope": "Offline correspondence checker regressions; Lean proofs are checked separately by verify.py."
 }

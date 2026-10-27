@@ -1,17 +1,19 @@
 {
   "status": "passed",
-  "started_at_utc": "2026-10-27T10:31:47.237338+00:00",
+  "started_at_utc": "2026-10-27T11:57:20.331250+00:00",
   "source_sha256": {
     "Analog.lean": "270e546b1641a96bc8fde4caaa29827213420d24c917d91615480f55d731d3ae",
     "Audit.lean": "dc77748173a425a42f1c2c4dcd1c661056894769e3635c0268422bfcfb97f97d",
     "lakefile.toml": "02cfacbde3c9950115c6317d8c3d8d9dceda32dee722b8824fd8e77f8c8753d6",
     "lake-manifest.json": "ea1f7e24c5497dedfc847b6a560e6a7aece9068669fece91f5af04d623dab305",
     "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
-    "verify.py": "216b2a08fa51d2ceca0e8e114644fa728bf4e57368d6d9fd6d63bba48a9fc788",
+    "verify.py": "c77721ff31b84cc151a6ef372670032e24df5d3c6540e3d38c73541f5ecb0160",
     "audit_targets.json": "2c27a326641ab07d3b622a64bcf56877fcf448236b179ca7f98383b7df28a693",
     "update_audit.py": "f7f80fb8bcbe9de9ffe3df6e8b5b3e5dd66717e9ce0069e9fccc8603afe3ea99",
-    "check_manuscript.py": "d9e1856f749a54bf7835c2160915877ae29f0cfdb820d69bdc75fe56aa42879e",
-    "manuscript_targets.json": "ad06d714b6287d9ff6d0bf19b5fa9176eeafc6d06d7c946393c341f5c3e6d47f",
+    "check_correspondence.py": "7fd46d427c4f31533413b7d5cf501fd3de1b7a1b21df31a7f6ad070a638f9248",
+    "paper_targets.json": "6829dac1ce1e1c31733eea1698c9102352facee4ad45b3ab53fd2dd6330555e2",
+    "../docs/STATEMENTS.md": "a017d626650575ac194d79387c213ad8a1d930a34782434cde08144ac079b18b",
+    "tests/test_check_correspondence.py": "a6e413d85a248fa0b067f57a51f29448879d1faded28d584f85b9b0c4e0865d0",
     "Analog/AdditiveStatistics.lean": "94f577b1bfec0373d22df2eeb2463229aacd25734c3e273d520cbb0d3e652f96",
     "Analog/Amplification.lean": "ddd9d95eed86d7e5297c93d547b14c704e19a7234deccf55fc8d354820c567a0",
     "Analog/ApproximateRigidity.lean": "4009e65cb1070f31e9c4103bc49225ee51741b5e0db340741d88d9976c962831",
@@ -113,7 +115,7 @@
     "Analog/VarianceScore.lean": "8902eb7f7d1ae949bf0962144cf5f135ec265f019af860ac0c9b49cb2def4bc5",
     "Analog/WeightedVariational.lean": "840b390217825f55f6dbccd3d595d8afdd8c1889b090a2492b1461668f9f1ffa"
   },
-  "scope": "Kernel audit of the explicit Lean declarations only. Current manuscript coverage and remaining obligations are in COVERAGE.md; a passing build does not certify all ten manuscript statements.",
+  "scope": "Kernel audit of the explicit Lean declarations only. Paper correspondence and remaining obligations are recorded in COVERAGE.md; a passing build does not prove equivalence between Lean statements and paper prose.",
   "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "theorem_axioms": {
@@ -6110,8 +6112,11 @@
   },
   "declaration_count": 1198,
   "module_count": 100,
-  "manuscript_sha256": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
-  "manuscript_statement_count": 10,
+  "paper_url": "https://arxiv.org/abs/2610.21536v1",
+  "paper_version": "v1",
+  "paper_statement_count": 10,
+  "correspondence_catalog_sha256": "6829dac1ce1e1c31733eea1698c9102352facee4ad45b3ab53fd2dd6330555e2",
+  "correspondence_scope": "Local catalog integrity and audited declaration links; paper-to-Lean semantic correspondence requires review.",
   "kernel_recheck": "lake env lean --trust=0 Audit.lean",
-  "finished_at_utc": "2026-10-27T10:43:23.894042+00:00"
+  "finished_at_utc": "2026-10-27T12:08:37.285141+00:00"
 }

@@ -1,12 +1,15 @@
 # Coverage of the current manuscript
 
-This inventory follows the accompanying [`Main.tex`](../Main.tex). Its ten numbered theorem,
-proposition, and lemma environments are recorded in
-[`manuscript_targets.json`](manuscript_targets.json), with labels, statements,
-source locations, and the manuscript hash. Run `python3 check_manuscript.py`
-to detect a later manuscript change.
+This inventory covers ten results in
+[arXiv:2610.21536v1](https://arxiv.org/abs/2610.21536v1).
+The [statement and proof guide](../docs/STATEMENTS.md) connects each paper result
+to its Lean declarations. [paper_targets.json](paper_targets.json) retains the
+reviewed statement excerpts, paper links, and declaration mappings.
+`python3 check_correspondence.py` checks this local correspondence record;
+mathematical correspondence to the external paper still requires reading the
+statements and their hypotheses.
 
-The four requested gaps are now closed: full heterogeneous rigidity, general
+The core verified areas are full heterogeneous rigidity, general
 SDP attainment, Gaussian converse and optimization proofs, and general grid
 certification. The Gaussian results include the fixed-prior all-Borel limit,
 the fixed-encoder worst-case limit, and optimization over noise-dependent
@@ -28,7 +31,7 @@ the named declarations.
 |---|---|---|
 | `thm:rigidity` | [`HeterogeneousFullRigidity.heterogeneous_rigidity`](Analog/HeterogeneousFullRigidity.lean) proves the full iff under the manuscript's original closed-domain assumptions. | **Complete.** Arbitrary continuous node encoders, separate feature curves, common nonsingular columns, individual offsets, and both source endpoints. Completion separation, actual moment-domain density, planar invariance of domain, local charts, encoder regularity, derivative relations, and tangent anchors are derived. No decoder regularity or extra C² hypothesis is assumed. |
 | `thm:sdp` | [`HeterogeneousAttainment.heterogeneous_sdp_attained`](Analog/HeterogeneousAttainment.lean), `optimal_positive_iff_euclidean_lipschitz`, and [`HeterogeneousGlobalOptimum.unrestricted_sdp_attained`](Analog/HeterogeneousGlobalOptimum.lean). | **Complete.** Actual operational maximum and exact secant-SDP maximum are both attained with equal value, including dependent features, singular Gram blocks, and zero optimum. Positivity is equivalent to Lipschitz continuity on the actual attainable set. Under rigidity assumptions the same attained optimum dominates every continuous peak-feasible encoder, including those without exact computation. |
-| `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Decoder.lean) and `zero_score_no_finite_uniform_decoder`. | **Complete operational alternatives.** Generic arbitrary received/target maps cover heterogeneous encoders. A continuous decoder attains the sharp finite constant at positive score; zero score excludes every finite constant. The latter represents the manuscript's `+∞` convention without treating infinity as a real number. |
+| `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Amplification.lean) and `zero_score_no_finite_uniform_decoder`. | **Complete operational alternatives.** Generic arbitrary received/target maps cover heterogeneous encoders. A continuous decoder attains the sharp finite constant at positive score; zero score excludes every finite constant. The latter represents the manuscript's `+∞` convention without treating infinity as a real number. |
 | `thm:decoder` | [`Decoder.pairwise_exists_lipschitz`](Analog/Decoder.lean), `sharp_uniform_decoder`, and `clip_uniform` construct a global exact Lipschitz decoder, prove the sharp uniform constant, and preserve the bound under output clipping. | These generic results apply to the current received map. The exact displayed **minimum over the compact moment set** has not been identified with that extension in a dedicated current-model theorem. The separately proved strip decoder remains a specialization. |
 | `prop:radius-minimax` | [`RadiusMinimax.borel_radius_minimax`](Analog/RadiusMinimax.lean). | **Complete.** For compact continuous-input models, an actual maximizing pair and a Borel consistency-midpoint decoder attain half the pair modulus. The lower bound applies to every decoder, including radius zero and nonidentifiable maps. The finite input cube and complex channel are covered by this generic result. |
 | `thm:identifiable-minimax` | [`GaussianFixedMinimax.fixed_encoder_minimax`](Analog/GaussianFixedMinimax.lean) and [`GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved`](Analog/GaussianOptimizedMinimax.lean). | **Complete.** Both actual all-Borel-decoder minimax limits hold as noise tends to zero from above. The optimized theorem uses the actual finite-node attainable image, derives its compactness/nonemptiness and coefficient compactness, excludes singular limiting channels, and includes designs that vary with noise. An attained fixed peak-feasible nonsingular encoder and one explicit noise-independent decoder achieve the same coefficient. The true channel is `K U`; normalization by total complex noise `2v` and the resulting `1/(2K²)` coefficient are proved. |
@@ -50,11 +53,9 @@ the named declarations.
   upper bound, and compact-convex equality have not been assembled into the
   current manuscript statement. The earlier endpoint localization is a
   special case.
-- **Numerical exponential certificate:** the independent exact-rational
-  certificate check is recorded in
-  [`verification/numerical-certificate-check.json`](verification/numerical-certificate-check.json).
-  It is separate from the Lean proofs of general certification and is not
-  presented as a Lean proof of every numerical value in the manuscript.
+- **Numerical examples:** the paper's numerical certificate and experiments
+  are not part of this formalization repository. The general Lean certification
+  theorems do not individually verify every reported numerical value.
 - **Remaining examples and exposition:** not every moment-set description,
   output-range calculation, counterexample, or empirical plot is formalized.
   Earlier frontier, transfer, and approximate-rigidity results remain in the

@@ -1,7 +1,7 @@
 # Actual matrix finite dual certificates
 
 `Analog/HeterogeneousDualCertificate.lean` completes the finite dual-witness
-argument in `Main.tex`, Appendix “Verified Primal and Dual Bounds”, equation
+argument in the [paper](https://arxiv.org/abs/2610.21536v1), Appendix “Verified Primal and Dual Bounds”, equation
 `eq:general-dualwitness`.
 
 The principal theorem is `current_program_dual_upper_bound`. It takes a feasible

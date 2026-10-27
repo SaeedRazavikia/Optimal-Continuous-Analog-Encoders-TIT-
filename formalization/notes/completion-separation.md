@@ -1,7 +1,7 @@
 # Completion separation and heterogeneous differential rigidity
 
-This update addresses the analytic separation argument in the current
-`Main.tex`, Appendix A, Step 1, and derives the independent distinct-node
+This update addresses the analytic separation argument in the
+[paper](https://arxiv.org/abs/2610.21536v1), Appendix A, Step 1, and derives the independent distinct-node
 anchors used in the differential conclusion. All statements use the pinned
 Lean 4.24.0/mathlib environment. Final aggregate kernel evidence is recorded
 in the project-level verification report.

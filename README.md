@@ -1,26 +1,33 @@
-# It Takes Two Moments
+# It Takes Two Moments — Lean formalization
 
-**Rigidity and Limits of Continuous Encoders for Over-the-Air Computation**  
-Saeed Razavikia
+Machine-checked proofs accompanying Saeed Razavikia's paper:
 
-This repository contains the research manuscript, its Lean 4 formalization,
-and code to reproduce the numerical results. The paper studies which continuous
-encoders support exact moment-based computation and how to optimize their
-robustness to channel noise.
+**[It Takes Two Moments: Rigidity and Limits of Continuous Encoders for
+Over-the-Air Computation](https://arxiv.org/abs/2610.21536v1)**  
+[Read on arXiv](https://arxiv.org/html/2610.21536v1) · [PDF](https://arxiv.org/pdf/2610.21536v1)
 
-## Start here
+This repository is the formalization companion. It contains the Lean proofs,
+a readable correspondence guide, and the files needed to verify them.
+The correspondence is pinned to **arXiv:2610.21536v1**.
 
-| To… | Open… |
+## Read and compare
+
+| Start with… | What it provides |
 |---|---|
-| Read the paper | [Main.tex](Main.tex), or build the PDF below |
-| Understand exactly what is proved | [Formalization coverage](formalization/COVERAGE.md) |
-| Find a theorem in Lean | [Theorem map](formalization/THEOREM_MAP.md) |
-| Verify the proofs | [Instructions below](#verify-the-proofs) or [GitHub Actions](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml) |
-| Reproduce the experiments | [Reproduction guide](docs/REPRODUCING.md) |
+| [Statements and proof guide](docs/STATEMENTS.md) | The ten paper results, key assumptions, proof outlines, and links to both the paper and Lean |
+| [Coverage](formalization/COVERAGE.md) | Precisely which results are complete and which wrappers remain |
+| [Theorem map](formalization/THEOREM_MAP.md) | Detailed declaration names and supporting proof chains |
+| [Lean sources](formalization/Analog/) | The definitions and proofs checked by Lean |
 
-## Verify the proofs
+The development includes heterogeneous rigidity, general SDP attainment,
+Gaussian converse and minimax results, and general grid certification.
+Some displayed-formula and example wrappers remain incomplete; the guide and
+coverage inventory distinguish those from the completed results.
 
-With Lean's `elan` toolchain manager installed, run from the repository root:
+## Verify
+
+Install Python 3, Git, and Lean's `elan` toolchain manager. From the repository
+root, run:
 
 ```sh
 cd formalization
@@ -29,46 +36,27 @@ python3 verify.py
 ```
 
 The project pins Lean **4.24.0** and its mathlib dependencies. Verification
-builds all modules, rejects warnings and admitted proofs, checks the manuscript
-and theorem inventories, and runs a kernel audit with `--trust=0`.
+checks the statement-to-declaration catalog, builds all modules with warnings
+rejected, and runs a kernel audit with `--trust=0`. No paper source files or
+LaTeX installation are needed.
 
 The recorded successful audit covers **1,198 public declarations in 100
-modules**. The only allowed axioms are Lean's standard `propext`,
-`Classical.choice`, and `Quot.sound`. See the [audit report](formalization/verification/report.json)
-for exact source hashes, and [GitHub Actions](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
-for the status of repository runs.
+modules**, using only `propext`, `Classical.choice`, and `Quot.sound`.
+See the [verification report](formalization/verification/report.json) for
+source hashes and [GitHub Actions](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
+for repository-run status.
 
-The completed proof areas include heterogeneous rigidity, general SDP
-attainment, Gaussian converse and minimax results, and general grid
-certification. **This is not a claim that every statement in the paper is
-formalized.** Remaining formula wrappers and examples are listed in the
-[coverage inventory](formalization/COVERAGE.md).
+Lean verifies the formal statements. The correspondence checks validate the
+local catalog and its links to audited declarations; they do not automatically
+prove that a natural-language paper statement and a Lean statement are equivalent.
+Use the guide to compare their hypotheses and conclusions.
 
-## Build the paper
+## Files
 
-Install a LaTeX distribution with `latexmk`, IEEEtran, and PGFPlots, then run
-from the repository root:
+- `formalization/` — Lean sources, pinned dependencies, coverage, and audit evidence.
+- `docs/STATEMENTS.md` — readable paper-to-proof correspondence.
+- `CITATION.cff` — citation metadata for the artifact and paper.
 
-```sh
-python3 build.py
-```
-
-The output is `build/Main.pdf`. The manuscript's bibliography and editable
-TikZ/PGFPlots figures are included; the numerical experiments do not need to
-be rerun to build the paper.
-
-## Repository layout
-
-| Path | Purpose |
-|---|---|
-| `Main.tex`, `bibliography.bib` | Current manuscript and references |
-| `figures/` | Figure sources used by the manuscript |
-| `formalization/` | Lean proofs, pinned dependencies, coverage, and audit evidence |
-| `code/`, `results/` | Numerical scripts and recorded JSON results |
-| `docs/` | Reproduction instructions and experiment details |
-
-The Lean artifact has [citation metadata](formalization/CITATION.cff).
+For proof-maintenance instructions, see [formalization/README.md](formalization/README.md).
 Adapted topology proofs retain their [provenance](formalization/notes/completion-topology.md)
 and [third-party license](formalization/THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
-Superseded drafts and historical audit snapshots remain available in
-[Git history](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/54d1083238b5e3e9a009138c3bb69c09d37f58e9).

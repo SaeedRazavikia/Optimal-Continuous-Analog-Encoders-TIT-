@@ -1,7 +1,7 @@
 # Completion of the general heterogeneous SDP theorem
 
 `Analog/HeterogeneousAttainment.lean` closes the coefficient-class attainment
-and Lipschitz-positivity portions of the current `Main.tex`, `thm:sdp`.
+and Lipschitz-positivity portions of the current [paper](https://arxiv.org/abs/2610.21536v1), `thm:sdp`.
 The theorem compares actual node-indexed encoders, not a surrogate objective.
 It permits dependent local feature families, singular common Gram matrices,
 and zero optimal score. It adds no compactness or optimizer hypothesis.
