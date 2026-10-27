@@ -54,18 +54,21 @@ attain the same variational supremum; the integrated Cauchy--Schwarz upper
 bound applies to every square-integrable test. Consequently using this
 smaller smooth test class loses no information in the converse.
 
-## Scope boundary
+## Use in the completed Gaussian theorems
 
 The statement assumes a globally defined bounded continuous extension of the
-gradient field. The current manuscript constructs such extensions by extending
-the one-dimensional postprocessing derivatives constantly past their endpoint
-intervals; an application must connect that construction to this theorem.
-The inverse-adjoint form must also be identified with the manuscript's chosen
-coordinate Gram matrix. These are application interfaces, not approximation
-hypotheses.
+gradient field. [EndpointExtension](../Analog/EndpointExtension.lean) constructs
+the required one-dimensional extensions by extending the postprocessing
+derivatives constantly past their endpoint intervals.
+[FixedPriorGaussianLimit](../Analog/FixedPriorGaussianLimit.lean) assembles
+the two-coordinate target extension and its gradient.
+[GaussianGramCoefficient](../Analog/GaussianGramCoefficient.lean) identifies
+the inverse-adjoint energy with the coordinate inverse-Gram expression.
+These application requirements are therefore derived in the completed proofs.
 
-This module does not establish the Gaussian likelihood score identity,
-regular-prior information integrability, or the arbitrary-decoder risk bound;
-those belong to the separate Gaussian converse development. Successful
-compilation and the project-level audit establish the exact Lean statements,
-not the remaining statistical assembly.
+The Gaussian likelihood score identity, regular-prior information integrability,
+and arbitrary-decoder risk bound are supplied by the separate Gaussian
+converse modules. The final statistical assembly is complete; see
+[the Gaussian proof overview](completion-gaussian.md) and
+[COVERAGE.md](../COVERAGE.md) for its terminal declarations and exact scope.
+The project-level audit checks the formal statements and their proof dependencies.

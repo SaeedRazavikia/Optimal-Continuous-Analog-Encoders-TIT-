@@ -77,12 +77,15 @@ Euclidean norm of the manuscript.
 
 ## Scope
 
-The current coefficient-class SDP theorem, including attainment, zero
-relaxation gap, and the positivity characterization, is now formalized.
-The final manuscript sentence identifying this value with the optimum over
-**all continuous encoders** still depends on the separate unrestricted
-heterogeneous rigidity theorem. This module does not assume or prove that
-classification. It also does not establish the Gaussian statistical claims.
+This module proves the coefficient-class SDP theorem, including attainment,
+zero relaxation gap, and the positivity characterization.
+[HeterogeneousGlobalOptimum](../Analog/HeterogeneousGlobalOptimum.lean)
+proves that, under the paper's rigidity assumptions, the same value is optimal
+over **all continuous peak-feasible encoders**, using the classification proved in
+[HeterogeneousFullRigidity](../Analog/HeterogeneousFullRigidity.lean).
+This completes Theorem 2's unrestricted-encoder conclusion. The separate
+Gaussian statistical results and their exact scope are listed in
+[COVERAGE.md](../COVERAGE.md).
 
 Validation: the complete module compiled with the pinned Lean 4.24.0 and
 mathlib revision, without warnings. The project-level verification report

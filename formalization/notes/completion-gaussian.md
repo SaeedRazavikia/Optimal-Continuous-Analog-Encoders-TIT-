@@ -59,8 +59,13 @@ with Lean 4.24.0 and mathlib at the project's pinned revision.
   prior and smooth scalar test, and proves divergence of the actual optimized
   normalized worst-case risk.
 
-The Gaussian proof chain now contains actual statistical converses, actual
-variational completeness, actual local priors and actual minimax risk
-optimization. Final encoder-design optimization and equality with the constructed
-achievability decoder are assembled in the separately owned terminal modules;
-those should be reported complete only after their final project audit.
+The Gaussian proof chain includes statistical converses, variational
+completeness, local priors, and minimax risk optimization. The completed
+fixed-prior equality and attainment by the displayed minimum decoder are
+assembled in [MinimumDecoderGaussianLimit](../Analog/MinimumDecoderGaussianLimit.lean).
+[GaussianFixedMinimax](../Analog/GaussianFixedMinimax.lean) proves the
+fixed-encoder minimax equality, and
+[GaussianOptimizedMinimax](../Analog/GaussianOptimizedMinimax.lean) proves
+the optimized equality and its attainment by a fixed encoder and decoder.
+[COVERAGE.md](../COVERAGE.md) records their exact correspondence to the paper;
+[verification/report.json](../verification/report.json) records the aggregate audit.

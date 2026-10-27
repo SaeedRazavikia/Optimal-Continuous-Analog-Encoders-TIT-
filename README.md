@@ -1,63 +1,69 @@
 # It Takes Two Moments — Lean formalization
 
-Machine-checked proofs accompanying Saeed Razavikia's paper:
-
+Machine-checked proofs accompanying Saeed Razavikia's paper,
 **[It Takes Two Moments: Rigidity and Limits of Continuous Encoders for
-Over-the-Air Computation](https://arxiv.org/abs/2610.21536v1)**  
-[Read on arXiv](https://arxiv.org/html/2610.21536v1) · [PDF](https://arxiv.org/pdf/2610.21536v1)
+Over-the-Air Computation](https://arxiv.org/abs/2610.21536v1)**.
 
-This repository is the formalization companion. It contains the Lean proofs,
-a readable correspondence guide, and the files needed to verify them.
-The correspondence is pinned to **arXiv:2610.21536v1**.
+The formalization covers **Theorems 1–5, Propositions 1–4, and Lemma 1**, under
+their stated hypotheses in **arXiv:2610.21536v1**. The paper is available on
+[arXiv](https://arxiv.org/html/2610.21536v1); this repository contains its Lean
+companion and verification materials.
 
-## Read and compare
+## Read the proofs
 
-| Start with… | What it provides |
-|---|---|
-| [Statements and proof guide](docs/STATEMENTS.md) | The ten paper results, key assumptions, proof outlines, and links to both the paper and Lean |
-| [Coverage](formalization/COVERAGE.md) | Exact scope of the formalized results and exclusions |
-| [Theorem map](formalization/THEOREM_MAP.md) | Detailed declaration names and supporting proof chains |
-| [Lean sources](formalization/Analog/) | The definitions and proofs checked by Lean |
+Start with the **[statement and proof guide](docs/STATEMENTS.md)**. Find the
+paper's theorem number, read its summary, and follow the link to the Lean
+statement and proof. No installation is needed to browse these files.
 
-All ten numbered results have formal counterparts under their stated
-hypotheses: **Theorems 1–5, Propositions 1–4, and Lemma 1**. This includes
-the explicit minimum decoder, its Gaussian limit, and globally optimal
-quadratic/quartic encoders. Unnumbered gradient claims, numerical examples,
-and experiments are outside this coverage; see the inventory for details.
+- [Coverage](formalization/COVERAGE.md) records the exact scope and exclusions.
+- [Theorem map](formalization/THEOREM_MAP.md) lists supporting declarations and proof dependencies.
+- [Lean sources](formalization/Analog/) contain the definitions and proofs.
 
-## Verify
+Unnumbered gradient claims, numerical examples, and experiments are outside
+the recorded coverage.
 
-Install Python 3, Git, and Lean's `elan` toolchain manager. From the repository
-root, run:
+## Verify locally
+
+Install **Git, Python 3, and Elan** (Lean's toolchain manager). Follow the
+[official Lean installation instructions](https://lean-lang.org/install/manual/)
+for your operating system. Ensure `git`, `python3`, and `lake` are available
+in your terminal, then run:
 
 ```sh
-cd formalization
+git clone https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders.git
+cd Rigidity-and-Limits-of-Continuous-Encoders/formalization
 lake exe cache get
 python3 verify.py
 ```
 
-The project pins Lean **4.24.0** and its mathlib dependencies. Verification
-checks the statement-to-declaration catalog, builds all modules with warnings
-rejected, and runs a kernel audit with `--trust=0`. No paper source files or
-LaTeX installation are needed.
+The project selects Lean **4.24.0** and the pinned mathlib dependencies.
+The first run downloads the toolchain and dependency cache. No LaTeX
+installation or paper source files are required.
 
-The recorded successful audit covers **1,268 public declarations in 107
-modules**, using only `propext`, `Classical.choice`, and `Quot.sound`.
-See the [verification report](formalization/verification/report.json) for
-source hashes and [GitHub Actions](https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders/actions/workflows/verify-lean.yml)
-for repository-run status.
+A successful run ends with:
 
-Lean verifies the formal statements. The correspondence checks validate the
-local catalog and its links to audited declarations; they do not automatically
-prove that a natural-language paper statement and a Lean statement are equivalent.
-Use the guide to compare their hypotheses and conclusions.
+```text
+PASS: 1268 declarations; compilation and kernel audit complete.
+```
 
-## Files
+The kernel audit can run for several minutes without printing progress.
+If verification fails, the terminal names the relevant log in `verification/`,
+and `verification/report.json` records the failure.
 
-- `formalization/` — Lean sources, pinned dependencies, coverage, and audit evidence.
-- `docs/STATEMENTS.md` — readable paper-to-proof correspondence.
-- `CITATION.cff` — citation metadata for the artifact and paper.
+## What is checked
 
-For proof-maintenance instructions, see [formalization/README.md](formalization/README.md).
-Adapted topology proofs retain their [provenance](formalization/notes/completion-topology.md)
-and [third-party license](formalization/THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
+Verification checks the paper-to-Lean catalog, builds all modules with warnings
+rejected, and rechecks imported proofs with `lean --trust=0`. The recorded
+successful audit covers **1,268 public declarations in 107 modules**, using only
+`propext`, `Classical.choice`, and `Quot.sound`.
+
+See the [audit report](formalization/verification/report.json) for source hashes
+and the [GitHub Actions runs](https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders/actions/workflows/verify-lean.yml)
+for CI status. A recorded local audit and a GitHub run have separate results.
+Lean checks the formal statements; the correspondence guide explains how their
+hypotheses and conclusions match the paper.
+
+For changes to the project, use the [maintainer guide](formalization/README.md).
+[CITATION.cff](CITATION.cff) supplies citation metadata. Adapted topology proofs
+retain their [provenance](formalization/notes/completion-topology.md) and
+[third-party license](formalization/THIRD_PARTY_LICENSES/ClassificationOfSurfaces-LICENSE).
