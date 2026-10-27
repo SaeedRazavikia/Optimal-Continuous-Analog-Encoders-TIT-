@@ -45,6 +45,13 @@ generated = {
     'Analog.lean': ''.join(f'import Analog.{p.stem}\n' for p in modules),
 }
 checks = [
+    'Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder',
+    'Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum',
+    'Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder',
+    'Analog.FiniteNodeScore.lemma_one_score',
+    'Analog.FiniteNodeScore.lemma_one_sharpness',
+    'Analog.PolynomialGlobalOptima.quadratic_global_optimal',
+    'Analog.PolynomialGlobalOptima.quartic_global_optimal',
     'Analog.HeterogeneousFullRigidity.heterogeneous_rigidity',
     'Analog.HeterogeneousAttainment.heterogeneous_sdp_attained',
     'Analog.HeterogeneousAttainment.optimal_positive_iff_euclidean_lipschitz',

@@ -1,1 +1,9 @@
-Build completed successfully (7452 jobs).
+✔ [7451/7459] Built Analog.CompactMinimumDecoder (5.0s)
+✔ [7452/7459] Built Analog.PolynomialOptimizerFacts (3.9s)
+✔ [7453/7459] Built Analog.EvenReadout (4.0s)
+✔ [7454/7459] Built Analog.FiniteNodeScore (4.1s)
+✔ [7455/7459] Built Analog.MinimumDecoderGaussianLimit (5.9s)
+✔ [7456/7459] Built Analog.PolynomialRigidity (9.1s)
+✔ [7457/7459] Built Analog.PolynomialGlobalOptima (7.6s)
+✔ [7458/7459] Built Analog (4.6s)
+Build completed successfully (7459 jobs).

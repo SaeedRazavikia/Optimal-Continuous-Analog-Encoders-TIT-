@@ -97,6 +97,19 @@ import Analog
 #print axioms Analog.CertifiedGrid.quadratic_correction_convex
 #print axioms Analog.CertifiedGrid.scaling_gap_bound
 #print axioms Analog.CertifiedGrid.scaling_gap_isBigO
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_attained
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_exact
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_le
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_lipschitz
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_sharp
+#print axioms Analog.CompactMinimumDecoder.compactMinimum_uniform
+#print axioms Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder
+#print axioms Analog.CompactMinimumDecoder.metricScore_eq_heterogeneousScore
+#print axioms Analog.CompactMinimumDecoder.momentConstant_eq
+#print axioms Analog.CompactMinimumDecoder.momentReceived_continuous
+#print axioms Analog.CompactMinimumDecoder.momentReceived_mean
+#print axioms Analog.CompactMinimumDecoder.sharpOn_pairwise
+#print axioms Analog.CompactMinimumDecoder.subtype_nonconstant
 #print axioms Analog.CompactRiskOptimization.admissibleInfRisk_le
 #print axioms Analog.CompactRiskOptimization.admissible_outer_infimum_tendsto
 #print axioms Analog.CompactRiskOptimization.admissible_outer_infimum_tendsto_of_eventual_upper
@@ -247,6 +260,13 @@ import Analog
 #print axioms Analog.EndpointExtension.extension_contDiff
 #print axioms Analog.EndpointExtension.extension_eq_on
 #print axioms Analog.EndpointExtension.extension_hasDerivAt
+#print axioms Analog.EvenReadout.c1_readout_regular
+#print axioms Analog.EvenReadout.endpointDual_eq
+#print axioms Analog.EvenReadout.endpoint_magnitude_pos
+#print axioms Analog.EvenReadout.endpoint_score_eq_gramScore
+#print axioms Analog.EvenReadout.endpoint_slopes_opposite
+#print axioms Analog.EvenReadout.readoutSlope_abs_le
+#print axioms Analog.EvenReadout.readoutSlope_neg
 #print axioms Analog.FiniteCertificates.absolute_gap_bound
 #print axioms Analog.FiniteCertificates.finite_secant_upper_bound
 #print axioms Analog.FiniteCertificates.psd_trace_product_nonnegative
@@ -254,6 +274,18 @@ import Analog
 #print axioms Analog.FiniteCertificates.scale_all_peaks
 #print axioms Analog.FiniteCertificates.scale_all_separations
 #print axioms Analog.FiniteCertificates.weighted_peak_bound
+#print axioms Analog.FiniteNodeScore.attainable_target_nonconstant
+#print axioms Analog.FiniteNodeScore.c1_readout_regular
+#print axioms Analog.FiniteNodeScore.exists_ofFn_of_valid
+#print axioms Analog.FiniteNodeScore.finite_node_operational_score
+#print axioms Analog.FiniteNodeScore.finite_node_small_distance_sharpness
+#print axioms Analog.FiniteNodeScore.finite_target_nonconstant
+#print axioms Analog.FiniteNodeScore.lemma_one_score
+#print axioms Analog.FiniteNodeScore.lemma_one_sharpness
+#print axioms Analog.FiniteNodeScore.ofFn_valid
+#print axioms Analog.FiniteNodeScore.score_eq_shared_list
+#print axioms Analog.FiniteNodeScore.squaredDistance_ofFn
+#print axioms Analog.FiniteNodeScore.target_ofFn
 #print axioms Analog.FixedPriorGaussianLimit.additiveRisk_limit
 #print axioms Analog.FixedPriorGaussianLimit.coefficient_eq_inverse_energy
 #print axioms Analog.FixedPriorGaussianLimit.coefficient_integral_eq_trace
@@ -857,6 +889,17 @@ import Analog
 #print axioms Analog.LocalPexider.first_affine
 #print axioms Analog.LocalPexider.rectangle_affine
 #print axioms Analog.LocalPexider.rectangle_affine_of_continuousOn
+#print axioms Analog.MinimumDecoderGaussianLimit.complex_moment_metricScore_eq
+#print axioms Analog.MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace
+#print axioms Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum
+#print axioms Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder
+#print axioms Analog.MinimumDecoderGaussianLimit.minimumDecoder_regular
+#print axioms Analog.MinimumDecoderGaussianLimit.minimum_constant_eq_paper
+#print axioms Analog.MinimumDecoderGaussianLimit.minimum_decoder_prior_limit
+#print axioms Analog.MinimumDecoderGaussianLimit.moment_score_positive
+#print axioms Analog.MinimumDecoderGaussianLimit.parameter_coefficient
+#print axioms Analog.MinimumDecoderGaussianLimit.parameter_received_eq
+#print axioms Analog.MinimumDecoderGaussianLimit.target_continuousOn
 #print axioms Analog.MomentPaths.distinct_feature_slopes
 #print axioms Analog.MomentPaths.exists_source_path
 #print axioms Analog.MomentPaths.exists_source_path_at_mean
@@ -908,6 +951,33 @@ import Analog
 #print axioms Analog.PlanarTopology.continuous_triple_moment_recovery
 #print axioms Analog.PlanarTopology.exact_encoder_closedEmbedding
 #print axioms Analog.PlanarTopology.exact_encoder_injOn
+#print axioms Analog.PolynomialGlobalOptima.averageCurve_gram
+#print axioms Analog.PolynomialGlobalOptima.average_encoder
+#print axioms Analog.PolynomialGlobalOptima.average_peak
+#print axioms Analog.PolynomialGlobalOptima.average_received
+#print axioms Analog.PolynomialGlobalOptima.polynomial_score
+#print axioms Analog.PolynomialGlobalOptima.polynomial_strict
+#print axioms Analog.PolynomialGlobalOptima.quadratic_global_optimal
+#print axioms Analog.PolynomialGlobalOptima.quadratic_peak_iff
+#print axioms Analog.PolynomialGlobalOptima.quartic_global_optimal
+#print axioms Analog.PolynomialGlobalOptima.quartic_peak_iff
+#print axioms Analog.PolynomialGlobalOptima.sharedEncoder_continuous
+#print axioms Analog.PolynomialGlobalOptima.sharedEncoder_eq
+#print axioms Analog.PolynomialGlobalOptima.shared_score
+#print axioms Analog.PolynomialGlobalOptima.unrestricted_polynomial_optimal
+#print axioms Analog.PolynomialOptimizerFacts.quadratic_det_pos
+#print axioms Analog.PolynomialOptimizerFacts.quadratic_encoder_formula
+#print axioms Analog.PolynomialOptimizerFacts.quadratic_score_pos
+#print axioms Analog.PolynomialOptimizerFacts.quartic_det_pos
+#print axioms Analog.PolynomialOptimizerFacts.quartic_encoder_formula
+#print axioms Analog.PolynomialOptimizerFacts.quartic_score_formula
+#print axioms Analog.PolynomialOptimizerFacts.quartic_score_pos
+#print axioms Analog.PolynomialOptimizerFacts.scale_det
+#print axioms Analog.PolynomialRigidity.meanDomain_identity
+#print axioms Analog.PolynomialRigidity.nonconstant_of_positive_score
+#print axioms Analog.PolynomialRigidity.polynomial_independent
+#print axioms Analog.PolynomialRigidity.polynomial_positive_score_rigidity
+#print axioms Analog.PolynomialRigidity.strict_shape_noAffineInterval
 #print axioms Analog.QuadraticFrontier.active_coefficient_optimal
 #print axioms Analog.QuadraticFrontier.clippedParameter_bounds
 #print axioms Analog.QuadraticFrontier.clippedParameter_plateau_iff
@@ -1199,6 +1269,13 @@ import Analog
 #print axioms Analog.variance_score_bound_all
 #print axioms Analog.variance_sos_identity
 
+#check Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder
+#check Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum
+#check Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder
+#check Analog.FiniteNodeScore.lemma_one_score
+#check Analog.FiniteNodeScore.lemma_one_sharpness
+#check Analog.PolynomialGlobalOptima.quadratic_global_optimal
+#check Analog.PolynomialGlobalOptima.quartic_global_optimal
 #check Analog.HeterogeneousFullRigidity.heterogeneous_rigidity
 #check Analog.HeterogeneousAttainment.heterogeneous_sdp_attained
 #check Analog.HeterogeneousAttainment.optimal_positive_iff_euclidean_lipschitz

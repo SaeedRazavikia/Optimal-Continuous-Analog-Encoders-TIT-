@@ -103,6 +103,21 @@
 'Analog.CertifiedGrid.quadratic_correction_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.CertifiedGrid.scaling_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.CertifiedGrid.scaling_gap_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.compactMinimum_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.metricScore_eq_heterogeneousScore' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.CompactMinimumDecoder.momentConstant_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.momentReceived_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.momentReceived_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.sharpOn_pairwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.CompactMinimumDecoder.subtype_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.CompactRiskOptimization.admissibleInfRisk_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.CompactRiskOptimization.admissible_outer_infimum_tendsto' depends on axioms: [propext,
  Classical.choice,
@@ -299,6 +314,13 @@
 'Analog.EndpointExtension.extension_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.EndpointExtension.extension_eq_on' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.EndpointExtension.extension_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.c1_readout_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.endpointDual_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.endpoint_magnitude_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.endpoint_score_eq_gramScore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.endpoint_slopes_opposite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.readoutSlope_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.EvenReadout.readoutSlope_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FiniteCertificates.absolute_gap_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FiniteCertificates.finite_secant_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FiniteCertificates.psd_trace_product_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -306,6 +328,18 @@
 'Analog.FiniteCertificates.scale_all_peaks' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FiniteCertificates.scale_all_separations' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FiniteCertificates.weighted_peak_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.attainable_target_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.c1_readout_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.exists_ofFn_of_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.finite_node_operational_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.finite_node_small_distance_sharpness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.finite_target_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.lemma_one_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.lemma_one_sharpness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.ofFn_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.score_eq_shared_list' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.squaredDistance_ofFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.FiniteNodeScore.target_ofFn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FixedPriorGaussianLimit.additiveRisk_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.FixedPriorGaussianLimit.coefficient_eq_inverse_energy' depends on axioms: [propext,
  Classical.choice,
@@ -1125,6 +1159,29 @@
 'Analog.LocalPexider.first_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.LocalPexider.rectangle_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.LocalPexider.rectangle_affine_of_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.complex_moment_metricScore_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.minimumDecoder_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.minimum_constant_eq_paper' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.minimum_decoder_prior_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.moment_score_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.parameter_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.parameter_received_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.MinimumDecoderGaussianLimit.target_continuousOn' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.distinct_feature_slopes' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.exists_source_path' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.MomentPaths.exists_source_path_at_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1186,6 +1243,37 @@
 'Analog.PlanarTopology.continuous_triple_moment_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.PlanarTopology.exact_encoder_closedEmbedding' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.PlanarTopology.exact_encoder_injOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.averageCurve_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.average_encoder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.average_peak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.average_received' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.polynomial_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.polynomial_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.quadratic_global_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.quadratic_peak_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.quartic_global_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.quartic_peak_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.sharedEncoder_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.sharedEncoder_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.shared_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialGlobalOptima.unrestricted_polynomial_optimal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.PolynomialOptimizerFacts.quadratic_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quadratic_encoder_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quadratic_score_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quartic_det_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quartic_encoder_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quartic_score_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.quartic_score_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialOptimizerFacts.scale_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialRigidity.meanDomain_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialRigidity.nonconstant_of_positive_score' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialRigidity.polynomial_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Analog.PolynomialRigidity.polynomial_positive_score_rigidity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Analog.PolynomialRigidity.strict_shape_noAffineInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.QuadraticFrontier.active_coefficient_optimal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.QuadraticFrontier.clippedParameter_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.QuadraticFrontier.clippedParameter_plateau_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -1530,6 +1618,162 @@
 'Analog.variance_score_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.variance_score_bound_all' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Analog.variance_sos_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder {K : ℕ} (hK : 0 < K) (e : Analog.GramSynthesis.Planar)
+  (c : Fin K → ℝ × ℝ) (γ : Fin K → ℝ → ℝ × ℝ) (F : ℝ × ℝ → ℝ) (hγ : ∀ (k : Fin K), ContinuousOn (γ k) (Set.Icc (-1) 1))
+  (hF : ContinuousOn F (Analog.HeterogeneousScore.attainable γ))
+  (hn : Analog.Operational.NonconstantOn (Analog.HeterogeneousScore.attainable γ) F)
+  (hs : 0 < Analog.HeterogeneousScore.score γ F (Analog.HeterogeneousScore.encoder e c γ)) :
+  (∀ (y : ℂ),
+      ∃ m ∈ Analog.HeterogeneousScore.attainable γ,
+        Analog.CompactMinimumDecoder.momentDecoder e c γ F y =
+          F m +
+            ↑(Analog.CompactMinimumDecoder.momentConstant e c γ F) *
+              dist y (Analog.CompactMinimumDecoder.momentReceived e c m)) ∧
+    LipschitzWith (Analog.CompactMinimumDecoder.momentConstant e c γ F)
+        (Analog.CompactMinimumDecoder.momentDecoder e c γ F) ∧
+      (∀ s ∈ Analog.HeterogeneousScore.ValidInput K,
+          ∀ (z : ℂ),
+            |Analog.CompactMinimumDecoder.momentDecoder e c γ F
+                    (Analog.ArbitraryEncoder.asComplex
+                        (Analog.HeterogeneousScore.received (Analog.HeterogeneousScore.encoder e c γ) s) +
+                      z) -
+                  F (Analog.HeterogeneousScore.meanStatistic γ s)| ≤
+              ↑(Analog.CompactMinimumDecoder.momentConstant e c γ F) * ‖z‖) ∧
+        ∀ (L : NNReal) (D : ℂ → ℝ),
+          (∀ s ∈ Analog.HeterogeneousScore.ValidInput K,
+              ∀ (z : ℂ),
+                |D
+                        (Analog.ArbitraryEncoder.asComplex
+                            (Analog.HeterogeneousScore.received (Analog.HeterogeneousScore.encoder e c γ) s) +
+                          z) -
+                      F (Analog.HeterogeneousScore.meanStatistic γ s)| ≤
+                  ↑L * ‖z‖) →
+            Analog.CompactMinimumDecoder.momentConstant e c γ F ≤ L
+Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum {K : ℕ} (hK : 0 < K)
+  (γ : Fin K → ℝ → Analog.MinimumDecoderGaussianLimit.Plane) (hγ : ∀ (k : Fin K), ContinuousOn (γ k) (Set.Icc (-1) 1))
+  (a : Analog.HeterogeneousAttainment.Parameters K) (ha : Analog.GaussianDesignAttainment.coefficientDet a ≠ 0)
+  {Ω : Set Analog.MinimumDecoderGaussianLimit.Plane} (hΩ : IsOpen Ω)
+  (hΩM : Ω ⊆ interior (Analog.HeterogeneousScore.attainable γ)) (p : Analog.MinimumDecoderGaussianLimit.Plane → ℝ)
+  (hp : Measurable p) (hp0 : ∀ (m : Analog.MinimumDecoderGaussianLimit.Plane), 0 ≤ p m)
+  (hpi : MeasureTheory.Integrable p MeasureTheory.volume)
+  (hpn : ∫ (m : Analog.MinimumDecoderGaussianLimit.Plane), p m = 1) (hpC : ContDiffOn ℝ 1 p Ω)
+  (hpPos : ∀ m ∈ Ω, 0 < p m)
+  (hfull : ∀ᵐ (m : Analog.MinimumDecoderGaussianLimit.Plane) ∂Analog.GaussianScoreIdentity.priorLaw p, m ∈ Ω)
+  (r₁ r₂ : Analog.GeneralTargetGaussianAchievability.IntervalReadout)
+  (hrect :
+    ∀ m ∈ Analog.HeterogeneousScore.attainable γ,
+      Complex.equivRealProdCLM.symm m ∈ Analog.GeneralTargetGaussianAchievability.rectangle r₁ r₂)
+  (hn :
+    Analog.Operational.NonconstantOn (Analog.HeterogeneousScore.attainable γ)
+      (Analog.FixedPriorGaussianLimit.planeTarget r₁ r₂)) :
+  have T := Analog.GaussianParameterChannel.channelEquiv hK a ha;
+  have c := Analog.GaussianParameterChannel.totalOffset a;
+  have J :=
+    (∫ (m : Analog.GaussianScoreIdentity.Plane),
+        Analog.GaussianDesignAttainment.inverseCoefficient a (fun z => (r₁.slope z.1, r₂.slope z.2))
+          m ∂Analog.GaussianScoreIdentity.priorLaw p) /
+      (2 * ↑K ^ 2);
+  Filter.Tendsto
+      (fun v =>
+        Analog.GaussianBayesConverse.optimalRisk p (Analog.FixedPriorGaussianLimit.planeTarget r₁ r₂) T c v / (2 * ↑v))
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds J) ∧
+    Filter.Tendsto
+      (fun N =>
+        Analog.MinimumDecoderGaussianLimit.minimumRisk p (Analog.MinimumDecoderGaussianLimit.complexMoments γ) r₁ r₂ T c
+            N /
+          N)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds J)
+Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder {K : ℕ} (hK : 0 < K)
+  (a : Analog.HeterogeneousAttainment.Parameters K) (ha : Analog.GaussianDesignAttainment.coefficientDet a ≠ 0)
+  (γ : Fin K → ℝ → Analog.MinimumDecoderGaussianLimit.Plane)
+  (r₁ r₂ : Analog.GeneralTargetGaussianAchievability.IntervalReadout) :
+  Analog.MinimumDecoderGaussianLimit.minimumDecoder (Analog.MinimumDecoderGaussianLimit.complexMoments γ) r₁ r₂
+      (Analog.GaussianParameterChannel.channelEquiv hK a ha)
+      (Complex.equivRealProdCLM.symm (Analog.GaussianParameterChannel.totalOffset a)) =
+    Analog.CompactMinimumDecoder.momentDecoder (Analog.HeterogeneousAttainment.parameterPlanar a) a.1 γ
+      (Analog.FixedPriorGaussianLimit.planeTarget r₁ r₂)
+Analog.FiniteNodeScore.lemma_one_score {K : ℕ} (hK : 4 ≤ K) (e : Analog.GramSynthesis.Planar) (c : Fin K → ℝ × ℝ)
+  (φ ψ : ℝ → ℝ) (hD : 0 < Analog.GramSynthesis.det e.A e.B e.C)
+  (hφ : StrictConvexOn ℝ (Set.Icc (-1) 1) φ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) φ)
+  (hdφ : ContDiffOn ℝ 1 φ (Set.Ioo (-1) 1))
+  (hψ : StrictConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) ψ)
+  (hdψ : ContDiffOn ℝ 1 ψ (Set.Icc (-1) 1)) :
+  Analog.HeterogeneousScore.score (Analog.FiniteNodeScore.sharedFeatures φ) (Analog.FiniteNodeScore.readout ψ)
+      (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) =
+    ↑K ^ 2 /
+      max (Analog.GramSynthesis.dual e.A e.B e.C (-Analog.GeneralScore.readoutSlope ψ (-1)) 1)
+        (Analog.GramSynthesis.dual e.A e.B e.C (-Analog.GeneralScore.readoutSlope ψ 1) 1)
+Analog.FiniteNodeScore.lemma_one_sharpness {K : ℕ} (hK : 4 ≤ K) (e : Analog.GramSynthesis.Planar) (c : Fin K → ℝ × ℝ)
+  (φ ψ : ℝ → ℝ) (hD : 0 < Analog.GramSynthesis.det e.A e.B e.C)
+  (hφ : StrictConvexOn ℝ (Set.Icc (-1) 1) φ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) φ)
+  (hdφ : ContDiffOn ℝ 1 φ (Set.Ioo (-1) 1))
+  (hψ : StrictConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) ψ)
+  (hdψ : ContDiffOn ℝ 1 ψ (Set.Icc (-1) 1)) (ε δ : ℝ) (hε : 0 < ε) (hδ : 0 < δ) :
+  ∃ s t,
+    s ∈ Analog.HeterogeneousScore.ValidInput K ∧
+      t ∈ Analog.HeterogeneousScore.ValidInput K ∧
+        Analog.FiniteNodeScore.readout ψ
+              (Analog.HeterogeneousScore.meanStatistic (Analog.FiniteNodeScore.sharedFeatures φ) s) ≠
+            Analog.FiniteNodeScore.readout ψ
+              (Analog.HeterogeneousScore.meanStatistic (Analog.FiniteNodeScore.sharedFeatures φ) t) ∧
+          Analog.ArbitraryEncoder.squaredDistance
+                (Analog.HeterogeneousScore.received
+                  (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) s)
+                (Analog.HeterogeneousScore.received
+                  (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) t) <
+              δ ^ 2 ∧
+            Analog.ArbitraryEncoder.squaredDistance
+                  (Analog.HeterogeneousScore.received
+                    (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) s)
+                  (Analog.HeterogeneousScore.received
+                    (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) t) /
+                (Analog.FiniteNodeScore.readout ψ
+                      (Analog.HeterogeneousScore.meanStatistic (Analog.FiniteNodeScore.sharedFeatures φ) s) -
+                    Analog.FiniteNodeScore.readout ψ
+                      (Analog.HeterogeneousScore.meanStatistic (Analog.FiniteNodeScore.sharedFeatures φ) t)) ^
+                  2 <
+              Analog.HeterogeneousScore.score (Analog.FiniteNodeScore.sharedFeatures φ)
+                  (Analog.FiniteNodeScore.readout ψ)
+                  (Analog.HeterogeneousScore.encoder e c (Analog.FiniteNodeScore.sharedFeatures φ)) +
+                ε
+Analog.PolynomialGlobalOptima.quadratic_global_optimal {K : ℕ} (hK : 4 ≤ K) (P : ℝ) (hP : 0 < P) (ψ : ℝ → ℝ)
+  (hψ : ContDiffOn ℝ 1 ψ (Set.Icc (-1) 1)) (heven : ∀ x ∈ Set.Icc (-1) 1, ψ (-x) = ψ x)
+  (hshape : StrictConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) ψ) :
+  have M := |Analog.GeneralScore.readoutSlope ψ 1|;
+  have b := Analog.GeneralQuadratic.optimalParameter M;
+  have e := Analog.Curve.scale (√P) (Analog.GeneralQuadratic.optimalCurve b);
+  (∀ (i : Fin K),
+      ∀ s ∈ Set.Icc (-1) 1,
+        Analog.ArbitraryEncoder.squaredDistance (Analog.PolynomialGlobalOptima.sharedEncoder 2 e i s) 0 ≤ P) ∧
+    Analog.HeterogeneousScore.score (fun x s => (s, s ^ 2)) (fun m => m.2 - ψ m.1)
+          (Analog.PolynomialGlobalOptima.sharedEncoder 2 e) =
+        ↑K ^ 2 * P * b ^ 2 * (b - 1) ∧
+      ∀ (E : Fin K → ℝ → ℝ × ℝ),
+        (∀ (i : Fin K), ContinuousOn (E i) (Set.Icc (-1) 1)) →
+          (∀ (i : Fin K), ∀ s ∈ Set.Icc (-1) 1, Analog.ArbitraryEncoder.squaredDistance (E i s) 0 ≤ P) →
+            Analog.HeterogeneousScore.score (fun x s => (s, s ^ 2)) (fun m => m.2 - ψ m.1) E ≤
+              Analog.HeterogeneousScore.score (fun x s => (s, s ^ 2)) (fun m => m.2 - ψ m.1)
+                (Analog.PolynomialGlobalOptima.sharedEncoder 2 e)
+Analog.PolynomialGlobalOptima.quartic_global_optimal {K : ℕ} (hK : 4 ≤ K) (P : ℝ) (hP : 0 < P) (ψ : ℝ → ℝ)
+  (hψ : ContDiffOn ℝ 1 ψ (Set.Icc (-1) 1)) (heven : ∀ x ∈ Set.Icc (-1) 1, ψ (-x) = ψ x)
+  (hshape : StrictConvexOn ℝ (Set.Icc (-1) 1) ψ ∨ StrictConcaveOn ℝ (Set.Icc (-1) 1) ψ) :
+  have M := |Analog.GeneralScore.readoutSlope ψ 1|;
+  ∃ r,
+    (0 < r ∧ r < 1 / 3 ∧ Analog.Quartic.RootEquation M r) ∧
+      (∀ (r' : ℝ), 0 < r' → r' < 1 / 3 → Analog.Quartic.RootEquation M r' → r' = r) ∧
+        have e := Analog.Curve.scale (√P) (Analog.Quartic.optimalPlanarCurve r);
+        (∀ (i : Fin K),
+            ∀ s ∈ Set.Icc (-1) 1,
+              Analog.ArbitraryEncoder.squaredDistance (Analog.PolynomialGlobalOptima.sharedEncoder 4 e i s) 0 ≤ P) ∧
+          Analog.HeterogeneousScore.score (fun x s => (s, s ^ 4)) (fun m => m.2 - ψ m.1)
+                (Analog.PolynomialGlobalOptima.sharedEncoder 4 e) =
+              ↑K ^ 2 * P / (M ^ 2 / √(Analog.Quartic.optA r) ^ 2 + 1 / Analog.Quartic.optb r ^ 2) ∧
+            ∀ (E : Fin K → ℝ → ℝ × ℝ),
+              (∀ (i : Fin K), ContinuousOn (E i) (Set.Icc (-1) 1)) →
+                (∀ (i : Fin K), ∀ s ∈ Set.Icc (-1) 1, Analog.ArbitraryEncoder.squaredDistance (E i s) 0 ≤ P) →
+                  Analog.HeterogeneousScore.score (fun x s => (s, s ^ 4)) (fun m => m.2 - ψ m.1) E ≤
+                    Analog.HeterogeneousScore.score (fun x s => (s, s ^ 4)) (fun m => m.2 - ψ m.1)
+                      (Analog.PolynomialGlobalOptima.sharedEncoder 4 e)
 Analog.HeterogeneousFullRigidity.heterogeneous_rigidity {K : ℕ} (hK : 4 ≤ K) (φ₁ φ₂ : Fin K → ℝ → ℝ)
   (E : Fin K → ℝ → Analog.HeterogeneousRegularity.Plane) (ψ₁ ψ₂ : ℝ → ℝ)
   (h₁ : ∀ (i : Fin K), ContinuousOn (φ₁ i) (Set.Icc (-1) 1)) (h₂ : ∀ (i : Fin K), ContinuousOn (φ₂ i) (Set.Icc (-1) 1))

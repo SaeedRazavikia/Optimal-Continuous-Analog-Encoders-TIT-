@@ -5,6 +5,7 @@ import Analog.AttainableScore
 import Analog.BorelRisk
 import Analog.Certificate
 import Analog.CertifiedGrid
+import Analog.CompactMinimumDecoder
 import Analog.CompactRiskOptimization
 import Analog.CompletionIdentification
 import Analog.CompletionSeparation
@@ -14,9 +15,11 @@ import Analog.DifferentialRigidity
 import Analog.EncoderRegularity
 import Analog.EndpointExtension
 import Analog.EuclideanBridge
+import Analog.EvenReadout
 import Analog.ExplicitVarianceDecoder
 import Analog.FiberConstancy
 import Analog.FiniteCertificates
+import Analog.FiniteNodeScore
 import Analog.FixedPriorGaussianLimit
 import Analog.Frontier
 import Analog.FrontierAttainment
@@ -71,12 +74,16 @@ import Analog.Implementation
 import Analog.InverseSynthesis
 import Analog.LocalBallPrior
 import Analog.LocalPexider
+import Analog.MinimumDecoderGaussianLimit
 import Analog.MomentPaths
 import Analog.Operational
 import Analog.PlanarBrouwer
 import Analog.PlanarInvariance
 import Analog.PlanarInvarianceCore
 import Analog.PlanarTopology
+import Analog.PolynomialGlobalOptima
+import Analog.PolynomialOptimizerFacts
+import Analog.PolynomialRigidity
 import Analog.PowerScaling
 import Analog.Quadratic
 import Analog.QuadraticFrontier

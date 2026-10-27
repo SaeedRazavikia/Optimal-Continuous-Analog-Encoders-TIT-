@@ -15,14 +15,15 @@ The correspondence is pinned to **arXiv:2610.21536v1**.
 | Start with… | What it provides |
 |---|---|
 | [Statements and proof guide](docs/STATEMENTS.md) | The ten paper results, key assumptions, proof outlines, and links to both the paper and Lean |
-| [Coverage](formalization/COVERAGE.md) | Precisely which results are complete and which wrappers remain |
+| [Coverage](formalization/COVERAGE.md) | Exact scope of the formalized results and exclusions |
 | [Theorem map](formalization/THEOREM_MAP.md) | Detailed declaration names and supporting proof chains |
 | [Lean sources](formalization/Analog/) | The definitions and proofs checked by Lean |
 
-The development includes heterogeneous rigidity, general SDP attainment,
-Gaussian converse and minimax results, and general grid certification.
-Some displayed-formula and example wrappers remain incomplete; the guide and
-coverage inventory distinguish those from the completed results.
+All ten numbered results have formal counterparts under their stated
+hypotheses: **Theorems 1–5, Propositions 1–4, and Lemma 1**. This includes
+the explicit minimum decoder, its Gaussian limit, and globally optimal
+quadratic/quartic encoders. Unnumbered gradient claims, numerical examples,
+and experiments are outside this coverage; see the inventory for details.
 
 ## Verify
 
@@ -40,10 +41,10 @@ checks the statement-to-declaration catalog, builds all modules with warnings
 rejected, and runs a kernel audit with `--trust=0`. No paper source files or
 LaTeX installation are needed.
 
-The recorded successful audit covers **1,198 public declarations in 100
+The recorded successful audit covers **1,268 public declarations in 107
 modules**, using only `propext`, `Classical.choice`, and `Quot.sound`.
 See the [verification report](formalization/verification/report.json) for
-source hashes and [GitHub Actions](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
+source hashes and [GitHub Actions](https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders/actions/workflows/verify-lean.yml)
 for repository-run status.
 
 Lean verifies the formal statements. The correspondence checks validate the

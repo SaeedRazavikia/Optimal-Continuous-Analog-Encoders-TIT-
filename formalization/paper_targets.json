@@ -10,7 +10,7 @@
   "source_snapshot_sha256": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
   "source_snapshot_note": "Historical fingerprint of the author-supplied source from which these statement excerpts were recorded. The source file is not required or distributed in this repository; this is not a hash of an arXiv download.",
   "guide": "../docs/STATEMENTS.md",
-  "guide_sha256": "a017d626650575ac194d79387c213ad8a1d930a34782434cde08144ac079b18b",
+  "guide_sha256": "a785a5d2d11386dcb42eeeffa3567701919c49312b45e962cc5bfd5f3d53730e",
   "statement_count": 10,
   "meaning": "Local correspondence catalog: author-supplied statement excerpts, manually reviewed arXiv v1 result/proof links, and audited Lean declaration references. The integrity check does not establish mathematical equivalence to the paper; COVERAGE.md records remaining scope.",
   "statements": [
@@ -88,15 +88,13 @@
       "paper_statement_url": "https://arxiv.org/html/2610.21536v1#Thmtheorem3",
       "paper_proof_url": "https://arxiv.org/html/2610.21536v1#A2.SS2",
       "lean_declarations": [
-        "Analog.Decoder.pairwise_exists_lipschitz",
-        "Analog.Decoder.sharp_uniform_decoder",
-        "Analog.Decoder.clip_uniform"
+        "Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder",
+        "Analog.CompactMinimumDecoder.momentConstant_eq"
       ],
       "lean_sources": [
-        "Analog/Amplification.lean",
-        "Analog/Decoder.lean"
+        "Analog/CompactMinimumDecoder.lean"
       ],
-      "coverage": "partial",
+      "coverage": "complete",
       "guide_anchor": "thm-decoder"
     },
     {
@@ -147,13 +145,14 @@
       "paper_statement_url": "https://arxiv.org/html/2610.21536v1#Thmproposition3",
       "paper_proof_url": "https://arxiv.org/html/2610.21536v1#A3.SS2",
       "lean_declarations": [
-        "Analog.FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace",
-        "Analog.FixedPriorGaussianLimit.exact_decoder_prior_limit"
+        "Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum",
+        "Analog.MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace",
+        "Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder"
       ],
       "lean_sources": [
-        "Analog/FixedPriorGaussianLimit.lean"
+        "Analog/MinimumDecoderGaussianLimit.lean"
       ],
-      "coverage": "partial",
+      "coverage": "complete",
       "guide_anchor": "prop-general-small-noise"
     },
     {
@@ -166,13 +165,13 @@
       "paper_statement_url": "https://arxiv.org/html/2610.21536v1#Thmlemma1",
       "paper_proof_url": "https://arxiv.org/html/2610.21536v1#A4.SS1",
       "lean_declarations": [
-        "Analog.GeneralScore.general_operational_score",
-        "Analog.GeneralScore.general_score_small_distance_sharpness"
+        "Analog.FiniteNodeScore.lemma_one_score",
+        "Analog.FiniteNodeScore.lemma_one_sharpness"
       ],
       "lean_sources": [
-        "Analog/GeneralScore.lean"
+        "Analog/FiniteNodeScore.lean"
       ],
-      "coverage": "partial",
+      "coverage": "complete",
       "guide_anchor": "prop-score"
     },
     {
@@ -185,16 +184,13 @@
       "paper_statement_url": "https://arxiv.org/html/2610.21536v1#Thmproposition4",
       "paper_proof_url": "https://arxiv.org/html/2610.21536v1#A4.SS2",
       "lean_declarations": [
-        "Analog.quadratic_optimal_all_power",
-        "Analog.GeneralQuadratic.optimalParameter_manuscript",
-        "Analog.Quartic.quartic_optimal_all_power"
+        "Analog.PolynomialGlobalOptima.quadratic_global_optimal",
+        "Analog.PolynomialGlobalOptima.quartic_global_optimal"
       ],
       "lean_sources": [
-        "Analog/GeneralQuadratic.lean",
-        "Analog/PowerScaling.lean",
-        "Analog/QuarticPower.lean"
+        "Analog/PolynomialGlobalOptima.lean"
       ],
-      "coverage": "partial",
+      "coverage": "complete",
       "guide_anchor": "thm-parabola"
     },
     {

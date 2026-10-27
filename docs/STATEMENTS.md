@@ -8,21 +8,21 @@ corresponding checked Lean declarations.
 These are concise mathematical summaries. The linked paper supplies the full
 hypotheses and notation; the Lean declaration supplies the exact formal
 statement. **Complete** means the correspondence described in
-[COVERAGE.md](../formalization/COVERAGE.md) is complete. **Partial** identifies
-a remaining translation or specialization step, rather than an admitted Lean
-proof. All listed Lean declarations are included in the kernel audit.
+[COVERAGE.md](../formalization/COVERAGE.md) is complete. All ten numbered results now have complete recorded correspondence.
+This does not extend the claim to every unnumbered derivation, example, or
+numerical value. All listed Lean declarations are included in the kernel audit.
 
 | Paper result | Topic | Correspondence |
 |---|---|---|
 | [Theorem 1](#thm-rigidity) | Heterogeneous encoder rigidity | Complete |
 | [Theorem 2](#thm-sdp) | Optimal SDP design and attainment | Complete |
 | [Proposition 1](#prop-amplification) | Sharp uniform noise amplification | Complete |
-| [Theorem 3](#thm-decoder) | Minimum-formula decoder | Partial |
+| [Theorem 3](#thm-decoder) | Minimum-formula decoder | Complete |
 | [Proposition 2](#prop-radius-minimax) | Bounded-noise minimax error | Complete |
 | [Theorem 4](#thm-identifiable-minimax) | Gaussian minimax limits | Complete |
-| [Proposition 3](#prop-general-small-noise) | Fixed-prior Gaussian limit | Statistical limit complete; decoder formula partial |
-| [Lemma 1](#prop-score) | Endpoint formula for the score | Partial |
-| [Proposition 4](#thm-parabola) | Quadratic and quartic designs | Partial |
+| [Proposition 3](#prop-general-small-noise) | Fixed-prior Gaussian limit | Complete |
+| [Lemma 1](#prop-score) | Endpoint formula for the score | Complete |
+| [Proposition 4](#thm-parabola) | Quadratic and quartic designs | Complete |
 | [Theorem 5](#thm-certifiedgrid) | Certified discretization | Complete |
 
 ## Notation used below
@@ -133,14 +133,10 @@ $$
 where $c$ is the average node offset. It is exact without noise and satisfies
 $|D(r_{\mathcal E}(s)+z)-f(s)|\le L_{\mathcal E}|z|$.
 
-**Lean:** [`Analog.Decoder.pairwise_exists_lipschitz`](../formalization/Analog/Decoder.lean#L50),
-[`Analog.Decoder.sharp_uniform_decoder`](../formalization/Analog/Amplification.lean#L124), and [`Analog.Decoder.clip_uniform`](../formalization/Analog/Decoder.lean#L111).
+**Lean:** [`Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder`](../formalization/Analog/CompactMinimumDecoder.lean#L204),
+[`Analog.CompactMinimumDecoder.momentConstant_eq`](../formalization/Analog/CompactMinimumDecoder.lean#L189).
 
-**Proof route:** extend the Lipschitz noiseless readout to all received values;
-the extension gives the sharp uniform bound, which is preserved by output
-clipping. **Correspondence: partial.** Existence and the bound are checked;
-a dedicated theorem identifying this extension with the displayed minimum
-over the current compact moment set remains to be assembled.
+**Proof route:** Compactness gives a minimizing moment at every observation; the triangle inequality proves the minimum formula is globally Lipschitz. The operational score supplies exactness and the sharp constant. An exact quotient-set identity connects the moment formula to the actual finite-node channel, including singular columns. **Correspondence: complete.**
 
 <a id="prop-radius-minimax"></a>
 ## Proposition 2 — Minimax error for bounded noise
@@ -211,15 +207,12 @@ $$
 =\frac{1}{2K^2}\operatorname{tr}\!\left(G^{-1}\mathbb E_\pi[ww^{\mathsf T}]\right).
 $$
 
-**Lean:** [`Analog.FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace`](../formalization/Analog/FixedPriorGaussianLimit.lean#L332)
-and [`Analog.FixedPriorGaussianLimit.exact_decoder_prior_limit`](../formalization/Analog/FixedPriorGaussianLimit.lean#L349).
+**Lean:** [`Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum`](../formalization/Analog/MinimumDecoderGaussianLimit.lean#L167),
+[`Analog.MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace`](../formalization/Analog/MinimumDecoderGaussianLimit.lean#L108).
 
-**Proof route:** Gaussian score identities, local information inequalities,
-and smooth-test approximation prove the converse, including infinite-risk
-Borel decoders. Every fixed exact globally Lipschitz decoder attains the same
-coefficient. **The statistical limit is complete.** The paper names the
-minimum-formula decoder of Theorem 3; identifying that precise representation
-is the remaining correspondence step, so the full entry is marked **partial**.
+The identity [`Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder`](../formalization/Analog/MinimumDecoderGaussianLimit.lean#L284) proves that this is exactly Theorem 3's decoder.
+
+**Proof route:** Gaussian score identities, information inequalities, and smooth-test approximation prove the all-Borel converse. The explicit compact-minimum decoder is proved exact and globally Lipschitz, so its local derivatives and Gaussian risk have the matching coefficient. The physical-channel specialization derives compactness of the actual moment image and retains the sum of offsets and the factor $1/(2K^2)$. The decoder depends on neither the prior nor the noise power. **Correspondence: complete.**
 
 <a id="prop-score"></a>
 ## Lemma 1 — Endpoint formula for the score
@@ -239,14 +232,10 @@ $$
 
 Admissible pairs with received distance tending to zero approach the infimum.
 
-**Lean:** [`Analog.GeneralScore.general_operational_score`](../formalization/Analog/GeneralScore.lean#L489) and
-[`Analog.GeneralScore.general_score_small_distance_sharpness`](../formalization/Analog/GeneralScore.lean#L516).
+**Lean:** [`Analog.FiniteNodeScore.lemma_one_score`](../formalization/Analog/FiniteNodeScore.lean#L185),
+[`Analog.FiniteNodeScore.lemma_one_sharpness`](../formalization/Analog/FiniteNodeScore.lean#L209).
 
-**Proof route:** a dual-norm bound reduces the upper coefficient to endpoint
-slopes; moving two actual transmitter inputs constructs the sharpness pairs.
-**Correspondence: partial.** The shared-feature result is checked, but its
-wrapper for the current finite-node model with arbitrary node offsets remains
-unassembled.
+**Proof route:** A dual-norm bound reduces the coefficient to endpoint slopes, and moving two transmitter inputs constructs the sharpness pairs. An exact list-to-node-indexed quotient identity cancels arbitrary node offsets and transfers both conclusions to the actual finite-node channel. For every positive error tolerance and received-distance threshold, an admissible unequal-target pair satisfies both bounds. **Correspondence: complete.**
 
 <a id="thm-parabola"></a>
 ## Proposition 4 — Quadratic and quartic optimal encoders
@@ -268,15 +257,19 @@ The quadratic parameters are explicit radicals. The quartic parameters are
 explicit functions of the unique $\rho\in(0,1/3)$ satisfying
 $8\rho^2(1+\rho)(1+3\rho)=M^2(1-3\rho)$; the linked paper gives all formulas.
 
-**Lean:** [`Analog.quadratic_optimal_all_power`](../formalization/Analog/PowerScaling.lean#L75),
-[`Analog.GeneralQuadratic.optimalParameter_manuscript`](../formalization/Analog/GeneralQuadratic.lean#L220), and
-[`Analog.Quartic.quartic_optimal_all_power`](../formalization/Analog/QuarticPower.lean#L85).
+**Lean:** [`Analog.PolynomialGlobalOptima.quadratic_global_optimal`](../formalization/Analog/PolynomialGlobalOptima.lean#L203),
+[`Analog.PolynomialGlobalOptima.quartic_global_optimal`](../formalization/Analog/PolynomialGlobalOptima.lean#L240).
 
-**Proof route:** polynomial peak identities and convex optimality certificates
-establish coefficient-Gram optima, then power scaling restores arbitrary $P$.
-**Correspondence: partial.** These optima and parameter formulas are checked;
-the complete wrapper for the paper's general even readout, offset averaging,
-and comparison with every continuous encoder collection remains separate.
+The displayed encoder formulas are checked by [`Analog.PolynomialOptimizerFacts.quadratic_encoder_formula`](../formalization/Analog/PolynomialOptimizerFacts.lean#L61) and
+[`Analog.PolynomialOptimizerFacts.quartic_encoder_formula`](../formalization/Analog/PolynomialOptimizerFacts.lean#L71). The quadratic radical is identified in [`Analog.GeneralQuadratic.optimalParameter_manuscript`](../formalization/Analog/GeneralQuadratic.lean#L220).
+
+**Proof route:** evenness gives opposite endpoint derivatives, and strict
+curvature gives $M>0$. Positive-score continuous competitors satisfy the proved
+rigidity theorem. Averaging their offsets preserves the received sum and peak
+feasibility, so the coefficient-Gram optima bound every such competitor;
+zero-score competitors are also covered. The explicit continuous optimizers
+attain the displayed values at every $P>0$, including the unique quartic root.
+**Correspondence: complete.**
 
 <a id="thm-certifiedgrid"></a>
 ## Theorem 5 — Certified discretization

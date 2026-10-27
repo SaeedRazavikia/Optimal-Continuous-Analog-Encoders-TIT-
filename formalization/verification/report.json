@@ -1,18 +1,18 @@
 {
   "status": "passed",
-  "started_at_utc": "2026-10-27T11:57:20.331250+00:00",
+  "started_at_utc": "2026-10-27T13:47:29.194819+00:00",
   "source_sha256": {
-    "Analog.lean": "270e546b1641a96bc8fde4caaa29827213420d24c917d91615480f55d731d3ae",
-    "Audit.lean": "dc77748173a425a42f1c2c4dcd1c661056894769e3635c0268422bfcfb97f97d",
-    "lakefile.toml": "02cfacbde3c9950115c6317d8c3d8d9dceda32dee722b8824fd8e77f8c8753d6",
+    "Analog.lean": "7ecab079cdc065d2a414943c5d5a6395bcb51ec25ec4abf98b34b4baf63338b7",
+    "Audit.lean": "c029dd7c31316e0648781f6deda5204ebe7f80c21b4b13eefe0e6510cf1137bc",
+    "lakefile.toml": "c68eb76c1a16ee9c3adb6350fcde549fd91735ceed6f33def2ef4e5b642ec45a",
     "lake-manifest.json": "ea1f7e24c5497dedfc847b6a560e6a7aece9068669fece91f5af04d623dab305",
     "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
     "verify.py": "c77721ff31b84cc151a6ef372670032e24df5d3c6540e3d38c73541f5ecb0160",
-    "audit_targets.json": "2c27a326641ab07d3b622a64bcf56877fcf448236b179ca7f98383b7df28a693",
-    "update_audit.py": "f7f80fb8bcbe9de9ffe3df6e8b5b3e5dd66717e9ce0069e9fccc8603afe3ea99",
+    "audit_targets.json": "e15645887352501b7c4d5e9471af5cba6dcbda11784a6cfc2a926e5fc09da838",
+    "update_audit.py": "c24ffb9fac6dbc02a8271ca180b8b73898cc2869fddd6e96927f2c04ffb85eff",
     "check_correspondence.py": "7fd46d427c4f31533413b7d5cf501fd3de1b7a1b21df31a7f6ad070a638f9248",
-    "paper_targets.json": "6829dac1ce1e1c31733eea1698c9102352facee4ad45b3ab53fd2dd6330555e2",
-    "../docs/STATEMENTS.md": "a017d626650575ac194d79387c213ad8a1d930a34782434cde08144ac079b18b",
+    "paper_targets.json": "db0839bd56755e98ba78d9f5c87544c6df8aacd02dac2b2a921ebfd842d3c775",
+    "../docs/STATEMENTS.md": "a785a5d2d11386dcb42eeeffa3567701919c49312b45e962cc5bfd5f3d53730e",
     "tests/test_check_correspondence.py": "a6e413d85a248fa0b067f57a51f29448879d1faded28d584f85b9b0c4e0865d0",
     "Analog/AdditiveStatistics.lean": "94f577b1bfec0373d22df2eeb2463229aacd25734c3e273d520cbb0d3e652f96",
     "Analog/Amplification.lean": "ddd9d95eed86d7e5297c93d547b14c704e19a7234deccf55fc8d354820c567a0",
@@ -21,6 +21,7 @@
     "Analog/BorelRisk.lean": "ddeee2e694edbbea7a0ec8d1753194ebe1c0ee843bb3cb8ee58b342c22f62d89",
     "Analog/Certificate.lean": "1a1ac67f47e3fb3c7a7f8954658235debedb124c66043cfe7e041bed7ac5dc72",
     "Analog/CertifiedGrid.lean": "549aff25996bee21c851a09ea321c098728e93a9479e85ba756a93058e58c9ae",
+    "Analog/CompactMinimumDecoder.lean": "3673b744d994a91ca423638a6d169bc410acfd6c8b71a328632a0bedd0775270",
     "Analog/CompactRiskOptimization.lean": "11850d399a942d33d7c0a86809a6cee1e0e775aeedac068dbc5bb11c037d555f",
     "Analog/CompletionIdentification.lean": "22e50a5483dba2bade4536b8c6d50ddd822c209682951b0340efc2ea2b931eac",
     "Analog/CompletionSeparation.lean": "82227ca1461cf96a1dca5d2d72ea27b78c7965cc90052ffa31c460991d946f79",
@@ -30,9 +31,11 @@
     "Analog/EncoderRegularity.lean": "feff86467e8fde705904a8837244365199a3fcb05b473886788318773fa552e6",
     "Analog/EndpointExtension.lean": "c2e87825bc59a28dd2057911e0cdce1068cf3d7dd86c718bad88ed999170f879",
     "Analog/EuclideanBridge.lean": "ca18d31d7e61df5ad611de6fc8db56d4cbeaebfe3fa180d5dada162ee636cb5c",
+    "Analog/EvenReadout.lean": "804b949d90ba63f007d4d94f6d17827bba92d99c0520c58ec344d0939c72c344",
     "Analog/ExplicitVarianceDecoder.lean": "266230c97ff81490e83c0974065c58fd8dad8d712dfe54b66feb01a1b560116f",
     "Analog/FiberConstancy.lean": "6af6e4ba1ea7c62410ba18b1efc05ee9da4041c86d5d165366e7adb51381de29",
     "Analog/FiniteCertificates.lean": "7fa5b516e5affef8d73e8ce52f9b03b4656cbe775375c502b2f7eb16258d41fc",
+    "Analog/FiniteNodeScore.lean": "0a06ebf4c5b2a73c742b3d0f904785a65627e755245b89b28e20487c533cb0ce",
     "Analog/FixedPriorGaussianLimit.lean": "70c06e9207193e2de0f4b021ead8fafdb2f94a0c991f20abf394a6bd1675ef49",
     "Analog/Frontier.lean": "653673ebfff753ec8fe009a8143315d10731ce7dfa704492847c2f227e3f0d1d",
     "Analog/FrontierAttainment.lean": "a0489eb16d7b7c703d56fa17f565dc30fb585d54a22c1470c27d03032a79960b",
@@ -87,12 +90,16 @@
     "Analog/InverseSynthesis.lean": "191946c38e1a4816b2b6e8913feb5364eb745450729a1012ca6ad7c4b869fd8e",
     "Analog/LocalBallPrior.lean": "929766b4033f18e7a03c9c3f141af2be06a3ef06286ca4dd60afa0af21304224",
     "Analog/LocalPexider.lean": "4882bddb677daf3ea5a0e7fedcd948f4e13cc65dfc57ec9011f9fed76655db3f",
+    "Analog/MinimumDecoderGaussianLimit.lean": "4b378c1353c7a0ebe0c2ccbc4a55413e5be44c4e7e043ab9c78c7c45bc28a2f8",
     "Analog/MomentPaths.lean": "2da696b514ef4e0eb655a1deccbcb7b9c7422cc8f5dc2a2e60de78aaa6d6b511",
     "Analog/Operational.lean": "dc327c456643b23cb8cf235315978c6c3f8877dafd249f9277c7a348376c917a",
     "Analog/PlanarBrouwer.lean": "07583361da246acc7d107daf52bbe0ae36b744ef82356070b9f55335ade27fa6",
     "Analog/PlanarInvariance.lean": "c1a1d4d13331adfc07dc51796250cdd8b9dc342784484b57764330a3385c3074",
     "Analog/PlanarInvarianceCore.lean": "5fae10e3243a5f7aa4cdc99ef949087d5c95513257c1931579408724b4c7a513",
     "Analog/PlanarTopology.lean": "6e92b63867bfe4ea8d89424f84b8a321f39940424d7b3d2a92b308736af918a1",
+    "Analog/PolynomialGlobalOptima.lean": "32654e2b472eacfc0c0676b84ae7df6e0ff5b2f39db4ef04072472155d1de50e",
+    "Analog/PolynomialOptimizerFacts.lean": "1e9320e1cfc4e1f21bea715219a66fb633cac08a045592ba242cea077abd7f66",
+    "Analog/PolynomialRigidity.lean": "c0663b24e6610328e2f66de7c4b111df2d72733aed1ff51bb534639c88ecb0f0",
     "Analog/PowerScaling.lean": "0b160a56998e653d7fbe763c2783a74aa858a78a2140fd33f6fdc081b1cb0329",
     "Analog/Quadratic.lean": "ba4acf2ad5edfb4fc0350852b08b06f26fe6cf1e27575fe411c88d1242b0bd10",
     "Analog/QuadraticFrontier.lean": "b79d930d42ec9f577c59f9fe43732faf0b3c7d05b1856d1c8dc8d6610d10faed",
@@ -600,6 +607,71 @@
       "Quot.sound"
     ],
     "Analog.CertifiedGrid.scaling_gap_isBigO": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.compactMinimum_uniform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.heterogeneous_minimum_decoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.metricScore_eq_heterogeneousScore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.momentConstant_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.momentReceived_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.momentReceived_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.sharpOn_pairwise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactMinimumDecoder.subtype_nonconstant": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1354,6 +1426,41 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.EvenReadout.c1_readout_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.endpointDual_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.endpoint_magnitude_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.endpoint_score_eq_gramScore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.endpoint_slopes_opposite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.readoutSlope_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EvenReadout.readoutSlope_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.FiniteCertificates.absolute_gap_bound": [
       "propext",
       "Classical.choice",
@@ -1385,6 +1492,66 @@
       "Quot.sound"
     ],
     "Analog.FiniteCertificates.weighted_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.attainable_target_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.c1_readout_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.exists_ofFn_of_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.finite_node_operational_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.finite_node_small_distance_sharpness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.finite_target_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.lemma_one_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.lemma_one_sharpness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.ofFn_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.score_eq_shared_list": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.squaredDistance_ofFn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteNodeScore.target_ofFn": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -4404,6 +4571,61 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.MinimumDecoderGaussianLimit.complex_moment_metricScore_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.minimumDecoder_eq_paper_decoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.minimumDecoder_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.minimum_constant_eq_paper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.minimum_decoder_prior_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.moment_score_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.parameter_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.parameter_received_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.MinimumDecoderGaussianLimit.target_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.MomentPaths.distinct_feature_slopes": [
       "propext",
       "Classical.choice",
@@ -4655,6 +4877,141 @@
       "Quot.sound"
     ],
     "Analog.PlanarTopology.exact_encoder_injOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.averageCurve_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.average_encoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.average_peak": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.average_received": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.polynomial_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.polynomial_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.quadratic_global_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.quadratic_peak_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.quartic_global_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.quartic_peak_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.sharedEncoder_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.sharedEncoder_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.shared_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialGlobalOptima.unrestricted_polynomial_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quadratic_det_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quadratic_encoder_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quadratic_score_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quartic_det_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quartic_encoder_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quartic_score_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.quartic_score_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialOptimizerFacts.scale_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialRigidity.meanDomain_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialRigidity.nonconstant_of_positive_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialRigidity.polynomial_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialRigidity.polynomial_positive_score_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PolynomialRigidity.strict_shape_noAffineInterval": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -6110,13 +6467,13 @@
       "Quot.sound"
     ]
   },
-  "declaration_count": 1198,
-  "module_count": 100,
+  "declaration_count": 1268,
+  "module_count": 107,
   "paper_url": "https://arxiv.org/abs/2610.21536v1",
   "paper_version": "v1",
   "paper_statement_count": 10,
-  "correspondence_catalog_sha256": "6829dac1ce1e1c31733eea1698c9102352facee4ad45b3ab53fd2dd6330555e2",
+  "correspondence_catalog_sha256": "db0839bd56755e98ba78d9f5c87544c6df8aacd02dac2b2a921ebfd842d3c775",
   "correspondence_scope": "Local catalog integrity and audited declaration links; paper-to-Lean semantic correspondence requires review.",
   "kernel_recheck": "lake env lean --trust=0 Audit.lean",
-  "finished_at_utc": "2026-10-27T12:08:37.285141+00:00"
+  "finished_at_utc": "2026-10-27T14:01:27.398351+00:00"
 }

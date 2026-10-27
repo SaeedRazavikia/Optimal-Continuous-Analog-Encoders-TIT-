@@ -21,10 +21,10 @@ python3 verify.py
 The script checks the paper-correspondence catalog and theorem inventory,
 builds every module with warnings rejected, and runs `lean --trust=0 Audit.lean`.
 Only `propext`, `Classical.choice`, and `Quot.sound` are allowed axioms.
-The recorded audit covers **1,198 public declarations in 100 modules**.
+The recorded audit covers **1,268 public declarations in 107 modules**.
 
 Results and source hashes are written to [verification/report.json](verification/report.json).
-A failed run records a failure. Each [GitHub Actions run](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml)
+A failed run records a failure. Each [GitHub Actions run](https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders/actions/workflows/verify-lean.yml)
 has its own status. The paper is read on arXiv; verification needs no LaTeX source.
 
 ## Paper correspondence

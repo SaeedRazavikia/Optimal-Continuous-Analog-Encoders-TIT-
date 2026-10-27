@@ -16,12 +16,12 @@ theorem to inspect.
 | `thm:rigidity` | [`HeterogeneousFullRigidity.heterogeneous_rigidity`](Analog/HeterogeneousFullRigidity.lean) | Original closed-source/closed-mean assumptions; exact computation iff common nonsingular feature columns and individual offsets. Both directions and source endpoints are included. |
 | `thm:sdp` | [`HeterogeneousAttainment.heterogeneous_sdp_attained`](Analog/HeterogeneousAttainment.lean); `optimal_positive_iff_euclidean_lipschitz`; [`HeterogeneousGlobalOptimum.unrestricted_sdp_attained`](Analog/HeterogeneousGlobalOptimum.lean) | Attainment and no relaxation gap in the actual heterogeneous program, including dependent features and zero/singular optima; positivity iff Euclidean Lipschitz continuity; unrestricted continuous-encoder optimum under rigidity assumptions. |
 | `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Amplification.lean); `zero_score_no_finite_uniform_decoder` | Sharp attained finite constant for positive actual score, and impossibility of any finite constant at zero score, for arbitrary input and received maps. |
-| `thm:decoder` | [`Decoder.pairwise_exists_lipschitz`](Analog/Decoder.lean); `sharp_uniform_decoder`; `clip_uniform` | Exact global Lipschitz extension and sharp uniform bound. The displayed compact-moment minimum formula is not yet identified in a named current-model theorem. |
+| `thm:decoder` | [`CompactMinimumDecoder.heterogeneous_minimum_decoder`](Analog/CompactMinimumDecoder.lean), [`CompactMinimumDecoder.momentConstant_eq`](Analog/CompactMinimumDecoder.lean) | The attained compact-moment minimum formula itself is sharp, with arbitrary individual offsets, true `K` scaling, and no nonsingularity assumption. |
 | `prop:radius-minimax` | [`RadiusMinimax.borel_radius_minimax`](Analog/RadiusMinimax.lean) | Actual maximizing pair, Borel midpoint decoder, and optimal half-modulus error for compact continuous-input models, including radius zero. |
 | `thm:identifiable-minimax` | [`GaussianFixedMinimax.fixed_encoder_minimax`](Analog/GaussianFixedMinimax.lean); [`GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved`](Analog/GaussianOptimizedMinimax.lean) | Full fixed-encoder and optimized all-Borel minimax limits, actual finite-node attainable domain, attained coefficient minimum, and a single noise-independent optimal encoder/decoder. Changing designs and singular limiting channels are handled by proved converses. |
-| `prop:general-small-noise` | [`FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace`](Analog/FixedPriorGaussianLimit.lean); `exact_decoder_prior_limit` | Genuine all-Borel-decoder risk infimum has the full one-sided Gaussian limit. The coefficient is the actual inverse-Gram trace; every fixed Lipschitz exact decoder has the same leading average risk on an interior-supported prior. |
-| `prop:score` | [`GeneralScore.general_operational_score`](Analog/GeneralScore.lean); `general_score_small_distance_sharpness` | Endpoint-dual score formula and actual shrinking pairs for the shared-feature source model. A direct current `Fin K`/arbitrary-offset wrapper remains separate. |
-| `thm:parabola` | [`quadratic_optimal_all_power`](Analog/PowerScaling.lean); [`GeneralQuadratic.optimalParameter_manuscript`](Analog/GeneralQuadratic.lean); [`Quartic.quartic_optimal_all_power`](Analog/QuarticPower.lean) | All-power coefficient-Gram optimum and stated parameter/root formulas. The complete current general-readout/unrestricted-encoder wrapper is not claimed by these declarations alone. |
+| `prop:general-small-noise` | [`MinimumDecoderGaussianLimit.heterogeneous_fixed_prior_minimum`](Analog/MinimumDecoderGaussianLimit.lean), [`MinimumDecoderGaussianLimit.fixed_prior_minimum_inverse_trace`](Analog/MinimumDecoderGaussianLimit.lean) | The genuine all-Borel risk infimum and the explicit compact-minimum decoder have the same inverse-Gram limit on the actual finite-node channel, with factor `1/(2K²)`. |
+| `prop:score` | [`FiniteNodeScore.lemma_one_score`](Analog/FiniteNodeScore.lean), [`FiniteNodeScore.lemma_one_sharpness`](Analog/FiniteNodeScore.lean) | Actual `Fin K` endpoint-dual score and arbitrarily short received-distance sharpness, with arbitrary node offsets and the manuscript shape/C¹ hypotheses. |
+| `thm:parabola` | [`PolynomialGlobalOptima.quadratic_global_optimal`](Analog/PolynomialGlobalOptima.lean); `quartic_global_optimal`; [`PolynomialOptimizerFacts`](Analog/PolynomialOptimizerFacts.lean) | Full unrestricted optimality for the original even C¹ strictly convex/concave readout, exact displayed encoder/score formulas, arbitrary node offsets, every positive power budget `P`, and the unique quartic parameter. |
 | `thm:certifiedgrid` | [`HeterogeneousGrid.certified_discretization`](Analog/HeterogeneousGrid.lean); `scaling_gap_isBigO`; [`HeterogeneousGlobalOptimum.grid_maximum_global_bound`](Analog/HeterogeneousGlobalOptimum.lean) | Actual node grids, all secants, sampled/continuum maxima, sharp C² remainder, feasible scaling, objective bracket, uniform quadratic loss, operational synthesis, and unrestricted-encoder interpretation under rigidity. |
 
 ## Rigidity dependency chain
@@ -75,10 +75,10 @@ theorem to inspect.
 Earlier shared-curve score identities, explicit strip decoders, variance
 operational optima, quartic certificates, Gram frontiers, criterion transfer,
 and conditional approximate stability remain in the build. Their precise
-statements remain useful, but do not automatically supply an unassembled
-current-model wrapper. The earlier specialized map is available in
-[Git history](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/blob/54d1083238b5e3e9a009138c3bb69c09d37f58e9/formalization/historical/v0.2.0/THEOREM_MAP.md).
+statements remain useful; the current polynomial specializations are now
+assembled in `PolynomialGlobalOptima`. The earlier specialized map is available in
+[Git history](https://github.com/SaeedRazavikia/Rigidity-and-Limits-of-Continuous-Encoders/blob/54d1083238b5e3e9a009138c3bb69c09d37f58e9/formalization/historical/v0.2.0/THEOREM_MAP.md).
 
-The terminal declarations above cover the core rigidity, design, Gaussian,
-and certification developments. The separate current representation/example wrappers still outside
-the named theorem assembly are identified in `COVERAGE.md`.
+The terminal declarations above cover all ten numbered manuscript results.
+Additional unnumbered claims and numerical examples outside the recorded scope
+are identified in `COVERAGE.md`.
