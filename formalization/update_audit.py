@@ -8,8 +8,13 @@ verify proofs; run verify.py after reviewing its generated manifest.
 from pathlib import Path
 import json
 import re
+import argparse
 
 ROOT = Path(__file__).resolve().parent
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--check', action='store_true',
+                    help='Fail if generated imports or audit inventory are stale; do not write.')
+args = parser.parse_args()
 modules = sorted((ROOT / 'Analog').glob('*.lean'))
 names = []
 for path in modules:
@@ -35,9 +40,34 @@ for path in modules:
 if len(names) != len(set(names)):
     raise SystemExit('Duplicate names in generated audit manifest')
 names.sort()
-(ROOT / 'audit_targets.json').write_text(json.dumps(names, indent=2) + '\n')
-(ROOT / 'Analog.lean').write_text(''.join(f'import Analog.{p.stem}\n' for p in modules))
+generated = {
+    'audit_targets.json': json.dumps(names, indent=2) + '\n',
+    'Analog.lean': ''.join(f'import Analog.{p.stem}\n' for p in modules),
+}
 checks = [
+    'Analog.HeterogeneousFullRigidity.heterogeneous_rigidity',
+    'Analog.HeterogeneousAttainment.heterogeneous_sdp_attained',
+    'Analog.HeterogeneousAttainment.optimal_positive_iff_euclidean_lipschitz',
+    'Analog.HeterogeneousGlobalOptimum.unrestricted_sdp_attained',
+    'Analog.HeterogeneousGrid.certified_discretization',
+    'Analog.HeterogeneousDualCertificate.current_program_dual_upper_bound',
+    'Analog.FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace',
+    'Analog.GaussianFixedMinimax.fixed_encoder_minimax',
+    'Analog.GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved',
+    'Analog.GaussianMinimaxConverse.moving_minimax_converse',
+    'Analog.GaussianMinimaxConverse.singular_minimax_diverges_of_spanning',
+    'Analog.GaussianDesignAttainment.inverse_gram_design_minimum',
+    'Analog.EncoderRegularity.planar_affine_of_dense_charts',
+    'Analog.TwoStatisticPositivity.general_sdp_operational_attainment',
+    'Analog.GeneralDecoder.decode_optimal',
+    'Analog.GaussianNoise.gaussian_clipped_leading_mse',
+    'Analog.QuadraticFrontier.clipped_curve_optimal_all_power',
+    'Analog.CertifiedGrid.c2_grid_certificate',
+    'Analog.ApproximateRigidity.continuous_encoder_stability',
+    'Analog.AdditiveStatistics.exact_computation_of_gram',
+    'Analog.CompletionIdentification.triple_collision_preserves_statistics',
+    'Analog.TwoStatisticDesign.affine_operational_score',
+    'Analog.TwoStatisticDesign.positive_definite_operational_synthesis',
     'Analog.quadratic_variance_operational_optimal',
     'Analog.GeneralCollision.triple_collision_preserves_moments',
     'Analog.Quartic.quartic_optimal_all_power',
@@ -60,5 +90,15 @@ text += '\n'.join('#check ' + name for name in checks) + '\n'
 text += '#print Analog.ArbitraryEncoder.varianceScore\n'
 text += '#print Analog.Operational.Quotients\n'
 text += '#print Analog.Curve.PeakFeasibleAt\n'
-(ROOT / 'Audit.lean').write_text(text)
-print(f'Generated audit of {len(names)} public declarations in {len(modules)} proof modules.')
+generated['Audit.lean'] = text
+stale = [name for name, value in generated.items()
+         if not (ROOT / name).exists() or (ROOT / name).read_text() != value]
+if args.check:
+    if stale:
+        raise SystemExit('Stale audit files: ' + ', '.join(stale) + '. Run python3 update_audit.py.')
+    print(f'Audit inventory is current: {len(names)} declarations in {len(modules)} modules.')
+else:
+    for name, value in generated.items():
+        (ROOT / name).write_text(value)
+    print(f'Generated audit of {len(names)} public declarations in {len(modules)} proof modules.')
+

@@ -1,8 +1,282 @@
 {
   "status": "passed",
+  "started_at_utc": "2026-10-27T10:31:47.237338+00:00",
+  "source_sha256": {
+    "Analog.lean": "270e546b1641a96bc8fde4caaa29827213420d24c917d91615480f55d731d3ae",
+    "Audit.lean": "dc77748173a425a42f1c2c4dcd1c661056894769e3635c0268422bfcfb97f97d",
+    "lakefile.toml": "02cfacbde3c9950115c6317d8c3d8d9dceda32dee722b8824fd8e77f8c8753d6",
+    "lake-manifest.json": "ea1f7e24c5497dedfc847b6a560e6a7aece9068669fece91f5af04d623dab305",
+    "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
+    "verify.py": "216b2a08fa51d2ceca0e8e114644fa728bf4e57368d6d9fd6d63bba48a9fc788",
+    "audit_targets.json": "2c27a326641ab07d3b622a64bcf56877fcf448236b179ca7f98383b7df28a693",
+    "update_audit.py": "f7f80fb8bcbe9de9ffe3df6e8b5b3e5dd66717e9ce0069e9fccc8603afe3ea99",
+    "check_manuscript.py": "d9e1856f749a54bf7835c2160915877ae29f0cfdb820d69bdc75fe56aa42879e",
+    "manuscript_targets.json": "ad06d714b6287d9ff6d0bf19b5fa9176eeafc6d06d7c946393c341f5c3e6d47f",
+    "Analog/AdditiveStatistics.lean": "94f577b1bfec0373d22df2eeb2463229aacd25734c3e273d520cbb0d3e652f96",
+    "Analog/Amplification.lean": "ddd9d95eed86d7e5297c93d547b14c704e19a7234deccf55fc8d354820c567a0",
+    "Analog/ApproximateRigidity.lean": "4009e65cb1070f31e9c4103bc49225ee51741b5e0db340741d88d9976c962831",
+    "Analog/AttainableScore.lean": "8f093de584a043f4a3f65f73a51826f4918645950999ae00c01cc23a0b0b0efc",
+    "Analog/BorelRisk.lean": "ddeee2e694edbbea7a0ec8d1753194ebe1c0ee843bb3cb8ee58b342c22f62d89",
+    "Analog/Certificate.lean": "1a1ac67f47e3fb3c7a7f8954658235debedb124c66043cfe7e041bed7ac5dc72",
+    "Analog/CertifiedGrid.lean": "549aff25996bee21c851a09ea321c098728e93a9479e85ba756a93058e58c9ae",
+    "Analog/CompactRiskOptimization.lean": "11850d399a942d33d7c0a86809a6cee1e0e775aeedac068dbc5bb11c037d555f",
+    "Analog/CompletionIdentification.lean": "22e50a5483dba2bade4536b8c6d50ddd822c209682951b0340efc2ea2b931eac",
+    "Analog/CompletionSeparation.lean": "82227ca1461cf96a1dca5d2d72ea27b78c7965cc90052ffa31c460991d946f79",
+    "Analog/CriterionTransfer.lean": "96f4e92fddd9281314c024b049b3bf5fd207ff97de9d58058dce9c97ad4df3d4",
+    "Analog/Decoder.lean": "1d9ab2afb70356ab0766c35fa38d79da07eff4c9f6dd1a25d08a6100eb1cb02b",
+    "Analog/DifferentialRigidity.lean": "fea95c83dd387a315927920a0aab174aed3bda731d949e87ce7b1c387708e4e6",
+    "Analog/EncoderRegularity.lean": "feff86467e8fde705904a8837244365199a3fcb05b473886788318773fa552e6",
+    "Analog/EndpointExtension.lean": "c2e87825bc59a28dd2057911e0cdce1068cf3d7dd86c718bad88ed999170f879",
+    "Analog/EuclideanBridge.lean": "ca18d31d7e61df5ad611de6fc8db56d4cbeaebfe3fa180d5dada162ee636cb5c",
+    "Analog/ExplicitVarianceDecoder.lean": "266230c97ff81490e83c0974065c58fd8dad8d712dfe54b66feb01a1b560116f",
+    "Analog/FiberConstancy.lean": "6af6e4ba1ea7c62410ba18b1efc05ee9da4041c86d5d165366e7adb51381de29",
+    "Analog/FiniteCertificates.lean": "7fa5b516e5affef8d73e8ce52f9b03b4656cbe775375c502b2f7eb16258d41fc",
+    "Analog/FixedPriorGaussianLimit.lean": "70c06e9207193e2de0f4b021ead8fafdb2f94a0c991f20abf394a6bd1675ef49",
+    "Analog/Frontier.lean": "653673ebfff753ec8fe009a8143315d10731ce7dfa704492847c2f227e3f0d1d",
+    "Analog/FrontierAttainment.lean": "a0489eb16d7b7c703d56fa17f565dc30fb585d54a22c1470c27d03032a79960b",
+    "Analog/FrontierContinuity.lean": "4b4b38d2745744fb8c3402988a71db9e0e239a1ac6c1f08c4f1bcb7fd6549e20",
+    "Analog/GaussianBayesConverse.lean": "b013db00d7acd1cd14f40b73adf60bd749f4fad81caa8cbe5105ac9d21c00c22",
+    "Analog/GaussianConverseLimits.lean": "ddf31eb2d901521bf0bc58b3759f5c16cdc503126b17ed74d1e364993fecdb18",
+    "Analog/GaussianDesignAttainment.lean": "24311eb5aae90438889190cbefde5115682484b102992db6935422d6940d2aac",
+    "Analog/GaussianDesignCompactness.lean": "39ac5f31ba5f573649ec95d6c75f8215e42a64a85b8c4e42bf8bc762b51325ff",
+    "Analog/GaussianFixedMinimax.lean": "0fa2f46d321ff21a43bdbffbe9c7da6215deee65aca4de37a3213be2627a09f9",
+    "Analog/GaussianGramCoefficient.lean": "4a47bb5dddb87b801857713e201c5d3630fae5d8aec41052d9b2f3fdc429f52e",
+    "Analog/GaussianLawBridge.lean": "6d5ffa8a272c8281fe45e3afbe51625d0f352118c0488a22fab31204296882c0",
+    "Analog/GaussianMinimaxConverse.lean": "f2d86caceed521543ff05a44293732f006a2ec618bade242d3d82586af866ce4",
+    "Analog/GaussianMinimaxUpper.lean": "de0ca3849036524970bb6651813799bbe28256b8351c19b6cf908cea7eed1d64",
+    "Analog/GaussianMovingGram.lean": "746bdfa6f5703bb07f9e47bb5312f70afc273e14d3622ebb1a7ba7778213a538",
+    "Analog/GaussianNoise.lean": "f50ebdc95ba8872ebf252937b9b0e7aceb4ecfef68decdfc4a62b1388c3e5008",
+    "Analog/GaussianOptimizedMinimax.lean": "1ab13fdb26eeb1470fab66e7f012f6e192182fc0d63907693ceec8bf135071f3",
+    "Analog/GaussianParameterChannel.lean": "319d6e7948529544e670c2d9bdc547f4007032433de46261f02786b53cceb816",
+    "Analog/GaussianScoreIdentity.lean": "9680ec2c8e56d21661da119f836f56ea74b711e07f31b3e587a4fec38ad101a2",
+    "Analog/GaussianSequentialConverse.lean": "1a03415d2083826044556332213f9e75a554acdef1deef3fb5fe6a90b6aa8308",
+    "Analog/GaussianVanTrees.lean": "b1bd24f9c102a6da9714c934270cc92ed3104314ba69eebe85a5dfeb06f10e39",
+    "Analog/GaussianWorstCase.lean": "ad1863bc0d6a69369381e569c8fc55bcb08aeabb7c858b21ca491c6409ece23f",
+    "Analog/GeneralCollision.lean": "df88e45c057527478d69d6ebd24d4a627f4860703189318944b8ddfb6b59a2d4",
+    "Analog/GeneralDecoder.lean": "a8459a741b5e1fbde0b47fdff6f53f70a44f3a9fadeb83f76df132f12f751dbf",
+    "Analog/GeneralDesign.lean": "e995e3ab391e237f07de605c88709f92fb4645c66f5a47a675610a63ec0cb4ee",
+    "Analog/GeneralQuadratic.lean": "f129e193f2617e9c0e9af6927615525176f0d099315d52f5ea826fe24391ba14",
+    "Analog/GeneralRigidity.lean": "f0c7ff35495ea3a5d640cbd3ca1e12c7257614c1e7480ddb971cb2b907692901",
+    "Analog/GeneralScore.lean": "d5cb9b875d77f21d6d12148da9ca5e09ed770e74d8398f7578000f6168ce8889",
+    "Analog/GeneralSmallNoise.lean": "c1c3e059b510b70e58118955f0d123cc0ef6dbb915c6de26b3bff8cde377db1e",
+    "Analog/GeneralTargetGaussianAchievability.lean": "8ee4b117fabe64d3798d4fc90ed221def0d516943080e403d4ec351d8a0843d4",
+    "Analog/GeneralTargetSmallNoise.lean": "d10b0f0e9c9004d44578e86c8278831d29554ec8c3fc79dc1235f1ec963f6c3c",
+    "Analog/GramSynthesis.lean": "6ab83d233ff394f0b902c1417d647aec419aad8bc9e4f143edf0fd956488b950",
+    "Analog/HeterogeneousAnalyticRigidity.lean": "dfde2f05690dfc8c2badcd2d2d81e945a3aee0e10415c1f6200de49a5c34f5d4",
+    "Analog/HeterogeneousAttainment.lean": "4b5b6f0893b53a718ea2e101d1a71867c7950e6cf93598c1e0b3b102bca053f6",
+    "Analog/HeterogeneousCompletion.lean": "4ae1855f961fa90bfac9531c220afbba8b1ad2fb19e37cbf27d8e4c3ea9bb05d",
+    "Analog/HeterogeneousCompletionDensity.lean": "d7d5b50995bf2c87936d92a03ca2fe0c46ab17bf455b65737dba59a517a018e8",
+    "Analog/HeterogeneousCoordinates.lean": "027ae19325ae2394dbca9be43b1dfee1ef900b4f6189e35cd94aafa7df71c9fe",
+    "Analog/HeterogeneousDualCertificate.lean": "b9daa5f4336022ea99e62860496a04584ac9f34122c8748d3e54bf0b8194c476",
+    "Analog/HeterogeneousFullRigidity.lean": "2a4aa2646e39b8758e2c4709fb641240490e60a6625bf378a7b0a0519107fc8b",
+    "Analog/HeterogeneousGlobalOptimum.lean": "31bf5db27a41c7afa3cbcc118df64da830d5f33cf1f7626a81400d9bd8973228",
+    "Analog/HeterogeneousGrid.lean": "3e7b0045a343988823599306933e94c35a22737516fa52c39c71c1ca4c495611",
+    "Analog/HeterogeneousGridFeasible.lean": "a3f2f25c9e92e7ef367d15367fed164124ac3bb90349bfead1feefd7d014bc83",
+    "Analog/HeterogeneousLocalCharts.lean": "fbe8ea723bff67382a7beae043543bd5ead8e85b8e884ecace599d9bfdccdeeb",
+    "Analog/HeterogeneousMomentCompactness.lean": "a5d3cc1cc7bcc8530c33df04be3568eed441fca63115bf6e7edebe4e91f6e665",
+    "Analog/HeterogeneousMomentRanges.lean": "cb07d4868dfca8fff8ff936b7981a86b8fb9f3d2e5fef31dbfefbbe292333c27",
+    "Analog/HeterogeneousNonsingularity.lean": "d2deaecf04ea64192f1099aae6d06a1801fbcdf36cb81ac5804e1c56cca50a40",
+    "Analog/HeterogeneousRegularity.lean": "079620b47bb7e341309e6febb47523c5d43f0ce70cba66e3216b528f6b68fb3b",
+    "Analog/HeterogeneousRigidity.lean": "2cf55549922ceb315b04b2cbe28d9888d883638313b5f02c229f6e27203beda5",
+    "Analog/HeterogeneousScore.lean": "d222cbb7cc9bdc1a09cff4e7675facfa1131b186615dd6e660bfc053b869ac02",
+    "Analog/HeterogeneousSeparation.lean": "ac4afa5b38da41c63f67bcd2083675e2acb882a34169f36e1d29e653ede7af95",
+    "Analog/HeterogeneousSynthesis.lean": "5cc7e1ea598b3fe7faee78b26622168d465562550b42e2c06e31f60459a934d6",
+    "Analog/Implementation.lean": "2aae750130ad7b5163d572b4f74125c96d2e23c6b8f72f5d8628fd12b216ccde",
+    "Analog/InverseSynthesis.lean": "191946c38e1a4816b2b6e8913feb5364eb745450729a1012ca6ad7c4b869fd8e",
+    "Analog/LocalBallPrior.lean": "929766b4033f18e7a03c9c3f141af2be06a3ef06286ca4dd60afa0af21304224",
+    "Analog/LocalPexider.lean": "4882bddb677daf3ea5a0e7fedcd948f4e13cc65dfc57ec9011f9fed76655db3f",
+    "Analog/MomentPaths.lean": "2da696b514ef4e0eb655a1deccbcb7b9c7422cc8f5dc2a2e60de78aaa6d6b511",
+    "Analog/Operational.lean": "dc327c456643b23cb8cf235315978c6c3f8877dafd249f9277c7a348376c917a",
+    "Analog/PlanarBrouwer.lean": "07583361da246acc7d107daf52bbe0ae36b744ef82356070b9f55335ade27fa6",
+    "Analog/PlanarInvariance.lean": "c1a1d4d13331adfc07dc51796250cdd8b9dc342784484b57764330a3385c3074",
+    "Analog/PlanarInvarianceCore.lean": "5fae10e3243a5f7aa4cdc99ef949087d5c95513257c1931579408724b4c7a513",
+    "Analog/PlanarTopology.lean": "6e92b63867bfe4ea8d89424f84b8a321f39940424d7b3d2a92b308736af918a1",
+    "Analog/PowerScaling.lean": "0b160a56998e653d7fbe763c2783a74aa858a78a2140fd33f6fdc081b1cb0329",
+    "Analog/Quadratic.lean": "ba4acf2ad5edfb4fc0350852b08b06f26fe6cf1e27575fe411c88d1242b0bd10",
+    "Analog/QuadraticFrontier.lean": "b79d930d42ec9f577c59f9fe43732faf0b3c7d05b1856d1c8dc8d6610d10faed",
+    "Analog/Quartic.lean": "b71804ef76a9f868d593211674bdfe1f2003fd58e0e306cac66a9cc8dfbcae80",
+    "Analog/QuarticPower.lean": "d3c6471419bd9bc2ade33244bf657ae177a49ca3dea9c1277ac34b291fb7922d",
+    "Analog/RadiusMinimax.lean": "ab3aa0e2a6ba54fada01bc79ffb76ec20d40579134eb429108d00c49f605d624",
+    "Analog/RegularPriorFlux.lean": "e37edd83573b479a8164ef9f05d73f232b3b729892cedab9dcc4632e474faa21",
+    "Analog/RigidityAnalysis.lean": "a7cef3919b0cebc3feaa4e4b72e203a571a771610ceb2f41f212558343a2571a",
+    "Analog/RigidityCompletion.lean": "eb761197ae55e5d0125967af67adcb4e7f849a0049b391b05fa185427b951ce2",
+    "Analog/SingularGram.lean": "3df3a4d82bd7e3f3e5b8022fe506fb4d0cb1d27e71eb8e43afd0fc272544c65f",
+    "Analog/SmallNoise.lean": "e05c177eeb29ca3d95af2f35d6bd08eb3833f81a42c3e368057be86f2029bb05",
+    "Analog/StripProjection.lean": "f5e528964647ac3e217d8daa02317014a96217211b83675b53f5ab479d5344ef",
+    "Analog/SynthesisAttainment.lean": "d9589a0852d349a01b5bc94af4a8932ab4caf46ecdcccdb2fe359591595781ee",
+    "Analog/TwoStatisticAttainment.lean": "c32779aef3865886ec5f91a796fd234e7200c2999e2ffb6a5139de8e8164c121",
+    "Analog/TwoStatisticDesign.lean": "9aed23959401e5dfd74c9cca8d844d90593a86ca1ef22f68522a4cd863754def",
+    "Analog/TwoStatisticPositivity.lean": "5f32bda6b8222c63479d248d8795a27f2a7f976a86863404d1b258c35144b062",
+    "Analog/UniformSmallNoise.lean": "94c7a4051c897088be6aa205c50e2a417dcd48ef3af24bed8dd8e6346c7c1963",
+    "Analog/VarianceCollision.lean": "72beb446368a64855ae38f6534a1fc1c876d04672c44d0477784884942231968",
+    "Analog/VarianceOptimal.lean": "39e92603211a1a9f8072e2120bba0bf528c7233da8a807084cf9c32a8652f8fb",
+    "Analog/VarianceScore.lean": "8902eb7f7d1ae949bf0962144cf5f135ec265f019af860ac0c9b49cb2def4bc5",
+    "Analog/WeightedVariational.lean": "840b390217825f55f6dbccd3d595d8afdd8c1889b090a2492b1461668f9f1ffa"
+  },
+  "scope": "Kernel audit of the explicit Lean declarations only. Current manuscript coverage and remaining obligations are in COVERAGE.md; a passing build does not certify all ten manuscript statements.",
   "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
   "mathlib_commit": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
   "theorem_axioms": {
+    "Analog.AdditiveStatistics.coefficient_gram_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.collision_preserves_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.encoder_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.encoder_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.exact_computation_of_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.exact_computation_of_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.meanStatistic_mem_attainable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_encoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_encoder_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.AdditiveStatistics.received_squaredDistance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.continuous_encoder_stability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.distanceValues_bddAbove": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.distanceValues_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.encoderClass_equicontinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.encoderClass_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.encoderClass_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.exact_of_pairDefect_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.exists_computation_modulus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.exists_stability_modulus": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.modulus_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.modulus_monotone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.modulus_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.modulus_tendsto_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.modulus_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairDefect_bddAbove": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairDefect_le_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairDefect_le_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairDefect_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairDefect_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.pairTerm_le_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.sourceSuperposition_dist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.ApproximateRigidity.uniform_small_defect": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.ArbitraryEncoder.asComplex_received": [
       "propext",
       "Classical.choice",
@@ -114,6 +388,456 @@
       "Quot.sound"
     ],
     "Analog.ArbitraryEncoder.zero_varianceScore_no_finite_decoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.bounded_error_memLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.clip_mem_interval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.clipped_error_memLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.clipped_error_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.clipped_squareRisk_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.iInf_bayesRisk_eq_clipped": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.iInf_bayesRisk_eq_ofReal_clipped": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.iInf_bayesRisk_toReal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.interval_error_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.lower_bound_of_clipped_risk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.BorelRisk.squareRisk_eq_ofReal_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.c2_derivative_data": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.c2_grid_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.certified_grid_bracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.continuous_norm_maximum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.continuum_implies_grid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.coordinate_scaling_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.euclidean_feature_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.finite_grid_bracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.finite_grid_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.gramOperator_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.gram_operator_peak": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.gram_peak_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_anchor_basis_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_feasible_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_feasible_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_operator_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_scaled_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.grid_scaling_gap_isBigO": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.interval_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.interval_peak_bound_of_abs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.operator_grid_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.operator_peak_deriv_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.operator_peak_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.operator_peak_second_derivative_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.operator_peak_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.peak_scaling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.quadratic_correction_convex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.scaling_gap_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CertifiedGrid.scaling_gap_isBigO": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.admissibleInfRisk_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.admissible_outer_infimum_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.admissible_outer_infimum_tendsto_of_eventual_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.eventual_admissibleInfRisk_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.eventual_infRisk_lower_of_compact_sequential": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.exists_admissible_risk_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.exists_risk_lt_of_infRisk_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.infRisk_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.infRisk_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.outer_infimum_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.outer_infimum_tendsto_of_eventual_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.risk_range_bddBelow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompactRiskOptimization.sequential_lower_of_regular_or_divergent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.completeTripleAt_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.desiredFunction_completeTripleAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.exact_completion_values": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.identifiesOn_postcomp_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.received_completeTripleAt_collision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.statisticSum_completeTripleAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionIdentification.triple_collision_preserves_statistics": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.NoConstantInterval.mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.NoConstantInterval.noZeroInterval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.NoZeroInterval.mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.constant_of_log_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.constants_of_rank_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.continuous_nonconstant_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.dense_open_separation_of_receiver_alternatives": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.exists_separating_completions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.independent_coordinate_ranges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.independent_div": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.log_constants_of_independent_features": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.log_pexider_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.log_rank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.mixed_rank_one_nonzero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.noConstant_derivative_of_noAffine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.noZero_derivative_of_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.nonzero_of_noZeroInterval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.receiverAlternative_of_nonconstant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.receiver_derivative_noZeroInterval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.separatingLocus_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CompletionSeparation.separatingLocus_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.collision_score_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.local_quadratic_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.moment_score_transfer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.peak_constrained_moment_transfer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.received_distance_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.received_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.CriterionTransfer.score_transfer": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -533,6 +1257,206 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.EncoderRegularity.contDiffAt_of_local_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.contDiffAt_of_local_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.contDiffAt_of_shift_difference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.contDiffAt_of_triple_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.contDiffOn_of_dense_scalar_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.contDiffOn_of_local_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.local_fibers_of_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.normalized_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.planar_affine_of_dense_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.planar_affine_of_local_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EncoderRegularity.scalar_affine_of_dense_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.clippedDerivative_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.clippedDerivative_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.clippedDerivative_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.clippedDerivative_uniformContinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.exists_global_extension": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.extension_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.extension_eq_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.EndpointExtension.extension_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.absolute_gap_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.finite_secant_upper_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.psd_trace_product_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.relative_loss_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.scale_all_peaks": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.scale_all_separations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FiniteCertificates.weighted_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.additiveRisk_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.coefficient_eq_inverse_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.coefficient_integral_eq_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.decoder_error_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.exact_decoder_prior_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.fixed_prior_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.fixed_prior_sequential_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.optimalRisk_congr_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.optimalRisk_extension_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.planeExtension_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.planeExtension_gradient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.planeExtension_gradient_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FixedPriorGaussianLimit.target_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.Frontier.Design.form_mix": [
       "propext",
       "Classical.choice",
@@ -813,6 +1737,1046 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.FrontierContinuity.attained_continuous_frontier_of_strict_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.mseValue_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.riskSublevel_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.riskSublevel_of_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_continuousWithinAt_max": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_continuousWithinAt_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_convexOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_le_of_riskSublevel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_lowerSemicontinuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.FrontierContinuity.value_upperSemicontinuousWithinAt_lt_max": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.channelInformation_eq_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.complex_inner_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.gradient_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.optimalRisk_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.optimalRisk_test_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.receiver_energy_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.regular_prior_bayes_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.regular_prior_bayes_converse_total_noise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.sensitivity_eq_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.test_components": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianBayesConverse.test_lower_asymptotic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.informationDenominator_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.le_optimalRisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.lowerAsymptotic_of_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.lowerAsymptotic_of_tests": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.nonsingular_test_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.optimalRisk_div": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.optimalRisk_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.optimalRisk_lowerAsymptotic_of_ratio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.optimalRisk_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.risk_tendsto_atTop_of_denominator_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.singular_test_risk_diverges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianConverseLimits.tendsto_of_lowerAsymptotic_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.channelEnergy_eq_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.dual_le_iff_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.inverseCoefficient_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.inverseCoefficient_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.inverse_gram_design_minimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.parameter_gram_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.quadraticBound_iff_inverseCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.quadraticBound_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.quadraticBound_nonsingular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignAttainment.quadratic_design_minimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignCompactness.coefficientMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignCompactness.coefficientPeakSet_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianDesignCompactness.exists_identity_peak": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.constructed_worstRisk_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.constructed_worstRisk_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.fixed_decoder_attains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.fixed_encoder_minimax": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.fixed_minimax_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.fixed_minimax_sequential_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianFixedMinimax.worstRisk_congr_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.channelDet_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.complex_linear_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.gram_det_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.gram_mul_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.integrated_inverse_gram_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.integrated_inverse_trace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.inverseGramMatrix_eq_inverse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.inverse_adjoint_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.inverse_derivative_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianGramCoefficient.real_inner_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.additiveObservation_asComplex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.additiveObservation_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.conditional_additive_law": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.conditional_density_law": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.coordinate_affine_law": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.integrable_jointLaw_iff_additive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.integral_jointLaw_eq_additive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.jointLaw_eq_additive_pushforward": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.sampleMap_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianLawBridge.squareRisk_eq_additive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.detecting_point_of_gradient_span": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.directional_derivative_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.fderiv_apply_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.localCoefficient_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.localized_singular_minimax_diverges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.maxCoefficient_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.moving_minimax_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.moving_minimax_converse_at_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxConverse.singular_minimax_diverges_of_spanning": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.decoder_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.fixed_minimax_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.fixed_minimax_upper_prescribed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.minimaxRisk_congr_target": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.pointRisk_constructed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMinimaxUpper.powerRisk_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.moving_gram_bayes_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.receiver_energy_expansion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.test_energy_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.test_energy_moments": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.test_energy_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianMovingGram.test_energy_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.asComplex_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.complex_cross_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.complex_imag_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.complex_norm_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.complex_real_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.coordinate_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.coordinate_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.coordinate_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.gaussian_clipped_leading_mse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianNoise.gaussian_source_leading_mse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.coefficientMaximum_prescribed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.constructed_decoder_attains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.directional_derivative_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.directional_derivative_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.gradientCoordinates_readout": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.heterogeneous_optimized_minimax_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.interior_direction_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.localCoefficient_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.maxCoefficient_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.optimizedRisk_eq_infimum_div": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.optimized_minimax_achieved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.optimized_minimax_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.optimized_minimax_sequential_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.parameter_regular_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.parameter_singular_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianOptimizedMinimax.singular_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.channelEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.channelMap_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.channelMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.direction_energy_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.direction_energy_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.firstRow_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.firstRow_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.parameter_gramA": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.parameter_gramB": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.parameter_gramC": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.parameter_inverse_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.received_eq_channel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.receiverFirst_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.receiverSecond_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.secondRow_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.secondRow_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianParameterChannel.totalOffset_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.centered_density_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.centered_density_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.centered_density_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.centered_density_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.compact_flux_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.conditional_flux_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.fluxScore_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.fluxScore_memLp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.flux_density_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.flux_information_conditional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.flux_information_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_affine_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_affine_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_density_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_directional_information_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_flux_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_joint_flux_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_mean_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.gaussian_score_second": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.information_bound_of_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_ae_of_priorLaw": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_flux_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_integrable_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_isProbability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_score_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_twoFlux_covariance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.jointLaw_twoFlux_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_fderiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_joint_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_weight_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_weight_integrable_of_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_weight_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.likelihood_weight_integral_of_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.meanScore_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.meanScore_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.priorLaw_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.priorLaw_isProbability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianScoreIdentity.twoFlux_information_conditional": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.nonsingular_row_sequence_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.positive_second_moment_of_correlation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.rowOptimalRisk_information_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.rowOptimalRisk_normalized_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.scalar_test_channelInformation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.scalar_test_sensitivity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.singular_direction_sequence_diverges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianSequentialConverse.singular_row_sequence_diverges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.channelInformation_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.priorInformation_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.regular_information_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.regular_prior_vanTrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.regular_prior_vanTrees_of_prior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianVanTrees.regular_score_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.jointRisk_eq_average": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.jointRisk_le_worstRisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.lowerAsymptotic_at_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.minimaxRisk_finite": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.minimaxRisk_le_of_uniform_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.minimaxRisk_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.observationLaw_isProbability": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.pointRisk_eq_lintegral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.pointRisk_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.regular_prior_minimax_converse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.rowOptimalRisk_le_minimaxRisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GaussianWorstCase.worstRisk_const_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.GeneralCollision.completion_readout_difference": [
       "propext",
       "Classical.choice",
@@ -859,6 +2823,56 @@
       "Quot.sound"
     ],
     "Analog.GeneralCollision.triple_shifted_mean_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.amplification_reciprocal_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.decode_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.decode_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.decode_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.decode_squared_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.decode_uniform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.forward_moments": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.metricScore_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.postprocess_squared_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralDecoder.projected_squared_bound": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -978,6 +2992,146 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.GeneralRigidity.affine_of_derivative_relation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.closure_preimage_of_map_nhds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.constant_combination_of_zero_derivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.determinant_of_local_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.global_slopes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.independent_tangents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.kernel_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.local_fibers_of_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.notInAffineLine_of_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairDerivativeEquiv_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairDerivative_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairDerivative_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairDerivative_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairStatistic_hasStrictFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.pairStatistic_local_section": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.planar_affine_of_local_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.regularPairs_mem_nhds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.regularTripleImage_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.regularTripleImage_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.regular_pair_identifying_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.scalar_affine_of_dense_determinants": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.scalar_affine_of_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.scalar_affine_of_local_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.slope_of_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.slope_of_kernel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.triple_kernel_of_section": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.triple_section_of_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralRigidity.zero_at_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.GeneralScore.coefficient_A_pos": [
       "propext",
       "Classical.choice",
@@ -1088,6 +3242,166 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.GeneralSmallNoise.affine_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.clipped_leading_mse_inverseGram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.decode_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.gradient_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.gradient_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.gradient_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.inverse_mean_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.inverse_moment_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.leading_mse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.leading_mse_inverseGram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.output_clip_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.slopeField_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.slopeField_square_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralSmallNoise.source_leading_mse_inverseGram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.decoderDerivative_uniformContinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.decoder_energy_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.decoder_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.decoder_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.decoder_regularity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.extendedDerivative_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.extendedDerivative_uniformContinuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.extendedTarget_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.extension_agrees": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.normalizedRisk_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.prior_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetGaussianAchievability.worst_case_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.complex_clm_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.exact_decoder_eventuallyEq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.exact_decoder_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.gaussian_clm_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.gaussian_general_target_leading_mse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.GeneralTargetSmallNoise.general_target_leading_mse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.GramSynthesis.Planar.energy_eq_form3": [
       "propext",
       "Classical.choice",
@@ -1193,6 +3507,901 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.HeterogeneousAnalyticRigidity.contDiffOn_of_dense_scalar_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAnalyticRigidity.exists_two_other_nodes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAnalyticRigidity.planar_affine_of_dense_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAnalyticRigidity.scalar_affine_of_dense_charts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.coefficient_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.feasibleSet_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.heterogeneous_operational_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.heterogeneous_sdp_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.lipschitz_implies_positive_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.operational_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.optimal_positive_iff_euclidean_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.optimal_positive_iff_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.peakSet_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.peakSet_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.peakSet_norm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.positive_feasible_iff_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.positive_feasible_implies_lipschitz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousAttainment.product_lipschitz_iff_euclidean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.collision_preserves_completion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.completeInput_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.desired_completeInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.identifying_collision_neighborhood": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.local_moment_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.pairedReadout_locally_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.received_completeInput_collision": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.sum_completeInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletion.update_valid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.NoAffineInterval.mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.ReceiverAlternative.mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.dense_identification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.dense_identifying_on_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.exact_feature_ranges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.exists_fourth_node": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.mean_endpoints_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCompletionDensity.normalized_scalar_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCoordinates.coordinates_hasStrictFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCoordinates.coordinates_localHomeomorph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousCoordinates.coordinates_localHomeomorph_of_strictDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.common_block_trace_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.current_program_dual_upper_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.gramOfPoint_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.matrixOfPoint_lowerBlock": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.matrixOfPoint_posSemidef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.matrixOfPoint_quadratic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.matrix_dual_upper_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.node_trace_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.trace_embed_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.trace_outer_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousDualCertificate.trace_weighted_outers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.affine_of_exact_and_dense_identification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.dense_planar_charts_of_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.exact_of_nonsingular_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.heterogeneous_rigidity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.noAffineInterval_of_closed_nonaffine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.nonsingular_affine_of_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.nonsingular_affine_of_exact_and_dense_identification": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.nonsingular_at_identifying_triple": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousFullRigidity.receiver_alternative_of_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.grid_maximum_global_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.planar_parameter_of_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.pointCoordinates_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.received_eq_of_source_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.score_eq_of_source_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGlobalOptimum.unrestricted_sdp_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.c2_grid_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.c2_peak_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.certified_discretization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.euclidean_feature_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.feasible_operational_realization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.feature_norm_maxima": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.gram_operator_peak": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.maxCurvature_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.maxCurvature_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.nodeCurvature_le_max": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.scaling_gap_isBigO": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGrid.uniform_caps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.feasible_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.feasible_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.feasible_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.local_basis_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.local_coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.local_feasible_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.local_gram_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.scaled_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousGridFeasible.zero_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousLocalCharts.continuousOn_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousLocalCharts.heterogeneous_local_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousLocalCharts.interiorTriples_subset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousLocalCharts.isOpen_interiorTriples": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousLocalCharts.local_chart_of_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.attainable_eq_source_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.attainable_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.attainable_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.attainable_subset_closedDomains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.coefficientPeakSet_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.compactFeatures_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.feature_extrema_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.feature_mem_closed_range": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.independentFeatures": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.meanStatistic_source_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.scalar_mean_endpoints_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentCompactness.scalar_mean_mem_closedMeanDomain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentRanges.background_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentRanges.normalized_completion_interval_subset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentRanges.regular_triple_sum_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentRanges.strict_range_of_deriv_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousMomentRanges.triple_sum_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.affine_injOn_of_coordinate_slice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.coefficientMap_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.determinant_ne_zero_of_affine_injOn_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.determinant_ne_zero_of_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.determinant_ne_zero_of_local_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousNonsingularity.linear_injective_of_affine_injOn_open": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.contDiffAt_of_dense_triple_factorizations": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.contDiffAt_of_triple_factorization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.determinant_of_dense_local_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.determinant_of_local_fibers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.pairStatistic_hasStrictFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.pairStatistic_local_section": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.regularPairs_mem_nhds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.regular_pair_identifying_closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.tripleSum_hasFDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.triple_kernel_of_section": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRegularity.triple_section_of_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRigidity.coefficients_exist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRigidity.common_slopes_of_four_anchors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRigidity.integrate_common_derivatives": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousRigidity.relation_of_two_anchors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.affine_operational_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.affine_score_bound_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.collision_preserves_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.encoder_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.exact_computation_of_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.meanStatistic_mem_attainable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.positive_score_implies_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.received_encoder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.received_encoder_mean": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousScore.received_squaredDistance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSeparation.affine_of_independence_and_triple_determinants": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSeparation.common_derivatives_of_independence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSeparation.exists_cross_determinant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSeparation.independent_tangents_across_nodes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSynthesis.feasible_operational_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.HeterogeneousSynthesis.reconstructed_encoder_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.ellipseDesign_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.ellipseDesign_form": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.ellipse_to_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.endpoint_cost_preserved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.feasible_class_nonempty_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.feasible_iff_ellipse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.gram_to_ellipse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_det": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_dual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_involutive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_optimum_attained_of_strict_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.inverse_quad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.objective_designEllipse": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.objective_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.positive_of_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.psd3_null_orthogonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.InverseSynthesis.roundtrip_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.ball_volume_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.contDiffOn_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.density_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.density_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.exists_ball_prior_close": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.exists_regular_prior_above": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.integrable_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.integrable_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.integral_close_of_on_ball": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.integral_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.integral_ge_of_on_ball": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.measurable_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalBallPrior.priorLaw_ae_ball": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalPexider.first_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalPexider.rectangle_affine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.LocalPexider.rectangle_affine_of_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.MomentPaths.distinct_feature_slopes": [
       "propext",
       "Classical.choice",
@@ -1253,12 +4462,47 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.Operational.le_score_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.lowerBound_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.lowerBound_stat_image_sq_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.nonconstantOn_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.Operational.quotients_bddBelow": [
       "propext",
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.Operational.quotients_cost_congr_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.Operational.quotients_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.quotients_stat_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_cost_congr_on": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1274,6 +4518,291 @@
       "Quot.sound"
     ],
     "Analog.Operational.score_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_sq_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_sq_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.score_stat_image_user_count": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.Operational.sq_mul_le_score_stat_image_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.brouwer_fixed_point_planeClosedUnitBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.circleToClosedUnitDisk_coe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.circle_exp_isCoveringMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.continuous_circleToClosedUnitDisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.continuous_circleToPlaneClosedUnitBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.continuous_complexDiskToPlaneClosedUnitBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.continuous_planeUnitSphereToCircle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.no_retraction_closedUnitDisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.no_retraction_planeClosedUnitBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarBrouwer.planeUnitSphereToCircle_circleToPlaneClosedUnitBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvariance.fiber_constant_of_collision_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvariance.isOpen_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvariance.local_factorization_of_coordinates": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvarianceCore.differentiable_approx_of_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvarianceCore.invariance_of_domain_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvarianceCore.invariance_of_domain_open_map": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarInvarianceCore.stability_of_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarTopology.continuous_recovery_of_compact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarTopology.continuous_triple_moment_recovery": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarTopology.exact_encoder_closedEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.PlanarTopology.exact_encoder_injOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.active_coefficient_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.clippedParameter_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.clippedParameter_plateau_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.clipped_curve_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.clipped_curve_optimal_all_power": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.curveRisk_eq_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.curveRisk_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.curveRisk_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.denominator_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.determinant_optimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.determinant_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.maximal_score_unique_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.optimalParameter_antitone": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.optimalRisk_eq_reciprocal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.risk_le_of_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.risk_mix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.root_sign_above": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_continuousOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_deriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_eq_gramScore": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_eq_iff_cubic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_strictAntiOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.separation_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.stationarySlope_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.stationary_root_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.upperRoot_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.upperRoot_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.upper_branch_feasible_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.QuadraticFrontier.upper_root_exists_unique": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1473,6 +5002,171 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.RadiusMinimax.borel_radius_minimax": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.compact_radius_minimax": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.consistentValues_bddAbove": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.consistentValues_bddBelow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.consistentValues_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.consistent_closed_constraint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.consistent_width_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.continuous_target_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.lowerEndpoint_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.lowerEndpoint_sublevel_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.midpointDecoder_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.midpointDecoder_radiusBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.midpoint_observation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.modulus_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.pairBound_of_radiusBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.pairValues_bddAbove": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.pairValues_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.pairValues_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.possibleObservations_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.radius_decoder_iff_pairwise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.radius_minimax": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.upperEndpoint_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RadiusMinimax.upperEndpoint_superlevel_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_contDiff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_derivative_support_subset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_energy_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_hasCompactSupport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_information_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_support_subset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.flux_zero_of_prior_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.localized_division": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.vector_flux_energy_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.RegularPriorFlux.vector_flux_information_regular": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.RigidityAnalysis.affine_representation_of_local_fibers": [
       "propext",
       "Classical.choice",
@@ -1624,6 +5318,21 @@
       "Quot.sound"
     ],
     "Analog.RigidityCompletion.tripleMomentInterior_of_strict_derivatives": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.SingularGram.reconstructPSD_common_columns": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.SingularGram.reconstructPSD_energy_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.SingularGram.reconstructPSD_gram": [
       "propext",
       "Classical.choice",
       "Quot.sound"
@@ -1893,6 +5602,376 @@
       "Classical.choice",
       "Quot.sound"
     ],
+    "Analog.TwoStatisticAttainment.Anchors.bound_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.Anchors.cap_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.Anchors.coordinate_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.Anchors.diagonal_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.Anchors.gram_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.Anchors.quad_basis_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.anchors_nonempty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.attained_statistic_maximum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.continuous_pair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.feasible_convex": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.feasible_isClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.feasible_isCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.feasible_isCompact_of_independent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.form2_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.independent_has_nondegenerate_anchors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.interpolation_reconstruct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.lipschitz_squared_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.positive_feasible_of_bounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.positive_feasible_of_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.positive_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.quad_mix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticAttainment.zero_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.affine_operational_score": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.affine_score_bound_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.gramCost_nonnegative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.planar_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.positive_definite_operational_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.positive_score_implies_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticDesign.reconstruction_preserves_pairs": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.completedPoint_mem_attainable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.coordinatesOfCurve_feasible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.exists_line_point": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.general_operational_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.general_sdp_operational_attainment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.localIdentification_of_commonCompletion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.localIdentification_of_dense_family": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.operational_maximum_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.operational_score_eq_sdp_maximum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.positive_feasible_gram": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.positive_pair_constraints_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.TwoStatisticPositivity.positive_sdp_operational_synthesis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.energy_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.gaussian_norm_second_moment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.lipschitz_of_derivative_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.normalizedError_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.normalized_error_difference_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.risk_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.risk_difference_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.risk_sqrt_eq_powerRisk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.risk_tendstoUniformly": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.square_difference_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.tailEnvelope_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.tailEnvelope_integrable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.tailEnvelope_measurable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.tail_integral_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.uniform_taylor_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.worst_case_amplitude_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.UniformSmallNoise.worst_case_power_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.compact_cutoff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.compact_cutoff_sequence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.exists_positive_scalar_test": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.inner_toLp_eq_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.integral_inner_square_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.inverse_gram_variational_supremum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.positive_energy_test_approaches_supremum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_compact_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_compact_approximation_L2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_test_field_L2_density": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_test_field_approximation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_test_moments": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.smooth_variational_supremum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.weighted_smooth_variational_supremum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Analog.WeightedVariational.weighted_variational_values_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "Analog.complexCoordinates_distance": [
       "propext",
       "Classical.choice",
@@ -2029,45 +6108,10 @@
       "Quot.sound"
     ]
   },
-  "source_sha256": {
-    "Analog.lean": "566550813e0ec7d82f34d8ecf708c29bf600b89dfb97250d6dd0b7e75de912fa",
-    "Audit.lean": "3bdcb2eb23dfc8145bc5ce2e95011ae62e0f779a2189f705436e8111a45fd660",
-    "lakefile.toml": "5e4edd56201ce35d62bbeedc2b48811820e44255aac96326b3ce3d1225360253",
-    "lake-manifest.json": "e9eed8008f80334a519bfb8e22b5c58a487fa44ba4e88699885b847c2bf8f37c",
-    "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
-    "verify.py": "23e114227053b16e60ffde8b329d9910f36ed8b15893211efd4411d81cb22d98",
-    "audit_targets.json": "b6683a6b8402ad7048dc84c8fc0b89cbd351021ce7a4dfb6e049788efa911080",
-    "update_audit.py": "71bfab5295fa604dbdfe7876c89f6490836fa91b5fc7731d93d112fa834484d9",
-    "Analog/Amplification.lean": "ddd9d95eed86d7e5297c93d547b14c704e19a7234deccf55fc8d354820c567a0",
-    "Analog/Certificate.lean": "1a1ac67f47e3fb3c7a7f8954658235debedb124c66043cfe7e041bed7ac5dc72",
-    "Analog/Decoder.lean": "1d9ab2afb70356ab0766c35fa38d79da07eff4c9f6dd1a25d08a6100eb1cb02b",
-    "Analog/DifferentialRigidity.lean": "fea95c83dd387a315927920a0aab174aed3bda731d949e87ce7b1c387708e4e6",
-    "Analog/EuclideanBridge.lean": "ca18d31d7e61df5ad611de6fc8db56d4cbeaebfe3fa180d5dada162ee636cb5c",
-    "Analog/ExplicitVarianceDecoder.lean": "266230c97ff81490e83c0974065c58fd8dad8d712dfe54b66feb01a1b560116f",
-    "Analog/FiberConstancy.lean": "6af6e4ba1ea7c62410ba18b1efc05ee9da4041c86d5d165366e7adb51381de29",
-    "Analog/Frontier.lean": "653673ebfff753ec8fe009a8143315d10731ce7dfa704492847c2f227e3f0d1d",
-    "Analog/FrontierAttainment.lean": "a0489eb16d7b7c703d56fa17f565dc30fb585d54a22c1470c27d03032a79960b",
-    "Analog/GeneralCollision.lean": "df88e45c057527478d69d6ebd24d4a627f4860703189318944b8ddfb6b59a2d4",
-    "Analog/GeneralDesign.lean": "e995e3ab391e237f07de605c88709f92fb4645c66f5a47a675610a63ec0cb4ee",
-    "Analog/GeneralQuadratic.lean": "f129e193f2617e9c0e9af6927615525176f0d099315d52f5ea826fe24391ba14",
-    "Analog/GeneralScore.lean": "d5cb9b875d77f21d6d12148da9ca5e09ed770e74d8398f7578000f6168ce8889",
-    "Analog/GramSynthesis.lean": "6ab83d233ff394f0b902c1417d647aec419aad8bc9e4f143edf0fd956488b950",
-    "Analog/Implementation.lean": "2aae750130ad7b5163d572b4f74125c96d2e23c6b8f72f5d8628fd12b216ccde",
-    "Analog/MomentPaths.lean": "2da696b514ef4e0eb655a1deccbcb7b9c7422cc8f5dc2a2e60de78aaa6d6b511",
-    "Analog/Operational.lean": "dc327c456643b23cb8cf235315978c6c3f8877dafd249f9277c7a348376c917a",
-    "Analog/PowerScaling.lean": "0b160a56998e653d7fbe763c2783a74aa858a78a2140fd33f6fdc081b1cb0329",
-    "Analog/Quadratic.lean": "ba4acf2ad5edfb4fc0350852b08b06f26fe6cf1e27575fe411c88d1242b0bd10",
-    "Analog/Quartic.lean": "b71804ef76a9f868d593211674bdfe1f2003fd58e0e306cac66a9cc8dfbcae80",
-    "Analog/QuarticPower.lean": "d3c6471419bd9bc2ade33244bf657ae177a49ca3dea9c1277ac34b291fb7922d",
-    "Analog/RigidityAnalysis.lean": "a7cef3919b0cebc3feaa4e4b72e203a571a771610ceb2f41f212558343a2571a",
-    "Analog/RigidityCompletion.lean": "eb761197ae55e5d0125967af67adcb4e7f849a0049b391b05fa185427b951ce2",
-    "Analog/SmallNoise.lean": "e05c177eeb29ca3d95af2f35d6bd08eb3833f81a42c3e368057be86f2029bb05",
-    "Analog/StripProjection.lean": "f5e528964647ac3e217d8daa02317014a96217211b83675b53f5ab479d5344ef",
-    "Analog/SynthesisAttainment.lean": "d9589a0852d349a01b5bc94af4a8932ab4caf46ecdcccdb2fe359591595781ee",
-    "Analog/VarianceCollision.lean": "72beb446368a64855ae38f6534a1fc1c876d04672c44d0477784884942231968",
-    "Analog/VarianceOptimal.lean": "39e92603211a1a9f8072e2120bba0bf528c7233da8a807084cf9c32a8652f8fb",
-    "Analog/VarianceScore.lean": "8902eb7f7d1ae949bf0962144cf5f135ec265f019af860ac0c9b49cb2def4bc5"
-  },
+  "declaration_count": 1198,
+  "module_count": 100,
+  "manuscript_sha256": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
+  "manuscript_statement_count": 10,
   "kernel_recheck": "lake env lean --trust=0 Audit.lean",
-  "scope": "General collision; full operational score and shrinking pairs for nondegenerate two-feature curves; general operational SDP reconstruction and positive maximum attainment; attained convex Gram-risk frontier including zero floor; actual small-noise dominated-convergence limit and variance-decoder specialization; native moment geometry and conditional independent affine representation; all-quadratic operational variance optimum, general-M quadratic/quartic certificates, sharp decoding and implementation bounds. Unrestricted continuous rigidity, complete general probabilistic trace/frontier equivalence, frontier endpoint continuity, certified-grid and remaining appendix results are not complete."
+  "finished_at_utc": "2026-10-27T10:43:23.894042+00:00"
 }

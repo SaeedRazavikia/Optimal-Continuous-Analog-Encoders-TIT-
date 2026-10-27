@@ -1,0 +1,11 @@
+{
+  "note": "Current run: official Lean 4.24.0 binaries, exact pinned mathlib and dependencies, and the supplied executable-path compatibility adapter. The adapter only supplies the process executable path where /proc readlink is unavailable. See report.json for verification status. Binaries and compiled dependencies are not distributed.",
+  "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "adapter_build": "gcc -shared -fPIC -O2 runtime/exepath_compat.c -o exepath_compat.so -ldl",
+  "files": {
+    "/workspace/scratch/7fc55021695a/tooling/lean-4.24.0-linux/bin/lean": "8fadc3ed92cc9decb94c96ee9c0876e91e03a3a5e69138f32114f02789e2766c",
+    "/workspace/scratch/7fc55021695a/tooling/lean-4.24.0-linux/lib/lean/libleanshared.so": "8cc9858cc57c52015ba6dd948bdbf7f05926b9b5fcead69a964f0ad61ddd79dd",
+    "/workspace/scratch/7fc55021695a/tooling/exepath_compat.so": "ecf31594b1f5d55b08d5e33e5b857d1323577b52736472b3df113c81aec7654d",
+    "/workspace/scratch/7fc55021695a/project/formalization/runtime/exepath_compat.c": "384503ad1d16790ce5471b2116f7f740b519236edc35787dcd8908788fd4cf8f"
+  }
+}

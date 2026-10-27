@@ -1,100 +1,75 @@
-# Lean proofs for analog moment computation
+# Lean proofs for the current moment-based encoder manuscript
 
-This artifact accompanies *Optimal Continuous Analog Encoders for Moment-Based Computation*. It contains checked complete results and intermediate results. **The entire manuscript is not yet formalized.** The remaining unrestricted rigidity argument prevents a claim of optimality over every continuous encoder.
+This folder accompanies the supplied **Main.tex**, *Geometric Optimization of
+Continuous Encoders for Moment-Based Computation*. Version 0.4.0 extends the
+formalization for node-dependent preprocessing, arbitrary continuous encoders,
+general SDP design, Gaussian estimation and certified discretization.
 
-The supplied audit records **405 declarations across 29 modules**. All 37
-recorded source and configuration hashes match that audit. This count measures
-the checked development; it does not mean that all manuscript claims are
-covered. See [the theorem map](THEOREM_MAP.md) for the main results,
-[the statement inventory](COVERAGE.md) for the manuscript correspondence, and
-[the continuous-encoder scope](CONTINUOUS_SCOPE.md) for the open obligations.
+The [coverage inventory](COVERAGE.md) tracks the current **10** numbered
+statements, including remaining formula-level specialization wrappers.
+[THEOREM_MAP.md](THEOREM_MAP.md) lists the principal declarations and proof
+chains. Exact manuscript statements and the source fingerprint are recorded
+in [manuscript_targets.json](manuscript_targets.json).
 
-## Completed scope
+## Main proof developments
 
-| Component | Checked scope |
-|---|---|
-| General collision | Actual arbitrary-encoder collision lemma, K≥4, strictly convex or concave mean-dependent term; no differentiability of that term. |
-| General operational score | Exact infimum over actual admissible input pairs and shrinking-pair sharpness, for nondegenerate two-feature curves and K≥2. Uses one-sided endpoint derivatives. |
-| Actual input paths | Two moving transmitter inputs realize every first-order moment direction at every interior empirical mean. |
-| Variance optimization | Complete score including degenerate curves and actual all-quadratic operational optimum for every P>0, K≥2. |
-| Quadratic and quartic coefficients | Complete Gram-objective optima for every M>0, P>0, with continuum peak certificates and all coefficient competitors. |
-| General operational design | Positive feasible SDP points yield continuous exact peak-feasible encoders with actual score≥K²λ; endpoint independence is derived. |
-| SDP attainment | Spanning anchors and a positive feasible point derived from the feature hypotheses; compact continuum feasible set and actual operational maximum over all affine-feature coefficient curves, including degenerate competitors. |
-| Rigidity analysis | Native local moment inverses, actual moment neighborhoods, fiber-to-kernel differentiation, endpoint integration, and independence from exactness. Final necessity still assumes local fiber constancy and interior encoder differentiability. |
-| Decoding and implementation | Sharp global scalar amplification and zero-score impossibility; actual Euclidean complex variance decoder; coherent mismatch and peak-safe quantization. |
-| Small-noise limits | Actual derivative limit, integrable domination, and dominated convergence in noise-power coordinates; actual variance-decoder differentiability and MSE limit; independent isotropic covariance evaluation. |
-| Gram frontier | Actual feasible-infimum convexity/monotonicity and strict inverse-risk convexity; attained optimum at every feasible floor including zero, unique optimal Gram, and plateau/activity results with their optimizer witnesses. |
+- **Heterogeneous rigidity:** the original-hypothesis equivalence, including
+  nonsingular common columns and separate offsets, with physical completion
+  density, automatic regularity and a proved planar topology argument.
+- **General SDP attainment:** dependent feature families, singular feasible
+  Gram blocks and zero optimum; positivity iff Euclidean Lipschitz readout;
+  global continuous-encoder optimality under rigidity.
+- **Gaussian estimation:** genuine nonnegative risks over all Borel decoders,
+  local-prior information bounds, smooth-test variational completeness,
+  changing-design and singular-limit converses, endpoint-decoder achievability,
+  and actual Gaussian-law/model/coefficient identification.
+- **General grid certification:** node-dependent continuum/sample programs,
+  attained optima, C2 scaling certificates, quadratic mesh gaps and actual
+  finite PSD matrix dual witnesses.
 
-The general score is `Analog.GeneralScore.score`, defined using the paper's actual finite-input channel and target. It is not a stipulated matrix objective. `general_operational_score` identifies it with the endpoint Gram expression, and `general_score_small_distance_sharpness` constructs the required operational witnesses.
+The earlier bounded-noise minimax theorem, all-rank reconstruction, operational
+scores and explicit-design proofs are retained. [UPDATE_SUMMARY.md](UPDATE_SUMMARY.md)
+records the completion status and verification totals. Historical evidence is
+preserved in `historical/v0.2.0/` and `historical/v0.3.0/`; those inventories do
+not describe current coverage.
 
-`Analog.quadratic_variance_operational_optimal` compares the explicit variance optimizer with every peak-feasible planar quadratic curve. `Curve.PeakFeasibleAt P` quantifies over every real input in `[-1,1]`, not a sample grid. Coefficient-class theorems do not by themselves classify arbitrary continuous competitors.
+The full warning-free build and `--trust=0` audit passed for **1,198 public
+proof declarations in 100 modules**, including **476 new declarations in
+47 new modules** in this completion update. The only logical axioms are
+`propext`, `Classical.choice` and `Quot.sound`; there are no admitted proofs.
 
-The probabilistic development proves the real integrated small-noise limit. It does not identify simulation outcomes with kernel-checked theorems, assume a desired limit, or silently replace a general decoder with the variance specialization. See the complete statement inventory in `COVERAGE.md` and the main declarations in `THEOREM_MAP.md`.
+## Reproduce verification
 
-No unproved manuscript theorem is introduced as an axiom. The unrestricted continuous reduction still needs topological local factorization and automatic differentiability; `CONTINUOUS_SCOPE.md` describes these obligations. The general decoder-to-trace formula, complete inverse-form frontier, certified-grid theorem, and remaining appendices also need further work.
-
-## Reproduce
-
-Install Lean using its [official instructions](https://lean-lang.org/install/),
-then run from this directory:
+The project pins Lean to `leanprover/lean4:v4.24.0`, mathlib to
+`f897ebcf72cd16f89ab4577d0c826cd14afaafc7`, and transitive revisions through
+`lake-manifest.json`. From the repository root, with this toolchain installed, run:
 
 ```sh
+cd formalization
 lake exe cache get
+python3 check_manuscript.py
+python3 update_audit.py --check
 python3 verify.py
 ```
 
-The project pins Lean to `leanprover/lean4:v4.24.0`, mathlib to commit
-`f897ebcf72cd16f89ab4577d0c826cd14afaafc7`, and transitive dependencies through
-`lake-manifest.json`. Internet access is needed to obtain the compiler and
-those dependencies. Toolchain binaries and third-party source trees are not
-bundled. Python requires only its standard library.
+`verify.py` builds every imported module with warnings rejected, invokes
+`lean --trust=0 Audit.lean`, checks the exact declaration inventory and permits
+only `propext`, `Classical.choice` and `Quot.sound`. The result, declaration
+count and exact proof-source hashes are in `verification/report.json`.
+Failed runs record failure rather than retaining a stale passing status.
+Successful verification certifies the Lean statements with their hypotheses.
 
-`verify.py` builds all imported modules, runs the explicit declaration audit
-with `lean --trust=0`, rejects warnings and unexpected axioms, and records the
-source hashes. Reports are saved in `verification/`. Its allowlist consists
-only of `propext`, `Classical.choice`, and `Quot.sound`; `sorryAx` and additional
-axioms are rejected. The project does not use `native_decide` or a numerical
-oracle to prove the advertised results.
+After proof changes, run `python3 update_audit.py` before verifying. After a
+manuscript revision, review the mathematics and coverage before running
+`python3 check_manuscript.py --update`; recording correspondence is not a proof.
 
-For direct inspection:
+The unchanged exact rational numerical certificate has its own check:
 
 ```sh
-lake build
-lake env lean --trust=0 Audit.lean
+python3 ../code/certified_synthesis.py --verify-only
 ```
 
-To inspect one result, create `Inspect.lean` in the project root:
-
-```lean
-import Analog
-
-#check Analog.quadratic_variance_operational_optimal
-#print Analog.GeneralScore.general_operational_score
-#print axioms Analog.GeneralScore.general_operational_score
-```
-
-Then run `lake env lean Inspect.lean`. `#check` shows the statement and all its
-hypotheses; `#print` also shows its definition or proof, and `#print axioms`
-shows its logical dependencies. GitHub displays these source files; Lean checks
-them locally or in the included continuous-integration workflow. A theorem name
-by itself is not a remotely hosted proof-checking service.
-
-The proof sources are available in the [paper repository](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization).
-Run the commands above from its `formalization/` directory. The repository-level
-[verification workflow](../.github/workflows/verify-lean.yml) uses the pinned
-Lean toolchain and mathlib revision and runs `python3 verify.py` on relevant
-pushes and pull requests. The nested `.github/workflows/verify.yml` is the
-standalone-project template supplied with the archive. The recorded local audit
-and a GitHub run are separate verification records; see the repository's
-[Actions page](https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/actions/workflows/verify-lean.yml) for remote status.
-The optional `runtime/` files document the environment of the recorded local
-audit and are not needed for an ordinary Lean installation. Citation and
-reproduction guidance is in [PUBLISH.md](PUBLISH.md).
-
-The source-to-manuscript map is as important as successful compilation: Lean
-checks the formal statements actually written. Conditional statements and
-specializations do not certify the broader original theorem. At zero score,
-reciprocal expressions in real-valued definitions use Lean's total division;
-the zero-score impossibility theorem supplies the intended infinite-
-amplification interpretation, rather than treating that raw value as an
-attainable constant.
+Compiler and dependency caches are not bundled. The optional `runtime/`
+directory describes the executable-path adapter used in the managed checking
+environment; ordinary Linux installations do not need it. The ported planar
+topology sources include their license and precise external provenance.

@@ -1,0 +1,11 @@
+{
+  "note": "Official Lean 4.24.0 release binaries with the repository executable-path compatibility adapter. The adapter supplies only the calling process executable path via AT_EXECFN when /proc is unavailable; Lean proof checking, imported mathematics, and filesystem access controls are unchanged. The compiler and shared-library hashes match the previous verification record. Toolchain binaries, compiled adapter, and third-party build outputs are not distributed in the source artifact.",
+  "lean_version": "Lean 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release",
+  "adapter_build": "gcc -shared -fPIC -O2 runtime/exepath_compat.c -o exepath_compat.so -ldl",
+  "files": {
+    "/workspace/scratch/a1814f94dd74/lean_env/lean-4.24.0-linux/bin/lean": "8fadc3ed92cc9decb94c96ee9c0876e91e03a3a5e69138f32114f02789e2766c",
+    "/workspace/scratch/a1814f94dd74/lean_env/lean-4.24.0-linux/lib/lean/libleanshared.so": "8cc9858cc57c52015ba6dd948bdbf7f05926b9b5fcead69a964f0ad61ddd79dd",
+    "/workspace/scratch/a1814f94dd74/lean_repo/formalization/runtime/exepath_compat.c": "384503ad1d16790ce5471b2116f7f740b519236edc35787dcd8908788fd4cf8f",
+    "/workspace/scratch/a1814f94dd74/lean_env/exepath_compat.so": "15956964cbae7936f4b84f493baa21baf5348a1d15a2303fce4fd6935899d1ae"
+  }
+}

@@ -1,5 +1,5 @@
 name = "analog_formalization"
-version = "0.1.0"
+version = "0.4.0"
 defaultTargets = ["Analog"]
 
 [[require]]
@@ -9,3 +9,4 @@ rev = "f897ebcf72cd16f89ab4577d0c826cd14afaafc7"
 
 [[lean_lib]]
 name = "Analog"
+

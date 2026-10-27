@@ -1,0 +1,20 @@
+{
+  "command": "python code/certified_synthesis.py --verify-only",
+  "exit_code": 0,
+  "verification_kind": "Exact rational arithmetic in Python; not a Lean/kernel proof",
+  "source_sha256": {
+    "Main.tex": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
+    "code/certified_synthesis.py": "9c2c0f395ecfa2d7ee80deb590fd47cf789b4506345a8bb28bddb4f6c9b94d16",
+    "results/certified_synthesis.json": "6c43b26e454ea809e9455382ddbc860d86bbfd960becdc6eb4ee4522bd0306e6"
+  },
+  "result": {
+    "certificate_verified": true,
+    "lower": "209834839284/500029296947",
+    "upper": "104917556109394155472367/250000000000000000000000",
+    "lower_float": 0.41964508992808314,
+    "upper_float": 0.4196702244375766,
+    "relative_gap_upper": 5.989109550760389e-05,
+    "relative_gap_definition": "(upper-lower)/upper"
+  },
+  "stderr": ""
+}

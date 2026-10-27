@@ -1,9 +1,24 @@
-# Formalization revision
+# Formalization completion — version 0.4.0
 
-The new modules develop the three requested areas: continuous-encoder rigidity, general operational score and encoder design, and the probabilistic frontier. Their exact quantifiers and hypotheses are recorded in `formalization/COVERAGE.md`; successful strict verification is recorded in `formalization/verification/report.json`.
+The current update completes full heterogeneous rigidity, general SDP
+attainment, Gaussian converse and optimization proofs, and general grid
+certification for the supplied [Main.tex](Main.tex).
 
-The general score now uses actual admissible source pairs and one-sided endpoint derivatives. Its sharpness witnesses come from two moving transmitter inputs. The design proof converts genuine continuum-feasible PSD matrices into continuous exact encoders with an actual operational guarantee. The rigidity chain now derives local moment geometry, differential kernels, endpoint representation, and coefficient independence, while explicitly retaining its remaining topology and regularization obligations.
+The strict local verification passed **1,198 public declarations in 100
+modules**. Relative to the previous current-manuscript archive, this adds
+476 declarations in 47 modules. Relative to the older repository artifact,
+the verified total increases from 405 declarations in 29 modules. All audited
+declarations use only the three standard allowed axioms; no missing conclusion
+is inserted as an axiom or admitted proof.
 
-The small-noise development proves the limiting argument through dominated convergence and treats the actual variance decoder. The frontier development proves properties of an actual feasible-design infimum, with conditional and attained statements distinguished in the theorem map.
+[UPDATE_SUMMARY.md](formalization/UPDATE_SUMMARY.md) details the completed proof
+chains. [COVERAGE.md](formalization/COVERAGE.md) retains the remaining formula,
+representation and example wrappers. [verification/report.json](formalization/verification/report.json)
+contains the final audit and source fingerprints; earlier records are retained
+under `formalization/historical/` and are not the current verification evidence.
 
-These additions do not justify saying every manuscript proof is formalized. No missing mathematical theorem has been inserted as an axiom. The presentation revision and corrected proof organization are described in `REVISION_NOTES.md`.
+The repository includes the exact current manuscript used by the correspondence
+check as `Main.tex`, while retaining the earlier manuscript layout and source
+files. The GitHub workflow runs the pinned build and audit from `formalization/`
+when that folder or `Main.tex` changes. The archived local audit and a new CI run
+are distinct verification records.

@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'formalization/**'
+      - 'Main.tex'
       - '.github/workflows/verify-lean.yml'
   pull_request:
     paths:
       - 'formalization/**'
+      - 'Main.tex'
       - '.github/workflows/verify-lean.yml'
   workflow_dispatch:
 

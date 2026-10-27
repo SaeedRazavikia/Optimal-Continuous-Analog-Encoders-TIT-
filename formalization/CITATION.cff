@@ -8,17 +8,17 @@ title: Lean proofs for analog moment computation
 authors:
   - family-names: Razavikia
     given-names: Saeed
-version: 0.1.0
+version: 0.4.0
 abstract: >-
-  Lean 4 formalization accompanying Optimal Continuous Analog Encoders for
-  Moment-Based Computation. The artifact includes checked results on operational
-  scores, coefficient-class encoder design, decoding, small-noise limits, and
-  Gram frontiers. Unrestricted continuous-encoder rigidity and other manuscript
-  results remain incomplete; the coverage documents state the exact scope.
+  Lean 4 formalization accompanying Geometric Optimization of Continuous Encoders
+  for Moment-Based Computation. The artifact includes checked results on operational
+  scores, heterogeneous continuous-encoder rigidity, general SDP attainment,
+  Gaussian statistical limits, certified grid approximation, decoding, and
+  Gram frontiers. The coverage documents state the exact manuscript correspondence.
 keywords:
   - Lean
   - formal verification
   - over-the-air computation
   - analog encoders
 repository-code: https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-
-url: https://github.com/SaeedRazavikia/Optimal-Continuous-Analog-Encoders-TIT-/tree/main/formalization
+date-released: 2026-10-27

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "check": "current manuscript accepted",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "Manuscript correspondence is current: 10 statements."
+    },
+    {
+      "check": "current theorem inventory accepted",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "Audit inventory is current: 722 declarations in 53 modules."
+    },
+    {
+      "check": "manuscript change rejected",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "output": "Manuscript inventory is stale. Review the changed proofs and COVERAGE.md, then run python3 check_manuscript.py --update."
+    },
+    {
+      "check": "unlisted theorem module rejected",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "output": "Stale audit files: audit_targets.json, Analog.lean, Audit.lean. Run python3 update_audit.py."
+    }
+  ]
+}

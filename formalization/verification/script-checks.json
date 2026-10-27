@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-27T10:53:11.783372+00:00",
+  "finished_at_utc": "2026-10-27T10:53:12.035263+00:00",
+  "checks": [
+    {
+      "check": "current manuscript accepted",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "Manuscript correspondence is current: 10 statements."
+    },
+    {
+      "check": "current theorem inventory accepted",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "Audit inventory is current: 1198 declarations in 100 modules."
+    },
+    {
+      "check": "manuscript change rejected",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "output": "Manuscript inventory is stale. Review the changed proofs and COVERAGE.md, then run python3 check_manuscript.py --update."
+    },
+    {
+      "check": "unlisted theorem module rejected",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "output": "Stale audit files: audit_targets.json, Analog.lean, Audit.lean. Run python3 update_audit.py."
+    }
+  ],
+  "source_validation": {
+    "status": "passed",
+    "declaration_count": 1198,
+    "module_count": 100,
+    "source_hash_count": 110,
+    "source_hashes_unchanged": true,
+    "manuscript_sha256": "d4d5a6a1186d0ab3e7023c530154417cef53f34e8ceabf2be16fb105531c87d2",
+    "manuscript_unchanged": true,
+    "negative_checks_used_temporary_copies": true
+  }
+}

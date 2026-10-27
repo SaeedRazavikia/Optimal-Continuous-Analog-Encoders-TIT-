@@ -1,90 +1,81 @@
-# Principal manuscript-to-Lean correspondence
+# Current manuscript-to-Lean correspondence
 
-The table identifies exact checked statements. `COVERAGE.md` separately lists
-all manuscript results, their current source locations, hypotheses, and remaining gaps. The main text now combines exact structure and optimal design in one section; supporting lemmas and the score proposition appear in the proof appendices. Result labels provide stable identifiers across renumbering.
+[`COVERAGE.md`](COVERAGE.md) records the scope of all ten current manuscript
+targets. This map names the strongest relevant declarations and the bridges
+used by the newly completed proofs. Every namespace starts with `Analog.`.
+A source link identifies the file; the declaration name identifies the exact
+theorem to inspect.
 
-| Manuscript component | Lean declaration | Scope |
+## The ten manuscript targets
+
+| Target | Principal declarations | Exact scope |
 |---|---|---|
-| General triple collision, `lem:collision` | `Analog.GeneralCollision.triple_collision_preserves_moments` | Full statement, with weaker readout regularity and endpoint inputs allowed. |
-| Open-slice constancy step, `lem:topology` | `Analog.open_slice_fiber_constancy` | Explicit openness hypothesis; planar invariance of domain is not proved. |
-| Derivative step, `lem:affine` | `Analog.DifferentialRigidity.kernel_annihilation_iff_affine_slopes` | Two distinct feature-slope anchors and the kernel hypothesis; see the module for the analytic extensions. |
-| Closed-interval derivative integration | `Analog.DifferentialRigidity.planar_differential_rigidity` | Continuity, interior differentiability, nonaffinity and component kernel conditions; no automatic differentiability or coefficient independence. |
-| Operational infimum | `Analog.Operational.le_score_iff` | Nonconstant target and nonnegative pairwise cost; no encoder parametrization. |
-| Variance score specialization | `Analog.Curve.variance_operational_score` | All planar quadratic curves, including degenerate cases; actual infimum, K >= 2. |
-| Shrinking pairs | `Analog.Curve.variance_score_small_distance_sharpness` | Actual admissible tuples approach the variance score at arbitrarily small received distance. |
-| General quadratic coefficient design | `Analog.GeneralQuadratic.quadratic_optimal_closed_form` | All M > 0, unit power; exact closed-form parameter and all quadratic competitors. |
-| General-power quadratic design | `Analog.quadratic_optimal_all_power` | All M > 0, P > 0; complete quadratic Gram optimization. |
-| Operational variance optimum | `Analog.quadratic_variance_operational_optimal` | Actual score, every P > 0 and K >= 2, all planar quadratic competitors. |
-| Quartic coefficient design | `Analog.Quartic.quartic_planar_optimal` | All M > 0, unit power; root existence/uniqueness, complete projection reduction and certificate. |
-| General-power quartic design | `Analog.Quartic.quartic_optimal_all_power` | All M > 0 and P > 0; all planar quartic coefficient competitors. |
-| Sharp amplification | `Analog.Decoder.sharp_uniform_decoder` | Positive operational score; actual attaining Lipschitz decoder and global minimality. |
-| Zero-score amplification case | `Analog.Decoder.zero_score_no_finite_uniform_decoder` | No finite uniform decoder for a nonconstant target. This supplies the infinite-value case without an extended-real infimum definition. |
-| Complex variance channel | `Analog.ArbitraryEncoder.sharp_variance_decoder` | Exact Euclidean metric bridge and all complex additive disturbances, K >= 2. |
-| Explicit variance decoder | `Analog.Curve.explicitVarianceDecoder_optimal` | Actual received inverse and strip formula; global Lipschitz continuity, all-input/all-noise bound and minimality; nondegenerate quadratic curve, K >= 2. |
-| Correlated strip projection | `Analog.Strip.project_unique_minimizer` | Explicit corrected clipping is the unique metric-strip projection. |
-| Strip nonexpansiveness | `Analog.Strip.project_squared_nonexpansive` | All real input pairs and every positive-definite 2x2 Gram metric. |
-| Variance strip readout | `Analog.Strip.projected_variance_error` | Endpoint dual-form error bound against every true strip point. |
-| Output clipping | `Analog.Decoder.clip_uniform` | Preserves the original uniform constant when the interval contains every target value. |
-| Implementation mismatch | `Analog.Decoder.decoded_implementation_error` | Coherent encoder and gain perturbations plus arbitrary additive noise. |
-| Peak-safe quantization | `Analog.Decoder.peak_safe_quantization` | Contraction plus a bounded quantizer error; does not prove scalar B-bit spacing or phase-error formulas. |
-| Schur complement | `Analog.GramSynthesis.psd3_iff_schur` | Genuine positivity of the full quadratic form, with a positive-definite feature block. |
-| Rank-one score constraints | `Analog.GramSynthesis.rank_one_psd_iff` | Exact reciprocal dual-form characterization. |
-| Planar synthesis | `Analog.GramSynthesis.positive_sdp_synthesis` | Constructive direction at every positive feasible SDP point; preserves the full continuum peak bound and score constraints. |
-| General operational score | `Analog.GeneralScore.general_operational_score` | Full general nondegenerate affine-feature statement; actual finite-input infimum, K>=2, one-sided endpoint derivatives. |
-| General shrinking pairs | `Analog.GeneralScore.general_score_small_distance_sharpness` | Actual admissible unequal-target pairs for every positive radius and tolerance. |
-| Actual moment paths | `Analog.MomentPaths.exists_source_path_at_mean` | Two moving transmitter inputs realize any first-order moment direction at every interior empirical mean. |
-| Local moment geometry | `Analog.RigidityCompletion.tripleMomentInterior_of_nonaffine` | Actual open moment neighborhoods under original continuous/interior-C1/nonaffine feature hypotheses. |
-| Affine-family exactness | `Analog.RigidityCompletion.FeatureEncoder.exact_iff_det_ne_zero_of_nonaffine` | Complete exactness equivalence and coefficient independence within the affine-feature family. |
-| Rigidity from local fibers | `Analog.RigidityAnalysis.rigid_representation_of_local_fibers` | Actual exact continuous encoder; retains interior differentiability and local moment-fiber constancy, derives the independent closed-interval representation. |
-| General operational design | `Analog.GeneralDesign.positive_sdp_operational_synthesis` | Constructed continuous exact peak-feasible encoder with actual score≥K²λ; positive feasible SDP point, general feature/readout assumptions. |
-| SDP compactness | `Analog.SynthesisAttainment.feasible_isCompact` | Actual seven-coordinate continuum feasible set, with explicit spanning feature anchors; compactness is derived. |
-| SDP maximum | `Analog.SynthesisAttainment.maximum_attained` | Maximum of the actual separation coordinate under continuum constraints; optimizer existence is proved. |
-| Small-noise limit | `Analog.SmallNoise.leading_mse_power_exact` | Actual integrated MSE/noise-power limit from Lipschitz decoding, finite noise second moment, exactness and a.s. derivative. |
-| Variance small-noise limit | `Analog.SmallNoise.variance_leading_mse` | The specified complex variance decoder; derives its differentiability at interior recovered means. |
-| Independent isotropic noise | `Analog.SmallNoise.isotropic_directional_second_moment` | Product-measure independence and explicit coordinate covariance hypotheses; verifies the one-half factor. |
-| Inverse-risk geometry | `Analog.Frontier.risk_strict_convex` | Actual inverse-Gram risk, with positive variance parameter. |
-| Gram infimum frontier | `Analog.Frontier.value_convex`, `Analog.Frontier.value_monotone` | Actual infimum over continuum-feasible Gram designs; nonempty feasible sets stated explicitly. |
-| Qualitative frontier | `Analog.Frontier.plateau_exact`, `Analog.Frontier.optimal_actual_floor_eq`, `Analog.Frontier.value_strict_after_plateau` | Precise plateau/activity/increase statements; explicit optimizer witnesses where needed. |
-| Positive SDP attainment | `Analog.SynthesisAttainment.positive_maximum_attained_of_strict_shape` | Original continuous/strict feature hypotheses and P>0; no anchor, compactness, or optimizer premise. |
-| Operational maximum | `Analog.SynthesisAttainment.operational_maximum_attained` | Actual finite-input score maximum over ALL six-coefficient affine-feature curves, including singular and constant competitors; continuous exact attainer. |
-| Attained frontier | `Analog.FrontierAttainment.frontier_attained_on_maximal_interval` | Actual risk minimum at every floor in the full feasible interval, including zero; anchors and compactness derived. |
-| Unique attained Gram | `Analog.FrontierAttainment.minimum_unique_gram_of_strict_shape` | Existence and uniqueness of minimizing Gram matrix from strict feature shape and a feasible reference. |
+| `thm:rigidity` | [`HeterogeneousFullRigidity.heterogeneous_rigidity`](Analog/HeterogeneousFullRigidity.lean) | Original closed-source/closed-mean assumptions; exact computation iff common nonsingular feature columns and individual offsets. Both directions and source endpoints are included. |
+| `thm:sdp` | [`HeterogeneousAttainment.heterogeneous_sdp_attained`](Analog/HeterogeneousAttainment.lean); `optimal_positive_iff_euclidean_lipschitz`; [`HeterogeneousGlobalOptimum.unrestricted_sdp_attained`](Analog/HeterogeneousGlobalOptimum.lean) | Attainment and no relaxation gap in the actual heterogeneous program, including dependent features and zero/singular optima; positivity iff Euclidean Lipschitz continuity; unrestricted continuous-encoder optimum under rigidity assumptions. |
+| `prop:amplification` | [`Decoder.sharp_uniform_decoder`](Analog/Decoder.lean); `zero_score_no_finite_uniform_decoder` | Sharp attained finite constant for positive actual score, and impossibility of any finite constant at zero score, for arbitrary input and received maps. |
+| `thm:decoder` | [`Decoder.pairwise_exists_lipschitz`](Analog/Decoder.lean); `sharp_uniform_decoder`; `clip_uniform` | Exact global Lipschitz extension and sharp uniform bound. The displayed compact-moment minimum formula is not yet identified in a named current-model theorem. |
+| `prop:radius-minimax` | [`RadiusMinimax.borel_radius_minimax`](Analog/RadiusMinimax.lean) | Actual maximizing pair, Borel midpoint decoder, and optimal half-modulus error for compact continuous-input models, including radius zero. |
+| `thm:identifiable-minimax` | [`GaussianFixedMinimax.fixed_encoder_minimax`](Analog/GaussianFixedMinimax.lean); [`GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved`](Analog/GaussianOptimizedMinimax.lean) | Full fixed-encoder and optimized all-Borel minimax limits, actual finite-node attainable domain, attained coefficient minimum, and a single noise-independent optimal encoder/decoder. Changing designs and singular limiting channels are handled by proved converses. |
+| `prop:general-small-noise` | [`FixedPriorGaussianLimit.fixed_prior_limit_inverse_trace`](Analog/FixedPriorGaussianLimit.lean); `exact_decoder_prior_limit` | Genuine all-Borel-decoder risk infimum has the full one-sided Gaussian limit. The coefficient is the actual inverse-Gram trace; every fixed Lipschitz exact decoder has the same leading average risk on an interior-supported prior. |
+| `prop:score` | [`GeneralScore.general_operational_score`](Analog/GeneralScore.lean); `general_score_small_distance_sharpness` | Endpoint-dual score formula and actual shrinking pairs for the shared-feature source model. A direct current `Fin K`/arbitrary-offset wrapper remains separate. |
+| `thm:parabola` | [`quadratic_optimal_all_power`](Analog/PowerScaling.lean); [`GeneralQuadratic.optimalParameter_manuscript`](Analog/GeneralQuadratic.lean); [`Quartic.quartic_optimal_all_power`](Analog/QuarticPower.lean) | All-power coefficient-Gram optimum and stated parameter/root formulas. The complete current general-readout/unrestricted-encoder wrapper is not claimed by these declarations alone. |
+| `thm:certifiedgrid` | [`HeterogeneousGrid.certified_discretization`](Analog/HeterogeneousGrid.lean); `scaling_gap_isBigO`; [`HeterogeneousGlobalOptimum.grid_maximum_global_bound`](Analog/HeterogeneousGlobalOptimum.lean) | Actual node grids, all secants, sampled/continuum maxima, sharp C² remainder, feasible scaling, objective bracket, uniform quadratic loss, operational synthesis, and unrestricted-encoder interpretation under rigidity. |
 
+## Rigidity dependency chain
 
-## Quadratic certificate
+| Step | Declaration | What is derived |
+|---|---|---|
+| Continuous rectangular functional equation | [`LocalPexider.rectangle_affine_of_continuousOn`](Analog/LocalPexider.lean) | Common affine slope from a continuous Pexider identity, including endpoints; no differentiability premise. |
+| Two-completion separation | [`CompletionSeparation.dense_open_separation_of_receiver_alternatives`](Analog/CompletionSeparation.lean) | Dense open nonzero completion-gradient determinants from the actual affine/nowhere-affine receiver alternatives and independent feature coordinates. |
+| Actual finite-node recovery | [`HeterogeneousCompletion.identifying_collision_neighborhood`](Analog/HeterogeneousCompletion.lean) | Exact scalar computation yields local recovery of both partial moment sums from physical completion readouts; all fixed-node contributions and `1/K` factors are retained. |
+| Actual moment-domain density | [`HeterogeneousCompletionDensity.dense_identification`](Analog/HeterogeneousCompletionDensity.lean) | Density at every regular triple from attained per-node image extrema, strict interior ranges, true receiver domains, and the readout inverse-function theorem. |
+| Planar topology | [`PlanarBrouwer.brouwer_fixed_point_planeClosedUnitBall`](Analog/PlanarBrouwer.lean); [`PlanarInvariance.isOpen_image`](Analog/PlanarInvariance.lean) | Ordinary planar Brouwer and invariance of domain are proved. The intermediate fixed-point typeclass is instantiated by a theorem, not an extra axiom. |
+| Local charts and automatic regularity | [`HeterogeneousLocalCharts.heterogeneous_local_chart`](Analog/HeterogeneousLocalCharts.lean); [`HeterogeneousRegularity.contDiffAt_of_dense_triple_factorizations`](Analog/HeterogeneousRegularity.lean) | Actual source-coordinate charts and C¹ encoders from continuous encoders and exact moment recovery, using local averaging. |
+| Derived tangent anchors and endpoint integration | [`HeterogeneousSeparation.affine_of_independence_and_triple_determinants`](Analog/HeterogeneousSeparation.lean); [`HeterogeneousAnalyticRigidity.planar_affine_of_dense_charts`](Analog/HeterogeneousAnalyticRigidity.lean) | Independent cross-node anchors, common derivative coefficients, and separate offsets on the full closed source interval. |
+| Nonsingular common columns | [`HeterogeneousFullRigidity.nonsingular_affine_of_exact`](Analog/HeterogeneousFullRigidity.lean) | Local moment recovery excludes a singular common coefficient map. All chart, density, regularity, and anchor premises have been discharged. |
 
-The general-M proof no longer depends on an informal reflection reduction.
-The peak constraints at 0 and the average at -1,1 imply, for b >= 1,
+## Operational design and certification bridges
 
-$$
-bA+(b-1)B+\|bc+v\|^2
-=b(A+\|c+v\|^2)+b(b-1)\|c\|^2\le b^2.
-$$
+| Component | Declaration | Exact scope |
+|---|---|---|
+| Actual aggregate and distance | [`HeterogeneousScore.received_encoder_mean`](Analog/HeterogeneousScore.lean); `received_squaredDistance` | Sum of node offsets plus `K` times the common-column moment map; actual received squared distance equals `K²` times the Gram quadratic form. |
+| Attained-pair score | [`HeterogeneousScore.affine_operational_score`](Analog/HeterogeneousScore.lean); `affine_score_bound_iff` | Exact input-pair/attained-moment-pair equivalence, including singular columns and the actual nonconvex attainable set. |
+| All-rank reconstruction | [`SingularGram.reconstructPSD_gram`](Analog/SingularGram.lean); `reconstructPSD_energy_le`; `reconstructPSD_common_columns` | Every PSD block has a planar reconstruction preserving the common lower Gram block and both cross entries, while not increasing continuum peak power. Singular and zero blocks are allowed. |
+| Physical feasible synthesis | [`HeterogeneousSynthesis.feasible_operational_synthesis`](Analog/HeterogeneousSynthesis.lean) | Actual continuous node encoders, all continuum peak bounds, and score at least `K²λ`; exact computation when `λ>0`. |
+| Compactness with dependent features | [`HeterogeneousAttainment.coefficient_maximum_attained`](Analog/HeterogeneousAttainment.lean); `heterogeneous_operational_maximum_attained` | Compactness is proved in the finite-dimensional space of actual encoder functions, so no injective coefficient parameterization or feature independence is required. |
+| Positive score to unrestricted optimality | [`HeterogeneousScore.positive_score_implies_exact`](Analog/HeterogeneousScore.lean); [`HeterogeneousGlobalOptimum.unrestricted_sdp_attained`](Analog/HeterogeneousGlobalOptimum.lean) | Positive-score competitors fall under proved rigidity; zero-score competitors are also bounded. No exactness hypothesis is imposed on arbitrary competing encoders. |
+| Grid optimizer attainment | [`HeterogeneousGridFeasible.maximum_attained`](Analog/HeterogeneousGridFeasible.lean) | Actual common-block sampled or continuum program with all moment secants; bounds and compactness derived from the fixed spanning grid samples. |
+| Spectral interpolation and scaling | [`HeterogeneousGrid.c2_grid_certificate`](Analog/HeterogeneousGrid.lean); `certified_discretization` | Per-node C² feature maxima, maximum spectral remainder over nodes, sharp `1/8` interpolation factor, and common scaling preserving every secant. |
+| Uniform discretization loss | [`HeterogeneousGrid.scaling_gap_isBigO`](Analog/HeterogeneousGrid.lean) | `O(h²)` from fixed spanning anchors and one unequal-target pair; no assumed uniform optimizer bound. |
+| Full matrix dual witness | [`HeterogeneousDualCertificate.current_program_dual_upper_bound`](Analog/HeterogeneousDualCertificate.lean) | Actual PSD matrices, node weights, finite attained secants, and the common-block identity imply the program upper bound. Matrix trace inequalities are derived. |
+| Certified scalar gaps | [`FiniteCertificates.absolute_gap_bound`](Analog/FiniteCertificates.lean); `relative_loss_bound` | Absolute and relative loss from certified primal/dual inequalities; the relative bound requires a positive lower certificate. |
 
-With `M^2*b*(b-1)=(2-b)^2`, the exact certificate is
+## Gaussian proof components
 
-$$
-b(b-1)(A+M^2B)[bA+(b-1)B]-bAB
-=(b-1)[bA-(2-b)B]^2.
-$$
+| Component | Declaration | Exact scope |
+|---|---|---|
+| Actual Gaussian likelihood | [`GaussianScoreIdentity`](Analog/GaussianScoreIdentity.lean) | Product Gaussian likelihood, normalized density laws, and compact-flux integration by parts without differentiating the decoder. |
+| Likelihood/additive-noise agreement | [`GaussianLawBridge`](Analog/GaussianLawBridge.lean) | Equality of the physical independent additive complex-Gaussian law and the likelihood law, including the real-coordinate variance/total-noise conversion. |
+| Arbitrary-decoder converse | [`GaussianBayesConverse.regular_prior_bayes_converse_total_noise`](Analog/GaussianBayesConverse.lean) | Lower asymptotic for the genuine infimum over Borel decoders under a regular prior; derived score inequality and variational approximation. |
+| Two-readout achievability | [`GeneralTargetGaussianAchievability.prior_limit`](Analog/GeneralTargetGaussianAchievability.lean); `worst_case_limit` | Constructed noise-independent endpoint-extension decoder; actual prior and compact-set worst-case Gaussian asymptotics for both receiver postprocessings. |
+| Full fixed-prior equality | [`FixedPriorGaussianLimit.fixed_prior_limit`](Analog/FixedPriorGaussianLimit.lean); `fixed_prior_limit_inverse_trace` | Full one-sided limit at zero total noise, matching upper and lower bounds, original target, arbitrary Borel decoders, and actual matrix-inverse trace coefficient. |
+| Exact Lipschitz decoder coefficient | [`FixedPriorGaussianLimit.exact_decoder_prior_limit`](Analog/FixedPriorGaussianLimit.lean) | Any fixed globally Lipschitz exact decoder has the same leading prior-averaged coefficient; local derivatives follow from exactness on the interior. |
+| Full fixed-encoder minimax equality | [`GaussianFixedMinimax.fixed_encoder_minimax`](Analog/GaussianFixedMinimax.lean) | Attained prescribed coefficient maximum, full one-sided limit of genuine all-Borel minimax risk, and the matching worst-case limit of one fixed Borel decoder, whose finite risk is proved. |
+| Moving designs and singular exclusion | [`GaussianMinimaxConverse.moving_minimax_converse`](Analog/GaussianMinimaxConverse.lean); `singular_minimax_diverges_of_spanning` | Actual worst-case lower asymptotics along changing Gram matrices; lost directions and spanning gradients force divergence, with local priors and smooth detecting tests constructed. |
+| Actual local probability priors | [`LocalBallPrior.exists_regular_prior_above`](Analog/LocalBallPrior.lean); `exists_ball_prior_close` | Normalized ball densities have mass one, positivity and C¹ regularity on their open full-mass region, and expectations approximating any continuous coefficient at the center. |
+| Attained coefficient design | [`GaussianDesignAttainment.inverse_gram_design_minimum`](Analog/GaussianDesignAttainment.lean) | Both the maximum over moments and the minimum over nonsingular peak-feasible parameters are attained. Compactness and finite-epigraph nonsingularity are derived. |
+| Physical channel and normalization | [`GaussianParameterChannel`](Analog/GaussianParameterChannel.lean); [`GaussianOptimizedMinimax.optimizedRisk_eq_infimum_div`](Analog/GaussianOptimizedMinimax.lean) | The channel equals `K U` with the actual sum of node offsets. The exact inverse-Gram coefficient has factor `1/(2K²)`, and positive-noise normalization commutes with the actual outer risk infimum. |
+| Full noise-dependent design optimization | [`GaussianOptimizedMinimax.heterogeneous_optimized_minimax_achieved`](Analog/GaussianOptimizedMinimax.lean) | The actual outer risk infimum divided by total complex noise converges to the attained minimum. A fixed peak-feasible nonsingular parameter and its fixed explicit decoder attain the same limit; neither depends on the noise level. Actual moment compactness/nonemptiness are derived from the source features. |
 
-It yields the universal Gram-score bound. The candidate has the exact energy
-`1-b^2*s^2*(1-s^2)`, proving the full continuum peak constraint. The stable
-parameter formula and its equality to the manuscript expression are both
-checked.
+## Retained specialized developments
 
-## Quartic certificate
+Earlier shared-curve score identities, explicit strip decoders, variance
+operational optima, quartic certificates, Gram frontiers, criterion transfer,
+and conditional approximate stability remain in the build. Their precise
+statements remain useful, but do not automatically supply an unassembled
+current-model wrapper. The historical map is preserved at
+[`historical/v0.2.0/THEOREM_MAP.md`](historical/v0.2.0/THEOREM_MAP.md).
 
-The development proves the unique root in `(0,1/3)`, substitutes the explicit
-coefficients into the full peak identity, and proves all three multiplier
-stationarity equations. Rational tangent inequalities turn those equations
-into a global two-contact converse. Reflection and projection reduce every
-planar coefficient curve to this orthogonal problem; degenerate cases are
-handled explicitly. Scaling then restores arbitrary positive power.
-
-## Audit
-
-`audit_targets.json` is the explicit declaration manifest. `Audit.lean`
-requests the axiom dependencies of those declarations, and `verify.py`
-checks that the audit contains exactly that manifest and no unexpected
-axioms. The packaged source hashes must match `verification/report.json`.
+The four requested completion areas are covered by the terminal declarations
+above. The separate current representation/example wrappers still outside
+the named theorem assembly are identified in `COVERAGE.md`.
